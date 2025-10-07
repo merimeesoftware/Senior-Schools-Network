@@ -13,19 +13,38 @@ const config: Config = {
         parchment: {
           DEFAULT: '#F5F1E9',
           light: '#FDFDFD',
+          dark: '#E8E2D5',
         },
         forest: {
           DEFAULT: '#3B5A3E',
           dark: '#2A4129',
+          light: '#4A6B4D',
         },
         gold: {
           DEFAULT: '#CDAF6F',
           light: '#E5D4A6',
+          dark: '#B89A5A',
         },
-        nursery: '#A8C4D4',
-        gymnasium: '#7A5C3E',
-        poetic: '#8B4C4C',
-        spiritual: '#B8A8C4',
+        nursery: {
+          DEFAULT: '#A8C4D4',
+          light: '#C5DBE6',
+          dark: '#8AACBE',
+        },
+        gymnasium: {
+          DEFAULT: '#7A5C3E',
+          light: '#9A7B5D',
+          dark: '#5A4029',
+        },
+        poetic: {
+          DEFAULT: '#8B4C4C',
+          light: '#A56B6B',
+          dark: '#6B3232',
+        },
+        spiritual: {
+          DEFAULT: '#B8A8C4',
+          light: '#D0C5D9',
+          dark: '#9B8AAF',
+        },
         charcoal: '#4A4A4A',
       },
       fontFamily: {
@@ -33,9 +52,34 @@ const config: Config = {
         merriweather: ['var(--font-merriweather)', 'serif'],
         lato: ['var(--font-lato)', 'sans-serif'],
       },
+      fontSize: {
+        hero: ['3rem', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
+        display: ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'heading-1': ['2rem', { lineHeight: '1.3', letterSpacing: '-0.01em' }],
+        'heading-2': ['1.5rem', { lineHeight: '1.4' }],
+        'heading-3': ['1.25rem', { lineHeight: '1.4' }],
+        'body-lg': ['1.125rem', { lineHeight: '1.6' }],
+        body: ['1rem', { lineHeight: '1.6' }],
+        'body-sm': ['0.875rem', { lineHeight: '1.5' }],
+      },
+      spacing: {
+        section: '5rem',
+        'section-sm': '3rem',
+      },
       borderRadius: {
         organic: '8px',
         'organic-lg': '12px',
+        'organic-xl': '16px',
+      },
+      boxShadow: {
+        organic: '0 4px 6px rgba(0, 0, 0, 0.1)',
+        'organic-md': '0 6px 12px rgba(0, 0, 0, 0.12)',
+        'organic-lg': '0 10px 20px rgba(0, 0, 0, 0.15)',
+        'organic-inner': 'inset 0 2px 4px rgba(0, 0, 0, 0.06)',
+      },
+      maxWidth: {
+        content: '65ch',
+        prose: '75ch',
       },
     },
   },

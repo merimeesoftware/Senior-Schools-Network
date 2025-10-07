@@ -12,27 +12,30 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-forest text-parchment mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer
+      className="bg-forest text-parchment mt-auto border-t-4 border-gold"
+      role="contentinfo"
+    >
+      <div className="section-container py-12">
         {/* Scripture Waypoints */}
         <div className="mb-8">
-          <h3 className="text-xl font-playfair text-gold mb-4">
+          <h2 className="text-xl font-playfair text-gold mb-6 text-center md:text-left">
             Scripture Waypoints
-          </h3>
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {scriptureWaypoints.map((scripture) => (
               <div key={scripture.verse} className="text-sm">
                 <p className="font-lato font-semibold text-gold-light mb-1">
                   {scripture.verse}
                 </p>
-                <p className="italic">{scripture.text}</p>
+                <p className="italic text-parchment-light">{scripture.text}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-forest-dark pt-8 text-center text-sm font-lato">
+        <div className="border-t border-forest-light pt-8 text-center text-sm font-lato text-parchment-light/80">
           <p>
             © {new Date().getFullYear()} Senior Schools Network. Promoting
             schools aligned with poetic knowledge and Catholic formation.

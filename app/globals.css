@@ -19,18 +19,38 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-forest text-gold px-6 py-3 rounded-organic font-lato font-semibold transition-all hover:bg-forest-dark hover:shadow-lg;
+    @apply bg-forest text-gold px-6 py-3 rounded-organic font-lato font-semibold transition-all hover:bg-forest-dark hover:shadow-organic-md focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-parchment;
   }
 
   .btn-secondary {
-    @apply bg-gold text-charcoal px-6 py-3 rounded-organic font-lato font-semibold transition-all hover:bg-gold-light hover:shadow-lg;
+    @apply bg-gold text-charcoal px-6 py-3 rounded-organic font-lato font-semibold transition-all hover:bg-gold-light hover:shadow-organic-md focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2 focus:ring-offset-parchment;
+  }
+
+  .btn-outline {
+    @apply border-2 border-forest text-forest bg-transparent px-6 py-3 rounded-organic font-lato font-semibold transition-all hover:bg-forest hover:text-gold focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2 focus:ring-offset-parchment;
   }
 
   .card {
-    @apply bg-parchment-light rounded-organic-lg shadow-md p-6;
+    @apply bg-parchment-light rounded-organic-lg shadow-organic p-6 transition-shadow hover:shadow-organic-md;
+  }
+
+  .card-elevated {
+    @apply bg-parchment-light rounded-organic-lg shadow-organic-md p-8 transition-shadow hover:shadow-organic-lg;
   }
 
   .quote-block {
-    @apply border-l-4 border-gold pl-6 py-4 my-6 italic font-playfair text-lg;
+    @apply border-l-4 border-gold pl-6 py-4 my-6 italic font-playfair text-lg text-charcoal;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .content-container {
+    @apply max-w-prose mx-auto;
+  }
+
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-parchment;
   }
 }
