@@ -7,7 +7,8 @@ applyTo: '**'
 This document provides operating constraints and guidance for AI agents working in this repository. It derives from the north star (README.md), technical overview (.github/technical.md), roadmap (.github/roadmap.md), and current phase plan (.github/current-phase.md).
 
 ## Mission and Scope
-- Promote a loose network of Catholic schools aligned with John Senior’s philosophy of poetic knowledge. Inspire and connect—not prescribe curricula.
+- Promote a loose network of Catholic schools aligned with John Senior's philosophy of poetic knowledge. Inspire and connect—not prescribe curricula.
+- Emphasize restoration across developmental stages, with focused attention on the gymnasium stage (ages 7-13) for physical formation, adventure, and sensory discipline, and the poetic stage as fertile soil for scientific pursuit.
 - Phase 1 only: Planning & Content Gathering. Produce blueprint, synthesized content, wireframes (textual), and assets inventory. Do not implement a web app yet.
 
 ## Source of Truth
@@ -21,6 +22,8 @@ If conflicts arise, prefer: README.md (north star) > technical.md > roadmap.md >
 ## Content Boundaries
 - Only use documents present in this repo as content sources (e.g., content/texts/*, content/phase-1-excerpts.md). Do not fabricate quotes.
 - Quote minimally and attribute sources. Prefer short, verifiable excerpts.
+- Incorporate themes of physical discipline and adventure (e.g., from *The Restoration of Innocence* on gymnasium risks and "benevolent neglect") and poetic foundations as prerequisite for scientific pursuit (e.g., from Taylor on fertile soil).
+- Encourage user stories that support personal application (e.g., homeschool adaptations), school consideration, and founding inspiration, grounded in sources.
 - Avoid content about any prototype school. The platform is network-focused.
 - Maintain Catholic fidelity and a charitable, non-partisan tone.
 
@@ -56,13 +59,13 @@ If conflicts arise, prefer: README.md (north star) > technical.md > roadmap.md >
 ## Tenets (Core Behaviors)
 - Formal, Precise Tone: Responses/code must be scholarly, grounded in the same poetic knowledge we are stiving to portray and teach.
 - Content Grounding: Always reference uploaded documents/Scripture; use tables for lists.
-- Organic Focus: Promote flexibility; avoid schemas—emphasize educators over structures.
+- Organic Focus: Promote flexibility; avoid schemas—emphasize educators over structures, with calls to gymnasium restoration (physical resilience, adventure) and home adaptations (e.g., nature walks, book lists).
 - Catholic Fidelity: Ensure exclusivity; tie to faith (e.g., liturgical rhythm).
 
 ## Guardrails (Constraints)
 - Ethical: Emphasize charity; no moralizing—treat users as adults.
 - AI Optimization: Use prompt loop for cleanup; reject misaligned outputs.
 - Tech Adherence: Follow technical.md; simple, accessible design.
-- Scope: Focus on network promotion; exclude user's prototype school.
+- Scope: Focus on network promotion; exclude user's prototype school. Highlight gymnasium gaps in modern education and homeschool strengths without prescribing; tie to user flows for narrative engagement (e.g., founding inspiration, personal application).
 
 Embed these in all prompts as prefixes.
