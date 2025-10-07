@@ -49,6 +49,20 @@ Footer: Network ethos quote: "We make still by the law in which we were made" (f
 ## User Flows with StoryBrand Integration
 User flows are designed using StoryBrand's 7-part framework, positioning the visitor as the "hero" (seeking authentic education), the network/Senior's ideas as the "guide," and restoration of innocence as the "success." Flows guide users through narrative paths, interspersed with quotes from content and Scripture to evoke wonder and spiritual depth. Flows are simple, intuitive, and mobile-friendly.
 
+### StoryBrand Elements Alignment Checklist
+
+| StoryBrand Element | Presence in Current-Phase.md/Site-Blueprint.md | Alignment with Vision/Marketing | Spiritual Formation Link |
+|--------------------|------------------------------------------------|--------------------------------|-------------------------|
+| **Character (Hero Enters)** | Home page introduces problem (e.g., "Modern education's fragmentation" via Hugh of St. Victor quote). | Strong: Frames user as seeker of authentic education, evoking wonder. Marketing: Draws in via relatable cultural decay. | Hero begins journey toward moral restoration through recognition of spiritual and human emptiness in secular education. |
+| **Has a Problem** | Highlights external (decay), internal (loss of wonder), philosophical issues. | Excellent: Ties to poetic knowledge loss, non-prescriptively. User Story: "As a parent, I recognize my child's education lacks wonder and seek alternatives." | Problem rooted in soul fragmentation; lack of liturgical rhythm and sensory-based knowing prevents holistic formation. |
+| **Meets a Guide** | Introduces Senior/network as authority, with Scripture (e.g., Matthew 11:28). | Aligned: Network as wise, faith-grounded guide. Marketing: Builds trust through quotes. | Guide embodies Catholic tradition; Scripture anchors guidance in eternal truth, positioning network as spiritual mentor. |
+| **Gives a Plan** | Step-by-step: Explore resources → View schools → Apply/Start. | Clear: Organic progression via flows (e.g., Home → Philosophy → Directory). User Story: "As an educator, I follow a simple path to affiliate without rigid requirements." | Plan integrates moral formation through stages of development (nursery, gymnasium); emphasizes educators as formative agents, not schemas. |
+| **Calls to Action** | Prominent CTAs: "Explore Schools," "Apply to Join," "Start Your School." | Effective: Mobile-friendly, intuitive. Marketing: Encourages affiliation as success path. | CTAs frame participation as spiritual vocation ("form saints-in-the-making"); ties action to restoration of innocence. |
+| **Avoids Failure** | Warns of decay (e.g., Ephesians 5:16 quote). | Subtle: Motivates without fear-mongering, aligning with charitable tone. | Failure = continued soul fragmentation; warnings grounded in Scripture (e.g., "days are evil") call to urgency of faith-rooted education. |
+| **Ends in Success** | Vision of restored innocence (e.g., *Mythopoeia* quote). | Poetic: Emphasizes soul formation. User Story: "As a founder, I achieve 'form saints-in-the-making' through network support." | Success = wisdom through wonder, liturgical life, and virtue; Tolkien's sub-creation imagery evokes participation in divine creativity. |
+
+This table ensures every StoryBrand element explicitly ties to spiritual/moral formation, reinforcing the site's purpose as a tool for soul-centric education.
+
 ### Primary Flow: Discovery to Affiliation (Parent/Educator as Hero)
 1. **A Character (Hero Enters)**: User lands on Home. Problem introduced: Modern education's fragmentation ("The mind, stupefied by bodily sensations... has forgotten what it was," from Hugh of St. Victor in excerpts.md).
 2. **Has a Problem**: Highlight external (cultural decay), internal (loss of wonder), philosophical (schema failures) issues. Quote: "Without love, education is nothing" (excerpts.md).
@@ -72,6 +86,65 @@ User flows are designed using StoryBrand's 7-part framework, positioning the vis
 
 All flows emphasize organic progression, with quotes/Scripture as "waypoints" (e.g., overlay modals or section headers) to immerse users in content.
 
+## Text Wireframes with Spiritual Formation Emphasis
+The following wireframes describe the visual layout and content structure for each page, with explicit connections to moral and spiritual formation. All elements are designed to foster soul-centric growth through wonder, liturgical rhythm, and sensory engagement.
+
+### Home Page Wireframe
+- **Hero Section**: Large background image (e.g., garden or natural landscape evoking "hortus conclusus"). Overlay quote: "Wonder is the beginning of wisdom" (from excerpts.md). Subtitle: "Restoring innocence through poetic knowledge and Catholic tradition."
+- **Brief Explainer**: 2-3 sentences introducing Senior's philosophy; emphasizes soul formation over schema. Link to "About John Senior" page.
+- **Three CTAs** (prominent buttons):
+  1. "Explore Schools" → Network Directory
+  2. "Discover Resources" → Philosophy & Resources page
+  3. "Start Your School" → Join the Network page
+- **Featured Schools/Resources**: Carousel or grid of 3-4 schools with images and 1-sentence descriptions. Section for "Latest Insights" (blog previews).
+- **Spiritual Formation Note**: Hero quote anchors user in wonder as prerequisite for wisdom (per Aristotle via Senior); CTAs frame participation as spiritual vocation. Natural imagery evokes innocence and repose, aligning with liturgical rhythm.
+
+### About John Senior Page Wireframe
+- **Biography Section**: Photo (if available) and 3-4 paragraphs from excerpts/prefaces; emphasizes his vision of education as soul formation.
+- **Key Quotes**: Pull-out box with 2-3 Senior quotes (e.g., "Education is not merely about filling a child's mind...").
+- **Related Resources**: Links to Philosophy page and Thousand Good Books List.
+- **Spiritual Formation Note**: Biography contextualizes Senior's work within Catholic intellectual tradition; quotes emphasize moral and spiritual aims, grounding network in faith-rooted authority.
+
+### Philosophy & Resources Page Wireframe
+- **Tabbed/Accordion Sections**:
+  1. **Poetic Knowledge**: Definition, examples from Taylor/Senior; sensory ascent per Hugh of St. Victor.
+  2. **Stages of Development**: Table of stages (Nursery, Gymnasium, Poetic, Spiritual) with age ranges, focus, and curated book lists (from Thousand Good Books List.md).
+  3. **Excerpts**: Expandable quotes from documents (e.g., Tolkien's *Mythopoeia*, Aquinas's *Summa*, Boethius). Each with attribution and source file reference.
+  4. **Scripture Ties**: Selected verses (e.g., Proverbs 1:7, Matthew 11:28) with brief reflections linking to education.
+  5. **Media Embeds**: Placeholder for videos/podcasts (listed in assets-inventory.md).
+- **Download CTAs**: Buttons to download PDFs of book lists or excerpts (if prepared in Phase 2).
+- **Spiritual Formation Note**: Stages table explicitly ties life phases to liturgical/moral development (e.g., Nursery = fables for virtue; Gymnasium = adventure for courage; Poetic = classics for wisdom); Scripture ties frame knowledge as path to holiness. Accordion design encourages contemplative exploration, aligning with poetic mode.
+
+### Schools Network (Directory) Page Wireframe
+- **Filter/Search Bar**: By location, grade levels, affiliations (static for Phase 1).
+- **School Profiles**: Grid or list view with thumbnails, names, brief descriptions (1-2 sentences), and "Learn More" links (to placeholder profiles).
+- **Map View** (optional for Phase 2): Interactive map with pins for each school.
+- **CTA**: "Apply to Join the Network" button at bottom.
+- **Spiritual Formation Note**: Directory showcases living examples of soul-centric education; profiles emphasize organic implementations of poetic knowledge, inspiring others to participate in restoration. "Learn More" links invite deeper engagement with each school's unique charism.
+
+### Join the Network Page Wireframe
+- **Encouragement Section**: 2-3 paragraphs inspiring founders/educators, with quotes (e.g., "The highest curative in life is the pursuit of Wisdom," from Boethius; "Find good educators and begin with wonder," per Senior).
+- **Application Outline**: Bulleted list of fields (not a live form in Phase 1): school name, location, contact, brief philosophy statement, alignment with Senior's ideas. Note: "Informal process; we seek mutual support, not uniformity."
+- **Scripture Anchor**: Proverbs 22:6 ("Train up a child in the way he should go...").
+- **Contact CTA**: Link to Contact page or email placeholder.
+- **Spiritual Formation Note**: Encouragement frames affiliation as spiritual act ("form saints-in-the-making"); application process emphasizes charism over checklist, aligning with non-prescriptive ethos. Scripture anchors page in parental/educational vocation as sacred duty.
+
+### Blog/Insights Page Wireframe (Optional for Phase 1)
+- **Article List**: Titles, dates, 1-paragraph summaries, "Read More" links.
+- **Featured Post**: Highlighted article with image and longer excerpt.
+- **Spiritual Formation Note**: Blog deepens understanding of poetic knowledge through analysis (e.g., Tolkien's sub-creation as model for curriculum); each post ties themes to faith and moral formation, extending network's role as spiritual guide.
+
+### Contact Page Wireframe
+- **Placeholder Copy**: 1-2 sentences inviting inquiries; Scripture like Matthew 7:7 ("Ask, and it shall be given you").
+- **Guidance**: "For questions about affiliation, resources, or starting a school, reach us at [email]."
+- **No Live Form** (deferred to Phase 2).
+- **Spiritual Formation Note**: Scripture frames contact as invitation to dialogue with guide; emphasizes openness and charity, aligning with network's role as empathetic mentor.
+
+### Footer (All Pages)
+- **Network Ethos Quote**: "We make still by the law in which we're made" (from *Mythopoeia*).
+- **Links**: Privacy policy placeholder, copyright, social media icons (optional).
+- **Spiritual Formation Note**: Footer quote reinforces sub-creation theme, positioning education as participation in divine order; serves as final "waypoint" anchoring user's journey in faith.
+
 ## Assets Gathering
 - **Images**: Book covers from PDFs; symbolic icons (e.g., garden for hortus conclusus).
 - **Media**: List and track media links in `docs/assets-inventory.md`; prepare thumbnails.
@@ -81,5 +154,66 @@ All flows emphasize organic progression, with quotes/Scripture as "waypoints" (e
 - Produce Phase 1 prompts in `.github/prompts/phase-1/` and populate `content/phase-1-excerpts.md` with sourced quotes.
 - Commit synthesized content to repo.
 - Review for alignment: Does it promote without prescribing? (Yes, per north star.)
+
+## Phase 1 Readiness and Validation Checklist
+
+Before proceeding to execution, verify alignment across the following dimensions. This checklist serves as a "definition of done" for Phase 1 planning.
+
+### Philosophical Alignment (95%+ Required)
+- [ ] **North Star Adherence**: All documents reflect README.md's core principles: poetic knowledge, sensory-based learning, narrative immersion, natural exploration, and Catholic fidelity.
+- [ ] **Non-Prescriptive Promotion**: Content promotes network organically through inspiration, not mandates. No rigid curricula imposed.
+- [ ] **Source Traceability**: Quotes, themes, and ideas mapped to repository sources (e.g., excerpts.md, Thousand Good Books List, Mythopoeia, Summa).
+- [ ] **Stages of Development**: Book lists and resources organized by life phases (Nursery, Gymnasium, Poetic, Spiritual) with clear educational focus.
+- [ ] **Spiritual/Moral Formation**: Explicit ties to liturgical rhythm, virtue cultivation, and soul formation in wireframes and flows.
+- [ ] **Catholic Exclusivity**: Maintains fidelity to Catholic tradition via Scripture (Douay-Rheims), encyclicals, and Senior's faith-rooted pedagogy.
+
+### Technical Alignment (90%+ Required)
+- [ ] **Phase Boundaries**: No Next.js/Tailwind code in Phase 1 outputs; focus on Markdown files, text wireframes, and planning documents.
+- [ ] **Output Formats**: Deliverables include docs/site-blueprint.md, content synthesis (excerpts, book tables), docs/assets-inventory.md, and prompts.
+- [ ] **Accessibility**: Wireframes include ARIA notes for collapsibles, semantic headings, and descriptive link text.
+- [ ] **Roadmap Alignment**: Timeline matches roadmap.md's Week 1 (Days 1-3) for content gathering and blueprint; no premature tooling setup.
+- [ ] **Technical.md Compatibility**: Outputs prepared for future react-markdown rendering, static-first architecture, and simplicity-driven design.
+
+### StoryBrand & User Flow Integration (90%+ Required)
+- [ ] **7-Part Framework**: All elements present (Character → Problem → Guide → Plan → Action → Avoid Failure → Success) in current-phase.md and site-blueprint.md.
+- [ ] **Hero Positioning**: Visitors (parents, educators, founders) framed as heroes; network/Senior's ideas as empathetic guide.
+- [ ] **Narrative Waypoints**: Quotes and Scripture integrated as storytelling anchors in flows (e.g., hero sections, page headers, modals).
+- [ ] **User Personas**: Explicit personas documented in site-blueprint.md with demographics, goals, pain points, and success metrics.
+- [ ] **User Stories**: Stories for discovery, resource exploration, and affiliation flows documented (e.g., "As a parent, I seek alternatives...").
+- [ ] **Marketing Clarity**: Narrative immersion strategy articulated; explains how flows promote network organically through wonder-filled content.
+- [ ] **Spiritual Formation Links**: StoryBrand table explicitly connects each element to moral/spiritual aims (e.g., Plan → stages of development; Success → restoration of innocence).
+
+### Content Readiness (85%+ Required)
+- [ ] **Excerpts Synthesized**: Key passages from documents organized in content/phase-1-excerpts.md or equivalent; tagged by theme (wonder, liturgical rhythm, etc.).
+- [ ] **Book Lists Prepared**: Thousand Good Books List formatted in tables by stage (Nursery, Gymnasium, etc.) with examples.
+- [ ] **Scripture Ties Identified**: Selected verses (e.g., Proverbs 22:6, Matthew 11:28, Ephesians 5:15-16) mapped to pages/flows.
+- [ ] **Assets Inventoried**: docs/assets-inventory.md lists planned images (e.g., book covers), media links (videos/podcasts), and sources.
+- [ ] **Wireframes Documented**: Text-based wireframes for Home, About, Philosophy, Schools, Join, Contact in current-phase.md with spiritual formation notes.
+
+### Guardrails & Instructions Compliance
+- [ ] **Instructions.md Adherence**: Content boundaries respected (no fabricated quotes; Catholic fidelity; no prototype school content).
+- [ ] **Ethical Focus**: Charitable, non-partisan tone; no moralizing. Treats users as adults pursuing truth.
+- [ ] **Privacy/Security**: No secrets, analytics, or data collection in Phase 1 plans.
+- [ ] **Tenets Embedded**: Formal tone, content grounding, organic focus maintained throughout documents.
+
+### Execution Readiness
+- [ ] **Clear Deliverables**: Blueprint, synthesized content, wireframes, assets inventory, and prompts scoped and described.
+- [ ] **Timeline Feasibility**: Week 1 (Days 1-3) timeline realistic for part-time effort; built-in reviews for fidelity.
+- [ ] **Iteration Plan**: Validation prompts from instructions.md ready to run; process for refinements without delay outlined.
+- [ ] **Team Alignment**: All collaborators (human and AI) understand mission, scope, and source of truth hierarchy (README.md > technical.md > roadmap.md > current-phase.md).
+
+### Pass/Fail Criteria
+- **Pass**: ≥90% in Philosophical, Technical, StoryBrand; ≥85% in Content; 100% in Guardrails.
+- **Fail**: If any critical gap found (e.g., prescriptive tone, missing StoryBrand elements, fabricated quotes), address immediately before proceeding to execution.
+
+### Review Process
+1. Run this checklist after completing planning documents.
+2. Cross-reference against README.md, instructions.md, and technical.md.
+3. Identify gaps; iterate on current-phase.md and site-blueprint.md.
+4. Re-run checklist; pass = ready to execute Phase 1 deliverables.
+
+This checklist ensures Phase 1 outputs provide a poetic, faith-grounded foundation for Phase 2 prototyping, fully aligned with the project's north star.
+
+---
 
 This blueprint sets a poetic, faith-grounded foundation for the site.
