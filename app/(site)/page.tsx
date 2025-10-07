@@ -4,18 +4,41 @@ import CTAButton from '@/components/CTAButton';
 import SectionHeading from '@/components/SectionHeading';
 import ContentContainer from '@/components/ContentContainer';
 import StageBadge from '@/components/StageBadge';
+import { getQuotesBySource } from '@/lib/content';
+import type { Metadata } from 'next';
 
-export default function HomePage() {
+export const metadata: Metadata = {
+  title: 'Senior Schools Network | Wonder-Filled Catholic Education',
+  description:
+    'A network of Catholic schools embodying poetic knowledge, physical discipline, and formation. Discover schools, home resources, and founding guidance.',
+  openGraph: {
+    title: 'Senior Schools Network - Restoring Innocence Through Wonder',
+    description:
+      'Explore schools, resources, and founding support aligned with poetic knowledge, gymnasium emphasis, and Catholic formation.',
+    url: 'https://seniorschoolsnetwork.org',
+    images: [{ url: '/og-image-enclosed-garden.jpg', width: 1200, height: 630 }],
+  },
+};
+
+export default async function HomePage() {
+  const quotes = await getQuotesBySource();
+
+  const heroQuote = quotes.find((q) => q.id === 'wonder-wisdom');
+  const legendMakersQuote = quotes.find((q) => q.id === 'mythopoeia-legend-makers');
+  const adventureQuote = quotes.find((q) => q.id === 'adventure-stories');
+
   return (
     <>
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-parchment to-parchment-light">
         <ContentContainer width="wide" padding="lg">
-          <QuoteCard
-            quote="Wonder is the beginning of wisdom"
-            author="Ancient Proverb"
-            variant="hero"
-          />
+          {heroQuote && (
+            <QuoteCard
+              quote={heroQuote.quote}
+              author={heroQuote.author}
+              variant="hero"
+            />
+          )}
 
           <div className="mt-8 text-center max-w-3xl mx-auto">
             <p className="text-body-lg leading-relaxed mb-6">
@@ -34,70 +57,85 @@ export default function HomePage() {
               </span>{' '}
               rooted in the educational philosophy of Dr. John Senior.
             </p>
-            <p className="text-body-lg leading-relaxed text-charcoal/80">
-              Our emphasis:{' '}
-              <strong className="text-gymnasium">
-                Adventure, stories, physical discipline
-              </strong>{' '}
-              — forming resilient "warrior poets" through the gymnasium stage
-              and beyond.
-            </p>
+            {adventureQuote && (
+              <p className="text-body-lg leading-relaxed text-charcoal/80">
+                Our emphasis:{' '}
+                <strong className="text-gymnasium">
+                  "{adventureQuote.quote}"
+                </strong>{' '}
+                — forming resilient "warrior poets" through the gymnasium stage
+                and beyond.
+              </p>
+            )}
           </div>
         </ContentContainer>
       </section>
 
-      {/* Call to Action Grid */}
-      <section className="section-container py-section-sm">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Link href="/schools" className="card group">
-            <h3 className="text-heading-3 font-playfair text-forest mb-3 group-hover:text-forest-dark transition-colors">
-              Explore Schools
-            </h3>
-            <p className="text-body-sm mb-4">
-              Discover affiliated schools embodying Senior's vision of education
-              as soul formation.
+      {/* Three-Path CTAs */}
+      <section className="section-container py-section">
+        <SectionHeading level={2} align="center" className="mb-8">
+          Three Paths to Restoration
+        </SectionHeading>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <Link href="/schools" className="card-elevated group hover:shadow-organic-lg transition-shadow">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-4xl">🏛️</span>
+              <h3 className="text-heading-3 font-playfair text-forest group-hover:text-forest-dark transition-colors">
+                School Consideration
+              </h3>
+            </div>
+            <p className="text-body mb-4 leading-relaxed">
+              Parents seeking gymnasium-stage education or high school formation
+              — discover affiliated schools embodying Senior's vision.
+            </p>
+            <p className="text-body-sm italic text-charcoal/70 mb-4">
+              <strong>Waypoint:</strong> Ephesians 6:4 - "Bring them up in the
+              discipline and instruction of the Lord"
             </p>
             <span className="text-gold text-sm font-lato font-semibold group-hover:text-gold-dark">
-              Browse Directory →
+              Explore Schools →
             </span>
           </Link>
 
-          <Link href="/philosophy" className="card group">
-            <h3 className="text-heading-3 font-playfair text-forest mb-3 group-hover:text-forest-dark transition-colors">
-              Discover Resources
-            </h3>
-            <p className="text-body-sm mb-4">
-              Browse excerpts, book lists, and philosophical foundations for
-              poetic learning.
+          <Link href="/home-application" className="card-elevated group hover:shadow-organic-lg transition-shadow">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-4xl">🏡</span>
+              <h3 className="text-heading-3 font-playfair text-forest group-hover:text-forest-dark transition-colors">
+                Home Application
+              </h3>
+            </div>
+            <p className="text-body mb-4 leading-relaxed">
+              Homeschoolers excelling in nursery but seeking gymnasium
+              inspiration — download guides, book lists, and family adventure
+              ideas.
+            </p>
+            <p className="text-body-sm italic text-charcoal/70 mb-4">
+              <strong>Waypoint:</strong> Proverbs 22:6 - "Train up a child in
+              the way he should go"
             </p>
             <span className="text-gold text-sm font-lato font-semibold group-hover:text-gold-dark">
-              View Resources →
+              Get Resources →
             </span>
           </Link>
 
-          <Link href="/home-application" className="card group">
-            <h3 className="text-heading-3 font-playfair text-forest mb-3 group-hover:text-forest-dark transition-colors">
-              Download Gymnasium Guide
-            </h3>
-            <p className="text-body-sm mb-4">
-              Non-prescriptive resources for adapting adventure and discipline
-              at home.
+          <Link href="/join-found" className="card-elevated group hover:shadow-organic-lg transition-shadow">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-4xl">🌱</span>
+              <h3 className="text-heading-3 font-playfair text-forest group-hover:text-forest-dark transition-colors">
+                Founding Inspiration
+              </h3>
+            </div>
+            <p className="text-body mb-4 leading-relaxed">
+              Visionaries recognizing the gymnasium gap — access the Founder's
+              Toolkit and reach out for informal guidance from the network.
+            </p>
+            <p className="text-body-sm italic text-charcoal/70 mb-4">
+              <strong>Waypoint:</strong> Matthew 11:28 - "Come to me... and I
+              will refresh you"
             </p>
             <span className="text-gold text-sm font-lato font-semibold group-hover:text-gold-dark">
-              Get Guide →
-            </span>
-          </Link>
-
-          <Link href="/join-found" className="card group">
-            <h3 className="text-heading-3 font-playfair text-forest mb-3 group-hover:text-forest-dark transition-colors">
-              Start a School
-            </h3>
-            <p className="text-body-sm mb-4">
-              Restore the gymnasium for warrior poets — informal guidance for
-              founders.
-            </p>
-            <span className="text-gold text-sm font-lato font-semibold group-hover:text-gold-dark">
-              Learn More →
+              Start a School →
             </span>
           </Link>
         </div>
@@ -125,12 +163,14 @@ export default function HomePage() {
 
       {/* Featured Quote */}
       <section className="section-container py-section-sm">
-        <QuoteCard
-          quote="Blessed are the legend-makers with their rhyme of things not found within recorded time"
-          author="J.R.R. Tolkien"
-          source="Mythopoeia"
-          variant="hero"
-        />
+        {legendMakersQuote && (
+          <QuoteCard
+            quote={legendMakersQuote.quote}
+            author={legendMakersQuote.author}
+            source={legendMakersQuote.source}
+            variant="hero"
+          />
+        )}
       </section>
 
       {/* CTA Section */}
@@ -140,7 +180,7 @@ export default function HomePage() {
             <SectionHeading level={2} align="center" className="mb-6">
               Join the Restoration
             </SectionHeading>
-            <p className="text-body-lg mb-8">
+            <p className="text-body-lg mb-8 leading-relaxed">
               Whether you're a parent seeking authentic education, an educator
               exploring affiliation, or a visionary founder, we invite you to
               participate in the renewal of wonder-filled learning.
@@ -149,8 +189,8 @@ export default function HomePage() {
               <CTAButton href="/schools" variant="primary" size="lg">
                 Find a School
               </CTAButton>
-              <CTAButton href="/join-found" variant="outline" size="lg">
-                Start Your Journey
+              <CTAButton href="/philosophy" variant="outline" size="lg">
+                Explore Philosophy
               </CTAButton>
             </div>
           </div>

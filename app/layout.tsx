@@ -23,9 +23,60 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: 'Senior Schools Network',
+  metadataBase: new URL('https://seniorschoolsnetwork.org'),
+  title: {
+    default: 'Senior Schools Network',
+    template: '%s | Senior Schools Network',
+  },
   description:
-    "Promoting schools aligned with John Senior's philosophy of poetic knowledge, wonder, and Catholic formation",
+    "Promoting schools aligned with John Senior's philosophy of poetic knowledge, wonder, and Catholic formation. Restoring innocence through gymnasium emphasis, adventure, and faith.",
+  keywords: [
+    'John Senior',
+    'poetic knowledge',
+    'Catholic education',
+    'classical education',
+    'gymnasium stage',
+    'wonder-filled learning',
+    'integrated humanities program',
+  ],
+  authors: [{ name: 'Senior Schools Network' }],
+  creator: 'Senior Schools Network',
+  publisher: 'Senior Schools Network',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://seniorschoolsnetwork.org',
+    siteName: 'Senior Schools Network',
+    title: 'Senior Schools Network',
+    description:
+      "Catholic schools embodying John Senior's philosophy: poetic knowledge, physical discipline, and wonder-filled formation.",
+    images: [
+      {
+        url: '/og-image-enclosed-garden.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'An enclosed garden symbolizing protected wonder and formation - Senior Schools Network',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Senior Schools Network',
+    description:
+      "Catholic schools embodying John Senior's philosophy: poetic knowledge, physical discipline, and wonder-filled formation.",
+    images: ['/og-image-enclosed-garden.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({

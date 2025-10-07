@@ -55,6 +55,11 @@ ENV/
 pip-log.txt
 pip-delete-this-directory.txt
 
+# Playwright
+.playwright-mcp
+playwright-report
+test-results
+
 # Misc
 .cache
 .parcel-cache

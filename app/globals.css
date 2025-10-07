@@ -15,27 +15,38 @@
   h6 {
     @apply font-playfair;
   }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-forest text-gold px-6 py-3 rounded-organic font-lato font-semibold transition-all hover:bg-forest-dark hover:shadow-organic-md focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-parchment;
+    @apply bg-forest text-gold px-6 py-3 rounded-organic font-lato font-semibold transition-all duration-200 hover:bg-forest-dark hover:shadow-organic-md focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-parchment;
   }
 
   .btn-secondary {
-    @apply bg-gold text-charcoal px-6 py-3 rounded-organic font-lato font-semibold transition-all hover:bg-gold-light hover:shadow-organic-md focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2 focus:ring-offset-parchment;
+    @apply bg-gold text-charcoal px-6 py-3 rounded-organic font-lato font-semibold transition-all duration-200 hover:bg-gold-light hover:shadow-organic-md focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2 focus:ring-offset-parchment;
   }
 
   .btn-outline {
-    @apply border-2 border-forest text-forest bg-transparent px-6 py-3 rounded-organic font-lato font-semibold transition-all hover:bg-forest hover:text-gold focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2 focus:ring-offset-parchment;
+    @apply border-2 border-forest text-forest bg-transparent px-6 py-3 rounded-organic font-lato font-semibold transition-all duration-200 hover:bg-forest hover:text-gold focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2 focus:ring-offset-parchment;
   }
 
   .card {
-    @apply bg-parchment-light rounded-organic-lg shadow-organic p-6 transition-shadow hover:shadow-organic-md;
+    @apply bg-parchment-light rounded-organic-lg shadow-organic p-6 transition-all duration-200 hover:shadow-organic-md hover:-translate-y-1;
   }
 
   .card-elevated {
-    @apply bg-parchment-light rounded-organic-lg shadow-organic-md p-8 transition-shadow hover:shadow-organic-lg;
+    @apply bg-parchment-light rounded-organic-lg shadow-organic-md p-8 transition-all duration-200 hover:shadow-organic-lg hover:-translate-y-1;
   }
 
   .quote-block {
@@ -52,5 +63,9 @@
 
   .focus-visible-ring {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-parchment;
+  }
+
+  .link-hover {
+    @apply text-forest-dark underline decoration-gold decoration-2 underline-offset-2 transition-colors duration-200 hover:text-forest hover:decoration-gold-dark focus-visible-ring;
   }
 }

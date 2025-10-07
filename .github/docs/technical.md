@@ -55,9 +55,10 @@ Prioritizing CI/CD for automated, reliable workflows, we use GitHub Actions (fre
 
 ## Deployment
 
-- **Primary Option**: Netlify – Selected for its free tier, seamless Git integration, and support for static/SSR sites. It handles forms (e.g., affiliation applications) natively, auto-deploys on commits, and provides preview URLs for phases. Aligns with simplicity—drag-and-drop from GitHub; includes basic analytics without invasive tracking.
+- **Primary Option**: Render – Selected for its free tier, seamless Git integration, and support for static/SSR sites. It handles forms (e.g., affiliation applications) natively, auto-deploys on commits, and provides preview URLs for phases. Aligns with simplicity—drag-and-drop from GitHub; includes basic analytics without invasive tracking.
 - **Configuration**: Connect repo to Netlify; set build command (`next build && next export` for static); deploy to custom domain if available. CI/CD hooks: Actions trigger Netlify builds.
 - **Fallback**: GitHub Pages – For zero-cost, fully OSS deployment; export static site and push to gh-pages branch via Actions.
+- **Coolify**: Future bare metal deployment (preferred long term but do not have metal servers setup yet or bought)
 
 ## Development Workflow
 

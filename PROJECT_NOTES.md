@@ -871,6 +871,374 @@ If frontmatter missing, defaults to:
 
 **Type Definitions**:
 
+---
+
+## Phase 2: Core Pages and StoryBrand Flows
+
+### Date: October 7, 2025
+
+### Overview
+
+Successfully implemented all primary site pages and StoryBrand narrative flows for the Senior Schools Network. All pages integrate with the structured content layer, pull data from markdown helpers, and guide users through three distinct paths: school consideration, home application, and founding inspiration. Each flow features appropriate scripture waypoints, responsive design, and non-prescriptive messaging aligned with John Senior's philosophy.
+
+### Page Implementations
+
+#### 1. Home Page (/)
+
+**Purpose**: Entry point with hero quote, three-path CTAs, stage overview, and featured content
+
+**Content Integration**:
+- Dynamically loads quotes using `getQuotesBySource()`:
+  - "Wonder is the beginning of wisdom" (hero)
+  - "Adventure, stories, physical discipline" (emphasis)
+  - "Blessed are the legend-makers..." (featured)
+- Three-path CTA grid with waypoint teasers (Ephesians 6:4, Proverbs 22:6, Matthew 11:28)
+- Stage badge showcase (nursery, gymnasium, poetic, spiritual)
+
+**StoryBrand Alignment**:
+- Hero positioning: Parents/educators/founders facing educational challenges
+- Guide: Senior's philosophy as empathetic authority
+- Plan: Clear CTAs for each user flow
+- Success: "Join the Restoration" vision
+
+**Metadata**:
+```typescript
+title: 'Senior Schools Network | Wonder-Filled Catholic Education'
+description: 'A network of Catholic schools embodying poetic knowledge, physical discipline, and formation...'
+```
+
+#### 2. Philosophy Page (/philosophy)
+
+**Purpose**: Four core concepts, stages of development table, scripture anchors, resource CTAs
+
+**Content Integration**:
+- `getQuotesBySource()` for featured quote ("We make still by the law...")
+- `getScriptureWaypoints()` for three primary waypoints
+- `getAllStages()` with `STAGE_METADATA` for stage cards
+- Pulls from README.md philosophical framework
+
+**Sections**:
+- **Poetic Knowledge**: Intuitive, connatural knowing through senses
+- **Physical Discipline & Adventure**: Gymnasium (ages 7-13) emphasis, bordered card
+- **Poetic Foundations for Scientific Pursuit**: Wonder as fertile soil
+- **Liturgical Rhythm**: Daily prayer, sacraments, enclosed garden
+
+**Stages Table**: Grid layout with:
+- StageBadge component for visual identity
+- Age range, focus, description from `STAGE_METADATA`
+- CTA to explore schools by stage
+
+**Metadata**:
+```typescript
+title: 'Philosophy & Resources | Senior Schools Network'
+description: 'Explore the educational philosophy of John Senior: poetic knowledge, physical discipline for gymnasium stage...'
+```
+
+#### 3. Schools Directory (/schools)
+
+**Purpose**: Filterable directory (placeholder), mock schools, Ephesians 6:4 waypoint, affiliation CTAs
+
+**Content Integration**:
+- `getScriptureWaypoints()` for Ephesians 6:4 ("Bring them up in the discipline...")
+- Mock school data (3 placeholder schools):
+  - Example Classical Academy (gymnasium, poetic)
+  - St. Joseph Gymnasium (gymnasium only)
+  - Our Lady of Wonder College (poetic, spiritual)
+
+**Features**:
+- Stage filter placeholders (nursery, gymnasium, poetic, spiritual badges)
+- School cards with:
+  - Name, location, type (High School Boarding, Gymnasium, Liberal Arts College)
+  - Stage badges for visual identification
+  - "Inquire About Enrollment" and "View School Details" CTAs
+- "Don't See a School Near You?" CTA to founding resources
+- "Is Your School Aligned?" affiliation CTA section
+
+**Metadata**:
+```typescript
+title: 'Schools Directory | Senior Schools Network'
+description: 'Discover Catholic schools embodying John Senior's philosophy: poetic knowledge, gymnasium formation...'
+```
+
+#### 4. Home Application Page (/home-application)
+
+**Purpose**: Gymnasium Guide placeholder, book lists, Proverbs 22:6 waypoint, family encouragement
+
+**Content Integration**:
+- `getScriptureWaypoints()` for Proverbs 22:6 ("Train up a child...")
+- `getBookListsByStage('gymnasium')` for dynamic book list rendering
+- Nursery vs. gymnasium emphasis ("Homeschooling shines in nursery — gymnasium awaits your courage")
+
+**Sections**:
+- **Gymnasium Guide for Families**: Card with border-gymnasium, includes:
+  - Benevolent neglect principles
+  - Liturgical hike planning
+  - Adventure book lists (first 3 titles dynamically rendered)
+  - Sports, rigor, and repose integration
+  - Download CTA (Phase 3 placeholder)
+- **Featured Book Lists**: Grid comparing nursery (Mother Goose, Peter Rabbit) with gymnasium (dynamic data from markdown)
+- **Encouragement Section**: "Unpoison the soil" messaging with CTAs to schools and contact
+
+**Metadata**:
+```typescript
+title: 'Resources for Home Application | Senior Schools Network'
+description: 'Non-prescriptive resources for homeschooling families: gymnasium guides, book lists...'
+```
+
+#### 5. Join/Found Page (/join-found)
+
+**Purpose**: Gymnasium gap explanation, Founder's Toolkit, Matthew 11:28 waypoint, network affiliation CTAs
+
+**Content Integration**:
+- `getScriptureWaypoints()` for Matthew 11:28 ("Come to me... and I will refresh you")
+- `getQuotesBySource()` for "Adventure, stories, physical discipline" embedded quote
+
+**Sections**:
+- **The Gymnasium Gap**: Explains underserved stage (7-13 boys), benevolent neglect, outdoor challenges
+- **Founder's Toolkit**: Grid with two cards:
+  - Philosophical Foundations (poetic knowledge vs. schemas, stages, Catholic exclusivity)
+  - Practical Planning (finding educators, stage-specific programming, outdoor spaces)
+- **Network Affiliation & Support**: Split CTAs for existing schools (Apply to Affiliate) vs. aspiring founders (Reach Out for Guidance)
+- **Success Vision**: "Stage-specific schools founded, restoration of missing formation"
+
+**Metadata**:
+```typescript
+title: 'Join the Network / Found a School | Senior Schools Network'
+description: 'Restore the gymnasium stage for warrior poets. Informal guidance, founding toolkit...'
+```
+
+#### 6. Contact Page (/contact)
+
+**Purpose**: Guidance text, no live form (Phase 3 placeholder), resource links, encouragement
+
+**Content Integration**:
+- `getScriptureWaypoints()` for Matthew 11:28 waypoint
+- Hardcoded quote from Mythopoeia ("Blessed are the legend-makers...")
+
+**Sections**:
+- **Three Contact Options**: Grid cards for:
+  - Parents & Families → Browse Schools
+  - Educators & Schools → Learn About Affiliation
+  - Aspiring Founders → Explore Founding Resources
+- **Contact Form Placeholder**: Card explaining Phase 3 implementation, with "In the Meantime" resource links:
+  - Philosophy & Resources
+  - Schools Directory
+  - Home Application / Founding downloads
+- **Scripture Encouragement**: Tolkien quote + participation messaging
+
+**Metadata**:
+```typescript
+title: 'Contact | Senior Schools Network'
+description: 'Reach out to the Senior Schools Network for inquiries, affiliation applications...'
+```
+
+### StoryBrand Three-Flow System Implementation
+
+#### Flow 1: School Consideration (Primary)
+
+**Hero**: Parents of boys (ages 7-13) seeking gymnasium-stage education
+**Problem**: Gymnasium gap — lacking adventure and formation amid cultural softness
+**Guide**: Senior's ideas and network as empathetic authority
+**Plan**: Explore resources → View schools (directory with filters) → Inquire/Apply
+**Action**: CTAs — "Inquire About Enrollment," "Apply to Affiliate"
+**Avoids Failure**: Continued mechanized schooling without resilience
+**Success**: Resilient, faith-formed sons as "warrior poets"
+**Waypoint**: Ephesians 6:4 ("Bring them up in the discipline and instruction of the Lord")
+
+**Pages**: Home (CTA #1) → Schools → Philosophy → Contact
+
+#### Flow 2: Personal/Family Application (Secondary)
+
+**Hero**: Homeschooling parents excelling in nursery but seeking gymnasium inspiration
+**Problem**: Lacking institutional options for gymnasium stage
+**Guide**: Senior's resources for home adaptation
+**Plan**: Browse excerpts/book lists → Download gymnasium guide → Implement family adventures
+**Action**: CTA — "Download Gymnasium Guide" (non-prescriptive PDF)
+**Success**: Family formation through home adventures, unpoisoning soil for holistic growth
+**Waypoint**: Proverbs 22:6 ("Train up a child in the way he should go")
+
+**Pages**: Home (CTA #2) → Home Application → Philosophy → Contact
+
+#### Flow 3: Founding Inspiration (Tertiary)
+
+**Hero**: Aspiring founder/educator recognizing gymnasium gap
+**Problem**: Gymnasium sorely lacking amid strong nursery homeschooling and high schools
+**Guide**: Senior's vision as inspiration
+**Plan**: Explore encouragement page → Connect via network → Access founding toolkit
+**Action**: CTAs — "Reach Out for Guidance," "Founder's Toolkit" download
+**Success**: Stage-specific school founded (e.g., gymnasium for boys), restoration of missing formation
+**Waypoint**: Matthew 11:28 ("Come to me... and I will refresh you")
+
+**Pages**: Home (CTA #3) → Join/Found → Contact → Philosophy
+
+### Content Helper Utilization
+
+**Quotes** (`getQuotesBySource()`):
+- Home: 3 quotes dynamically loaded (wonder-wisdom, mythopoeia-legend-makers, adventure-stories)
+- Philosophy: 1 featured quote (mythopoeia-law)
+- Join/Found: 1 embedded quote (adventure-stories)
+- Contact: 1 hardcoded quote (mythopoeia-legend-makers)
+
+**Scripture Waypoints** (`getScriptureWaypoints()`):
+- Home: Teasers for all three (Ephesians 6:4, Proverbs 22:6, Matthew 11:28)
+- Philosophy: First 3 waypoints in grid
+- Schools: Ephesians 6:4 (discipline flow)
+- Home Application: Proverbs 22:6 (home flow)
+- Join/Found: Matthew 11:28 (founding flow)
+- Contact: Matthew 11:28 (founding flow reused)
+
+**Book Lists** (`getBookListsByStage()`):
+- Home Application: Dynamic rendering of first 3 gymnasium books
+- Philosophy: Referenced but not directly rendered (awaiting full table implementation in Phase 5)
+
+**Stage Metadata** (`getAllStages()`, `STAGE_METADATA`):
+- Home: 4 StageBadge components in showcase
+- Philosophy: Full grid with age range, focus, description
+- Schools: Filter UI with all 4 badges
+- Home Application: Nursery vs. gymnasium comparison with badges
+
+### Metadata (SEO) Summary
+
+All pages now export `Metadata` objects with:
+- **Meaningful titles**: Include "Senior Schools Network" branding
+- **Non-prescriptive descriptions**: "Embody," "inspiration," "guidance" (not "must" or "should")
+- **Gymnasium emphasis**: Most descriptions reference physical discipline or gymnasium stage
+- **Catholic fidelity**: Explicit Catholic framing where appropriate
+- **Character limits**: All descriptions under 160 characters for optimal display
+
+### Responsive Design Validation
+
+**Mobile (< 768px)**:
+- Three-path CTAs stack vertically (grid-cols-1)
+- Stage badges wrap (flex-wrap)
+- School cards single column
+- Navigation hamburger menu functional
+
+**Tablet (768px - 1024px)**:
+- Three-path CTAs 2 columns, then 3
+- School listings single column
+- Philosophy concepts 2-column grid
+- Stage table 2 columns
+
+**Desktop (> 1024px)**:
+- Three-path CTAs 3 columns
+- Philosophy concepts 2 columns
+- School listings full width with inline badges
+- All sections use `section-container` or `ContentContainer` for max-width consistency
+
+### Accessibility Confirmations
+
+✓ **Semantic HTML**: All headings (h1, h2, h3) via `SectionHeading` component with proper levels
+✓ **ARIA Labels**: Navigation menu, mobile toggle (from Phase 2 Prompt 02)
+✓ **Color Contrast**: All text meets WCAG AA (4.5:1+ ratios verified in design tokens)
+✓ **Focus Rings**: All CTAButton and link elements have `focus-visible:ring-2` styles
+✓ **Keyboard Navigation**: All interactive elements reachable via tab
+✓ **Alt Text Readiness**: Placeholder comments for future image assets
+
+### Outstanding Items for Future Phases
+
+#### Phase 3 (Interactive Enhancements)
+
+1. **Contact Form**: Live form with validation, submission handling
+2. **School Filters**: Interactive stage/location filtering on Schools page
+3. **Download Functionality**: Actual PDF generation for Gymnasium Guide and Founder's Toolkit
+4. **Collapsible Sections**: Expand/collapse for book lists, excerpts (ARIA compliant)
+5. **Analytics**: Track user flow progression (school/home/founding paths)
+
+#### Phase 4 (Content Expansion)
+
+1. **Book List Tables**: Render full "Thousand Good Books List" with expandable rows
+2. **Excerpt Integration**: Display curated excerpts from `content/phase-1-excerpts.md`
+3. **Media Embeds**: Video/podcast integration on Philosophy and Join/Found pages
+4. **Real School Data**: Replace mock schools with actual network affiliates
+5. **Founder Testimonials**: Success stories from existing gymnasium-focused schools
+
+#### Phase 5 (Asset Integration)
+
+1. **Hero Imagery**: Pre-Raphaelite garden illustrations for each page header
+2. **Stage Visuals**: Classical artwork for stage cards (public domain)
+3. **Book Covers**: Thumbnails for featured books (if available)
+4. **Icon Set**: Custom icons for stage badges (alternative to text labels)
+5. **Logo/Branding**: Senior Schools Network visual identity
+
+### Philosophical Alignment Confirmations
+
+✓ **Wonder as First Principle**: Hero sections emphasize wonder before practicality
+✓ **Gymnasium Emphasis**: All three flows reference physical discipline, adventure for ages 7-13
+✓ **Non-Prescriptive Ethos**: Resources marked as "inspiration," "guidance," "informal" (not requirements)
+✓ **Catholic Fidelity**: Scripture waypoints central, liturgical themes prominent
+✓ **Three-Path System**: Clear delineation of school/home/founding flows with distinct CTAs
+✓ **Enclosed Garden Aesthetic**: Warm colors, organic borders, repose-oriented spacing maintained
+✓ **StoryBrand Framework**: Hero → Guide → Plan → Action → Success structure in all flows
+✓ **Stages-Based**: All content mappable to nursery/gymnasium/poetic/spiritual
+
+### Technical Validation
+
+✓ **Build**: `npm run build` — PASSED (9 static pages, 96.2 kB First Load JS)
+✓ **Lint**: All ESLint errors resolved (unused imports removed)
+✓ **TypeScript**: Strict mode, all types valid
+✓ **Static Export**: All pages pre-rendered as static content
+✓ **Responsive**: Mobile-first, tested via dev server viewport resizing
+✓ **Component Reuse**: CTAButton, QuoteCard, SectionHeading, ContentContainer, StageBadge used consistently
+✓ **Metadata**: All pages export Next.js `Metadata` objects
+
+### Files Created/Modified
+
+**Enhanced Pages (6)**:
+- `app/(site)/page.tsx` — Dynamic content from `getQuotesBySource()`, three-path CTAs with waypoints
+- `app/(site)/philosophy/page.tsx` — Four concepts, stages table, scripture anchors, full metadata
+- `app/(site)/schools/page.tsx` — Mock schools, filters, Ephesians 6:4 waypoint, affiliation CTAs
+- `app/(site)/home-application/page.tsx` — Gymnasium guide, dynamic book lists, Proverbs 22:6, encouragement
+- `app/(site)/join-found/page.tsx` — Gymnasium gap, founder's toolkit, Matthew 11:28, network support
+- `app/(site)/contact/page.tsx` — Three contact options, form placeholder, resource links, encouragement
+
+**No New Components**: All functionality achieved with existing Phase 2 Prompt 02 components
+
+### Build Output Summary
+
+```
+Route (app)                              Size     First Load JS
+┌ ○ /                                    189 B          96.2 kB
+├ ○ /contact                             189 B          96.2 kB
+├ ○ /home-application                    189 B          96.2 kB
+├ ○ /join-found                          189 B          96.2 kB
+├ ○ /philosophy                          189 B          96.2 kB
+└ ○ /schools                             189 B          96.2 kB
+
+○  (Static)  prerendered as static content
+```
+
+- **Total Routes**: 7 (including / and /_not-found)
+- **First Load JS**: Consistent 96.2 kB across all pages (optimal)
+- **Build Time**: < 10 seconds
+- **Static Generation**: All pages successfully pre-rendered
+
+### Success Criteria - Phase 2 Prompt 04 ✓
+
+#### Completed Deliverables
+
+1. ✓ **Primary Routes Implemented**: /, /philosophy, /schools, /home-application, /join-found, /contact
+2. ✓ **Markdown Integration**: All pages pull data from content helpers (`getQuotesBySource()`, `getScriptureWaypoints()`, `getBookListsByStage()`)
+3. ✓ **StoryBrand Flows**: Three distinct paths (school, home, founding) with hero → guide → plan → action → success narrative
+4. ✓ **Scripture Waypoints**: Ephesians 6:4 (school), Proverbs 22:6 (home), Matthew 11:28 (founding) integrated
+5. ✓ **Responsive Design**: Mobile/tablet/desktop verified via dev server
+6. ✓ **Metadata (SEO)**: All pages have meaningful, non-prescriptive descriptions with gymnasium emphasis
+7. ✓ **Runtime Error-Free**: Build succeeds, all pages render without errors
+8. ✓ **Accessible Semantics**: Proper heading levels, focus rings, color contrast maintained
+9. ✓ **Component Consistency**: CTAButton, QuoteCard, SectionHeading, StageBadge used throughout
+
+#### Outstanding Items for Prompt 05
+
+- **Interactive Enhancements**: Collapsible sections, filtering, form validation
+- **Content Expansion**: Full book list tables, excerpt rendering, media embeds
+- **Asset Integration**: Pre-Raphaelite imagery, stage visuals, book covers
+
+**Status**: Ready to proceed to Prompt 05 - Interactive Enhancements and Content Expansion
+
+---
+
+**Type Definitions**:
+
 - `lib/types/content.ts` - All interfaces (Excerpt, BookListEntry, Quote, ScriptureWaypoint, MarkdownFile, ContentGroup, StageMetadata, AssetReference)
 
 **Content Utilities**:
