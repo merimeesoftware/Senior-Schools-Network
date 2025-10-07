@@ -1,0 +1,28 @@
+name: ci
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  docs-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify required Phase 1 docs exist
+        run: |
+          test -f README.md
+          test -f .github/current-phase.md
+          test -f .github/technical.md
+          test -f .github/roadmap.md
+          test -f .github/instructions/instructions.md
+          test -f docs/site-blueprint.md
+          test -f docs/assets-inventory.md
+          test -f .github/prompts/phase-1/agent-prompts.md
+          test -f .github/prompts/phase-1/validation-prompts.md
+      - name: Basic link presence checks
+        run: |
+          grep -qi "Senior" README.md
+          grep -qi "Phase 1" .github/current-phase.md
