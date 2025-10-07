@@ -1,7 +1,7 @@
 'use client';
 
+import React, { ReactNode } from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
-import { ReactNode } from 'react';
 
 interface AccordionItemProps {
   value: string;

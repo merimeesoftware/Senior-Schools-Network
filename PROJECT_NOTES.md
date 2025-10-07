@@ -1325,3 +1325,206 @@ npm run test:coverage # Jest with coverage report
 7. Test build with content integration
 
 **Status**: Content ingestion infrastructure complete and validated. Ready to proceed to Prompt 04 - Component Integration and Rendering.
+
+---
+
+## Phase 2 Prompt 05: Interactivity, Accessibility, and Download Prep
+
+### Date: October 7, 2025
+
+### Overview
+
+Successfully implemented Phase 2 Prompt 05 enhancements to add gentle interactivity, ensure accessibility compliance, and prepare downloadable resources while maintaining non-prescriptive ethos. All features respect reduced motion preferences and follow WCAG accessibility standards.
+
+### Interactive Features Implemented
+
+#### 1. Collapsible Accordion Component (`components/Accordion.tsx`)
+
+**Technology**: Radix UI Primitives (`@radix-ui/react-accordion`)
+
+**Features**:
+- Fully ARIA-compliant accordion with keyboard navigation
+- Single or multiple expand modes
+- Smooth animations (respects `prefers-reduced-motion`)
+- Visual indicators (chevron rotation) for expand/collapse state
+- Focus-visible rings for keyboard users
+
+**Usage**: Philosophy page (`/philosophy`) - Core Concepts section
+- Replaces static card grid with expandable sections
+- Allows deep-dive content without overwhelming users
+- Maintains "poetic knowledge first" by showing titles, revealing details on demand
+
+**Accessibility Features**:
+- `AccordionPrimitive.Root` manages ARIA states
+- `AccordionPrimitive.Trigger` with proper `aria-expanded` and `aria-controls`
+- `AccordionPrimitive.Content` with data-state animations
+- Focus-visible rings on all interactive elements
+- Semantic heading structure preserved
+
+#### 2. Schools Filter Component (`components/SchoolsFilter.tsx`)
+
+**Features**:
+- Client-side stage-based filtering (nursery, gymnasium, poetic, spiritual)
+- ARIA live regions for announcing results to screen readers
+- Non-prescriptive discovery tone ("discovery aids, not rigid categories")
+- Clickable badge filters with pressed state indicators
+- Results count updates dynamically
+- Zero-results state with "Clear Filters" option
+
+**Accessibility Features**:
+- `role="group"` with `aria-label` for filter controls
+- `aria-pressed` states on filter buttons
+- `role="status"` with `aria-live="polite"` for results count
+- `aria-atomic="true"` for complete announcement updates
+- Focus-visible rings on all interactive badges
+
+#### 3. Scripture Waypoint Carousel (`components/ScriptureCarousel.tsx`)
+
+**Features**:
+- Auto-rotating scripture quotes in footer
+- Play/pause controls for autoplay
+- Previous/Next navigation buttons
+- Dot indicators for direct slide selection
+- Respects `prefers-reduced-motion` (auto-disables autoplay)
+- 5-second interval between rotations (configurable)
+
+**Accessibility Features**:
+- `aria-live="polite"` for quote text changes
+- `aria-atomic="true"` for complete quote updates
+- `aria-label` on all navigation buttons
+- Play/pause button with dynamic `aria-label`
+- `role="tablist"` and `role="tab"` for dot indicators
+- Auto-pause when user prefers reduced motion
+
+### Download Resources Created
+
+#### 1. Gymnasium Guide for Families (`public/downloads/gymnasium-guide-placeholder.md`)
+
+**Content**: Non-prescriptive inspiration for ages 7-13
+- Key principles: Physical discipline, liturgical rhythm, poetic knowledge
+- Practical suggestions: Daily rhythms, weekly adventures, seasonal celebrations
+- Book lists: Adventure, legends, lives of saints, poetry
+- Scripture waypoint: Proverbs 22:6
+- Size: ~2.5KB markdown
+- Status: Phase 2 placeholder, PDF generation planned for Phase 3+
+
+#### 2. Founder's Toolkit (`public/downloads/founders-toolkit-placeholder.md`)
+
+**Content**: Informal guidance for school founding
+- Vision & calling discernment
+- 5-phase checklist (6-18 month timelines)
+- Philosophical foundations (5 core principles)
+- Recommended resources (foundational texts, sacred sources)
+- Common pitfalls to avoid
+- Size: ~3.2KB markdown
+- Status: Phase 2 placeholder, PDF generation planned for Phase 3+
+
+### Gentle Motion & Hover States
+
+**Global CSS Updates** (`app/globals.css`):
+- Reduced motion respect: All animations/transitions disabled for `prefers-reduced-motion`
+- Enhanced button states: 200ms transitions, subtle color shifts
+- Card enhancements: Hover lift effect (-translate-y-1), shadow progression
+- Link styles: Gold underline decoration with hover transitions
+
+**Design Principles**:
+- Muted color transitions (no flashy effects)
+- 200ms duration for immediate yet smooth feel
+- All animations disabled for accessibility
+
+### SEO & Social Metadata Enhancements
+
+**Root Layout** (`app/layout.tsx`):
+- `metadataBase: new URL('https://seniorschoolsnetwork.org')`
+- Title template: "%s | Senior Schools Network"
+- Keywords: 7 relevant terms
+- Open Graph: Full website metadata with enclosed garden image
+- Twitter Card: Large image summary
+- Robots: Full indexing allowed with Google Bot optimizations
+
+**Page-Specific Metadata**: All 6 core pages enhanced with:
+- Custom OG titles aligned to three-flow system
+- Flow-specific descriptions (Ephesians 6:4, Proverbs 22:6, Matthew 11:28)
+- Consistent OG image reference
+- Proper URL structure
+
+**OG Image Placeholder** (`public/og-image-enclosed-garden.md`):
+- Specifications: 1200x630, Pre-Raphaelite style
+- Status: Pending Phase 5
+
+### Accessibility Validation
+
+**ESLint Configuration**:
+- `eslint-plugin-jsx-a11y` installed and configured
+- Extended config: `plugin:jsx-a11y/recommended`
+- **Result**: ✅ No ESLint warnings or errors
+
+**Keyboard Navigation**: ✅ All interactive elements tested
+**Screen Reader**: ✅ ARIA landmarks, live regions, button labels verified
+**Semantic HTML**: ✅ Proper heading hierarchy, landmark regions
+
+### Build Validation
+
+**Final Build Output**:
+```
+✓ Compiled successfully
+✓ Linting and checking validity of types
+✓ Generating static pages (9/9)
+
+Total First Load JS: 87.3 kB
+Philosophy page: 5.63 kB (Accordion expansion)
+Schools page: 1.99 kB (Filter component)
+```
+
+**Performance**: All routes within acceptable limits for static export
+
+### Success Criteria - Phase 2 Prompt 05
+
+✅ Interactive elements pass keyboard-only navigation and screen reader checks  
+✅ Filters update without full reloads, preserving accessibility  
+✅ Download links functional with clear placeholder context  
+✅ Transition effects subtle and consistent with aesthetic  
+✅ PROJECT_NOTES.md updated with validation steps and future improvements
+
+### Outstanding Items for Phase 3+
+
+- Interactive forms (contact, inquiry, affiliation)
+- Advanced filtering (location, distance, search)
+- PDF generation from markdown placeholders
+- Media embeds (video/podcast)
+- Asset integration (Pre-Raphaelite imagery, OG images)
+- Performance optimizations (image optimization, code splitting)
+
+### Files Modified in This Session
+
+**New Components**:
+1. `components/Accordion.tsx`
+2. `components/SchoolsFilter.tsx`
+3. `components/ScriptureCarousel.tsx`
+4. `components/FooterContent.tsx`
+
+**Updated Components**:
+1. `components/Footer.tsx` - Suspense wrapper
+2. `app/(site)/philosophy/page.tsx` - Accordion integration
+3. `app/(site)/schools/page.tsx` - Filter integration
+4. `app/(site)/home-application/page.tsx` - Download CTA
+5. `app/(site)/join-found/page.tsx` - Download CTA
+
+**Configuration**:
+1. `.eslintrc.json` - jsx-a11y plugin
+2. `tailwind.config.ts` - Accordion animations
+3. `app/globals.css` - Reduced motion, transitions
+4. `app/layout.tsx` - SEO metadata
+
+**Content**:
+1. `public/downloads/gymnasium-guide-placeholder.md`
+2. `public/downloads/founders-toolkit-placeholder.md`
+3. `public/og-image-enclosed-garden.md`
+
+**Dependencies Added**:
+- `@radix-ui/react-accordion` v1.2.2
+- `eslint-plugin-jsx-a11y` v6.10.2
+
+**Total Lines Added**: ~600+ lines
+
+---
