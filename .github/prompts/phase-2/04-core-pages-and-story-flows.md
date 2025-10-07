@@ -3,9 +3,11 @@ title: Phase 2 Prompt 04 - Core Pages and StoryBrand Flows
 ---
 
 ## Purpose
+
 Implement the primary site pages and narrative flows that guide users through school consideration, home application, and founding inspiration, leveraging the structured content layer.
 
 ## Required Context
+
 - Successful completion of Prompts 01-03
 - docs/site-blueprint.md (wireframes, flows)
 - README.md (StoryBrand framing, philosophical tenets)
@@ -13,7 +15,9 @@ Implement the primary site pages and narrative flows that guide users through sc
 - .github/docs/current-phase.md (checklist targets)
 
 ## Prompt Loop
+
 For each page/flow:
+
 1. **Preflight**: Confirm required content helpers exist; revisit guardrails ensuring non-prescriptive tone and Catholic fidelity; review IA requirements.
 2. **Implement**: Build the page following the wireframe; integrate reusable components and markdown-derived content.
 3. **Cleanup & Optimize**: Ensure accessible semantics, remove unused code, keep comments minimal.
@@ -21,6 +25,7 @@ For each page/flow:
 5. **Document**: Capture open content questions and success confirmations in PROJECT_NOTES.md.
 
 ## Tasks
+
 - Create pages under `app/` for:
   - `/` Home (hero quote, three path CTAs, featured content snippets).
   - `/philosophy` (sections for Poetic Knowledge, Physical Discipline & Adventure, Poetic Foundations for Scientific Pursuit, Stages of Development; integrate quotes, scripture anchors).
@@ -34,10 +39,12 @@ For each page/flow:
 - Ensure layout remains responsive and matches visual plan (hero imagery placeholders, section dividers, etc.).
 
 ## Success Criteria
+
 - All primary routes render without runtime errors and pull data from markdown helpers.
 - Flows clearly present hero -> guide -> plan -> action -> success narrative with scripture waypoints.
 - Responsiveness verified on mobile/tablet/desktop; navigation between flows intuitive.
 - PROJECT_NOTES.md updated with page overview, outstanding assets, and copy needs.
 
 ## Hand-off
+
 Advance to Prompt 05 after validating flows and capturing any TODOs for interactive enhancements or content gaps.

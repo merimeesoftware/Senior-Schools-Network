@@ -3,9 +3,11 @@ title: Phase 2 Prompt 02 - Design System and Layout Components
 ---
 
 ## Purpose
+
 Translate the visual site plan into reusable Tailwind-driven components and layouts that embody the "enclosed garden" aesthetic while maintaining accessibility.
 
 ## Required Context
+
 - Outputs from Prompt 01 (project scaffold, PROJECT_NOTES.md)
 - docs/visual site plan.md (palette, typography, imagery guidance)
 - docs/site-blueprint.md (wireframes, navigation priorities)
@@ -13,7 +15,9 @@ Translate the visual site plan into reusable Tailwind-driven components and layo
 - .github/docs/technical.md (component guidance, accessibility goals)
 
 ## Prompt Loop
+
 Apply the same loop for each work segment:
+
 1. **Preflight**: Confirm success criteria from Prompt 01 met; revisit guardrails; inspect git status for unexpected changes.
 2. **Implement**: Build components iteratively, keeping comments minimal and meaningful only where clarity is needed.
 3. **Cleanup & Optimize**: Remove dead code, ensure Tailwind classes are purposeful, run Prettier.
@@ -21,6 +25,7 @@ Apply the same loop for each work segment:
 5. **Document**: Update PROJECT_NOTES.md with component inventory and design decisions.
 
 ## Tasks
+
 - Configure Tailwind theme extensions for:
   - Primary/secondary color tokens (parchment, forest, gold, stage-specific accents).
   - Typography scales using Tailwind `fontFamily`, `fontSize`, and `lineHeight` aligned with Playfair Display, Merriweather, and Lato.
@@ -39,6 +44,7 @@ Apply the same loop for each work segment:
 - Provide sample content placeholders referencing upcoming Markdown integration without hardcoding final copy (e.g., TODO markers that reference source markdown filenames).
 
 ## Success Criteria
+
 - Tailwind theme accurately reflects palette and typography; inspect via dev server to confirm.
 - Components render cleanly on mobile and desktop, matching IA structure.
 - Navigation supports StoryBrand flows with clear CTA placeholders.
@@ -46,4 +52,5 @@ Apply the same loop for each work segment:
 - PROJECT_NOTES.md documents design tokens, component purpose, and any open questions.
 
 ## Hand-off
+
 Only progress to Prompt 03 after confirming design system stability and capturing any asset needs (e.g., imagery sources) in PROJECT_NOTES.md.

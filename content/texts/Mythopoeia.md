@@ -1,8 +1,8 @@
 # MYTHOPOEIA
 
-*J.R.R. Tolkien*
+_J.R.R. Tolkien_
 
-*To one who said that myths were lies and therefore worthless, even though 'breathed through silver'.*
+_To one who said that myths were lies and therefore worthless, even though 'breathed through silver'._
 
 **Philomythus to Misomythus**
 
