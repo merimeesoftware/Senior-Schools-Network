@@ -38,7 +38,7 @@ const MOCK_SCHOOLS: School[] = [
     stages: ['gymnasium'] as const,
     type: 'Gymnasium (Ages 7-13)',
     description:
-      'Focused exclusively on the gymnasium stage, forming resilient warrior poets through outdoor adventure and liturgical rhythms.',
+      'Focused exclusively on the gymnasium stage, forming resilient Chivalric Wayfarers through outdoor adventure and liturgical rhythms.',
   },
   {
     id: 'school-3',

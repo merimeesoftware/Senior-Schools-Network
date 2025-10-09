@@ -24,7 +24,7 @@ export const STAGE_METADATA: Record<Stage, StageMetadata> = {
     ageRange: '7-13',
     focus: 'Adventure, stories, physical discipline',
     description:
-      'The "warrior poet" stage emphasizing bodily rigor, experiential challenges, outdoor adventures, and resilient formation. Stories of Robin Hood, Treasure Island, and physical discipline integrated with liturgical rhythms.',
+      'The "Chivalric Wayfarer" stage emphasizing bodily rigor, experiential challenges, outdoor adventures, and resilient formation. Stories of Robin Hood, Treasure Island, and physical discipline integrated with liturgical rhythms.',
     color: 'gymnasium',
   },
   poetic: {

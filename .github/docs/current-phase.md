@@ -155,7 +155,7 @@ This phase maintains strict alignment with John Senior's philosophy of poetic kn
 
 ### Gymnasium Emphasis
 - [ ] Gymnasium-themed imagery integrated (adventure, physical discipline)
-- [ ] "Warrior poets" language maintained throughout
+- [ ] "Chivalric Wayfarers" language maintained throughout
 - [ ] Download PDFs emphasize non-prescriptive, inspirational approach
 
 ### Poetic-Scientific Integration

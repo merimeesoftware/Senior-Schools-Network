@@ -257,7 +257,7 @@ Home (/)
 ├── Join the Network / Found a School (/join-found)
 │   ├── Application/Encouragement
 │   ├── Founding Toolkit
-│   └── "Restore Gymnasium for Warrior Poets" emphasis
+│   └── "Restore Gymnasium for Chivalric Wayfarers" emphasis
 │
 └── Contact (/contact)
 ```
@@ -280,7 +280,7 @@ Home (/)
 
 **Avoids Failure**: Warns of continued mechanized schooling without resilience formation
 
-**Success**: Resilient, faith-formed sons as "warrior poets"
+**Success**: Resilient, faith-formed sons as "Chivalric Wayfarers"
 
 **Scripture Waypoint**: "Fathers, do not provoke your children to anger, but bring them up in the discipline and instruction of the Lord." (Ephesians 6:4)
 

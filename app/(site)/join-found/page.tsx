@@ -8,7 +8,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Join the Network / Found a School | Senior Schools Network',
   description:
-    'Restore the gymnasium stage for warrior poets. Informal guidance, founding toolkit, and network support for aspiring educators and visionaries.',
+    'Restore the gymnasium stage for Chivalric Wayfarers. Informal guidance, founding toolkit, and network support for aspiring educators and visionaries.',
   openGraph: {
     title: 'Founding Resources - Senior Schools Network',
     description:

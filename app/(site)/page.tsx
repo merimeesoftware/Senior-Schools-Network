@@ -63,7 +63,7 @@ export default async function HomePage() {
                 <strong className="text-gymnasium">
                   "{adventureQuote.quote}"
                 </strong>{' '}
-                — forming resilient "warrior poets" through the gymnasium stage
+                — forming resilient "Chivalric Wayfarers" through the gymnasium stage
                 and beyond.
               </p>
             )}

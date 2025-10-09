@@ -30,7 +30,7 @@ export function getHeroAssets(): AssetReference[] {
       type: 'image',
       placeholder: '/assets/placeholders/gymnasium-adventure.jpg',
       alt: 'Classical artwork showing boys in outdoor adventure and physical discipline',
-      caption: 'Gymnasium Stage: Adventure and Warrior Poets (Ages 7-13)',
+      caption: 'Gymnasium Stage: Adventure and Chivalric Wayfarers (Ages 7-13)',
       contentId: 'gymnasium',
     },
   ];
@@ -64,7 +64,7 @@ export function getStageAssets(stage: Stage): AssetReference[] {
         placeholder: '/assets/placeholders/gymnasium-outdoor.jpg',
         alt: 'Pre-Raphaelite artwork depicting boys in outdoor adventure',
         caption:
-          'Physical discipline and adventure: Forming resilient warrior poets',
+          'Physical discipline and adventure: Forming resilient Chivalric Wayfarers',
       },
       {
         id: 'gymnasium-liturgical',
@@ -154,7 +154,7 @@ export function getMediaPlaceholders(): AssetReference[] {
       type: 'audio',
       placeholder: 'https://example.com/podcast/gymnasium-episode.mp3',
       alt: 'Podcast episode discussing the gymnasium stage and physical formation',
-      caption: 'The Gymnasium Stage: Forming Warrior Poets Through Adventure',
+      caption: 'The Gymnasium Stage: Forming Chivalric Wayfarers Through Adventure',
     },
   ];
 }
