@@ -66,6 +66,9 @@ export const metadata: Metadata = {
       "Catholic schools embodying John Senior's philosophy: poetic knowledge, physical discipline, and wonder-filled formation.",
     images: ['/og-image-enclosed-garden.jpg'],
   },
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+  },
   robots: {
     index: true,
     follow: true,

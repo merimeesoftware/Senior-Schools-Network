@@ -31,6 +31,18 @@ All content must resonate with these axioms, drawn from _The Restoration of Inno
 
 > "Listening is above all the gateway, along with looking, to the poetic mode."
 
+> "Poetic knowledge is not the knowledge of poetry, nor is it even knowledge in the sense that we often think of today, that is, the mastery of scientific, technological, or business information. Rather, it is an intuitive, obscure, mysterious way of knowing reality, not always able to account for itself, but absolutely essential if one is ever to advance properly to the higher degrees of certainty."
+
+> "A spontaneous act of the external and internal senses with the intellect, integrated and whole, rather than an act associated with the powers of analytic reasoning."
+
+> "To be connatural with a thing is to participate in some way with its nature... a metaphysical encounter."
+
+> "Poetic knowledge is not the knowledge of poetry, nor is it even knowledge in the sense that we often think of today, that is, the mastery of scientific, technological, or business information. Rather, it is an intuitive, obscure, mysterious way of knowing reality, not always able to account for itself, but absolutely essential if one is ever to advance properly to the higher degrees of certainty."
+
+> "A spontaneous act of the external and internal senses with the intellect, integrated and whole, rather than an act associated with the powers of analytic reasoning."
+
+> "To be connatural with a thing is to participate in some way with its nature... a metaphysical encounter."
+
 **From Tolkien's _Mythopoeia_:**
 > "Man, sub-creator, the refracted light through whom is splintered from a single White to many hues, and endlessly combined in living shapes that move from mind to mind."
 
@@ -79,8 +91,21 @@ All content must resonate with these axioms, drawn from _The Restoration of Inno
 **Boethius on Connaturality:**
 > "Earth we grasp with the earthly, fire with flame, Liquid with moisture, air with our breath." — _Consolation of Philosophy_ (quoted in North Star)
 
-**Cicero on Eloquent Intuition:**
-> "What penetrates the mind more keenly than an acute and quick succession of arguments? What is more admirable than thoughts illumined by brilliancy of expression?" — _De Oratore_ II.85
+**Cicero on Eloquent Intuition (_De Oratore_):**
+> "What penetrates the mind more keenly than an acute and quick succession of arguments? What is more admirable than thoughts illumined by brilliancy of expression?" (II.85)
+
+> "For to say nothing of the advantages of eloquence... there is such delight attendant on the very power of eloquent speaking, that nothing more pleasing can be received into the ears or understanding of man. What music can be found more sweet than the pronunciation of a well-ordered speech?" (II.85)
+
+> "It is his, in giving counsel on important affairs, to deliver his opinion with clearness and dignity; it is his to rouse a people when they are languid, and to calm them when immoderately excited." (II.85)
+
+**Maritain on Non-Conceptual Knowledge (_Creative Intuition in Art and Poetry_):**
+> "Poetic knowledge is knowledge which is non-conceptual, non-rational, and experiential. It is born in the preconscious of the spirit, through a natural inclination or connaturality of the intellect toward the world of things."
+
+> "Poetic knowledge is a knowledge through affective union. It proceeds from the essential recesses of the subjectivity enriched by the intuitive donations of the senses and of tendency or instinct."
+
+> "Poetic intuition is the capturing of one's own subjectivity in a glance which descends into the unconscious and the preconscious, and emerges into consciousness by grasping things in a unifying intuition together with the self."
+
+> "Unlike conceptual knowledge, which abstracts and universalizes, poetic knowledge is individualizing and concrete, born from emotional connaturality rather than logical discourse. It is knowledge by inclination, where the soul knows through love and union."
 
 ### Application to Education
 
@@ -88,6 +113,8 @@ All content must resonate with these axioms, drawn from _The Restoration of Inno
 > "Education is not merely about filling a child's mind with knowledge; it is about forming their soul. An education in wonder invites children... into a way of living that is slower, richer, and more contemplative." — Taylor synthesis
 
 > "The beginning in every work is the chief thing, especially in the case of anything young and tender. For then especially is the character moulded." — Plato, _Republic_ II
+
+> "And now look again, and see what will naturally follow if the prisoners are released and disabused of their error... He will require to grow accustomed to the sight of the upper world. And first he will see the shadows best, next the reflections of men and other objects in the water, and then the objects themselves." — Plato, _Republic_ VII (Cave Allegory)
 
 **Educator-Driven, Not Curriculum-Driven:**
 > "Starting from sensory delight, as in Hugh of St. Victor's sensory ascent to wisdom, relying on good educators rather than imposed structures." — Senior, _Restoration of Innocence_
@@ -119,15 +146,31 @@ All content must resonate with these axioms, drawn from _The Restoration of Inno
 
 > "God, if he be good, is not the author of all things, as the many assert, but he is the cause of a few things only, and not of most things that occur to men. For few are the goods of human life, and many are the evils." (II.379)
 
+> "The first step in the training of guardians is the telling of tales... The founders will have a far greater care in the selection of these tales than in anything else; for the young cannot distinguish what is allegorical from what is not, and the beliefs which they acquire at that age are hard to erase and usually remain unchanged." (_Republic_ II.376-377)
+
+> "We begin by telling children fables, which are in the main false, but have some truth in them... For then especially is the character moulded." (_Republic_ III.377)
+
 **Aristotle on Poetry as Universal (_Poetics_):**
 > "Poetry in general seems to have sprung from two causes, each of them lying deep in our nature. First, the instinct of imitation is implanted in man from childhood... and no less universal is the pleasure felt in things imitated." (Ch. IV)
 
 > "Poetry tends to express the universal, history the particular. By the universal, I mean how a person of a certain type will on occasion speak or act, according to the law of probability or necessity." (Ch. IX)
 
+> "Objects which in themselves we view with pain, we delight to contemplate when reproduced with minute fidelity... The reason why men enjoy seeing a likeness is, that in contemplating it they find themselves learning or inferring." (Ch. IV)
+
+> "Imitation, then, is one instinct of our nature. Next, there is the instinct for 'harmony' and rhythm, metres being manifestly sections of rhythm." (Ch. IV)
+
 **Augustine on Memory and Senses (_Confessions_):**
 > "Great is this force of memory, exceeding great, O my God; a large and boundless chamber! who ever sounded the bottom thereof?... And men go abroad to admire the heights of mountains, the mighty billows of the sea... and pass themselves by." (X.8)
 
 > "Thou awakest us to delight in Thy praise; for Thou madest us for Thyself, and our heart is restless, until it repose in Thee." (I.1)
+
+> "I could not be then, O my God, could not be at all, wert Thou not in me; or, rather, unless I were in Thee, of whom are all things, by whom are all things, in whom are all things." (I.1)
+
+> "There is an attractiveness in beautiful bodies, in gold and silver, and all things; in bodily touch, sympathy hath much influence, and each other sense hath his proper object answerably tempered... For these lower things have their delights, but not like my God, who made all things; for in Him doth the righteous delight, and He is the joy of the upright in heart." (II.5)
+
+> "I could not be then, O my God, could not be at all, wert Thou not in me; or, rather, unless I were in Thee, of whom are all things, by whom are all things, in whom are all things." (I.1)
+
+> "There is an attractiveness in beautiful bodies, in gold and silver, and all things; in bodily touch, sympathy hath much influence, and each other sense hath his proper object answerably tempered... For these lower things have their delights, but not like my God, who made all things; for in Him doth the righteous delight, and He is the joy of the upright in heart." (II.5)
 
 ### IHP Example: Stargazing Before Equations
 
@@ -166,6 +209,32 @@ All content must resonate with these axioms, drawn from _The Restoration of Inno
 > "Blessed are the timid hearts that evil hate, that quail in its shadow, and yet shut the gate; that seek no parley, and in guarded room, though small and bare, upon a clumsy loom weave tissues gilded by the far-off day hoped and believed in under Shadow's sway." — _Mythopoeia_
 
 > "Blessed are the legend-makers with their rhyme of things not found within recorded time. It is not they that have forgot the Night, or bid us flee to organized delight."
+
+> "Blessed are the men of Noah's race that build their little arks, though frail and poorly filled, and steer through winds contrary towards a wraith, a rumour of a harbour guessed by faith." — _Mythopoeia_
+
+**Chesterton on Chivalric Wandering:**
+> "And I thought, 'I will go with you, As man with God has gone, And wander with a wandering star, The wandering heart of things that are, The fiery cross of love and war That like yourself, goes on.'" — _The Ballad of the White Horse_, Dedication
+
+> "For the end of the world was long ago, And all we dwell to-day As children of some second birth, Like a strange people left on earth After a judgment day." — _The Ballad of the White Horse_
+
+> "As a tide turns on the tall grey seas, See how they waver in the trees... And the Mother of God goes over them, Walking on wind and flame, And we all shall yet drink Christian ale In the village of our name." — _The Ballad of the White Horse_, Book VII
+
+**Seafaring and the Barque of Christ:**
+> "The Northmen came about our land A Christless chivalry: Who knew not of the arch or pen, Great, beautiful half-witted men From the sunrise and the sea." — _The Ballad of the White Horse_, Book I
+
+> "For he must meet by the river-hut... And even as he went down to the river-hut He went as one that fell; Seeing the high forest domes and spars... But he must meet by the river-hut Them he had bidden to arm." — _The Ballad of the White Horse_, Book IV
+
+> "The living walls that hedge mankind, The walking walls of Rome... From red Arabia to the Tyne The earth had heard that marching-line." — _The Ballad of the White Horse_, Book IV
+
+**Senior on the Chivalric School:**
+> "Aristocrats make schools in caves where hermits anticipate the Promised Land while still lost in the desert... the few who still care must teach in catacombs or tents... Christian radicals who subvert the secular order not by terrorism but sacrifice, who never lie, but don't say what they think until they must, who walk, as Saint Paul said, circumspectly, redeeming the time. Meanwhile, we need a school." — _The Restoration of Innocence_
+
+> "_Puer_, the Latin word for 'boy,' derives from 'pure' because concupiscence has not reared up as yet. 'Pure' comes from _pyros_, purifying 'fire' (boys burn with gem-like flames) which in turn derives from _pu_, an Indo-European root meaning 'power,' or potential force like the energy in atoms and the elements, the ABCs of language and things." — _The Restoration of Innocence_
+
+> "The elementary school is a gymnasium (from _gymnos,_ 'naked') where stripped or lightly clad boys exercise, sharpening their five senses in immediate contact with nature in the raw." — _The Restoration of Innocence_
+
+**Hugh of St. Victor on the Soul's Wayfaring:**
+> "The soul's simple essence is most appropriately expressed by 'one,' which itself is also incorporeal... in a third progression, the soul, having poured itself out through the senses upon all visible things... is dissipated in countless actions. But finally, in a fourth progression, the soul, freed from the body, returns to the pureness of its simplicity." — _The Didascalicon_
 
 ### Gymnasium Book Canon
 
@@ -543,12 +612,17 @@ When creating **ANY** site content (homepage copy, CTAs, blog posts, school desc
 - "Poetic knowledge is about what is REAL... Connection and wonder are the driving forces. Love is the anchor." — Senior
 - "Listening is above all the gateway, along with looking, to the poetic mode." — Taylor
 - "The beginning in every work is the chief thing, especially in the case of anything young and tender." — Plato
+- "The instinct of imitation is implanted in man from childhood... and no less universal is the pleasure felt in things imitated." — Aristotle, _Poetics_
+- "Objects which in themselves we view with pain, we delight to contemplate when reproduced with minute fidelity." — Aristotle
+- "The first step in the training of guardians is the telling of tales." — Plato, _Republic_
 
 ### On Senses & Creation
 - "Earth we grasp with the earthly, fire with flame, Liquid with moisture, air with our breath." — Hugh/Boethius
 - "The soul knows bodies through the intellect." — Aquinas
 - "I look up at those heavens of thine, the work of thy hands, at the moon and the stars, which thou hast set in their places." — Psalm 8 (Knox)
 - "The very beasts will tell thee, the birds in air will be thy counsellors." — Job 12:7 (Knox)
+- "Great is this force of memory... And men go abroad to admire the heights of mountains, the mighty billows of the sea... and pass themselves by." — Augustine
+- "There is an attractiveness in beautiful bodies... but not like my God, who made all things." — Augustine
 
 ### On Boys & Formation
 - "Boys burn with gem-like flames" — Senior
@@ -574,6 +648,10 @@ When creating **ANY** site content (homepage copy, CTAs, blog posts, school desc
 - "Education is not merely about filling a child's mind with knowledge; it is about forming their soul." — Taylor
 - "Poetic knowledge is the attempt to know the way a child knows things, or the way a lover knows the beloved." — Senior
 - "Come to me, all you that labour and are burdened; I will give you rest." — Matthew 11:28 (Knox)
+- "Poetic knowledge is knowledge through affective union... born from emotional connaturality rather than logical discourse." — Maritain
+- "The young cannot distinguish what is allegorical from what is not, and the beliefs which they acquire at that age are hard to erase." — Plato
+- "Poetry tends to express the universal, history the particular." — Aristotle
+- "What music can be found more sweet than the pronunciation of a well-ordered speech?" — Cicero
 
 ### On Faith & Property
 - "The cure for centralization is decentralization... restore it into the hands of the many." — Chesterton

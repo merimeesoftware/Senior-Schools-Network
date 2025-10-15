@@ -3,9 +3,12 @@ import SectionHeading from '@/components/SectionHeading';
 import ContentContainer from '@/components/ContentContainer';
 import StageBadge from '@/components/StageBadge';
 import CTAButton from '@/components/CTAButton';
+import OptimizedImage from '@/components/OptimizedImage';
+import ImageGallery from '@/components/ImageGallery';
 import { Accordion, AccordionItem } from '@/components/Accordion';
-import { getScriptureWaypoints, getQuotesBySource } from '@/lib/content';
+import { getQuotesBySource } from '@/lib/content';
 import { STAGE_METADATA, getAllStages } from '@/lib/content/stages';
+import { getRandomAsset } from '@/lib/assets';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -22,12 +25,15 @@ export const metadata: Metadata = {
 };
 
 export default async function PhilosophyPage() {
-  const scriptureWaypoints = await getScriptureWaypoints();
   const quotes = await getQuotesBySource();
+  const scriptureQuotes = await getQuotesBySource('Knox');
   const allStages = getAllStages();
 
   // Get featured quote for philosophy
   const featuredQuote = quotes.find((q) => q.id === 'mythopoeia-law');
+  
+  // Get a random hero image for visual interest
+  const heroAsset = getRandomAsset({ category: 'beauty' });
 
   return (
     <>
@@ -236,11 +242,12 @@ export default async function PhilosophyPage() {
         </SectionHeading>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {scriptureWaypoints.slice(0, 3).map((waypoint) => (
+          {scriptureQuotes.slice(0, 3).map((sq) => (
             <QuoteCard
-              key={waypoint.id}
-              quote={waypoint.text}
-              author={waypoint.verse}
+              key={sq.id}
+              quote={sq.quote}
+              author={sq.author}
+              source={sq.source}
               variant="scripture"
             />
           ))}
@@ -251,6 +258,38 @@ export default async function PhilosophyPage() {
           (Ephesians 6:4), home application (Proverbs 22:6), and founding
           inspiration (Matthew 11:28).
         </p>
+      </section>
+
+      {/* Visual Gallery: Wonder Through Beauty */}
+      <section className="section-container py-section">
+        <SectionHeading level={2} align="center" className="mb-8">
+          Wonder Through Beauty
+        </SectionHeading>
+        
+        <p className="text-center text-body-lg max-w-3xl mx-auto mb-12 leading-relaxed">
+          Images curated from the great tradition — illuminated manuscripts, 
+          Hudson River School landscapes, and classic illustrations — to cultivate 
+          wonder and delight the senses.
+        </p>
+
+        {heroAsset && (
+          <div className="mb-12 max-w-4xl mx-auto">
+            <OptimizedImage
+              asset={heroAsset}
+              showCaption={true}
+              imageClassName="rounded-lg shadow-organic"
+              sizes="(max-width: 768px) 100vw, 80vw"
+            />
+          </div>
+        )}
+
+        <ImageGallery
+          category="beauty"
+          showCaptions={true}
+          columns={{ mobile: 1, tablet: 2, desktop: 3 }}
+          gap="lg"
+          className="max-w-6xl mx-auto"
+        />
       </section>
 
       {/* Resources CTA */}

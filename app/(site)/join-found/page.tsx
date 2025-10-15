@@ -3,6 +3,8 @@ import SectionHeading from '@/components/SectionHeading';
 import ContentContainer from '@/components/ContentContainer';
 import CTAButton from '@/components/CTAButton';
 import { getScriptureWaypoints, getQuotesBySource } from '@/lib/content';
+import OptimizedImage from '@/components/OptimizedImage';
+import { getRandomAsset } from '@/lib/assets';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -25,6 +27,8 @@ export default async function JoinFoundPage() {
   );
   const quotes = await getQuotesBySource();
   const adventureQuote = quotes.find((q) => q.id === 'adventure-stories');
+  // Hero imagery suggestion: founders/adventure/discipline
+  const heroAsset = getRandomAsset({ category: 'discipline', tags: ['adventure'] });
 
   return (
     <>
@@ -34,6 +38,18 @@ export default async function JoinFoundPage() {
           <SectionHeading level={1} align="center" decorated>
             Join the Network / Found a School
           </SectionHeading>
+
+          {heroAsset && (
+            <div className="mt-8 max-w-4xl mx-auto">
+              <OptimizedImage
+                asset={heroAsset}
+                showCaption={true}
+                imageClassName="rounded-organic-lg shadow-organic"
+                sizes="(max-width: 768px) 100vw, 80vw"
+                priority
+              />
+            </div>
+          )}
 
           {foundingFlowWaypoint && (
             <div className="mt-8">

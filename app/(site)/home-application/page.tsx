@@ -3,7 +3,9 @@ import SectionHeading from '@/components/SectionHeading';
 import ContentContainer from '@/components/ContentContainer';
 import StageBadge from '@/components/StageBadge';
 import CTAButton from '@/components/CTAButton';
-import { getScriptureWaypoints, getBookListsByStage } from '@/lib/content';
+import { getBookListsByStage, getQuotesBySource } from '@/lib/content';
+import OptimizedImage from '@/components/OptimizedImage';
+import { getRandomAsset } from '@/lib/assets';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -20,11 +22,13 @@ export const metadata: Metadata = {
 };
 
 export default async function HomeApplicationPage() {
-  const scriptureWaypoints = await getScriptureWaypoints();
-  const homeFlowWaypoint = scriptureWaypoints.find(
-    (w) => w.id === 'proverbs-22-6'
-  );
+  const scriptureQuotes = await getQuotesBySource('Knox');
+  const homeFlowQuote = scriptureQuotes.find((q) => q.id === 'proverbs-22-6');
   const gymnasiumBooks = await getBookListsByStage('gymnasium');
+  // Hero imagery suggestion: nursery/story/family theme for home application
+  const heroAsset = getRandomAsset({ stage: 'nursery', category: 'stories' });
+  const quotes = await getQuotesBySource();
+  const encouragement = quotes.find((q) => q.id === 'senior-boys-gem-like-flames');
 
   return (
     <>
@@ -35,6 +39,18 @@ export default async function HomeApplicationPage() {
             Resources for Home Application
           </SectionHeading>
 
+          {heroAsset && (
+            <div className="mt-8 max-w-4xl mx-auto">
+              <OptimizedImage
+                asset={heroAsset}
+                showCaption={true}
+                imageClassName="rounded-organic-lg shadow-organic"
+                sizes="(max-width: 768px) 100vw, 80vw"
+                priority
+              />
+            </div>
+          )}
+
           <div className="mt-8 text-center max-w-3xl mx-auto">
             <p className="text-body-lg leading-relaxed mb-6">
               Homeschooling shines in the nursery stage — but the gymnasium
@@ -43,11 +59,12 @@ export default async function HomeApplicationPage() {
             </p>
           </div>
 
-          {homeFlowWaypoint && (
+          {homeFlowQuote && (
             <div className="mt-8">
               <QuoteCard
-                quote={homeFlowWaypoint.text}
-                author={homeFlowWaypoint.verse}
+                quote={homeFlowQuote.quote}
+                author={homeFlowQuote.author}
+                source={homeFlowQuote.source}
                 variant="scripture"
               />
             </div>
@@ -174,10 +191,14 @@ export default async function HomeApplicationPage() {
 
       {/* Encouragement */}
       <section className="section-container py-section-sm">
-        <QuoteCard
-          quote="Homeschooling shines in nursery — gymnasium awaits your courage"
-          variant="embedded"
-        />
+        {encouragement && (
+          <QuoteCard
+            quote={encouragement.quote}
+            author={encouragement.author}
+            source={encouragement.source}
+            variant="embedded"
+          />
+        )}
 
         <div className="mt-12 text-center">
           <p className="text-body-lg max-w-2xl mx-auto leading-relaxed mb-8">

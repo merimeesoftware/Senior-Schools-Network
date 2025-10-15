@@ -17,6 +17,7 @@ import type {
   PrimaryFlow,
   ContentCategory,
 } from '@/lib/types/content';
+import { getAllQuotes } from '@/lib/content/quotes';
 
 // Paths
 const CONTENT_DIR = path.join(process.cwd(), 'content');
@@ -261,41 +262,8 @@ export async function getQuotesBySource(source?: string): Promise<Quote[]> {
     return cache.get(cacheKey) as Quote[];
   }
 
-  // Hardcoded quotes from README.md and site-blueprint.md
-  const quotes: Quote[] = [
-    {
-      id: 'wonder-wisdom',
-      quote: 'Wonder is the beginning of wisdom',
-      author: 'Ancient Proverb',
-      category: 'philosophy',
-    },
-    {
-      id: 'mythopoeia-legend-makers',
-      quote:
-        'Blessed are the legend-makers with their rhyme of things not found within recorded time',
-      author: 'J.R.R. Tolkien',
-      source: 'Mythopoeia',
-      category: 'philosophy',
-      stage: 'poetic',
-    },
-    {
-      id: 'adventure-stories',
-      quote: 'Adventure, stories, physical discipline',
-      author: 'John Senior',
-      source: 'The Restoration of Innocence',
-      category: 'discipline',
-      stage: 'gymnasium',
-      primaryFlow: 'school',
-    },
-    {
-      id: 'mythopoeia-law',
-      quote: "We make still by the law in which we're made",
-      author: 'J.R.R. Tolkien',
-      source: 'Mythopoeia',
-      category: 'philosophy',
-    },
-  ];
-
+  // Load from lightweight quotes index (canonical long-form in public/texts/QUOTES.md)
+  const quotes = getAllQuotes();
   const filtered = source ? quotes.filter((q) => q.source === source) : quotes;
 
   cache.set(cacheKey, filtered);

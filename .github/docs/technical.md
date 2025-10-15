@@ -40,7 +40,7 @@ Prioritizing CI/CD for automated, reliable workflows, we use GitHub Actions (fre
     - Quality Scan: Semgrep for code smells/patterns.
     - Security Scan: Trivy for vulnerabilities (e.g., npm audit equivalent).
     - Build: Next.js build/test.
-    - Deploy Preview: On PRs, deploy to a preview environment (e.g., Netlify deploy previews).
+    - Deploy Preview: On PRs, deploy to a preview environment (e.g., Render deploy previews).
 - **Integration Ease**: All tools run as simple Actions marketplace steps (e.g., `semgrep/semgrep-action`, `aquasecurity/trivy-action`). Example YAML snippet:
   ```
   jobs:
@@ -56,7 +56,7 @@ Prioritizing CI/CD for automated, reliable workflows, we use GitHub Actions (fre
 ## Deployment
 
 - **Primary Option**: Render – Selected for its free tier, seamless Git integration, and support for static/SSR sites. It handles forms (e.g., affiliation applications) natively, auto-deploys on commits, and provides preview URLs for phases. Aligns with simplicity—drag-and-drop from GitHub; includes basic analytics without invasive tracking.
-- **Configuration**: Connect repo to Netlify; set build command (`next build && next export` for static); deploy to custom domain if available. CI/CD hooks: Actions trigger Netlify builds.
+- **Configuration**: Connect repo to Render; set build command (`next build && next export` for static); deploy to custom domain if available. CI/CD hooks: Actions trigger Render builds.
 - **Fallback**: GitHub Pages – For zero-cost, fully OSS deployment; export static site and push to gh-pages branch via Actions.
 - **Coolify**: Future bare metal deployment (preferred long term but do not have metal servers setup yet or bought)
 
@@ -65,6 +65,6 @@ Prioritizing CI/CD for automated, reliable workflows, we use GitHub Actions (fre
 - **Derivation Chain**: Phase-specific tech docs (e.g., current-phase-technical.md) adapt this overview (e.g., specify Markdown components for excerpts).
 - **AI Integration**: Prompts in /prompts reference this doc for constraints (e.g., "Use react-markdown for excerpt viewers; integrate Semgrep in CI/CD").
 - **Version Control**: Git branches per phase (e.g., feature/phase-1); PR reviews for alignment checks.
-- **Monitoring & Maintenance**: Post-deploy, use Netlify's built-in analytics; manual audits for philosophical fidelity (e.g., ensure content evokes wonder per excerpts.md).
+- **Monitoring & Maintenance**: Post-deploy, use Render's built-in analytics; manual audits for philosophical fidelity (e.g., ensure content evokes wonder per excerpts.md).
 
 This technical overview ensures the platform remains faithful to Senior's vision, leveraging high-quality OSS tools for a robust, ethically grounded build. Updates should derive from discussions and commit with references to the north star.

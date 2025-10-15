@@ -2,7 +2,9 @@ import QuoteCard from '@/components/QuoteCard';
 import SectionHeading from '@/components/SectionHeading';
 import ContentContainer from '@/components/ContentContainer';
 import CTAButton from '@/components/CTAButton';
-import { getScriptureWaypoints } from '@/lib/content';
+import { getQuotesBySource } from '@/lib/content';
+import OptimizedImage from '@/components/OptimizedImage';
+import { getRandomAsset } from '@/lib/assets';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -19,10 +21,13 @@ export const metadata: Metadata = {
 };
 
 export default async function ContactPage() {
-  const scriptureWaypoints = await getScriptureWaypoints();
-  const foundingWaypoint = scriptureWaypoints.find(
-    (w) => w.id === 'matthew-11-28'
-  );
+  const quotes = await getQuotesBySource('Mythopoeia');
+  const legendMakers = quotes.find((q) => q.id === 'mythopoeia-legend-makers');
+  // Hero imagery suggestion: sacred art / correspondence aesthetic
+  // Load scripture and literary quotes from centralized index
+  const scriptureQuotes = await getQuotesBySource('Knox');
+  const restQuote = scriptureQuotes.find((q) => q.id === 'matthew-11-28');
+  const heroAsset = getRandomAsset({ category: 'beauty', tags: ['sacred-art', 'paradise'] });
 
   return (
     <>
@@ -33,11 +38,24 @@ export default async function ContactPage() {
             Reach Out for Guidance
           </SectionHeading>
 
-          {foundingWaypoint && (
+          {heroAsset && (
+            <div className="mt-8 max-w-4xl mx-auto">
+              <OptimizedImage
+                asset={heroAsset}
+                showCaption={true}
+                imageClassName="rounded-organic-lg shadow-organic"
+                sizes="(max-width: 768px) 100vw, 80vw"
+                priority
+              />
+            </div>
+          )}
+
+          {restQuote && (
             <div className="mt-8">
               <QuoteCard
-                quote={foundingWaypoint.text}
-                author={foundingWaypoint.verse}
+                quote={restQuote.quote}
+                author={restQuote.author}
+                source={restQuote.source}
                 variant="scripture"
               />
             </div>
@@ -167,12 +185,14 @@ export default async function ContactPage() {
       <section className="bg-spiritual/10 py-section-sm">
         <ContentContainer width="narrow">
           <div className="text-center">
-            <QuoteCard
-              quote="Blessed are the legend-makers with their rhyme of things not found within recorded time"
-              author="J.R.R. Tolkien"
-              source="Mythopoeia"
-              variant="embedded"
-            />
+            {legendMakers && (
+              <QuoteCard
+                quote={legendMakers.quote}
+                author={legendMakers.author}
+                source={legendMakers.source}
+                variant="embedded"
+              />
+            )}
 
             <p className="text-body-lg mt-8 leading-relaxed">
               Your participation — whether as a parent, educator, or founder —

@@ -20,6 +20,7 @@ The design embodies John Senior's "hortus conclusus" (enclosed garden)—a seren
 **Tone**: Formal yet warm; contemplative and inviting. Classical humanism with romantic touches (Tolkien's "myth-woven and elf-patterned").
 
 **Key Design Principles**:
+
 - **Organic Flexibility**: Gentle asymmetry in layouts reflecting non-prescriptive education
 - **Wonder and Repose**: Depth through subtle shadows, generous whitespace for reflection
 - **Catholic Fidelity**: Sacred elements (cross motifs in borders) without overt proselytizing
@@ -27,6 +28,7 @@ The design embodies John Senior's "hortus conclusus" (enclosed garden)—a seren
 - **Narrative Flow**: Layouts guide users through StoryBrand hero journey
 
 **Visual Inspirations**:
+
 - Illuminated manuscripts (Book of Kells) for intricate borders
 - Beatrix Potter illustrations for nursery whimsy
 - Howard Pyle adventure art for gymnasium vigor
@@ -40,46 +42,55 @@ The design embodies John Senior's "hortus conclusus" (enclosed garden)—a seren
 #### Primary Colors
 
 **Parchment** (Background/Base)
+
 - Base: `#F5F1E9` - Aged paper, promotes repose and readability
 - Light: `#FDFDFD` - Off-white for cards/sections
 - Dark: `#E8E2D5` - Darker variant for subtle backgrounds
 
 **Forest** (Nature/Growth)
+
 - Base: `#3B5A3E` - Deep forest green for headers, buttons, borders
 - Dark: `#2A4129` - Darker variant for hover states
 - Light: `#4A6B4D` - Lighter variant for backgrounds
 
 **Gold** (Spiritual/Illumination)
+
 - Base: `#CDAF6F` - Warm gold for icons, links, quotes
 - Light: `#E5D4A6` - Lighter variant for highlights
 - Dark: `#B89A5A` - Darker variant for accents
 
 **Charcoal** (Text)
+
 - `#4A4A4A` - High contrast on parchment background
 
 #### Stage-Specific Colors
 
 **Nursery** (Ages 0-6: Sensory Delight)
+
 - Base: `#A8C4D4` - Soft pastel blue (calming, fable-like)
 - Light: `#C5DDE8`
 - Dark: `#8BAEC0`
 
 **Gymnasium** (Ages 7-13: Adventure)
+
 - Base: `#7A5C3E` - Rich earth brown (grounded, trails and stories)
 - Light: `#9A7D5E`
 - Dark: `#5A3F2A`
 
 **Poetic** (Ages 14-18: Imagination)
+
 - Base: `#8B4C4C` - Muted crimson (passionate yet restrained)
 - Light: `#A86B6B`
 - Dark: `#6A3535`
 
 **Spiritual** (Ages 18+: Contemplation)
+
 - Base: `#B8A8C4` - Gentle lavender (eternal repose)
 - Light: `#D1C5DB`
 - Dark: `#9B8AAA`
 
 **Color Usage Guidelines**:
+
 - Muted saturation (40-60%) to avoid overstimulation
 - Colorful accents sparingly for CTAs
 - Minimum 4.5:1 contrast ratio for WCAG AA compliance
@@ -93,18 +104,21 @@ The design embodies John Senior's "hortus conclusus" (enclosed garden)—a seren
 #### Font Families
 
 **Playfair Display** (Serif - Headings/Quotes)
+
 - Source: Google Fonts
 - Purpose: Classical elegance with slight flourish
 - Usage: H1-H3, philosophical quotes, hero sections
 - Weights: 400 (Regular), 700 (Bold), 400 Italic
 
 **Merriweather** (Serif - Body)
+
 - Source: Google Fonts
 - Purpose: Clean, legible for long-form content
 - Usage: Articles, excerpts, resources, book lists
 - Weights: 300 (Light), 400 (Regular), 700 (Bold)
 
 **Lato** (Sans-Serif - UI)
+
 - Source: Google Fonts
 - Purpose: Modern accessibility for interface elements
 - Usage: Buttons, navigation, metadata, badges
@@ -853,13 +867,12 @@ public/
 │   │   ├── stages/
 │   │   └── schools/
 │   ├── logos/
-│   │   ├── ssn-full-color.svg
-│   │   ├── ssn-reversed.svg
-│   │   └── ssn-monochrome.svg
+│   │   ├── ssn-placeholder-logo.svg  (Phase 3 placeholder)
+│   │   └── (final logo suite in Phase 4)
 │   └── downloads/
-│       ├── gymnasium-guide.pdf
-│       └── founders-toolkit.pdf
-└── favicon.ico
+│       ├── gymnasium-guide-placeholder.md  (PDF deferred to Phase 4)
+│       └── founders-toolkit-placeholder.md (PDF deferred to Phase 4)
+└── favicon.svg (Phase 3 placeholder)
 ```
 
 ---
@@ -873,11 +886,13 @@ public/
   - Reversed (white on dark)
   - Monochrome
   - Simplified icon mark for favicons
+  - Note: Provide placeholder only in Phase 3; finalize in Phase 4
 
 - [ ] **Favicon Set**
   - 16x16, 32x32, 64x64, 128x128, 256x256, 512x512
   - apple-touch-icon.png (180x180)
   - safari-pinned-tab.svg
+  - Note: Phase 3 provides a single SVG placeholder favicon
 
 - [ ] **Open Graph Images**
   - Default: `og-image-enclosed-garden.jpg` (1200x630)
@@ -913,16 +928,19 @@ public/
   - Liturgical rhythm: Church procession
 
 **Home Application (`/home-application`)**:
+
 - [ ] Hero image (3200x1800): Family on liturgical hike
 - [ ] Gymnasium Guide cover (600x800): Portrait orientation
 - [ ] Secondary vignettes (600x400 each): Benevolent neglect, family reading
 
 **Join/Found (`/join-found`)**:
+
 - [ ] Hero image (3200x1800): Founders collaborating
 - [ ] Founder's Toolkit cover (600x800): Portrait orientation
 - [ ] Network support imagery (1200x800): Educator retreat
 
 **Schools Directory (`/schools`)**:
+
 - [ ] Hero banner (3200x1200): Map overlay or campus montage
 - [ ] Placeholder school photos (per listing):
   - Exterior facade (1200x800)
@@ -932,6 +950,7 @@ public/
   - School crest/logo (512x512 SVG)
 
 **Contact Page (`/contact`)**:
+
 - [ ] Banner image (3200x1200): Letter writing desk, classical correspondence
 
 ---
@@ -954,12 +973,12 @@ public/
 
 #### Downloads & Collateral
 
-- [ ] **Gymnasium Guide PDF**:
+- [ ] **Gymnasium Guide PDF** (Phase 4):
   - Cover art (portrait, 8.5x11)
   - Section header graphics
   - Social promo tile (1200x630)
 
-- [ ] **Founder's Toolkit PDF**:
+- [ ] **Founder's Toolkit PDF** (Phase 4):
   - Cover art (portrait, 8.5x11)
   - Inside dividers
   - Social promo tile (1200x630)

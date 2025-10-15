@@ -4,7 +4,9 @@ import ContentContainer from '@/components/ContentContainer';
 import CTAButton from '@/components/CTAButton';
 import SchoolsFilter from '@/components/SchoolsFilter';
 import type { School } from '@/components/SchoolsFilter';
-import { getScriptureWaypoints } from '@/lib/content';
+import { getQuotesBySource } from '@/lib/content';
+import OptimizedImage from '@/components/OptimizedImage';
+import { getRandomAsset } from '@/lib/assets';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -52,10 +54,11 @@ const MOCK_SCHOOLS: School[] = [
 ];
 
 export default async function SchoolsPage() {
-  const scriptureWaypoints = await getScriptureWaypoints();
-  const schoolFlowWaypoint = scriptureWaypoints.find(
-    (w) => w.id === 'ephesians-6-4'
-  );
+  const scriptureQuotes = await getQuotesBySource('Knox');
+  const schoolFlowQuote = scriptureQuotes.find((q) => q.id === 'ephesians-6-4');
+  // Hero imagery suggestion: gymnasium/adventure/discipline
+  // Using tags like 'adventure', 'robin-hood', or assets from Otto/Robin Hood collections
+  const heroAsset = getRandomAsset({ category: 'discipline', tags: ['adventure', 'robin-hood'] });
 
   return (
     <>
@@ -66,23 +69,33 @@ export default async function SchoolsPage() {
             Schools Directory
           </SectionHeading>
 
+          {heroAsset && (
+            <div className="mt-8 max-w-4xl mx-auto">
+              <OptimizedImage
+                asset={heroAsset}
+                showCaption={true}
+                imageClassName="rounded-organic-lg shadow-organic"
+                sizes="(max-width: 768px) 100vw, 80vw"
+                priority
+              />
+            </div>
+          )}
+
           <div className="mt-8 text-center max-w-3xl mx-auto">
             <p className="text-body-lg leading-relaxed mb-6">
               Explore affiliated schools that embody Senior's vision: forming
-              students through{' '}
-              <strong className="text-gymnasium">
-                physical discipline and adventure
-              </strong>
-              , rooted in <strong className="text-forest">poetic knowledge</strong>{' '}
-              and <strong className="text-spiritual">Catholic faith</strong>.
+              students through <strong className="text-gymnasium">physical discipline and adventure</strong>,
+              rooted in <strong className="text-forest">poetic knowledge</strong> and{' '}
+              <strong className="text-spiritual">Catholic faith</strong>.
             </p>
           </div>
 
-          {schoolFlowWaypoint && (
+          {schoolFlowQuote && (
             <div className="mt-8">
               <QuoteCard
-                quote={schoolFlowWaypoint.text}
-                author={schoolFlowWaypoint.verse}
+                quote={schoolFlowQuote.quote}
+                author={schoolFlowQuote.author}
+                source={schoolFlowQuote.source}
                 variant="scripture"
               />
             </div>

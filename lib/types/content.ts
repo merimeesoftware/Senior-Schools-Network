@@ -23,6 +23,9 @@ export type ContentCategory =
   | 'scripture'
   | 'books'
   | 'media'
+  | 'beauty'
+  | 'stories'
+  | 'virtue'
   | 'general';
 
 /**

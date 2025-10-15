@@ -25,16 +25,18 @@ This phase maintains strict alignment with John Senior's philosophy of poetic kn
 - Source/commission hero images for each major page (home, philosophy, schools, etc.)
 - Integrate Pre-Raphaelite and classical art for philosophical sections
 - Add gymnasium-themed adventure photography (outdoor challenges, liturgical hikes)
-- Create/implement logo suite and favicon set
-- Design downloadable PDFs for Gymnasium Guide and Founder's Toolkit
+- Implement placeholder logo mark and favicon set (final logo suite deferred)
+- Downloads/PDFs are not in scope for this iteration (shelved for future evaluation)
 - Optimize all images for web (WebP format, responsive srcset)
 
 **Success Criteria**:
+
 - Zero placeholder images remaining in production build
 - All images have descriptive alt text (100 chars max)
 - Image formats: WebP primary, JPEG fallback
 - Licensing documented for all third-party imagery
 - Visual consistency across all pages (color grading, tone)
+- Placeholder favicon/logo present; final logo suite tracked for Phase 4
 
 ---
 
@@ -86,12 +88,14 @@ This phase maintains strict alignment with John Senior's philosophy of poetic kn
 **Goal**: Deepen narrative immersion and provide richer resources for all three user paths.
 
 **Key Deliverables**:
+
 - Add 10+ new excerpts from uploaded texts (Boethius, Chesterton, Aquinas)
 - Expand book lists with cover images and detailed metadata
 - Integrate media embeds (YouTube videos, podcast episodes)
 - Create long-form articles for blog/resources section
 - Add more Scripture waypoints throughout flows
 - Develop FAQ section addressing common questions
+- No downloads planned in this iteration; evaluate later if needed
 
 **Success Criteria**:
 - Philosophy page: 10 accordion sections (currently 6)
@@ -156,7 +160,7 @@ This phase maintains strict alignment with John Senior's philosophy of poetic kn
 ### Gymnasium Emphasis
 - [ ] Gymnasium-themed imagery integrated (adventure, physical discipline)
 - [ ] "Chivalric Wayfarers" language maintained throughout
-- [ ] Download PDFs emphasize non-prescriptive, inspirational approach
+
 
 ### Poetic-Scientific Integration
 - [ ] New content ties poetic mode to scientific foundations
@@ -218,10 +222,10 @@ This phase maintains strict alignment with John Senior's philosophy of poetic kn
 
 ### Clear Plans and CTAs
 - [ ] CTAs visually prominent with new imagery
-- [ ] Download PDFs professionally designed
 - [ ] User flow waypoints reinforced with visual cues
 
 ### Narrative Immersion
+
 - [ ] Media embeds deepen storytelling
 - [ ] New excerpts serve as narrative "waypoints"
 - [ ] Visual hierarchy guides users through hero journey
@@ -231,19 +235,22 @@ This phase maintains strict alignment with John Senior's philosophy of poetic kn
 ## Content Readiness (Required: ≥85%)
 
 ### Assets Integrated
+
 - [ ] All hero images sourced and optimized
-- [ ] Logo suite and favicon set implemented
-- [ ] Download PDFs designed and deployed
+- [ ] Placeholder favicon/logo implemented (final logo suite Phase 4)
+- [ ] No downloads included in this iteration
 - [ ] Book cover images integrated (50+ titles)
 - [ ] Media embeds functional (5+ videos/podcasts)
 
 ### Content Expanded
+
 - [ ] Philosophy page: 10 accordion sections
 - [ ] Blog: 3+ foundational articles
 - [ ] Book lists: Expanded metadata and descriptions
 - [ ] FAQ section created and populated
 
 ### Metadata Complete
+
 - [ ] All pages have unique titles/descriptions
 - [ ] Open Graph images for all major pages
 - [ ] Alt text on all images
@@ -254,16 +261,19 @@ This phase maintains strict alignment with John Senior's philosophy of poetic kn
 ## Guardrails & Instructions Compliance (Required: 100%)
 
 ### Authenticity
+
 - [ ] No fabricated quotes
 - [ ] All assets properly licensed and documented
 - [ ] Content derives from uploaded sources
 
 ### Ethical Focus
+
 - [ ] Charitable, non-partisan tone maintained
 - [ ] Privacy respected (no tracking beyond analytics)
 - [ ] Accessible to all users (WCAG AA+)
 
 ### Alignment with Hierarchy
+
 - [ ] README.md north star referenced in decisions
 - [ ] technical.md architecture followed
 - [ ] design-system.md aesthetic maintained
@@ -273,12 +283,13 @@ This phase maintains strict alignment with John Senior's philosophy of poetic kn
 ## Execution Plan
 
 ### Week 3, Day 1-2: Asset Sourcing & Integration
+
 - Source hero images (Pre-Raphaelite art, gymnasium photography)
-- Design logo suite and favicon set
-- Create download PDFs (Gymnasium Guide, Founder's Toolkit)
+- Implement placeholder favicon/logo (final logo suite pushed to Phase 4)
 - Optimize all images for web (WebP conversion, responsive srcset)
 
 ### Week 3, Day 3-4: Performance & Accessibility
+
 - Implement next/image across all pages
 - Add skip links and improve keyboard navigation
 - Conduct screen reader testing
@@ -286,6 +297,7 @@ This phase maintains strict alignment with John Senior's philosophy of poetic kn
 - Run Lighthouse audits and address issues
 
 ### Week 3, Day 5-6: Content Expansion & SEO
+
 - Add new excerpts to philosophy page
 - Integrate media embeds (videos, podcasts)
 - Expand book lists with cover images
@@ -293,6 +305,7 @@ This phase maintains strict alignment with John Senior's philosophy of poetic kn
 - Generate sitemap and implement structured data
 
 ### Week 3, Day 7: Testing & Validation
+
 - Expand test coverage to 80%+
 - Manual QA across devices/browsers
 - Final philosophical alignment review
@@ -304,6 +317,7 @@ This phase maintains strict alignment with John Senior's philosophy of poetic kn
 ## Pass/Fail Criteria
 
 **Pass Requirements**:
+
 - ≥90% Philosophical Alignment
 - ≥90% Technical Alignment
 - ≥90% StoryBrand/User Flows
@@ -311,6 +325,7 @@ This phase maintains strict alignment with John Senior's philosophy of poetic kn
 - 100% Guardrails Compliance
 
 **Critical Blockers** (Automatic Fail):
+
 - Any fabricated quotes or content
 - WCAG AA violations on core flows
 - Philosophical misalignment (prescriptive tone, schema imposition)

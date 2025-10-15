@@ -25,15 +25,26 @@ export {
   getStageColor,
 } from './content/stages';
 
-// Asset placeholders
+// Asset placeholders (legacy - kept for backwards compatibility)
 export {
   getHeroAssets,
   getStageAssets,
   getBookCoverPlaceholders,
   getMediaPlaceholders,
   getAllAssetPlaceholders,
-  getAssetById,
 } from './content/assets';
+
+// Image asset manifest and utilities
+export {
+  imageAssets,
+  getAssetById,
+  getAssetsByStage,
+  getAssetsByCategory,
+  getAssetsByTag,
+  getAssetsBySource,
+  searchAssets,
+  getRandomAsset,
+} from './assets';
 
 // Type exports
 export type {
@@ -49,3 +60,5 @@ export type {
   StageMetadata,
   AssetReference,
 } from './types/content';
+
+export type { ImageAsset } from './assets';
