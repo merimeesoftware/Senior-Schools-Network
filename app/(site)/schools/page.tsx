@@ -12,7 +12,8 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Schools Directory',
   description:
-    "Discover Catholic schools embodying John Senior's philosophy: poetic knowledge, gymnasium formation, and wonder-filled education rooted in tradition.",
+    "Discover Catholic schools aligned with John Senior: poetic knowledge, gymnasium formation, and wonder-filled tradition.",
+  alternates: { canonical: '/schools' },
   openGraph: {
     title: 'Schools Directory - Senior Schools Network',
     description:
@@ -73,6 +74,7 @@ export default async function SchoolsPage() {
             <div className="mt-8 max-w-4xl mx-auto">
               <OptimizedImage
                 asset={heroAsset}
+                alt="Adventure and discipline for gymnasium stage"
                 showCaption={true}
                 imageClassName="rounded-organic-lg shadow-organic"
                 sizes="(max-width: 768px) 100vw, 80vw"

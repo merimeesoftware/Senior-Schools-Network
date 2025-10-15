@@ -11,7 +11,8 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Resources for Home Application',
   description:
-    "Non-prescriptive resources for homeschooling families: gymnasium guides, book lists, and inspiration for adapting Senior's philosophy at home.",
+    "Homeschool resources: gymnasium guides, book lists, and inspiration for adapting Senior's philosophy at home.",
+  alternates: { canonical: '/home-application' },
   openGraph: {
     title: 'Home Application Resources - Senior Schools Network',
     description:
@@ -43,6 +44,7 @@ export default async function HomeApplicationPage() {
             <div className="mt-8 max-w-4xl mx-auto">
               <OptimizedImage
                 asset={heroAsset}
+                alt="Nursery-stage stories for family learning"
                 showCaption={true}
                 imageClassName="rounded-organic-lg shadow-organic"
                 sizes="(max-width: 768px) 100vw, 80vw"

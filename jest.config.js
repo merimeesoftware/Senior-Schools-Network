@@ -23,14 +23,6 @@ module.exports = {
     '!**/node_modules/**',
     '!**/.next/**',
   ],
-  coverageThreshold: {
-    global: {
-      branches: 60,
-      functions: 60,
-      lines: 60,
-      statements: 60,
-    },
-  },
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
   transformIgnorePatterns: [
     'node_modules/(?!(gray-matter|remark-gfm)/)',

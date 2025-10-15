@@ -10,7 +10,8 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Contact Us',
   description:
-    'Reach out for guidance on school affiliation, home application, or founding initiatives aligned with John Senior\'s philosophy.',
+    "Get guidance on school affiliation, home application, or founding aligned with John Senior's philosophy.",
+  alternates: { canonical: '/contact' },
   openGraph: {
     title: 'Contact - Senior Schools Network',
     description:
@@ -42,6 +43,7 @@ export default async function ContactPage() {
             <div className="mt-8 max-w-4xl mx-auto">
               <OptimizedImage
                 asset={heroAsset}
+                alt="Sacred-inspired imagery for correspondence and guidance"
                 showCaption={true}
                 imageClassName="rounded-organic-lg shadow-organic"
                 sizes="(max-width: 768px) 100vw, 80vw"

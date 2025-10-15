@@ -5,12 +5,15 @@ import SectionHeading from '@/components/SectionHeading';
 import ContentContainer from '@/components/ContentContainer';
 import StageBadge from '@/components/StageBadge';
 import { getQuotesBySource } from '@/lib/content';
+import OptimizedImage from '@/components/OptimizedImage';
+import { getRandomAsset } from '@/lib/assets';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Senior Schools Network | Wonder-Filled Catholic Education',
+  title: 'Wonder-Filled Catholic Education',
   description:
-    'A network of Catholic schools embodying poetic knowledge, physical discipline, and formation. Discover schools, home resources, and founding guidance.',
+    'Catholic schools embodying poetic knowledge, physical discipline, and formation. Discover schools, home resources, and founding guidance.',
+  alternates: { canonical: '/' },
   openGraph: {
     title: 'Senior Schools Network - Restoring Innocence Through Wonder',
     description:
@@ -26,6 +29,7 @@ export default async function HomePage() {
   const heroQuote = quotes.find((q) => q.id === 'wonder-wisdom');
   const legendMakersQuote = quotes.find((q) => q.id === 'mythopoeia-legend-makers');
   const adventureQuote = quotes.find((q) => q.id === 'adventure-stories');
+  const heroAsset = getRandomAsset({ category: 'beauty', tags: ['hudson-river-school', 'landscape'] });
 
   return (
     <>
@@ -38,6 +42,19 @@ export default async function HomePage() {
               author={heroQuote.author}
               variant="hero"
             />
+          )}
+
+          {heroAsset && (
+            <div className="mt-8 max-w-4xl mx-auto">
+              <OptimizedImage
+                asset={heroAsset}
+                alt="Classical landscape evoking wonder"
+                showCaption={true}
+                imageClassName="rounded-organic-lg shadow-organic"
+                sizes="(max-width: 768px) 100vw, 80vw"
+                priority
+              />
+            </div>
           )}
 
           <div className="mt-8 text-center max-w-3xl mx-auto">

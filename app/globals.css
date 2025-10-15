@@ -29,6 +29,19 @@
 }
 
 @layer components {
+  /* Accessible screen-reader-only helper (reveal on focus handled inline) */
+  .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
   .btn-primary {
     @apply bg-forest text-gold px-6 py-3 rounded-organic font-lato font-semibold transition-all duration-200 hover:bg-forest-dark hover:shadow-organic-md focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-parchment;
   }
@@ -67,5 +80,10 @@
 
   .link-hover {
     @apply text-forest-dark underline decoration-gold decoration-2 underline-offset-2 transition-colors duration-200 hover:text-forest hover:decoration-gold-dark focus-visible-ring;
+  }
+
+  /* Optional overlay utility for text-over-image contrast if needed */
+  .image-overlay-gradient {
+    @apply absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40 pointer-events-none;
   }
 }

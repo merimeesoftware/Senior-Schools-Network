@@ -14,7 +14,8 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Philosophy & Resources',
   description:
-    'Explore the educational philosophy of John Senior: poetic knowledge, physical discipline for gymnasium stage, and wonder-filled formation rooted in Catholic tradition.',
+    "Explore John Senior's philosophy: poetic knowledge, gymnasium discipline, and wonder-filled Catholic formation.",
+  alternates: { canonical: '/philosophy' },
   openGraph: {
     title: 'Philosophy & Resources - Senior Schools Network',
     description:
@@ -32,8 +33,8 @@ export default async function PhilosophyPage() {
   // Get featured quote for philosophy
   const featuredQuote = quotes.find((q) => q.id === 'mythopoeia-law');
   
-  // Get a random hero image for visual interest
-  const heroAsset = getRandomAsset({ category: 'beauty' });
+  // Get a random hero image for visual interest (manuscript or classical art)
+  const heroAsset = getRandomAsset({ category: 'beauty', tags: ['illuminated-manuscript', 'celtic'] });
 
   return (
     <>
@@ -43,6 +44,19 @@ export default async function PhilosophyPage() {
           <SectionHeading level={1} align="center" decorated>
             Philosophy & Resources
           </SectionHeading>
+
+          {heroAsset && (
+            <div className="mt-8 max-w-4xl mx-auto">
+              <OptimizedImage
+                asset={heroAsset}
+                alt="Illuminated manuscript symbolizing poetic knowledge"
+                showCaption={true}
+                imageClassName="rounded-organic-lg shadow-organic"
+                sizes="(max-width: 768px) 100vw, 80vw"
+                priority
+              />
+            </div>
+          )}
 
           {featuredQuote && (
             <div className="mt-8">
@@ -260,31 +274,34 @@ export default async function PhilosophyPage() {
         </p>
       </section>
 
-      {/* Visual Gallery: Wonder Through Beauty */}
+      {/* Visual Galleries */}
       <section className="section-container py-section">
         <SectionHeading level={2} align="center" className="mb-8">
-          Wonder Through Beauty
+          Sacred Art and Illumination
         </SectionHeading>
-        
-        <p className="text-center text-body-lg max-w-3xl mx-auto mb-12 leading-relaxed">
-          Images curated from the great tradition — illuminated manuscripts, 
-          Hudson River School landscapes, and classic illustrations — to cultivate 
-          wonder and delight the senses.
+
+        <p className="text-center text-body max-w-3xl mx-auto mb-12 leading-relaxed text-charcoal/80">
+          Illuminated manuscripts and sacred imagery draw the heart to wonder — the poetic beginning of wisdom.
         </p>
 
-        {heroAsset && (
-          <div className="mb-12 max-w-4xl mx-auto">
-            <OptimizedImage
-              asset={heroAsset}
-              showCaption={true}
-              imageClassName="rounded-lg shadow-organic"
-              sizes="(max-width: 768px) 100vw, 80vw"
-            />
-          </div>
-        )}
+        <ImageGallery
+          tag="sacred-art"
+          showCaptions={true}
+          columns={{ mobile: 1, tablet: 2, desktop: 3 }}
+          gap="lg"
+          className="max-w-6xl mx-auto mb-16"
+        />
+
+        <SectionHeading level={2} align="center" className="mb-8">
+          Adventure and Formation
+        </SectionHeading>
+
+        <p className="text-center text-body max-w-3xl mx-auto mb-12 leading-relaxed text-charcoal/80">
+          Gymnasium-stage stories and scenes foster courage, discipline, and the chivalric spirit.
+        </p>
 
         <ImageGallery
-          category="beauty"
+          category="discipline"
           showCaptions={true}
           columns={{ mobile: 1, tablet: 2, desktop: 3 }}
           gap="lg"

@@ -2,15 +2,16 @@ import QuoteCard from '@/components/QuoteCard';
 import SectionHeading from '@/components/SectionHeading';
 import ContentContainer from '@/components/ContentContainer';
 import CTAButton from '@/components/CTAButton';
-import { getScriptureWaypoints, getQuotesBySource } from '@/lib/content';
+import { getQuotesBySource } from '@/lib/content';
 import OptimizedImage from '@/components/OptimizedImage';
 import { getRandomAsset } from '@/lib/assets';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Join the Network / Found a School | Senior Schools Network',
+  title: 'Join the Network / Found a School',
   description:
     'Restore the gymnasium stage for Chivalric Wayfarers. Informal guidance, founding toolkit, and network support for aspiring educators and visionaries.',
+  alternates: { canonical: '/join-found' },
   openGraph: {
     title: 'Founding Resources - Senior Schools Network',
     description:
@@ -21,10 +22,8 @@ export const metadata: Metadata = {
 };
 
 export default async function JoinFoundPage() {
-  const scriptureWaypoints = await getScriptureWaypoints();
-  const foundingFlowWaypoint = scriptureWaypoints.find(
-    (w) => w.id === 'matthew-11-28'
-  );
+  const scriptureQuotes = await getQuotesBySource('Knox');
+  const foundingFlowQuote = scriptureQuotes.find((q) => q.id === 'matthew-11-28');
   const quotes = await getQuotesBySource();
   const adventureQuote = quotes.find((q) => q.id === 'adventure-stories');
   // Hero imagery suggestion: founders/adventure/discipline
@@ -43,6 +42,7 @@ export default async function JoinFoundPage() {
             <div className="mt-8 max-w-4xl mx-auto">
               <OptimizedImage
                 asset={heroAsset}
+                alt="Founders restoring gymnasium through adventure"
                 showCaption={true}
                 imageClassName="rounded-organic-lg shadow-organic"
                 sizes="(max-width: 768px) 100vw, 80vw"
@@ -51,11 +51,12 @@ export default async function JoinFoundPage() {
             </div>
           )}
 
-          {foundingFlowWaypoint && (
+          {foundingFlowQuote && (
             <div className="mt-8">
               <QuoteCard
-                quote={foundingFlowWaypoint.text}
-                author={foundingFlowWaypoint.verse}
+                quote={foundingFlowQuote.quote}
+                author={foundingFlowQuote.author}
+                source={foundingFlowQuote.source}
                 variant="scripture"
               />
             </div>
