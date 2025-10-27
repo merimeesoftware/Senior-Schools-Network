@@ -142,9 +142,7 @@ All content must resonate with these axioms, drawn from _The Restoration of Inno
 ### Classical & Scholastic Foundations
 
 **Plato on Imitation and Myth (_Republic_):**
-> "The beginning in every work is the chief thing, especially in the case of anything young and tender. For then especially is the character moulded... We must not accept Homer's or any other poet's account of the gods." (II.376-377)
-
-> "God, if he be good, is not the author of all things, as the many assert, but he is the cause of a few things only, and not of most things that occur to men. For few are the goods of human life, and many are the evils." (II.379)
+> "The beginning in every work is the chief thing, especially in the case of anything young and tender. For then especially is the character moulded." (II.376-377)
 
 > "The first step in the training of guardians is the telling of tales... The founders will have a far greater care in the selection of these tales than in anything else; for the young cannot distinguish what is allegorical from what is not, and the beliefs which they acquire at that age are hard to erase and usually remain unchanged." (_Republic_ II.376-377)
 
@@ -432,7 +430,7 @@ All content must resonate with these axioms, drawn from _The Restoration of Inno
 > "The cure for centralization is decentralization... when capital has come to be too much in the hand of the few, the right thing is to restore it into the hands of the many." — Chesterton, _Outline of Sanity_
 
 **Scripture Anchor:**
-> "Come unto me, all ye that labour and are heavy laden, and I will give you rest." — Matthew 11:28 (Knox)
+> "Come unto me, all ye that labour and are heavy laden, and I will give you rest." — Matthew 11:28
 
 **Founder's Toolkit Context:**
 > "Schools must provide good educators and fertile soil, not curricula." — Senior synthesis
@@ -456,7 +454,6 @@ All content must resonate with these axioms, drawn from _The Restoration of Inno
 - "Boys burn with gem-like flames" — Senior
 - "Stripped or lightly clad boys exercise, sharpening their five senses in immediate contact with nature in the raw" — Senior
 - "Man, sub-creator, the refracted light through whom is splintered from a single White to many hues" — Tolkien
-- "The elementary school is a gymnasium (from _gymnos_, 'naked')" — Senior
 - "Children of some second birth, Like a strange people left on earth After a judgment day" — Chesterton
 
 ### Metaphors to Deploy
@@ -519,7 +516,6 @@ All content must resonate with these axioms, drawn from _The Restoration of Inno
 - "Books be all their eating, And ink be on their hands" (Chesterton's warning)
 
 **Offer the Remedy:**
-- Senior's vision as "guide" (StoryBrand)
 - Poetic knowledge as restoration, not revolution
 - Hope anchored in divine order, not human schemes
 
@@ -547,69 +543,11 @@ All content must resonate with these axioms, drawn from _The Restoration of Inno
 
 ---
 
-## X. CONTENT GENERATION PROTOCOL
-
-### Mandatory Steps for AI-Generated Content
-
-When creating **ANY** site content (homepage copy, CTAs, blog posts, school descriptions, resource guides):
-
-**1. Ground in Quotes**
-- Start by identifying relevant axioms/quotes from this document
-- Match theme to section: poetic knowledge, gymnasium, liturgy, science, etc.
-- Select 2-3 quotes that anchor the piece's philosophical DNA
-
-**2. Echo Voice**
-- Mimic Senior's literary cadence: short declarative sentences for impact, longer contemplative ones for depth
-- Channel Catholic boldness: no hedging, no apologetics for tradition
-- Deploy metaphors from Section VIII (fertile soil, enclosed garden, Chivalric Wayfarers, sub-creator, gem-like flames)
-
-**3. Tie to User Flow**
-- Align with StoryBrand hero's journey:
-  - **Problem**: Cultural decay, gymnasium gap, modern fragmentation
-  - **Guide**: Senior's vision, poetic knowledge, network support
-  - **Plan**: Explore resources → view schools → inquire/apply OR adapt at home OR found a school
-  - **Success**: Chivalric Wayfarers formed, innocence restored, wonder anchored in love
-
-**4. Avoid Generic Edu-Speak**
-- **Test Output**: Does it sound like a classical school brochure or a battle cry?
-- **Red Flags**: "Holistic," "student-centered," "21st-century skills," "outcomes-based"
-- **Green Flags**: Latin phrases, Scripture, poetic imagery, adventure verbs (sharpen, burn, grasp, weave)
-
-**5. Source Attribution (When Quoting Directly)**
-- Always cite source in parentheses: (Senior, _Restoration of Innocence_), (Tolkien, _Mythopoeia_), (Knox, Ephesians 6:4)
-- For paraphrases or synthesis, use "per the North Star" or "drawing from [text]"
-
-### Example Generation Process
-
-**Task**: Write homepage hero section
-
-**Step 1 - Ground in Quotes**:
-- Primary: "We make still by the law in which we're made." (Tolkien)
-- Supporting: "Boys burn with gem-like flames" (Senior)
-- Scripture: "Come unto me, all ye that labour and are burdened; I will give you rest." (Matthew 11:28)
-
-**Step 2 - Echo Voice**:
-> "We make still by the law in which we're made. In this _interea_—this 'meanwhile' of cultural rubble—the Senior Schools Network plants enclosed gardens where boys burn with gem-like flames. Not through curricula, but through wonder. Not through schemas, but through stories. Here, poetic knowledge restores what mechanism destroyed: innocence rooted in adventure, liturgy, and love."
-
-**Step 3 - Tie to User Flow**:
-- Hero: Parent of boys
-- Problem: "Cultural rubble," lack of gymnasium formation
-- Guide: "Senior Schools Network plants enclosed gardens"
-- CTA: "Explore Schools" or "Discover the Vision"
-
-**Step 4 - Test**:
-- ✅ Latin (_interea_)
-- ✅ Poetic imagery (gem-like flames, enclosed gardens)
-- ✅ Urgency + hope
-- ✅ No edu-speak
-
----
-
 ## XI. THEMATIC QUOTE BANK (Quick Reference)
 
 ### On Wonder & Beginnings
 - "Wonder is the beginning of wisdom." — Aristotle (via Taylor)
-- "Poetic knowledge is about what is REAL... Connection and wonder are the driving forces. Love is the anchor." — Senior
+- "Poetic knowledge is about what is REAL... Connection and wonder are the driving forces. Love is the anchor." — John Senior
 - "Listening is above all the gateway, along with looking, to the poetic mode." — Taylor
 - "The beginning in every work is the chief thing, especially in the case of anything young and tender." — Plato
 - "The instinct of imitation is implanted in man from childhood... and no less universal is the pleasure felt in things imitated." — Aristotle, _Poetics_
@@ -646,7 +584,7 @@ When creating **ANY** site content (homepage copy, CTAs, blog posts, school desc
 ### On Education & Love
 - "Without love, education is nothing." — Senior
 - "Education is not merely about filling a child's mind with knowledge; it is about forming their soul." — Taylor
-- "Poetic knowledge is the attempt to know the way a child knows things, or the way a lover knows the beloved." — Senior
+- "Poetic knowledge is the attempt to know the way a child knows things, or the way a lover knows the beloved." — John Senior
 - "Come to me, all you that labour and are burdened; I will give you rest." — Matthew 11:28 (Knox)
 - "Poetic knowledge is knowledge through affective union... born from emotional connaturality rather than logical discourse." — Maritain
 - "The young cannot distinguish what is allegorical from what is not, and the beliefs which they acquire at that age are hard to erase." — Plato
@@ -664,6 +602,9 @@ When creating **ANY** site content (homepage copy, CTAs, blog posts, school desc
 - "Unless you become like little children again, you shall not enter the kingdom of heaven." — Matthew 18:3 (Knox)
 - "Blessed are the timid hearts that evil hate, that quail in its shadow, and yet shut the gate." — Tolkien
 - "When the south wind bloweth... soon the flowers grow up; but when the strong wind cometh... perisheth the beauty of the rose." — Boethius
+
+### On Poetic Knowledge
+- "Poetic knowledge synthesizes, brings together, integrates. It looks at the whole, the essence, the nature." — John Senior
 
 ---
 

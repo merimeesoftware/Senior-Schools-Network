@@ -67,10 +67,13 @@ export default function OptimizedImage({
   const imageWidth = width || asset.width;
   const imageHeight = height || asset.height;
 
+  // If fill is explicitly requested OR if dimensions are not available, use fill mode
+  const useFillMode = fill || !imageWidth || !imageHeight;
+
   return (
     <figure className={`optimized-image-wrapper ${className}`}>
-      <div className={fill ? 'relative w-full h-full' : 'relative'}>
-        {fill ? (
+      <div className={useFillMode ? 'relative w-full h-full' : 'relative'}>
+        {useFillMode ? (
           <Image
             src={imageSrc}
             alt={altText}

@@ -2,12 +2,14 @@ interface StageBadgeProps {
   stage: 'nursery' | 'gymnasium' | 'poetic' | 'spiritual';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
+  whiteText?: boolean;
 }
 
 export default function StageBadge({
   stage,
   size = 'md',
   className = '',
+  whiteText = false,
 }: Readonly<StageBadgeProps>) {
   const stageConfig = {
     nursery: {
@@ -43,12 +45,13 @@ export default function StageBadge({
   };
 
   const config = stageConfig[stage];
+  const textColor = whiteText ? 'text-white' : config.text;
 
   return (
     <span
       className={`
         inline-flex items-center
-        ${config.bg} ${config.text}
+        ${config.bg} ${textColor}
         border ${config.border}
         ${sizeClasses[size]}
         rounded-organic

@@ -72,13 +72,13 @@ export default function ScriptureCarousel({
         {/* Scripture Text */}
         <div className="text-center mb-6">
           <blockquote
-            className="text-body-lg italic font-playfair text-forest mb-4"
+            className="text-body-lg italic font-playfair text-parchment mb-4"
             aria-live="polite"
             aria-atomic="true"
           >
             "{currentWaypoint.text}"
           </blockquote>
-          <cite className="text-body-sm font-lato text-charcoal/70">
+          <cite className="text-body-sm font-lato text-parchment/80">
             — {currentWaypoint.verse}
           </cite>
         </div>
@@ -87,7 +87,7 @@ export default function ScriptureCarousel({
         <div className="flex items-center justify-center gap-4">
           <button
             onClick={goToPrevious}
-            className="p-2 rounded-organic bg-parchment hover:bg-gold/20 transition-colors focus-visible-ring"
+            className="p-2 rounded-organic bg-parchment/90 hover:bg-parchment transition-colors focus-visible-ring"
             aria-label="Previous scripture"
           >
             <svg
@@ -110,7 +110,7 @@ export default function ScriptureCarousel({
           {!prefersReducedMotion && (
             <button
               onClick={() => setIsPaused(!isPaused)}
-              className="p-2 rounded-organic bg-parchment hover:bg-gold/20 transition-colors focus-visible-ring"
+              className="p-2 rounded-organic bg-parchment/90 hover:bg-parchment transition-colors focus-visible-ring"
               aria-label={isPaused ? 'Resume autoplay' : 'Pause autoplay'}
             >
               {isPaused ? (
@@ -137,7 +137,7 @@ export default function ScriptureCarousel({
 
           <button
             onClick={goToNext}
-            className="p-2 rounded-organic bg-parchment hover:bg-gold/20 transition-colors focus-visible-ring"
+            className="p-2 rounded-organic bg-parchment/90 hover:bg-parchment transition-colors focus-visible-ring"
             aria-label="Next scripture"
           >
             <svg
@@ -166,7 +166,7 @@ export default function ScriptureCarousel({
               className={`w-2 h-2 rounded-full transition-all focus-visible-ring ${
                 index === currentIndex
                   ? 'bg-gold w-8'
-                  : 'bg-charcoal/30 hover:bg-charcoal/50'
+                  : 'bg-parchment/40 hover:bg-parchment/60'
               }`}
               aria-label={`View ${waypoint.verse}`}
               aria-selected={index === currentIndex}
