@@ -1,3 +1,10 @@
+---
+title: Scripture and Quote Collection
+category: quotes
+description: Curated collection of Scripture passages and quotes aligned with poetic knowledge and Catholic formation
+tags: [scripture, Knox-Bible, quotes, wisdom]
+---
+
 ## Scripture Passages Aligned with Core Philosophy
 
 Drawing from the Knox translation of the Bible (as accessed and verified through online sources), the following passages have been selected for their resonance with the project's guiding principles. These principles, rooted in prayer and Scripture, emphasize poetic knowledge as an intuitive, connatural mode of apprehension through wonder, senses, and imagination; narrative immersion and natural exploration; moral and spiritual formation in Catholic tradition; developmental stages (e.g., nursery repose, gymnasium adventure for resilience); liturgical rhythm and repose; physical discipline; and poetic foundations for wisdom and science. Each excerpt includes the full relevant text in the Knox translation, followed by a brief annotation linking it to the North Star's themes. Passages are organized thematically for clarity, focusing on creation and wonder, child formation and innocence, repose and spiritual ascent, and wisdom through nature.

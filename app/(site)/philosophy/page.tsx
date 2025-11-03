@@ -6,7 +6,12 @@ import CTAButton from '@/components/CTAButton';
 import OptimizedImage from '@/components/OptimizedImage';
 import { Accordion, AccordionItem } from '@/components/Accordion';
 import { getQuotesBySource } from '@/lib/content';
-import { getRandomAsset } from '@/lib/assets';
+import { getAxiomsQuotesBySection } from '@/lib/content/axioms';
+import { getRandomAssetFromFolder } from '@/lib/assets';
+import RotatingQuotes from '@/components/RotatingQuotes';
+import ResourceTeaser from '@/components/ResourceTeaser';
+import EssentialTextsGrid from '@/components/EssentialTextsGrid';
+import { getTextTeaser } from '@/lib/content/teasers';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -24,37 +29,79 @@ export const metadata: Metadata = {
 };
 
 export default async function PhilosophyPage() {
-  const quotes = await getQuotesBySource();
   const scriptureQuotes = await getQuotesBySource('Knox');
 
-  // Get featured quote for philosophy
-  const featuredQuote = quotes.find((q) => q.id === 'mythopoeia-law');
+  // Get foundational wisdom quotes for hero section - provide all for rotating display
+  const foundationalQuotes = await getAxiomsQuotesBySection('Quote Bank: Foundational Wisdom');
   
   // Get a random hero image for visual interest (manuscript or classical art)
-  const heroAsset = getRandomAsset({ 
-    category: 'beauty', 
-    tags: ['illuminated-manuscript', 'sacred-art'] 
-  });
+  const heroAsset = getRandomAssetFromFolder('sacred-texts');
+
+  // Get teasers for resource lists
+  const booksTeaser = await getTextTeaser('Book-Suggestions-by-Stage', 'THE NURSERY', 5);
+  const mediaTeaser = await getTextTeaser('Media-Suggestions', 'Adventure & Heroism', 5);
+  const musicTeaser = await getTextTeaser('Music-Recommendations', 'Beginner-Friendly Classical Works', 5);
+  const artTeaser = await getTextTeaser('Art-Suggestions', 'Book Illustrators', 5);
+
+  // Essential texts for grid display
+  const essentialTexts = [
+    {
+      slug: 'integrated_humanities_lecture',
+      title: 'Integrated Humanities Lecture',
+      author: 'Dr. Dennis Quinn & Dr. Frank Nelick',
+      description: "The IHP lecture laying out Senior's educational philosophy in action - practical, succinct, and essential for understanding the gymnasium stage.",
+      tags: ['philosophy', 'education', 'poetic-knowledge'],
+    },
+    {
+      slug: '1927-GK-Chesterton-The-Outline-of-Sanity',
+      title: 'The Outline of Sanity',
+      author: 'G.K. Chesterton',
+      description: "Chesterton's defense of distributism and cultural sanity against modern mechanization and concentration.",
+      tags: ['distributism', 'culture', 'sanity'],
+    },
+    {
+      slug: 'Boethius%20the%20Consolation%20of%20Philosophy',
+      title: 'The Consolation of Philosophy',
+      author: 'Boethius',
+      description: 'Medieval masterwork blending philosophy and poetry to explore providence, fortune, and true happiness.',
+      tags: ['philosophy', 'medieval', 'providence'],
+    },
+    {
+      slug: 'Mythopoeia',
+      title: 'Mythopoeia',
+      author: 'J.R.R. Tolkien',
+      description: "Tolkien's poem defending myth-making and imaginative sub-creation as participation in truth.",
+      tags: ['myth', 'imagination', 'poetry'],
+    },
+    {
+      slug: 'Essential-Texts-Reading-List',
+      title: 'Essential Texts Reading List',
+      description: 'Curated guide to foundational texts exploring Senior\'s philosophy and Catholic intellectual tradition.',
+      tags: ['reading-list', 'philosophy', 'resources'],
+    },
+  ];
 
   return (
     <>
-      {/* Hero Section with Background Image */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      {/* Hero Section with Full-Width Image */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {heroAsset && (
           <>
-            <div className="absolute inset-0 z-0">
-              <OptimizedImage
-                asset={heroAsset}
-                alt="Illuminated manuscript symbolizing poetic knowledge"
-                showCaption={false}
-                fill={true}
-                objectFit="cover"
-                sizes="100vw"
-                priority
-                className="w-full h-full"
-              />
+            <div className="absolute inset-0 z-0 overflow-hidden">
+              <div className="hero-image-pan absolute inset-0 w-full" style={{ height: '120vh' }}>
+                <OptimizedImage
+                  asset={heroAsset}
+                  alt="Illuminated manuscript symbolizing poetic knowledge"
+                  showCaption={false}
+                  fill={true}
+                  objectFit="cover"
+                  sizes="100vw"
+                  priority
+                  className="w-full h-full"
+                />
+              </div>
             </div>
-            <div className="absolute inset-0 z-[1] bg-gradient-to-b from-charcoal/70 via-charcoal/65 to-charcoal/60"></div>
+            <div className="absolute inset-0 z-[1] bg-gradient-to-b from-charcoal/40 via-charcoal/30 to-charcoal/60"></div>
           </>
         )}
 
@@ -63,35 +110,9 @@ export default async function PhilosophyPage() {
             Philosophy & Resources
           </SectionHeading>
 
-          {featuredQuote && (
-            <div className="mt-8">
-              <blockquote className="text-center space-y-6">
-                <p className="text-2xl md:text-3xl font-playfair italic text-white leading-relaxed [text-shadow:_0_2px_8px_rgb(0_0_0_/_80%)]">
-                  "{featuredQuote.quote}"
-                </p>
-                <footer className="text-lg text-parchment/95 [text-shadow:_0_1px_4px_rgb(0_0_0_/_60%)]">
-                  <cite className="not-italic">— {featuredQuote.author}</cite>
-                  {featuredQuote.source && (
-                    <span className="block text-sm mt-2 text-parchment/90">({featuredQuote.source})</span>
-                  )}
-                </footer>
-              </blockquote>
-            </div>
+          {foundationalQuotes && foundationalQuotes.length > 0 && (
+            <RotatingQuotes quotes={foundationalQuotes} autoplay={false} />
           )}
-
-          <div className="mt-8 text-center max-w-3xl mx-auto">
-            <p className="text-xl md:text-2xl leading-relaxed text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_75%)]">
-              The educational vision of Dr. John Senior begins with{' '}
-              <strong className="text-parchment">wonder</strong>, progresses
-              through{' '}
-              <strong className="text-parchment">
-                physical discipline and adventure
-              </strong>
-              , and nurtures the soul's ascent to{' '}
-              <strong className="text-parchment">wisdom</strong> — all rooted
-              in Catholic faith and the poetic mode of knowing.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -136,22 +157,21 @@ export default async function PhilosophyPage() {
                     alt="Natural wonder"
                     showCaption={false}
                     fill={true}
-                    objectFit="contain"
+                    objectFit="cover"
                     className="h-full w-full"
-                    imageClassName="object-contain"
                   />
                 </div>
               </div>
             </div>
           </AccordionItem>
 
-          <AccordionItem value="physical-discipline" title="Physical Discipline & Adventure">
+          <AccordionItem value="physical-discipline" title="Adventure, Story, & Physical Discipline">
             <div className="grid md:grid-cols-2 gap-8 items-start">
               <div className="space-y-6">
                 <p className="text-lg leading-relaxed text-charcoal/90">
                   The gymnasium stage (ages 7-13) emphasizes bodily rigor, outdoor
-                  challenges, and experiential learning to form resilient "warrior
-                  poets." Through sports, liturgical hikes, and benevolent neglect,
+                  challenges, and experiential learning to form resilient "Chivalric
+                  Wayfarers." Through sports, liturgical life, and benevolent neglect,
                   boys especially develop physical toughness alongside spiritual
                   formation.
                 </p>
@@ -179,9 +199,8 @@ export default async function PhilosophyPage() {
                     alt="Adventure and courage"
                     showCaption={false}
                     fill={true}
-                    objectFit="contain"
+                    objectFit="cover"
                     className="h-full w-full"
-                    imageClassName="object-contain"
                   />
                 </div>
               </div>
@@ -220,9 +239,8 @@ export default async function PhilosophyPage() {
                     alt="Wonder and contemplation"
                     showCaption={false}
                     fill={true}
-                    objectFit="contain"
+                    objectFit="cover"
                     className="h-full w-full"
-                    imageClassName="object-contain"
                   />
                 </div>
               </div>
@@ -259,9 +277,8 @@ export default async function PhilosophyPage() {
                     alt="The enclosed garden"
                     showCaption={false}
                     fill={true}
-                    objectFit="contain"
+                    objectFit="cover"
                     className="h-full w-full"
-                    imageClassName="object-contain"
                   />
                 </div>
               </div>
@@ -296,7 +313,7 @@ export default async function PhilosophyPage() {
       <section className="py-16 bg-parchment/30">
         <ContentContainer width="wide">
           <SectionHeading level={2} align="center" className="mb-12">
-            Scripture Anchors
+            Scriptural Anchors
           </SectionHeading>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -311,11 +328,77 @@ export default async function PhilosophyPage() {
             ))}
           </div>
 
-          <p className="text-center text-base text-charcoal/60 mt-10 italic max-w-3xl mx-auto">
-            These verses guide our three user flows: school consideration
-            (Ephesians 6:4), home application (Proverbs 22:6), and founding
-            inspiration (Matthew 11:28).
+        </ContentContainer>
+      </section>
+
+      {/* Resources & Lists Section */}
+      <section id="resources" className="py-20 bg-white">
+        <ContentContainer width="wide">
+          <SectionHeading level={2} align="center" className="mb-8">
+            Resources & Lists
+          </SectionHeading>
+          
+          <p className="text-center text-xl text-charcoal/70 mb-12 max-w-3xl mx-auto leading-relaxed">
+            Curated recommendations for books, media, music, and art to support poetic formation. 
+            Each list offers a sampling here with full resources available to view or download.
           </p>
+
+          {/* Resource Teasers Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {booksTeaser && (
+              <ResourceTeaser
+                title="Book Suggestions by Developmental Stage"
+                description="A curated reading list organized by developmental stages, emphasizing imaginative literature"
+                items={booksTeaser.items}
+                fullListUrl="/texts/Book-Suggestions-by-Stage"
+                icon="📚"
+              />
+            )}
+            
+            {mediaTeaser && (
+              <ResourceTeaser
+                title="Media Suggestions"
+                description="Films and shows embodying wonder, adventure, and virtue"
+                items={mediaTeaser.items}
+                fullListUrl="/texts/Media-Suggestions"
+                icon="🎬"
+              />
+            )}
+            
+            {musicTeaser && (
+              <ResourceTeaser
+                title="Music Recommendations"
+                description="Classical, liturgical, and folk music for cultivating beauty"
+                items={musicTeaser.items}
+                fullListUrl="/texts/Music-Recommendations"
+                icon="🎵"
+              />
+            )}
+            
+            {artTeaser && (
+              <ResourceTeaser
+                title="Art Suggestions"
+                description="Visual art and artists for wonder-filled formation"
+                items={artTeaser.items}
+                fullListUrl="/texts/Art-Suggestions"
+                icon="🎨"
+              />
+            )}
+          </div>
+
+          {/* Essential Texts */}
+          <div className="mt-16 pt-16 border-t-2 border-charcoal/10">
+            <SectionHeading level={3} align="center" className="mb-8">
+              Essential Texts for Further Study
+            </SectionHeading>
+            
+            <p className="text-center text-lg text-charcoal/70 mb-12 max-w-2xl mx-auto leading-relaxed">
+              Explore the foundational philosophical texts and excerpts behind this educational vision. 
+              Read John Senior, Chesterton, Tolkien, and medieval sources to deepen your understanding.
+            </p>
+
+            <EssentialTextsGrid texts={essentialTexts} />
+          </div>
         </ContentContainer>
       </section>
 
@@ -327,15 +410,15 @@ export default async function PhilosophyPage() {
               Explore Further
             </SectionHeading>
             <p className="text-xl md:text-2xl leading-relaxed text-charcoal/80 max-w-2xl mx-auto">
-              Dive deeper into book lists, excerpts from Senior and companions,
-              and resources for adapting this philosophy to your context.
+              Connect with schools embodying this philosophy, discover ways to engage in your community,
+              and access the full resource library above.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center pt-4">
-              <CTAButton href="/home-application" variant="primary" size="lg">
-                Resources for Families
+              <CTAButton href="/engage" variant="primary" size="lg">
+                Engage & Connect
               </CTAButton>
-              <CTAButton href="/join-found" variant="outline" size="lg">
-                Guidance for Founders
+              <CTAButton href="/schools" variant="outline" size="lg">
+                Explore Schools
               </CTAButton>
             </div>
           </div>

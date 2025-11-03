@@ -1,11 +1,21 @@
 import { getScriptureWaypoints } from '@/lib/content';
 import ScriptureCarousel from './ScriptureCarousel';
+import OptimizedImage from './OptimizedImage';
 
 export default async function FooterContent() {
   const scriptureWaypoints = await getScriptureWaypoints();
 
   return (
     <>
+      {/* Logo */}
+      <div className="text-center mb-8">
+        <OptimizedImage
+          assetId="ssn-logo"
+          imageClassName="h-48 w-auto mx-auto"
+          alt="Senior Schools Network"
+        />
+      </div>
+
       {/* Scripture Waypoints Carousel */}
       <div className="mb-8">
         <h2 className="text-xl font-playfair text-gold mb-6 text-center">

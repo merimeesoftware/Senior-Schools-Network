@@ -20,7 +20,7 @@ import type {
 import { getAllQuotes } from '@/lib/content/quotes';
 
 // Paths
-const CONTENT_DIR = path.join(process.cwd(), 'content');
+const CONTENT_DIR = path.join(process.cwd(), 'public');
 const TEXTS_DIR = path.join(CONTENT_DIR, 'texts');
 
 // Cache for memoization

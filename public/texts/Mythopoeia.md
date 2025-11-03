@@ -1,3 +1,11 @@
+---
+title: Mythopoeia
+author: J.R.R. Tolkien
+category: philosophy
+description: Tolkien's poem defending myth-making and imaginative sub-creation as participation in truth
+tags: [myth, imagination, sub-creation, fairy-tales, poetry]
+---
+
 # MYTHOPOEIA
 
 _J.R.R. Tolkien_

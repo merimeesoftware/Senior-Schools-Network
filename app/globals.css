@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Vertical pan animation for hero images - reveals full image over time */
+@keyframes vertical-pan {
+  0% {
+    transform: translateY(-15%);
+  }
+  100% {
+    transform: translateY(10%);
+  }
+}
+
 @layer base {
   body {
     @apply bg-parchment text-charcoal font-merriweather;
@@ -29,6 +39,33 @@
 }
 
 @layer components {
+  /* Vertical pan animation for hero images - animates transform to reveal full image */
+  .hero-image-pan {
+    animation: vertical-pan 30s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  /* Ensure images inside maintain proper aspect ratio */
+  .hero-image-pan img {
+    object-fit: cover !important;
+  }
+
+  /* Pause animation on reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-image-pan {
+      animation: none;
+      transform: none;
+    }
+  }
+
+  /* Disable animation on mobile for performance */
+  @media (max-width: 768px) {
+    .hero-image-pan {
+      animation: none;
+      transform: none;
+    }
+  }
+
   /* Accessible screen-reader-only helper (reveal on focus handled inline) */
   .sr-only {
     position: absolute !important;

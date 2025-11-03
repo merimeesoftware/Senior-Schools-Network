@@ -35,6 +35,53 @@ export interface ImageAsset {
  * Organized by thematic collections aligned with philosophical axioms
  */
 
+// Sacred Texts: Illuminated Manuscripts and Scripture Art
+const sacredTexts: ImageAsset[] = [
+  {
+    id: 'sacred-book-of-kells-1',
+    src: '/images/sacred-texts/book-of-kells-1.webp',
+    alt: 'Illuminated manuscript page from the Book of Kells showing intricate Celtic knotwork and vivid pigments',
+    caption: 'Book of Kells: Wonder made visible through sacred artistry',
+    stage: 'nursery',
+    category: 'beauty',
+    tags: ['illuminated-manuscript', 'celtic', 'sacred-art', 'book-of-kells'],
+    quoteRef: 'wonder-wisdom',
+  },
+  {
+    id: 'sacred-book-of-kells-2',
+    src: '/images/sacred-texts/book-of-kells-2.webp',
+    alt: 'Book of Kells detail featuring ornate initial letter with gold leaf and intricate patterns',
+    caption: 'The beauty of holiness rendered in pigment and gold',
+    stage: 'nursery',
+    category: 'beauty',
+    tags: ['illuminated-manuscript', 'celtic', 'sacred-art', 'book-of-kells'],
+  },
+  {
+    id: 'sacred-book-of-kells-3',
+    src: '/images/sacred-texts/book-of-kells-3.webp',
+    alt: 'Book of Kells page showing elaborate decorative borders and illuminated text',
+    stage: 'nursery',
+    category: 'beauty',
+    tags: ['illuminated-manuscript', 'celtic', 'sacred-art', 'book-of-kells'],
+  },
+  {
+    id: 'sacred-book-of-kells-illuminated',
+    src: '/images/sacred-texts/book-of-kells-illuminated-manuscript.webp',
+    alt: 'Full illuminated page from Book of Kells with vibrant colors and complex geometric patterns',
+    stage: 'nursery',
+    category: 'beauty',
+    tags: ['illuminated-manuscript', 'celtic', 'sacred-art', 'book-of-kells'],
+  },
+  {
+    id: 'sacred-book-of-kells-ireland',
+    src: '/images/sacred-texts/book-of-kells-ireland.webp',
+    alt: 'Book of Kells manuscript detail showcasing Irish monastic craftsmanship',
+    stage: 'nursery',
+    category: 'beauty',
+    tags: ['illuminated-manuscript', 'celtic', 'sacred-art', 'book-of-kells', 'ireland'],
+  },
+];
+
 // Sacred Art & Illuminated Manuscripts
 const sacredArt: ImageAsset[] = [
   {
@@ -431,10 +478,31 @@ const adventure: ImageAsset[] = [
   },
 ];
 
+// Logos and Branding
+const logos: ImageAsset[] = [
+  {
+    id: 'ssn-logo',
+    src: '/assets/logos/Senior School Network Logo.png',
+    alt: 'Senior Schools Network logo',
+    width: 400, // Placeholder, adjust as needed
+    height: 100, // Placeholder, adjust as needed
+    tags: ['logo', 'branding'],
+  },
+  {
+    id: 'ssn-favicon',
+    src: '/assets/logos/Senior School Network Favicon.png',
+    alt: 'Senior Schools Network favicon',
+    width: 32, // Placeholder
+    height: 32, // Placeholder
+    tags: ['favicon', 'branding'],
+  },
+];
+
 /**
  * MASTER IMAGE REGISTRY
  */
 export const imageAssets: ImageAsset[] = [
+  ...sacredTexts,
   ...sacredArt,
   ...beatrixPotter,
   ...landscapes,
@@ -443,6 +511,7 @@ export const imageAssets: ImageAsset[] = [
   ...robinHood,
   ...winnieThePooh,
   ...adventure,
+  ...logos,
 ];
 
 /**
@@ -504,6 +573,18 @@ export function getRandomAsset(
     );
   }
 
+  if (pool.length === 0) return undefined;
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+/**
+ * Get random asset from a specific folder (simplest approach for page-level image selection)
+ * @param folderName - The folder name under /public/images/ (e.g., 'landscapes', 'art-sacred')
+ */
+export function getRandomAssetFromFolder(folderName: string): ImageAsset | undefined {
+  const folderPath = `/images/${folderName}/`;
+  const pool = imageAssets.filter((asset) => asset.src.startsWith(folderPath));
+  
   if (pool.length === 0) return undefined;
   return pool[Math.floor(Math.random() * pool.length)];
 }

@@ -50,8 +50,10 @@ If conflicts arise, prefer: README.md (north star) > technical.md > roadmap.md >
 
 - Do: keep changes small, traceable, cross-referenced to sources.
 - Do: add acceptance criteria to new tasks.
+- Do: prioritize simplicity and efficiency; build quickly then pare down to eliminate waste.
 - Don’t: introduce Next.js/Tailwind or CI pipelines in Phase 1 outputs.
 - Don’t: add analytics, tracking, or forms.
+- Don’t: add layers or code without first evaluating simpler, more elegant alternatives.
 
 ## Review Checklist for Agents
 
@@ -59,6 +61,7 @@ If conflicts arise, prefer: README.md (north star) > technical.md > roadmap.md >
 - Non-prescriptive: Promotes and connects; avoids mandating curricula.
 - Traceability: Quotes/ideas mapped to repository sources.
 - Simplicity: Minimal and comprehensible for Phase 1.
+- Simplicity and Efficiency: Solutions are efficient, minimal, and free of unnecessary layers or waste.
 
 ## Future Phases (Reference Only)
 
@@ -70,6 +73,7 @@ If conflicts arise, prefer: README.md (north star) > technical.md > roadmap.md >
 - Content Grounding: Always reference uploaded documents/Scripture; use tables for lists.
 - Organic Focus: Promote flexibility; avoid schemas—emphasize educators over structures, with calls to gymnasium restoration (physical resilience, adventure) and home adaptations (e.g., nature walks, book lists).
 - Catholic Fidelity: Ensure exclusivity; tie to faith (e.g., liturgical rhythm).
+- Simplicity and Efficiency: Strive for the simplest and most efficient solutions. Build quickly, then pare down to eliminate waste and superfluous elements. Less is often more. Inspired by SpaceX's approach of rapid prototyping followed by ruthless simplification.
 
 ## Guardrails (Constraints)
 
@@ -77,5 +81,6 @@ If conflicts arise, prefer: README.md (north star) > technical.md > roadmap.md >
 - AI Optimization: Use prompt loop for cleanup; reject misaligned outputs.
 - Tech Adherence: Follow technical.md; simple, accessible design.
 - Scope: Focus on network promotion; exclude user's prototype school. Highlight gymnasium gaps in modern education and homeschool strengths without prescribing; tie to user flows for narrative engagement (e.g., founding inspiration, personal application).
+- Simplicity and Efficiency: Always strive for simplicity and efficiency. Look for waste and superfluous elements to eliminate. Employ rapid prototyping followed by paring down for the most effective, efficient, and beautifully simple solutions. Prevent "loosey goosey" sessions by prioritizing elegance and evaluating simpler alternatives before adding layers or code.
 
 Embed these in all prompts as prefixes.

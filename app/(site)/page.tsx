@@ -4,7 +4,7 @@ import ContentContainer from '@/components/ContentContainer';
 import InteractiveStages from '@/components/InteractiveStages';
 import { getQuotesBySource } from '@/lib/content';
 import OptimizedImage from '@/components/OptimizedImage';
-import { getRandomAsset } from '@/lib/assets';
+import { getRandomAssetFromFolder } from '@/lib/assets';
 import type { Metadata } from 'next';
 import RotatingQuotes from '@/components/RotatingQuotes';
 import { getAxiomsQuotesBySection } from '@/lib/content/axioms';
@@ -26,11 +26,11 @@ export const metadata: Metadata = {
 export default async function HomePage() {
   const quotes = await getQuotesBySource();
   // Choose curated section from PHILOSOPHICAL-AXIOMS.md for THIS page
-  const axiomsHeroQuotes = await getAxiomsQuotesBySection('On Wonder & Beginnings');
+  const axiomsHeroQuotes = await getAxiomsQuotesBySection('Quote Bank: Sense and Story');
 
   const heroQuote = quotes.find((q) => q.id === 'wonder-wisdom');
   const legendMakersQuote = quotes.find((q) => q.id === 'mythopoeia-legend-makers');
-  const heroAsset = getRandomAsset({ category: 'beauty', tags: ['hudson-river-school', 'landscape'] });
+  const heroAsset = getRandomAssetFromFolder('landscapes');
   // Provide all curated quotes to a tiny client component that picks one once per load
   let heroQuotesDisplayed = [] as typeof axiomsHeroQuotes;
   if (axiomsHeroQuotes?.length) {
@@ -42,10 +42,10 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero Section with Full-Width Image */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {heroAsset && (
           <>
-            <div className="absolute inset-0 z-0">
+            <div className="hero-image-pan absolute inset-0 z-0 w-full" style={{ height: '120vh' }}>
               <OptimizedImage
                 asset={heroAsset}
                 alt="Classical landscape evoking wonder"
@@ -60,7 +60,7 @@ export default async function HomePage() {
             <div className="absolute inset-0 z-[1] bg-gradient-to-b from-charcoal/40 via-charcoal/30 to-parchment"></div>
           </>
         )}
-        
+
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
           {heroQuotesDisplayed.length > 0 && (
             <RotatingQuotes quotes={heroQuotesDisplayed} autoplay={false} />
@@ -80,13 +80,12 @@ export default async function HomePage() {
       <section className="py-20 bg-parchment">
         <ContentContainer width="narrow">
           <div className="text-center space-y-8">
-            <p className="text-2xl md:text-3xl font-playfair leading-relaxed text-forest">
-              A loose affiliation of schools embodying{' '}
-              <span className="italic">poetic knowledge</span>,{' '}
-              <span className="italic">sensory-based learning</span>, and{' '}
-              <span className="italic">spiritual formation</span>{' '}
-              the restorational vision of{' '}
-              <span className="font-semibold">Dr. John Senior and the IHP</span>.
+            <p className="text-xl md:text-2xl leading-relaxed text-forest">
+              The educational vision of Dr. John Senior begins with{' '}
+              <strong>wonder</strong>, progresses through{' '}
+              <strong>physical discipline and adventure</strong>, and nurtures
+              the soul's ascent to <strong>wisdom</strong> — all rooted in a
+              liturgical rhythm and the poetic mode of knowing.
             </p>
           </div>
         </ContentContainer>
@@ -118,38 +117,38 @@ export default async function HomePage() {
               </div>
             </Link>
 
-            <Link href="/home-application" className="group block">
+            <Link href="/philosophy" className="group block">
               <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg">
-                <div className="text-6xl mb-4">🏡</div>
+                <div className="text-6xl mb-4">📚</div>
                 <h3 className="text-2xl font-playfair text-forest group-hover:text-gold transition-colors">
-                  Homeschooling
+                  Philosophy & Resources
                 </h3>
                 <p className="text-lg leading-relaxed text-charcoal/80">
-                  Access guides, book lists, and family adventure ideas for bringing Senior's vision into your home education.
+                  Explore Dr. John Senior's vision of poetic knowledge, access book lists, and find resources for each developmental stage.
                 </p>
                 <p className="text-sm italic text-charcoal/60 border-t border-charcoal/20 pt-4">
                   Proverbs 22:6 - "Train up a child in the way he should go"
                 </p>
                 <span className="inline-block text-gold font-lato font-semibold group-hover:translate-x-2 transition-transform">
-                  Get Resources →
+                  Explore Resources →
                 </span>
               </div>
             </Link>
 
-            <Link href="/join-found" className="group block">
+            <Link href="/engage" className="group block">
               <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg">
                 <div className="text-6xl mb-4">🌱</div>
                 <h3 className="text-2xl font-playfair text-forest group-hover:text-gold transition-colors">
-                  Personal Education
+                  Engage & Connect
                 </h3>
                 <p className="text-lg leading-relaxed text-charcoal/80">
-                  Access the Founder's Toolkit and receive informal guidance for starting a school aligned with Senior's principles.
+                  Submit your school to the network, reflect on the gymnasium gap, and find inspiration to carry these ideas forward.
                 </p>
                 <p className="text-sm italic text-charcoal/60 border-t border-charcoal/20 pt-4">
                   Matthew 11:28 - "Come to me... and I will refresh you"
                 </p>
                 <span className="inline-block text-gold font-lato font-semibold group-hover:translate-x-2 transition-transform">
-                  Start a School →
+                  Get Involved →
                 </span>
               </div>
             </Link>
@@ -207,8 +206,8 @@ export default async function HomePage() {
               <CTAButton href="/schools" variant="primary" size="lg">
                 Find a School
               </CTAButton>
-              <CTAButton href="/philosophy" variant="outline" size="lg">
-                Explore Philosophy
+              <CTAButton href="/engage" variant="outline" size="lg">
+                Engage with Network
               </CTAButton>
             </div>
           </div>

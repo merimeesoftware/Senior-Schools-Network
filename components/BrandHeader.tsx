@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import OptimizedImage from './OptimizedImage';
 
 interface BrandHeaderProps {
   variant?: 'default' | 'compact';
@@ -26,6 +27,12 @@ export default function BrandHeader({
         href="/"
         className="inline-block group focus-visible-ring rounded-lg p-2"
       >
+        <OptimizedImage
+          assetId="ssn-logo"
+          className="mx-auto mb-2"
+          imageClassName="h-16 md:h-20 w-auto"
+          priority
+        />
         <h1 className="text-4xl md:text-5xl font-playfair text-forest group-hover:text-forest-dark transition-colors mb-2">
           Senior Schools Network
         </h1>

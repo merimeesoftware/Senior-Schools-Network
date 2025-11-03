@@ -5,6 +5,7 @@ import CTAButton from '@/components/CTAButton';
 import SchoolsFilter from '@/components/SchoolsFilter';
 import type { School } from '@/components/SchoolsFilter';
 import { getQuotesBySource } from '@/lib/content';
+import { SCHOOLS } from '@/lib/content/schools';
 import OptimizedImage from '@/components/OptimizedImage';
 import { getRandomAsset } from '@/lib/assets';
 import type { Metadata } from 'next';
@@ -22,37 +23,6 @@ export const metadata: Metadata = {
     images: [{ url: '/og-image-enclosed-garden.jpg', width: 1200, height: 630 }],
   },
 };
-
-// Mock school data (placeholder until real dataset available)
-const MOCK_SCHOOLS: School[] = [
-  {
-    id: 'school-1',
-    name: 'Example Classical Academy',
-    location: 'Placeholder City, State',
-    stages: ['gymnasium', 'poetic'] as const,
-    type: 'High School Boarding',
-    description:
-      'A placeholder school emphasizing physical discipline, adventure, and classical formation for ages 13-18.',
-  },
-  {
-    id: 'school-2',
-    name: 'St. Joseph Gymnasium',
-    location: 'Placeholder Town, State',
-    stages: ['gymnasium'] as const,
-    type: 'Gymnasium (Ages 7-13)',
-    description:
-      'Focused exclusively on the gymnasium stage, forming resilient Chivalric Wayfarers through outdoor adventure and liturgical rhythms.',
-  },
-  {
-    id: 'school-3',
-    name: 'Our Lady of Wonder College',
-    location: 'Placeholder Region, State',
-    stages: ['poetic', 'spiritual'] as const,
-    type: 'Liberal Arts College',
-    description:
-      'Poetic foundations for scientific and spiritual pursuits, integrating wonder with disciplined inquiry.',
-  },
-];
 
 export default async function SchoolsPage() {
   const scriptureQuotes = await getQuotesBySource('Knox');
@@ -106,7 +76,7 @@ export default async function SchoolsPage() {
       </section>
 
       {/* Filter Section & School Listings */}
-      <SchoolsFilter schools={MOCK_SCHOOLS} />
+      <SchoolsFilter schools={SCHOOLS as unknown as School[]} />
 
       {/* Application CTA */}
       <section className="bg-spiritual/10 py-section-sm">
@@ -121,8 +91,8 @@ export default async function SchoolsPage() {
               affiliation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <CTAButton href="/contact" variant="primary" size="lg">
-                Apply to Affiliate
+              <CTAButton href="/engage" variant="primary" size="lg">
+                Engage & Connect
               </CTAButton>
               <CTAButton href="/philosophy" variant="outline" size="lg">
                 Review Philosophy

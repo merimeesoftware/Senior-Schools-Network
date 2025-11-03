@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import OptimizedImage from './OptimizedImage';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,26 +11,26 @@ export default function Navigation() {
     { href: '/', label: 'Home' },
     { href: '/philosophy', label: 'Philosophy & Resources' },
     { href: '/schools', label: 'Schools Network' },
-    { href: '/home-application', label: 'Home Application' },
-    { href: '/join-found', label: 'Join/Found' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/engage', label: 'Engage' },
   ];
 
   return (
     <nav
-      className="bg-forest text-parchment-light shadow-organic-lg sticky top-0 z-50"
+      className="bg-forest/30 text-parchment-light shadow-organic-lg absolute top-0 left-0 right-0 z-50 backdrop-blur-md"
       role="navigation"
       aria-label="Main navigation"
     >
       <div className="section-container">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            <Link
-              href="/"
-              className="text-2xl font-playfair text-gold hover:text-gold-light transition-colors focus-visible-ring rounded px-2 py-1"
-            >
-              Senior Schools Network
-            </Link>
+        <div className="flex justify-between h-24 items-center">
+          <div className="flex items-center gap-3">
+            <OptimizedImage
+              assetId="ssn-logo"
+              imageClassName="h-16 w-auto"
+              alt="The Senior School Network"
+            />
+            <span className="font-playfair text-xl text-parchment-light hidden sm:inline">
+              The Senior School Network
+            </span>
           </div>
 
           {/* Desktop Navigation */}
@@ -38,7 +39,7 @@ export default function Navigation() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="font-lato text-parchment hover:text-gold hover:bg-forest-dark transition-colors px-3 py-2 rounded-md text-sm focus-visible-ring"
+                className="font-lato text-parchment hover:text-gold hover:bg-forest-dark transition-colors px-4 py-2 rounded-md text-base focus-visible-ring"
               >
                 {item.label}
               </Link>

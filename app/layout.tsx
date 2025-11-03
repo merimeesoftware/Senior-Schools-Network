@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     images: ['/og-image-enclosed-garden.jpg'],
   },
   icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    icon: '/assets/logos/Senior School Network Favicon.png',
   },
   robots: {
     index: true,

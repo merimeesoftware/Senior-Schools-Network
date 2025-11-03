@@ -4,6 +4,7 @@ import { useState } from 'react';
 import StageBadge from './StageBadge';
 import CTAButton from './CTAButton';
 import type { Stage } from '@/lib/types/content';
+import Image from 'next/image';
 
 export interface School {
   id: string;
@@ -12,6 +13,11 @@ export interface School {
   stages: readonly Stage[];
   type: string;
   description: string;
+  website?: string;
+  admissionsLink?: string;
+  supportLink?: string;
+  faith?: string[];
+  logoPath?: string;
 }
 
 interface SchoolsFilterProps {
@@ -106,31 +112,87 @@ export default function SchoolsFilter({ schools }: SchoolsFilterProps) {
           <div className="grid grid-cols-1 gap-8">
             {filteredSchools.map((school) => (
               <div key={school.id} className="card-elevated">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                  <div>
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-4">
+                  {/* Logo Section */}
+                  <div className="md:w-32 flex-shrink-0">
+                    <div className="relative w-full aspect-square bg-parchment-dark rounded-organic border-2 border-gold/20 flex items-center justify-center overflow-hidden">
+                      {school.logoPath ? (
+                        <Image
+                          src={`/assets/logos/schools/${school.logoPath}`}
+                          alt={`${school.name} crest`}
+                          fill
+                          className="object-contain p-2"
+                          onError={(e) => {
+                            // Fallback if image doesn't exist
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                          }}
+                        />
+                      ) : null}
+                      <span className="text-xs text-charcoal/30 text-center px-2">
+                        {school.name.split(' ').slice(0, 2).join(' ')}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Info Section */}
+                  <div className="flex-1">
                     <h3 className="text-heading-3 font-playfair text-forest mb-2">
                       {school.name}
                     </h3>
-                    <p className="text-body-sm text-charcoal/70">
-                      {school.location} • {school.type}
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {school.stages.map((stage) => (
-                      <StageBadge key={stage} stage={stage} size="sm" />
-                    ))}
+                    <div className="space-y-1 mb-4">
+                      <p className="text-body-sm text-charcoal/70">
+                        {school.location} • {school.type}
+                      </p>
+                      {school.faith && school.faith.length > 0 && (
+                        <p className="text-body-sm text-charcoal/60 italic">
+                          {school.faith.join(', ')}
+                        </p>
+                      )}
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {school.stages.map((stage) => (
+                        <StageBadge key={stage} stage={stage} size="sm" />
+                      ))}
+                    </div>
                   </div>
                 </div>
+
                 <p className="text-body leading-relaxed mb-6">
                   {school.description}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <CTAButton href="#" variant="primary" size="md">
-                    Inquire About Enrollment
-                  </CTAButton>
-                  <CTAButton href="#" variant="outline" size="md">
-                    View School Details
-                  </CTAButton>
+
+                <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
+                  {school.website && (
+                    <a
+                      href={school.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary text-sm"
+                    >
+                      Visit Website
+                    </a>
+                  )}
+                  {school.admissionsLink && (
+                    <a
+                      href={school.admissionsLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-outline text-sm"
+                    >
+                      Admissions
+                    </a>
+                  )}
+                  {school.supportLink && (
+                    <a
+                      href={school.supportLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-outline text-sm"
+                    >
+                      Support
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
@@ -148,7 +210,7 @@ export default function SchoolsFilter({ schools }: SchoolsFilterProps) {
             formation.
           </p>
           <div className="text-center">
-            <CTAButton href="/join-found" variant="primary" size="lg">
+            <CTAButton href="/philosophy#resources" variant="primary" size="lg">
               Explore Founding Resources
             </CTAButton>
           </div>

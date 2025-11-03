@@ -8,8 +8,10 @@ export default function SiteLayout({
 }>) {
   return (
     <div className="min-h-screen flex flex-col">
-      <Navigation />
-      <main id="main-content" role="main" className="flex-grow">{children}</main>
+      <main id="main-content" role="main" className="flex-grow relative">
+        <Navigation />
+        {children}
+      </main>
       <Footer />
     </div>
   );
