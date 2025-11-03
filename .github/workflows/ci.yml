@@ -1,17 +1,83 @@
-name: ci
+name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main, ai-dev]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
+  quality:
+    name: Code Quality & Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run linter
+        run: npm run lint
+      
+      - name: Run type check
+        run: npm run typecheck
+      
+      - name: Run tests
+        run: npm test -- --ci --coverage --maxWorkers=2
+      
+      - name: Upload coverage reports
+        uses: codecov/codecov-action@v4
+        if: always()
+        with:
+          fail_ci_if_error: false
+      
+      - name: Build application
+        run: npm run build
+  
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Run Semgrep
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: >-
+            p/security-audit
+            p/javascript
+            p/typescript
+            p/react
+          generateSarif: true
+      
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: semgrep.sarif
+  
   docs-check:
+    name: Documentation Verification
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify required Phase 1 docs exist
+      
+      - name: Verify required Phase 2 docs exist
         run: |
           test -f README.md
           test -f .github/current-phase.md
@@ -20,9 +86,13 @@ jobs:
           test -f .github/instructions/instructions.md
           test -f docs/site-blueprint.md
           test -f docs/assets-inventory.md
-          test -f .github/prompts/phase-1/agent-prompts.md
-          test -f .github/prompts/phase-1/validation-prompts.md
-      - name: Basic link presence checks
+          test -f docs/component-inventory.md
+          test -f PROJECT_NOTES.md
+          test -f .github/prompts/phase-2/01-environment-setup.md
+          test -f .github/prompts/phase-2/06-quality-ci-and-readiness.md
+      
+      - name: Verify Phase 2 content presence
         run: |
           grep -qi "Senior" README.md
-          grep -qi "Phase 1" .github/current-phase.md
+          grep -qi "Phase 2" .github/current-phase.md
+          grep -qi "Next.js" PROJECT_NOTES.md

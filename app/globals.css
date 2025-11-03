@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Vertical pan animation for hero images - reveals full image over time */
+@keyframes vertical-pan {
+  0% {
+    transform: translateY(-15%);
+  }
+  100% {
+    transform: translateY(10%);
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-parchment text-charcoal font-merriweather;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-playfair;
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Vertical pan animation for hero images - animates transform to reveal full image */
+  .hero-image-pan {
+    animation: vertical-pan 30s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  /* Ensure images inside maintain proper aspect ratio */
+  .hero-image-pan img {
+    object-fit: cover !important;
+  }
+
+  /* Pause animation on reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-image-pan {
+      animation: none;
+      transform: none;
+    }
+  }
+
+  /* Disable animation on mobile for performance */
+  @media (max-width: 768px) {
+    .hero-image-pan {
+      animation: none;
+      transform: none;
+    }
+  }
+
+  /* Accessible screen-reader-only helper (reveal on focus handled inline) */
+  .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
+  .btn-primary {
+    @apply bg-forest text-gold px-6 py-3 rounded-organic font-lato font-semibold transition-all duration-200 hover:bg-forest-dark hover:shadow-organic-md focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-parchment;
+  }
+
+  .btn-secondary {
+    @apply bg-gold text-charcoal px-6 py-3 rounded-organic font-lato font-semibold transition-all duration-200 hover:bg-gold-light hover:shadow-organic-md focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2 focus:ring-offset-parchment;
+  }
+
+  .btn-outline {
+    @apply border-2 border-forest text-forest bg-transparent px-6 py-3 rounded-organic font-lato font-semibold transition-all duration-200 hover:bg-forest hover:text-gold focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2 focus:ring-offset-parchment;
+  }
+
+  .card {
+    @apply bg-parchment-light rounded-organic-lg shadow-organic p-6 transition-all duration-200 hover:shadow-organic-md hover:-translate-y-1;
+  }
+
+  .card-elevated {
+    @apply bg-parchment-light rounded-organic-lg shadow-organic-md p-8 transition-all duration-200 hover:shadow-organic-lg hover:-translate-y-1;
+  }
+
+  .quote-block {
+    @apply border-l-4 border-gold pl-6 py-4 my-6 italic font-playfair text-lg text-charcoal;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .content-container {
+    @apply max-w-prose mx-auto;
+  }
+
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-parchment;
+  }
+
+  .link-hover {
+    @apply text-forest-dark underline decoration-gold decoration-2 underline-offset-2 transition-colors duration-200 hover:text-forest hover:decoration-gold-dark focus-visible-ring;
+  }
+
+  /* Optional overlay utility for text-over-image contrast if needed */
+  .image-overlay-gradient {
+    @apply absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40 pointer-events-none;
+  }
+}
