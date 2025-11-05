@@ -95,6 +95,12 @@ Poetic knowledge synthesizes and integrates rather than fragments and analyzes. 
 
 - "Without love, education is nothing." — John Senior, _Restoration of Innocence_ II.3 (Love as prerequisite)
 
+- "Love is patient, love is kind … it bears all things … hopes all things, endures all things." — St. Paul, 1 Cor. 13:4,7 (quoted by St. Don Bosco, _The Preventative System_) (Foundation of preventive education)
+
+- "The educator at work among his pupils should make himself loved, if he wishes to be respected." — St. Don Bosco, _The Preventative System_ (Love precedes respect)
+
+- "The educator can still speak to him in the language of the heart, whether during the time of his education or later." — St. Don Bosco, _The Preventative System_ (Heart language as pedagogy)
+
 ---
 
 ## III. MISSION AND ADVENTURE (The Gymnasium and Chivalric Formation)
@@ -138,6 +144,12 @@ Ages 7-13—the gymnasium—call forth boys' innate restlessness and power. Here
 
 - "The beginning in every work is the chief thing, especially in the case of anything young and tender. For then especially is the character moulded." — Plato, _Republic_ II.376-377 (Early formation's decisive importance)
 
+- "Give them ample liberty to jump, run, and make a din as much as they please. Gymnastics, music, declamation (of poems, etc), theatricals, and hikes, are very effective methods for getting discipline; they favor good living and good health." — St. Don Bosco, _The Preventative System_ (Physical liberty as formative discipline)
+
+- "Do whatever you wish; for me, it is enough you do not sin." — St. Philip Neri (quoted by St. Don Bosco, _The Preventative System_) (Freedom within virtue)
+
+- "The students are always under the vigilant eye of the Director and the assistants, who like loving fathers will converse with them, act as guides in every event, counsel them and lovingly correct them." — St. Don Bosco, _The Preventative System_ (Fatherly vigilance and guidance)
+
 ---
 
 ## IV. LITURGICAL RHYTHM AND REST (Enclosed Garden and Repose)
@@ -172,6 +184,16 @@ The enclosed garden (hortus conclusus) protects innocence through liturgical rhy
 - "Blessed are the timid hearts that evil hate, that quail in its shadow, and yet shut the gate; that seek no parley, and in guarded room, though small and bare, upon a clumsy loom weave tissues gilded by the far-off day hoped and believed in under Shadow's sway." — J.R.R. Tolkien, _Mythopoeia_ (Protected enclosure amid threat)
 
 - "As a tide turns on the tall grey seas, See how they waver in the trees... And the Mother of God goes over them, Walking on wind and flame, And we all shall yet drink Christian ale In the village of our name." — G.K. Chesterton, _The Ballad of the White Horse_, Book VII (Liturgical restoration)
+
+- "Frequent Confession, frequent Communion, and daily Mass are the pillars that ought to support an educational edifice, from which one would want to keep at bay threats and violence." — St. Don Bosco, _The Preventative System_ (Sacraments as educational pillars)
+
+- "Frequent Confession and Communion, and Daily Mass well heard... If you do not make use of these religious means, you must turn to threats and the stick." — St. Don Bosco, _The Preventative System_ (Anecdote to English minister) (Religion vs. coercion)
+
+- "Religion or the rod." — St. Don Bosco, _The Preventative System_ (Stark choice in education)
+
+- "Every evening after the usual prayers, and before the students go to bed, the Director or someone in his place should offer a few kind words in public... This is the key to good behavior, progress, and educational success." — St. Don Bosco, _The Preventative System_ (Daily rhythm of fatherly counsel)
+
+- "Once a child can tell the difference between bread and bread, and shows himself to be sufficiently instructed, pay no attention to his age and let the Heavenly King come to reign in that happy soul." — St. Don Bosco, _The Preventative System_ (Early First Communion)
 
 ---
 
@@ -213,6 +235,28 @@ This philosophy is Catholic—exclusionary in fidelity to core tenets, resistant
 - "What music can be found more sweet than the pronunciation of a well-ordered speech?" — Cicero, _De Oratore_ II.85 (Ordered speech as beauty)
 
 - "The received is in the receiver according to the mode of the receiver." — Thomas Aquinas, _Summa_ I, Q84, A1 (Receiver's nature determines reception of truth)
+
+- "This system is all based on reason, religion, and loving kindness." — St. Don Bosco, _The Preventative System_ (Threefold foundation of education)
+
+- "Only a Christian can successfully apply the Preventive system. Reason and Religion are the means the educator should constantly make use of, teaching them, making use of them himself, if he wishes to be obeyed and to attain his goal." — St. Don Bosco, _The Preventative System_ (Christian pedagogy as essential)
+
+- "An educator is one devoted to the well-being of his students, and for this reason, ought to be ready to face every inconvenience, and every fatigue to achieve his goal, which is the civil, moral, and intellectual education of his students." — St. Don Bosco, _The Preventative System_ (Educator's total devotion)
+
+- "The Preventive system makes a friend of the student, who in the teacher sees a benefactor who gives him good advice, wants to make him good, to shield him from unpleasantness, punishment, and dishonor." — St. Don Bosco, _The Preventative System_ (Friendship over coercion)
+
+- "The basic reason (why young people get into trouble) is youthful fickleness which in a moment can forget the rules of discipline and the punishments they threaten." — St. Don Bosco, _The Preventative System_ (Understanding youth nature)
+
+- "Young people do not forget the punishments they have suffered, and generally remain embittered, wanting to throw off the yolk, and even to take revenge." — St. Don Bosco, _The Preventative System_ (Repressive system's lasting harm)
+
+- "The student will have the greatest respect for the educator and will go on recalling with pleasure the orientation he was given, always considering his teachers and the other Superiors as fathers and brothers." — St. Don Bosco, _The Preventative System_ (Preventive system's lasting fruit)
+
+- "Exercise the strictest vigilance to prevent there being allowed in the Institute friends, books, or persons who carry on bad conversations. The appointment of a good doorkeeper constitutes a treasure for a house of education." — St. Don Bosco, _The Preventative System_ (Protective vigilance)
+
+- "One should use the greatest prudence and patience to have the student understand his fault through reason and religion." — St. Don Bosco, _The Preventative System_ (Correction through understanding)
+
+- "To strike one in any way, to make one kneel in a painful position, to pull anyone's ears and similar punishments should be absolutely avoided because they are forbidden by the law of the land, they greatly irritate the young, and they degrade the educator." — St. Don Bosco, _The Preventative System_ (Absolute rejection of corporal punishment)
+
+- "For these forty years during which I have dealt with the young, I do not remember ever having used any kind of punishment, and with the help of God, I have always got not only what was necessary, but even had my wishes met." — St. Don Bosco, _The Preventative System_ (Testimony of preventive success)
 
 ---
 

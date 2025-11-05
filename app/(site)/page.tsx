@@ -8,6 +8,7 @@ import { getRandomAssetFromFolder } from '@/lib/assets';
 import type { Metadata } from 'next';
 import RotatingQuotes from '@/components/RotatingQuotes';
 import { getAxiomsQuotesBySection } from '@/lib/content/axioms';
+import ScrollIndicator from '@/components/ScrollIndicator';
 
 export const metadata: Metadata = {
   title: 'Wonder-Filled Catholic Education',
@@ -74,6 +75,8 @@ export default async function HomePage() {
             </CTAButton>
           </div>
         </div>
+        
+        <ScrollIndicator />
       </section>
 
       {/* Welcome Section - Clean Typography */}
@@ -101,7 +104,6 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <Link href="/schools" className="group block">
               <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg">
-                <div className="text-6xl mb-4">🏛️</div>
                 <h3 className="text-2xl font-playfair text-forest group-hover:text-gold transition-colors">
                   Senior Schools
                 </h3>
@@ -119,7 +121,6 @@ export default async function HomePage() {
 
             <Link href="/philosophy" className="group block">
               <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg">
-                <div className="text-6xl mb-4">📚</div>
                 <h3 className="text-2xl font-playfair text-forest group-hover:text-gold transition-colors">
                   Philosophy & Resources
                 </h3>
@@ -137,7 +138,6 @@ export default async function HomePage() {
 
             <Link href="/engage" className="group block">
               <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg">
-                <div className="text-6xl mb-4">🌱</div>
                 <h3 className="text-2xl font-playfair text-forest group-hover:text-gold transition-colors">
                   Engage & Connect
                 </h3>

@@ -74,10 +74,17 @@ export default async function PhilosophyPage() {
       tags: ['myth', 'imagination', 'poetry'],
     },
     {
-      slug: 'Essential-Texts-Reading-List',
-      title: 'Essential Texts Reading List',
-      description: 'Curated guide to foundational texts exploring Senior\'s philosophy and Catholic intellectual tradition.',
-      tags: ['reading-list', 'philosophy', 'resources'],
+      slug: 'The%20Preventative%20System',
+      title: 'The Preventative System',
+      author: 'St. John Bosco',
+      description: "St. Don Bosco's educational philosophy emphasizing prevention over punishment through loving guidance, reason, religion, and kindness.",
+      tags: ['education', 'virtue', 'discipline'],
+    },
+    {
+      slug: 'other%20textual%20excerpts',
+      title: 'Other Textual Excerpts',
+      description: 'A compilation of passages from Hugh of St. Victor, medieval scholastics, and others providing context for poetic knowledge and sensory formation.',
+      tags: ['medieval', 'philosophy', 'excerpts'],
     },
   ];
 
@@ -398,6 +405,12 @@ export default async function PhilosophyPage() {
             </p>
 
             <EssentialTextsGrid texts={essentialTexts} />
+            
+            <div className="mt-12 text-center">
+              <CTAButton href="/texts/Essential-Texts-Reading-List" variant="outline" size="lg">
+                View Complete Reading List
+              </CTAButton>
+            </div>
           </div>
         </ContentContainer>
       </section>
