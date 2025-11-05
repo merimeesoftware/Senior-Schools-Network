@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import CTAButton from '@/components/CTAButton';
 import ContentContainer from '@/components/ContentContainer';
@@ -7,6 +7,7 @@ import InteractiveStages from '@/components/InteractiveStages';
 import OptimizedImage from '@/components/OptimizedImage';
 import { getRandomAssetFromFolder } from '@/lib/assets';
 import RotatingQuotes from '@/components/RotatingQuotes';
+import QuoteImageBreak from '@/components/QuoteImageBreak';
 
 // Metadata moved to layout or generated via generateMetadata in parent
 
@@ -48,13 +49,30 @@ export default function HomePage() {
     ];
   });
   
-  const [legendMakersQuote] = useState({
-    id: 'mythopoeia-legend-makers',
-    quote: 'Blessed are the legend-makers with their rhyme of things not found within recorded time.',
-    author: 'J.R.R. Tolkien',
-    source: 'Mythopoeia',
-    category: 'beauty' as const,
-  });
+  // Beauty quotes for the legend-makers section
+  const [beautyQuotes] = useState(() => [
+    {
+      id: 'mythopoeia-legend-makers',
+      quote: 'Blessed are the legend-makers with their rhyme of things not found within recorded time.',
+      author: 'J.R.R. Tolkien',
+      source: 'Mythopoeia',
+      category: 'beauty' as const,
+    },
+    {
+      id: 'mythopoeia-timid-hearts',
+      quote: 'Blessed are the timid hearts that evil hate, that quail in its shadow, and yet shut the gate; that seek no parley, and in guarded room, though small and bare, upon a clumsy loom weave tissues gilded by the far-off day hoped and believed in under Shadow\'s sway.',
+      author: 'J.R.R. Tolkien',
+      source: 'Mythopoeia',
+      category: 'beauty' as const,
+    },
+    {
+      id: 'chesterton-ballad-restoration',
+      quote: 'As a tide turns on the tall grey seas, See how they waver in the trees... And the Mother of God goes over them, Walking on wind and flame, And we all shall yet drink Christian ale In the village of our name.',
+      author: 'G.K. Chesterton',
+      source: 'The Ballad of the White Horse',
+      category: 'beauty' as const,
+    },
+  ]);
   
   // Mission & Adventure quotes for visual break section
   const [missionQuotes] = useState(() => [
@@ -87,40 +105,8 @@ export default function HomePage() {
     },
   ]);
   
-  const [adventureImages] = useState(() => [
-    getRandomAssetFromFolder('adventure'),
-    getRandomAssetFromFolder('adventure'),
-    getRandomAssetFromFolder('adventure'),
-  ]);
-  
-  const [adventureImageIndex, setAdventureImageIndex] = useState(0);
-  
-  // Parallax effect for quote/image break
-  const breakSectionRef = useRef<HTMLDivElement>(null);
-  const [parallaxOffset, setParallaxOffset] = useState(0);
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      if (breakSectionRef.current) {
-        const rect = breakSectionRef.current.getBoundingClientRect();
-        const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-        const clampedProgress = Math.max(0, Math.min(1, scrollProgress));
-        setParallaxOffset(clampedProgress * 20); // Move 20% over scroll range
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initialize on mount
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  
   const handleHeroRefresh = () => {
     setHeroImageIndex((i) => (i + 1) % heroImages.length);
-  };
-  
-  const handleMissionRefresh = () => {
-    setAdventureImageIndex((i) => (i + 1) % adventureImages.length);
   };
 
   return (
@@ -129,17 +115,19 @@ export default function HomePage() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {heroImages[heroImageIndex] && (
           <>
-            <div className="absolute inset-0 z-0 w-full h-full">
-              <OptimizedImage
-                asset={heroImages[heroImageIndex]}
-                alt="Classical landscape evoking wonder"
-                showCaption={false}
-                fill={true}
-                objectFit="cover"
-                sizes="100vw"
-                priority
-                className="w-full h-full"
-              />
+            <div className="absolute inset-0 z-0 overflow-hidden">
+              <div className="hero-image-pan absolute inset-0 w-full" style={{ height: '120vh' }}>
+                <OptimizedImage
+                  asset={heroImages[heroImageIndex]}
+                  alt="Classical landscape evoking wonder"
+                  showCaption={false}
+                  fill={true}
+                  objectFit="cover"
+                  sizes="100vw"
+                  priority
+                  className="w-full h-full"
+                />
+              </div>
             </div>
             <div className="absolute inset-0 z-[1] bg-gradient-to-b from-charcoal/40 via-charcoal/30 to-parchment"></div>
           </>
@@ -270,47 +258,13 @@ export default function HomePage() {
       </section>
 
       {/* Quote/Image Break - Mission & Adventure */}
-      <section 
-        ref={breakSectionRef}
-        className="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden"
-      >
-        {/* Background image with parallax */}
-        {adventureImages[adventureImageIndex] && (
-          <div 
-            className="absolute inset-0 z-0 scale-110"
-            style={{
-              transform: `translateY(${parallaxOffset}%)`,
-              willChange: 'transform',
-            }}
-          >
-            <OptimizedImage
-              asset={adventureImages[adventureImageIndex]}
-              alt="Chivalric wayfarer adventure"
-              fill={true}
-              objectFit="cover"
-              sizes="100vw"
-              className="w-full h-full"
-            />
-          </div>
-        )}
-        
-        {/* Dark overlay */}
-        <div className="absolute inset-0 z-[1] bg-charcoal/50"></div>
-        
-        {/* Quote with refresh button */}
-        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
-          {missionQuotes.length > 0 && (
-            <RotatingQuotes 
-              quotes={missionQuotes}
-              autoplay={false}
-              showRefreshButton={true}
-              onRefresh={handleMissionRefresh}
-              quoteClassName="text-2xl md:text-4xl font-playfair italic text-white leading-relaxed drop-shadow-2xl"
-              authorClassName="text-lg md:text-xl text-parchment/90 font-lato mt-4"
-            />
-          )}
-        </div>
-      </section>
+      <QuoteImageBreak
+        quotes={missionQuotes}
+        imageFolder="adventure"
+        imageAlt="Chivalric wayfarer adventure"
+        showRefreshButton={true}
+        enableParallax={true}
+      />
 
       {/* Stages - Interactive with Explanations */}
       <section className="py-20 bg-parchment-dark">
@@ -327,22 +281,14 @@ export default function HomePage() {
         </ContentContainer>
       </section>
 
-      {/* Featured Quote - Elegant Typography */}
-      <section className="py-20 bg-white">
-        <ContentContainer width="narrow">
-          <blockquote className="text-center space-y-6">
-            <p className="text-2xl md:text-4xl font-playfair italic text-forest leading-relaxed">
-              "{legendMakersQuote.quote}"
-            </p>
-            <footer className="text-xl text-charcoal/70">
-              <cite className="not-italic">— {legendMakersQuote.author}</cite>
-              {legendMakersQuote.source && (
-                <span className="block text-sm mt-2 text-charcoal/50">{legendMakersQuote.source}</span>
-              )}
-            </footer>
-          </blockquote>
-        </ContentContainer>
-      </section>
+      {/* Quote/Image Break - Beauty & Wonder */}
+      <QuoteImageBreak
+        quotes={beautyQuotes}
+        imageFolder="art-sacred"
+        imageAlt="Sacred art and beauty"
+        showRefreshButton={true}
+        enableParallax={true}
+      />
 
       {/* Final CTA - Bold and Clear */}
       <section className="py-20 bg-gradient-to-b from-spiritual/10 to-spiritual/20">
