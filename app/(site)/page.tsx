@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import CTAButton from '@/components/CTAButton';
 import ContentContainer from '@/components/ContentContainer';
@@ -7,7 +7,6 @@ import InteractiveStages from '@/components/InteractiveStages';
 import OptimizedImage from '@/components/OptimizedImage';
 import { getRandomAssetFromFolder } from '@/lib/assets';
 import RotatingQuotes from '@/components/RotatingQuotes';
-import ScrollIndicator from '@/components/ScrollIndicator';
 
 // Metadata moved to layout or generated via generateMetadata in parent
 
@@ -57,8 +56,71 @@ export default function HomePage() {
     category: 'beauty' as const,
   });
   
+  // Mission & Adventure quotes for visual break section
+  const [missionQuotes] = useState(() => [
+    {
+      id: 'boys-gem-flames',
+      quote: 'Boys burn with gem-like flames',
+      author: 'John Senior',
+      category: 'adventure' as const,
+    },
+    {
+      id: 'puer-etymology',
+      quote: 'Puer, the Latin word for "boy," derives from "pure" because concupiscence has not reared up as yet. "Pure" comes from pyros, purifying "fire" (boys burn with gem-like flames) which in turn derives from pu, an Indo-European root meaning "power," or potential force like the energy in atoms and the elements.',
+      author: 'John Senior',
+      source: 'Restoration of Innocence',
+      category: 'adventure' as const,
+    },
+    {
+      id: 'gymnasium-naked',
+      quote: 'The elementary school is a gymnasium (from gymnos, "naked") where stripped or lightly clad boys exercise, sharpening their five senses in immediate contact with nature in the raw.',
+      author: 'John Senior',
+      source: 'Restoration of Innocence I.3',
+      category: 'adventure' as const,
+    },
+    {
+      id: 'ballad-second-birth',
+      quote: 'For the end of the world was long ago, And all we dwell to-day As children of some second birth, Like a strange people left on earth After a judgment day.',
+      author: 'G.K. Chesterton',
+      source: 'The Ballad of the White Horse',
+      category: 'adventure' as const,
+    },
+  ]);
+  
+  const [adventureImages] = useState(() => [
+    getRandomAssetFromFolder('adventure'),
+    getRandomAssetFromFolder('adventure'),
+    getRandomAssetFromFolder('adventure'),
+  ]);
+  
+  const [adventureImageIndex, setAdventureImageIndex] = useState(0);
+  
+  // Parallax effect for quote/image break
+  const breakSectionRef = useRef<HTMLDivElement>(null);
+  const [parallaxOffset, setParallaxOffset] = useState(0);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      if (breakSectionRef.current) {
+        const rect = breakSectionRef.current.getBoundingClientRect();
+        const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+        const clampedProgress = Math.max(0, Math.min(1, scrollProgress));
+        setParallaxOffset(clampedProgress * 20); // Move 20% over scroll range
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initialize on mount
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
   const handleHeroRefresh = () => {
     setHeroImageIndex((i) => (i + 1) % heroImages.length);
+  };
+  
+  const handleMissionRefresh = () => {
+    setAdventureImageIndex((i) => (i + 1) % adventureImages.length);
   };
 
   return (
@@ -67,7 +129,7 @@ export default function HomePage() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {heroImages[heroImageIndex] && (
           <>
-            <div className="hero-image-pan absolute inset-0 z-0 w-full" style={{ height: '120vh' }}>
+            <div className="absolute inset-0 z-0 w-full h-full">
               <OptimizedImage
                 asset={heroImages[heroImageIndex]}
                 alt="Classical landscape evoking wonder"
@@ -83,26 +145,51 @@ export default function HomePage() {
           </>
         )}
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
-          {heroQuotes.length > 0 && (
-            <RotatingQuotes 
-              quotes={heroQuotes} 
-              autoplay={false}
-              showRefreshButton={true}
-              onRefresh={handleHeroRefresh}
-            />
-          )}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mt-12">
-            <CTAButton href="/schools" variant="primary" size="lg">
-              Explore Schools
-            </CTAButton>
-            <CTAButton href="/philosophy" variant="outline" size="lg">
-              Our Philosophy
-            </CTAButton>
+        <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center flex flex-col justify-between min-h-screen">
+          <div className="flex-1 flex flex-col justify-center pt-20">
+            <div className="pt-16 md:pt-24">
+              {heroQuotes.length > 0 && (
+                <RotatingQuotes 
+                  quotes={heroQuotes} 
+                  autoplay={false}
+                  showRefreshButton={false}
+                  onRefresh={handleHeroRefresh}
+                />
+              )}
+            </div>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mt-12">
+              <CTAButton href="/schools" variant="primary" size="lg">
+                Explore Schools
+              </CTAButton>
+              <CTAButton href="/philosophy" variant="outline" size="lg">
+                Our Philosophy
+              </CTAButton>
+            </div>
+          </div>
+          
+          {/* Refresh button at bottom */}
+          <div className="pb-8">
+            <button
+              onClick={handleHeroRefresh}
+              className="group flex items-center gap-2 mx-auto text-gold/80 hover:text-gold transition-colors focus-visible-ring rounded-full p-2"
+              aria-label="New Inspiration"
+            >
+              <svg
+                className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                />
+              </svg>
+            </button>
           </div>
         </div>
-        
-        <ScrollIndicator />
       </section>
 
       {/* Welcome Section - Clean Typography */}
@@ -180,6 +267,49 @@ export default function HomePage() {
             </Link>
           </div>
         </ContentContainer>
+      </section>
+
+      {/* Quote/Image Break - Mission & Adventure */}
+      <section 
+        ref={breakSectionRef}
+        className="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden"
+      >
+        {/* Background image with parallax */}
+        {adventureImages[adventureImageIndex] && (
+          <div 
+            className="absolute inset-0 z-0 scale-110"
+            style={{
+              transform: `translateY(${parallaxOffset}%)`,
+              willChange: 'transform',
+            }}
+          >
+            <OptimizedImage
+              asset={adventureImages[adventureImageIndex]}
+              alt="Chivalric wayfarer adventure"
+              fill={true}
+              objectFit="cover"
+              sizes="100vw"
+              className="w-full h-full"
+            />
+          </div>
+        )}
+        
+        {/* Dark overlay */}
+        <div className="absolute inset-0 z-[1] bg-charcoal/50"></div>
+        
+        {/* Quote with refresh button */}
+        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
+          {missionQuotes.length > 0 && (
+            <RotatingQuotes 
+              quotes={missionQuotes}
+              autoplay={false}
+              showRefreshButton={true}
+              onRefresh={handleMissionRefresh}
+              quoteClassName="text-2xl md:text-4xl font-playfair italic text-white leading-relaxed drop-shadow-2xl"
+              authorClassName="text-lg md:text-xl text-parchment/90 font-lato mt-4"
+            />
+          )}
+        </div>
       </section>
 
       {/* Stages - Interactive with Explanations */}
