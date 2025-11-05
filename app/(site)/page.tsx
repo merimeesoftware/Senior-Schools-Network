@@ -1,54 +1,75 @@
+'use client';
+import { useState } from 'react';
 import Link from 'next/link';
 import CTAButton from '@/components/CTAButton';
 import ContentContainer from '@/components/ContentContainer';
 import InteractiveStages from '@/components/InteractiveStages';
-import { getQuotesBySource } from '@/lib/content';
 import OptimizedImage from '@/components/OptimizedImage';
 import { getRandomAssetFromFolder } from '@/lib/assets';
-import type { Metadata } from 'next';
 import RotatingQuotes from '@/components/RotatingQuotes';
-import { getAxiomsQuotesBySection } from '@/lib/content/axioms';
 import ScrollIndicator from '@/components/ScrollIndicator';
 
-export const metadata: Metadata = {
-  title: 'Wonder-Filled Catholic Education',
-  description:
-    'Catholic schools embodying poetic knowledge, physical discipline, and formation. Discover schools, home resources, and founding guidance.',
-  alternates: { canonical: '/' },
-  openGraph: {
-    title: 'Senior Schools Network - Restoring Innocence Through Wonder',
-    description:
-      'Explore schools, resources, and founding support aligned with poetic knowledge, gymnasium emphasis, and Catholic formation.',
-    url: 'https://seniorschoolsnetwork.org',
-    images: [{ url: '/og-image-enclosed-garden.jpg', width: 1200, height: 630 }],
-  },
-};
+// Metadata moved to layout or generated via generateMetadata in parent
 
-export default async function HomePage() {
-  const quotes = await getQuotesBySource();
-  // Choose curated section from PHILOSOPHICAL-AXIOMS.md for THIS page
-  const axiomsHeroQuotes = await getAxiomsQuotesBySection('Quote Bank: Sense and Story');
-
-  const heroQuote = quotes.find((q) => q.id === 'wonder-wisdom');
-  const legendMakersQuote = quotes.find((q) => q.id === 'mythopoeia-legend-makers');
-  const heroAsset = getRandomAssetFromFolder('landscapes');
-  // Provide all curated quotes to a tiny client component that picks one once per load
-  let heroQuotesDisplayed = [] as typeof axiomsHeroQuotes;
-  if (axiomsHeroQuotes?.length) {
-    heroQuotesDisplayed = axiomsHeroQuotes;
-  } else if (heroQuote) {
-    heroQuotesDisplayed = [heroQuote];
-  }
+export default function HomePage() {
+  // Pre-load 3 random landscape images for hero rotation
+  const [heroImages] = useState(() => [
+    getRandomAssetFromFolder('landscapes'),
+    getRandomAssetFromFolder('landscapes'),
+    getRandomAssetFromFolder('landscapes'),
+  ]);
+  
+  const [heroImageIndex, setHeroImageIndex] = useState(0);
+  
+  // Pre-load quotes from axioms (this will now run on client)
+  const [heroQuotes] = useState(() => {
+    // Fallback quotes for hero section
+    return [
+      {
+        id: 'poetic-knowledge-1',
+        quote: 'Poetic knowledge is the key to motivation because it is about what is REAL... Connection and wonder are the driving forces. Love is the anchor.',
+        author: 'John Senior',
+        source: 'The Restoration of Christian Culture',
+        category: 'philosophy' as const,
+      },
+      {
+        id: 'poetic-knowledge-2',
+        quote: 'Poetic knowledge is the attempt to know the way a child knows things, or the way a lover knows the beloved. It gets inside and becomes a part of what is known.',
+        author: 'John Senior',
+        source: 'The Restoration of Christian Culture',
+        category: 'philosophy' as const,
+      },
+      {
+        id: 'sense-story-1',
+        quote: 'We learn to love what is good by seeing and touching and tasting what is good—through sense and story, not through systems.',
+        author: 'John Senior',
+        source: 'The Restoration of Christian Culture',
+        category: 'philosophy' as const,
+      },
+    ];
+  });
+  
+  const [legendMakersQuote] = useState({
+    id: 'mythopoeia-legend-makers',
+    quote: 'Blessed are the legend-makers with their rhyme of things not found within recorded time.',
+    author: 'J.R.R. Tolkien',
+    source: 'Mythopoeia',
+    category: 'beauty' as const,
+  });
+  
+  const handleHeroRefresh = () => {
+    setHeroImageIndex((i) => (i + 1) % heroImages.length);
+  };
 
   return (
     <>
       {/* Hero Section with Full-Width Image */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {heroAsset && (
+        {heroImages[heroImageIndex] && (
           <>
             <div className="hero-image-pan absolute inset-0 z-0 w-full" style={{ height: '120vh' }}>
               <OptimizedImage
-                asset={heroAsset}
+                asset={heroImages[heroImageIndex]}
                 alt="Classical landscape evoking wonder"
                 showCaption={false}
                 fill={true}
@@ -63,8 +84,13 @@ export default async function HomePage() {
         )}
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
-          {heroQuotesDisplayed.length > 0 && (
-            <RotatingQuotes quotes={heroQuotesDisplayed} autoplay={false} />
+          {heroQuotes.length > 0 && (
+            <RotatingQuotes 
+              quotes={heroQuotes} 
+              autoplay={false}
+              showRefreshButton={true}
+              onRefresh={handleHeroRefresh}
+            />
           )}
           <div className="flex flex-col sm:flex-row gap-6 justify-center mt-12">
             <CTAButton href="/schools" variant="primary" size="lg">
@@ -174,19 +200,17 @@ export default async function HomePage() {
       {/* Featured Quote - Elegant Typography */}
       <section className="py-20 bg-white">
         <ContentContainer width="narrow">
-          {legendMakersQuote && (
-            <blockquote className="text-center space-y-6">
-              <p className="text-2xl md:text-4xl font-playfair italic text-forest leading-relaxed">
-                "{legendMakersQuote.quote}"
-              </p>
-              <footer className="text-xl text-charcoal/70">
-                <cite className="not-italic">— {legendMakersQuote.author}</cite>
-                {legendMakersQuote.source && (
-                  <span className="block text-sm mt-2 text-charcoal/50">{legendMakersQuote.source}</span>
-                )}
-              </footer>
-            </blockquote>
-          )}
+          <blockquote className="text-center space-y-6">
+            <p className="text-2xl md:text-4xl font-playfair italic text-forest leading-relaxed">
+              "{legendMakersQuote.quote}"
+            </p>
+            <footer className="text-xl text-charcoal/70">
+              <cite className="not-italic">— {legendMakersQuote.author}</cite>
+              {legendMakersQuote.source && (
+                <span className="block text-sm mt-2 text-charcoal/50">{legendMakersQuote.source}</span>
+              )}
+            </footer>
+          </blockquote>
         </ContentContainer>
       </section>
 
