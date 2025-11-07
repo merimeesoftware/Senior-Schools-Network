@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`RestorationSubsectionA matches snapshot 1`] = `
+<div
+  class="space-y-12 "
+  id="minor-premise-a"
+>
+  <h3
+    class="font-playfair text-4xl font-bold text-green-900"
+  >
+    A. The Four Stages of Restoration
+  </h3>
+  <p
+    class="text-lg leading-relaxed text-charcoal/90 max-w-4xl mx-auto"
+  >
+    Dr. John Senior's model for Christian education follows the natural developmental stages, each building on the previous. These are not arbitrary divisions but organic phases corresponding to the child's physical, intellectual, and spiritual maturation.
+  </p>
+  <div
+    data-mode="default"
+    data-testid="mock-interactive-stages"
+  >
+    Mock InteractiveStages
+  </div>
+  <div
+    data-testid="mock-evidence-quote-group"
+    data-variant="minor-premise"
+  >
+    <h4>
+      Evidence from the Sources
+    </h4>
+    <div
+      data-testid="quotes-count"
+    >
+      3
+       quotes
+    </div>
+  </div>
+</div>
+`;

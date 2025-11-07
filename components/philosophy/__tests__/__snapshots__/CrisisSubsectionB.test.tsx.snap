@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`CrisisSubsectionB matches snapshot 1`] = `
+<div
+  class="space-y-12 "
+  id="major-premise-b"
+>
+  <h3
+    class="font-playfair text-4xl font-bold text-red-900"
+  >
+    B. Cultural Softness & the Gymnasium Crisis
+  </h3>
+  <div
+    data-testid="problem-solution-panel"
+  >
+    <div
+      data-testid="problem-title"
+    >
+      The Problem: Elimination of Risk
+    </div>
+    <div
+      data-testid="solution-title"
+    >
+      The Solution: Gymnasium Rigor
+    </div>
+  </div>
+  <div
+    data-testid="evidence-quote-group"
+    data-variant="major-premise"
+  >
+    <h4>
+      Evidence from the Sources
+    </h4>
+    <div
+      data-testid="quote-count"
+    >
+      4
+       quotes
+    </div>
+  </div>
+  <div
+    class="space-y-6"
+  >
+    <h4
+      class="font-playfair text-2xl font-bold text-forest text-center"
+    >
+      What the Gymnasium Stage Looks Like
+    </h4>
+    <div
+      data-columns="3"
+      data-testid="card-grid"
+      data-variant="crisis"
+    >
+      <div
+        data-testid="card-count"
+      >
+        3
+         cards
+      </div>
+      <div
+        data-testid="card-0"
+      >
+        <span
+          data-testid="card-emoji-0"
+        >
+          ⚔️
+        </span>
+        <span
+          data-testid="card-heading-0"
+        >
+          Sport
+        </span>
+      </div>
+      <div
+        data-testid="card-1"
+      >
+        <span
+          data-testid="card-emoji-1"
+        >
+          📖
+        </span>
+        <span
+          data-testid="card-heading-1"
+        >
+          Latin
+        </span>
+      </div>
+      <div
+        data-testid="card-2"
+      >
+        <span
+          data-testid="card-emoji-2"
+        >
+          🏕️
+        </span>
+        <span
+          data-testid="card-heading-2"
+        >
+          Adventure
+        </span>
+      </div>
+    </div>
+    <p
+      class="text-center text-sm text-charcoal/70 italic"
+    >
+      Ages 7-13: The window for physical and moral formation
+    </p>
+  </div>
+</div>
+`;

@@ -1,0 +1,290 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`CardGrid Snapshots matches snapshot for crisis variant 1`] = `
+<div
+  class="grid grid-cols-1 md:grid-cols-3 gap-6 "
+>
+  <div
+    class="bg-white border-2 border-red-700 rounded-lg p-6 text-center space-y-4"
+  >
+    <div
+      aria-hidden="true"
+      class="text-5xl"
+    >
+      📱
+    </div>
+    <h4
+      class="font-playfair text-2xl font-bold text-forest"
+    >
+      Screen Time
+    </h4>
+    <p
+      class="text-base text-charcoal/90 leading-relaxed"
+    >
+      Replace wonder with digital distractions
+    </p>
+  </div>
+  <div
+    class="bg-white border-2 border-red-700 rounded-lg p-6 text-center space-y-4"
+  >
+    <div
+      aria-hidden="true"
+      class="text-5xl"
+    >
+      🛡️
+    </div>
+    <h4
+      class="font-playfair text-2xl font-bold text-forest"
+    >
+      Safety Culture
+    </h4>
+    <p
+      class="text-base text-charcoal/90 leading-relaxed"
+    >
+      Replace risk with bubble-wrapped childhood
+    </p>
+  </div>
+  <div
+    class="bg-white border-2 border-red-700 rounded-lg p-6 text-center space-y-4"
+  >
+    <div
+      aria-hidden="true"
+      class="text-5xl"
+    >
+      🔬
+    </div>
+    <h4
+      class="font-playfair text-2xl font-bold text-forest"
+    >
+      Specialization
+    </h4>
+    <p
+      class="text-base text-charcoal/90 leading-relaxed"
+    >
+      Replace integration with fragmentation
+    </p>
+  </div>
+</div>
+`;
+
+exports[`CardGrid Snapshots matches snapshot for restoration variant 1`] = `
+<div
+  class="grid grid-cols-1 md:grid-cols-3 gap-6 "
+>
+  <div
+    class="bg-white border-2 border-green-700 rounded-lg p-6 text-center space-y-4"
+  >
+    <div
+      aria-hidden="true"
+      class="text-5xl"
+    >
+      📱
+    </div>
+    <h4
+      class="font-playfair text-2xl font-bold text-forest"
+    >
+      Screen Time
+    </h4>
+    <p
+      class="text-base text-charcoal/90 leading-relaxed"
+    >
+      Replace wonder with digital distractions
+    </p>
+  </div>
+  <div
+    class="bg-white border-2 border-green-700 rounded-lg p-6 text-center space-y-4"
+  >
+    <div
+      aria-hidden="true"
+      class="text-5xl"
+    >
+      🛡️
+    </div>
+    <h4
+      class="font-playfair text-2xl font-bold text-forest"
+    >
+      Safety Culture
+    </h4>
+    <p
+      class="text-base text-charcoal/90 leading-relaxed"
+    >
+      Replace risk with bubble-wrapped childhood
+    </p>
+  </div>
+  <div
+    class="bg-white border-2 border-green-700 rounded-lg p-6 text-center space-y-4"
+  >
+    <div
+      aria-hidden="true"
+      class="text-5xl"
+    >
+      🔬
+    </div>
+    <h4
+      class="font-playfair text-2xl font-bold text-forest"
+    >
+      Specialization
+    </h4>
+    <p
+      class="text-base text-charcoal/90 leading-relaxed"
+    >
+      Replace integration with fragmentation
+    </p>
+  </div>
+</div>
+`;
+
+exports[`CardGrid Snapshots matches snapshot for vision variant 1`] = `
+<div
+  class="grid grid-cols-1 md:grid-cols-3 gap-6 "
+>
+  <div
+    class="bg-white border-2 border-gold rounded-lg p-6 text-center space-y-4"
+  >
+    <div
+      aria-hidden="true"
+      class="text-5xl"
+    >
+      📱
+    </div>
+    <h4
+      class="font-playfair text-2xl font-bold text-forest"
+    >
+      Screen Time
+    </h4>
+    <p
+      class="text-base text-charcoal/90 leading-relaxed"
+    >
+      Replace wonder with digital distractions
+    </p>
+  </div>
+  <div
+    class="bg-white border-2 border-gold rounded-lg p-6 text-center space-y-4"
+  >
+    <div
+      aria-hidden="true"
+      class="text-5xl"
+    >
+      🛡️
+    </div>
+    <h4
+      class="font-playfair text-2xl font-bold text-forest"
+    >
+      Safety Culture
+    </h4>
+    <p
+      class="text-base text-charcoal/90 leading-relaxed"
+    >
+      Replace risk with bubble-wrapped childhood
+    </p>
+  </div>
+  <div
+    class="bg-white border-2 border-gold rounded-lg p-6 text-center space-y-4"
+  >
+    <div
+      aria-hidden="true"
+      class="text-5xl"
+    >
+      🔬
+    </div>
+    <h4
+      class="font-playfair text-2xl font-bold text-forest"
+    >
+      Specialization
+    </h4>
+    <p
+      class="text-base text-charcoal/90 leading-relaxed"
+    >
+      Replace integration with fragmentation
+    </p>
+  </div>
+</div>
+`;
+
+exports[`CardGrid Snapshots matches snapshot with action buttons 1`] = `
+<div
+  class="grid grid-cols-1 md:grid-cols-3 gap-6 "
+>
+  <div
+    class="bg-white border-2 border-charcoal/50 rounded-lg p-6 text-center space-y-4"
+  >
+    <div
+      aria-hidden="true"
+      class="text-5xl"
+    >
+      📱
+    </div>
+    <h4
+      class="font-playfair text-2xl font-bold text-forest"
+    >
+      Screen Time
+    </h4>
+    <p
+      class="text-base text-charcoal/90 leading-relaxed"
+    >
+      Replace wonder with digital distractions
+    </p>
+    <div
+      class="mt-4"
+    >
+      <button>
+        Action
+      </button>
+    </div>
+  </div>
+  <div
+    class="bg-white border-2 border-charcoal/50 rounded-lg p-6 text-center space-y-4"
+  >
+    <div
+      aria-hidden="true"
+      class="text-5xl"
+    >
+      🛡️
+    </div>
+    <h4
+      class="font-playfair text-2xl font-bold text-forest"
+    >
+      Safety Culture
+    </h4>
+    <p
+      class="text-base text-charcoal/90 leading-relaxed"
+    >
+      Replace risk with bubble-wrapped childhood
+    </p>
+    <div
+      class="mt-4"
+    >
+      <button>
+        Action
+      </button>
+    </div>
+  </div>
+  <div
+    class="bg-white border-2 border-charcoal/50 rounded-lg p-6 text-center space-y-4"
+  >
+    <div
+      aria-hidden="true"
+      class="text-5xl"
+    >
+      🔬
+    </div>
+    <h4
+      class="font-playfair text-2xl font-bold text-forest"
+    >
+      Specialization
+    </h4>
+    <p
+      class="text-base text-charcoal/90 leading-relaxed"
+    >
+      Replace integration with fragmentation
+    </p>
+    <div
+      class="mt-4"
+    >
+      <button>
+        Action
+      </button>
+    </div>
+  </div>
+</div>
+`;

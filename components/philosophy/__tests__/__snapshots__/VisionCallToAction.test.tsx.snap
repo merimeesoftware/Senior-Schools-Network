@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`VisionCallToAction matches snapshot 1`] = `
+<div
+  class="pt-16 border-t-4 border-gold space-y-12 "
+>
+  <h3
+    class="font-playfair text-4xl font-bold text-forest text-center"
+  >
+    What You Can Do
+  </h3>
+  <div
+    data-columns="3"
+    data-testid="mock-card-grid"
+    data-variant="vision"
+  >
+    <div
+      data-testid="card-0"
+    >
+      <span
+        data-testid="emoji-0"
+      >
+        🏫
+      </span>
+      <h4
+        data-testid="heading-0"
+      >
+        Found a School
+      </h4>
+      <p
+        data-testid="description-0"
+      >
+        Gather families in your area. Hire a headmaster. Build the gymnasium stage. We can help.
+      </p>
+      <div
+        data-testid="action-0"
+      >
+        <a
+          data-size="md"
+          data-testid="mock-cta-button"
+          data-variant="primary"
+          href="/engage"
+        >
+          Get the Founder's Toolkit
+        </a>
+      </div>
+    </div>
+    <div
+      data-testid="card-1"
+    >
+      <span
+        data-testid="emoji-1"
+      >
+        🤝
+      </span>
+      <h4
+        data-testid="heading-1"
+      >
+        Join a School
+      </h4>
+      <p
+        data-testid="description-1"
+      >
+        Explore the network of schools already implementing Senior's philosophy.
+      </p>
+      <div
+        data-testid="action-1"
+      >
+        <a
+          data-size="md"
+          data-testid="mock-cta-button"
+          data-variant="secondary"
+          href="/schools"
+        >
+          Browse Schools
+        </a>
+      </div>
+    </div>
+    <div
+      data-testid="card-2"
+    >
+      <span
+        data-testid="emoji-2"
+      >
+        🏡
+      </span>
+      <h4
+        data-testid="heading-2"
+      >
+        Adapt at Home
+      </h4>
+      <p
+        data-testid="description-2"
+      >
+        Homeschool families: outdoor play, Latin primers, adventure. The gymnasium is accessible.
+      </p>
+      <div
+        data-testid="action-2"
+      >
+        <a
+          data-size="md"
+          data-testid="mock-cta-button"
+          data-variant="outline"
+          href="/texts"
+        >
+          Read the Sources
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

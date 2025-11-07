@@ -1,0 +1,219 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`EvidenceQuoteGroup Snapshots matches snapshot for conclusion variant 1`] = `
+<div
+  class="space-y-8 mt-12 "
+>
+  <h4
+    class="font-playfair text-2xl font-bold text-forest text-center"
+  >
+    Evidence from the Sources
+  </h4>
+  <div
+    class="space-y-8"
+  >
+    <div
+      data-testid="evidence-quote"
+      data-variant="conclusion"
+    >
+      <p>
+        Wonder is the first disposition of the soul.
+      </p>
+      <span>
+        Dr. John Senior
+      </span>
+      <span>
+        The Restoration of Christian Culture
+      </span>
+    </div>
+    <div
+      data-testid="evidence-quote"
+      data-variant="conclusion"
+    >
+      <p>
+        The senses are gateways to the soul.
+      </p>
+      <span>
+        Dr. Dennis Quinn
+      </span>
+      <span>
+        IHP Lecture I
+      </span>
+    </div>
+    <div
+      data-testid="evidence-quote"
+      data-variant="conclusion"
+    >
+      <p>
+        The heavens declare the glory of God.
+      </p>
+      <span>
+        Psalm 19:1-2
+      </span>
+      <span>
+        Scripture (ESV)
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EvidenceQuoteGroup Snapshots matches snapshot for major-premise with 3 quotes 1`] = `
+<div
+  class="space-y-8 mt-12 "
+>
+  <h4
+    class="font-playfair text-2xl font-bold text-forest text-center"
+  >
+    Evidence from the Sources
+  </h4>
+  <div
+    class="space-y-8"
+  >
+    <div
+      data-testid="evidence-quote"
+      data-variant="major-premise"
+    >
+      <p>
+        Wonder is the first disposition of the soul.
+      </p>
+      <span>
+        Dr. John Senior
+      </span>
+      <span>
+        The Restoration of Christian Culture
+      </span>
+    </div>
+    <div
+      data-testid="evidence-quote"
+      data-variant="major-premise"
+    >
+      <p>
+        The senses are gateways to the soul.
+      </p>
+      <span>
+        Dr. Dennis Quinn
+      </span>
+      <span>
+        IHP Lecture I
+      </span>
+    </div>
+    <div
+      data-testid="evidence-quote"
+      data-variant="major-premise"
+    >
+      <p>
+        The heavens declare the glory of God.
+      </p>
+      <span>
+        Psalm 19:1-2
+      </span>
+      <span>
+        Scripture (ESV)
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EvidenceQuoteGroup Snapshots matches snapshot for minor-premise with 2 quotes 1`] = `
+<div
+  class="space-y-8 mt-12 "
+>
+  <h4
+    class="font-playfair text-2xl font-bold text-forest text-center"
+  >
+    Evidence from the Sources
+  </h4>
+  <div
+    class="space-y-8"
+  >
+    <div
+      data-testid="evidence-quote"
+      data-variant="minor-premise"
+    >
+      <p>
+        Wonder is the first disposition of the soul.
+      </p>
+      <span>
+        Dr. John Senior
+      </span>
+      <span>
+        The Restoration of Christian Culture
+      </span>
+    </div>
+    <div
+      data-testid="evidence-quote"
+      data-variant="minor-premise"
+    >
+      <p>
+        The senses are gateways to the soul.
+      </p>
+      <span>
+        Dr. Dennis Quinn
+      </span>
+      <span>
+        IHP Lecture I
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EvidenceQuoteGroup Snapshots matches snapshot with custom title 1`] = `
+<div
+  class="space-y-8 mt-12 "
+>
+  <h4
+    class="font-playfair text-2xl font-bold text-forest text-center"
+  >
+    Custom Evidence
+  </h4>
+  <div
+    class="space-y-8"
+  >
+    <div
+      data-testid="evidence-quote"
+      data-variant="major-premise"
+    >
+      <p>
+        Wonder is the first disposition of the soul.
+      </p>
+      <span>
+        Dr. John Senior
+      </span>
+      <span>
+        The Restoration of Christian Culture
+      </span>
+    </div>
+    <div
+      data-testid="evidence-quote"
+      data-variant="major-premise"
+    >
+      <p>
+        The senses are gateways to the soul.
+      </p>
+      <span>
+        Dr. Dennis Quinn
+      </span>
+      <span>
+        IHP Lecture I
+      </span>
+    </div>
+    <div
+      data-testid="evidence-quote"
+      data-variant="major-premise"
+    >
+      <p>
+        The heavens declare the glory of God.
+      </p>
+      <span>
+        Psalm 19:1-2
+      </span>
+      <span>
+        Scripture (ESV)
+      </span>
+    </div>
+  </div>
+</div>
+`;
