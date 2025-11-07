@@ -1,6 +1,12 @@
 # Philosophical Axioms & Quote Library
 ## Senior Schools Network
 
+Hero quotes (crisis hook + remedy)
+Major Premise quotes (A: sensory loss, B: gymnasium crisis, C: fragmentation)
+Minor Premise quotes (A: poetic foundation, B: adventure, C: liturgy)
+Conclusion quotes (warrior poets vision)
+Counterarguments quotes (elitism, boys-focus, practicality)
+
 **Purpose**: This document serves dual functions:
 1. **Philosophical Synthesis**: Extracts the essential DNA from core texts to guide AI-generated content
 2. **Quote Repository**: Provides searchable, thematic quotes for site copy, user flows, blog posts, and resources
