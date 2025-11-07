@@ -1,0 +1,83 @@
+{
+  "requiem": {
+    "colors": {
+      "primary": "#4A4A4A",
+      "gold": "#B89A5A",
+      "parchment": "#E8DCC8",
+      "charcoal": "#2C2C2C"
+    },
+    "gradients": {
+      "hero": "linear-gradient(to bottom, rgba(74,74,74,0.5), rgba(44,44,44,0.7))"
+    }
+  },
+  "advent": {
+    "colors": {
+      "primary": "#7B2D8E",
+      "gold": "#B8860B",
+      "parchment": "#D8C8B8"
+    },
+    "gradients": {
+      "hero": "linear-gradient(to bottom, rgba(123,45,142,0.3), rgba(58,48,82,0.5))"
+    }
+  },
+  "christmas": {
+    "colors": {
+      "primary": "#FFFFFF",
+      "gold": "#D4AF37",
+      "parchment": "#FFF8E7"
+    },
+    "gradients": {
+      "hero": "linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(212,175,55,0.3))"
+    }
+  },
+  "epiphany": {
+    "colors": {
+      "primary": "#4A7A4A",
+      "gold": "#B8860B",
+      "parchment": "#E8E0D0"
+    },
+    "gradients": {
+      "hero": "linear-gradient(to bottom, rgba(74,122,74,0.2), rgba(44,74,44,0.3))"
+    }
+  },
+  "septuagesima": {
+    "colors": {
+      "primary": "#6A4A7A",
+      "gold": "#9A7A5A",
+      "parchment": "#D8C8D0"
+    },
+    "gradients": {
+      "hero": "linear-gradient(to bottom, rgba(106,74,122,0.3), rgba(74,58,82,0.5))"
+    }
+  },
+  "lent": {
+    "colors": {
+      "primary": "#5A3A6A",
+      "gold": "#8A6A5A",
+      "parchment": "#D0C8C0"
+    },
+    "gradients": {
+      "hero": "linear-gradient(to bottom, rgba(90,58,106,0.4), rgba(58,58,58,0.6))"
+    }
+  },
+  "easter": {
+    "colors": {
+      "primary": "#FFFFFF",
+      "gold": "#FFD700",
+      "parchment": "#FFFAEB"
+    },
+    "gradients": {
+      "hero": "linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,215,0,0.4))"
+    }
+  },
+  "pentecost": {
+    "colors": {
+      "primary": "#4A7A4A",
+      "gold": "#B8860B",
+      "parchment": "#E8E0D0"
+    },
+    "gradients": {
+      "hero": "linear-gradient(to bottom, rgba(74,122,74,0.2), rgba(44,74,44,0.3))"
+    }
+  }
+}

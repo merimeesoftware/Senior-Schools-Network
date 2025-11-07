@@ -25,37 +25,50 @@ export default function RotatingQuotes({
   onRefresh,
 }: Readonly<RotatingQuotesProps>) {
   const safeQuotes = useMemo(() => (quotes?.length ? quotes : []), [quotes]);
+  const [shuffledQuotes, setShuffledQuotes] = useState<Quote[]>([]);
   const [index, setIndex] = useState(0);
+
+  // Shuffle quotes on client-side mount only (prevents hydration mismatch)
+  useEffect(() => {
+    if (!safeQuotes.length) return;
+    const shuffled = [...safeQuotes];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    setShuffledQuotes(shuffled);
+  }, [safeQuotes]);
+
+  const displayQuotes = shuffledQuotes.length > 0 ? shuffledQuotes : safeQuotes;
 
   useEffect(() => {
     if (!autoplay) return;
-    if (safeQuotes.length <= 1) return;
+    if (displayQuotes.length <= 1) return;
     const id = setInterval(() => {
-      setIndex((i) => (i + 1) % safeQuotes.length);
+      setIndex((i) => (i + 1) % displayQuotes.length);
     }, intervalMs);
     return () => clearInterval(id);
-  }, [safeQuotes.length, intervalMs, autoplay]);
-
-  // When not autoplaying, pick a random quote on mount or when quotes change
-  useEffect(() => {
-    if (autoplay) return;
-    if (safeQuotes.length <= 1) return;
-    setIndex(Math.floor(Math.random() * safeQuotes.length));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [safeQuotes.length, autoplay]);
+  }, [displayQuotes.length, intervalMs, autoplay]);
 
   const handleManualRefresh = () => {
-    setIndex((i) => (i + 1) % safeQuotes.length);
+    setIndex((i) => (i + 1) % displayQuotes.length);
     onRefresh?.();
   };
 
-  if (!safeQuotes.length) return null;
-  const current = safeQuotes[index];
+  if (!displayQuotes.length) return null;
+  const current = displayQuotes[index];
 
   return (
     <div className={`transition-opacity duration-700 ${className}`} key={current.id}>
       <blockquote className="mb-12">
-        <p className={quoteClassName}>&quot;{current.quote}&quot;</p>
+        <p className={quoteClassName}>
+          &quot;{current.quote.split('\n').map((line, i, arr) => (
+            <span key={i}>
+              {line}
+              {i < arr.length - 1 && <br />}
+            </span>
+          ))}&quot;
+        </p>
         <cite className={authorClassName}>— {current.author}</cite>
       </blockquote>
       {showRefreshButton && (

@@ -36,12 +36,6 @@ Sensory delight forms the foundation of wonder and knowledge. Through the five s
 
 - "To be connatural with a thing is to participate in some way with its nature... a metaphysical encounter." — James S. Taylor (Presence through participation)
 
-- "Man, sub-creator, the refracted light through whom is splintered from a single White to many hues, and endlessly combined in living shapes that move from mind to mind." — J.R.R. Tolkien, _Mythopoeia_ (Sub-creation as sensory mediation)
-
-- "We make still by the law in which we're made." — J.R.R. Tolkien, _Mythopoeia_ (Creation through connaturality)
-
-- "Trees are not 'trees', until so named and seen and never were so named, till those had been who speech's involuted breath unfurled, faint echo and dim picture of the world." — J.R.R. Tolkien, _Mythopoeia_ (Language and sensory naming)
-
 - "Poetic knowledge is a knowledge through affective union. It proceeds from the essential recesses of the subjectivity enriched by the intuitive donations of the senses and of tendency or instinct." — Jacques Maritain, _Creative Intuition in Art and Poetry_ (Affective and sensory grounding)
 
 - "The soul knows bodies through the intellect." — Thomas Aquinas, _Summa Theologica_ I, Q84, A1 (Intellectual mediation of sensory knowledge)
@@ -51,6 +45,18 @@ Sensory delight forms the foundation of wonder and knowledge. Through the five s
 - "I look up at those heavens of thine, the work of thy hands, at the moon and the stars, which thou hast set in their places." — Psalm 8 (Knox) (Sensory wonder at creation)
 
 - "Great is this force of memory, exceeding great, O my God... And men go abroad to admire the heights of mountains, the mighty billows of the sea... and pass themselves by." — Augustine, _Confessions_ X.8 (Sensory wonder and inward memory)
+
+- "Man, sub-creator, the refracted light  
+through whom is splintered from a single White  
+to many hues, and endlessly combined  
+in living shapes that move from mind to mind." — J.R.R. Tolkien, _Mythopoeia_
+
+- "We make still by the law in which we're made." — J.R.R. Tolkien, _Mythopoeia_
+
+- "Trees are not 'trees', until so named and seen  
+and never were so named, till those had been  
+who speech's involuted breath unfurled,  
+faint echo and dim picture of the world." — J.R.R. Tolkien, _Mythopoeia_
 
 ---
 
@@ -114,29 +120,45 @@ Ages 7-13—the gymnasium—call forth boys' innate restlessness and power. Here
 
 - "_Puer_, the Latin word for 'boy,' derives from 'pure' because concupiscence has not reared up as yet. 'Pure' comes from _pyros_, purifying 'fire' (boys burn with gem-like flames) which in turn derives from _pu_, an Indo-European root meaning 'power,' or potential force like the energy in atoms and the elements." — John Senior, _Restoration of Innocence_ (Etymological essence of boyhood)
 
-- "The elementary school is a gymnasium (from _gymnos_, 'naked') where stripped or lightly clad boys exercise, sharpening their five senses in immediate contact with nature in the raw." — John Senior, _Restoration of Innocence_ I.3 (Gymnasium as rigorous sensory formation)
+- "For the end of the world was long ago,  
+And all we dwell to-day  
+As children of some second birth,  
+Like a strange people left on earth  
+After a judgment day." — G.K. Chesterton, _The Ballad of the White Horse_
 
-- "For the end of the world was long ago, And all we dwell to-day As children of some second birth, Like a strange people left on earth After a judgment day." — G.K. Chesterton, _The Ballad of the White Horse_ (Post-apocalyptic calling)
+- "Blessed are the legend-makers with their rhyme  
+of things not found within recorded time.  
+It is not they that have forgot the Night,  
+or bid us flee to organized delight." — J.R.R. Tolkien, _Mythopoeia_ (Myth-making against mechanization)
 
-- "Blessed are the legend-makers with their rhyme of things not found within recorded time. It is not they that have forgot the Night, or bid us flee to organized delight." — J.R.R. Tolkien, _Mythopoeia_ (Myth-making against mechanization)
+- "Blessed are the men of Noah's race that build  
+their little arks, though frail and poorly filled,  
+and steer through winds contrary towards a wraith,  
+a rumour of a harbour guessed by faith." — J.R.R. Tolkien, _Mythopoeia_ (Faithful wayfaring through chaos)
 
-- "Blessed are the men of Noah's race that build their little arks, though frail and poorly filled, and steer through winds contrary towards a wraith, a rumour of a harbour guessed by faith." — J.R.R. Tolkien, _Mythopoeia_ (Faithful wayfaring through chaos)
+- "And I thought, 'I will go with you,  
+As man with God has gone,  
+And wander with a wandering star,  
+The wandering heart of things that are,  
+The fiery cross of love and war  
+That like yourself, goes on.'" — G.K. Chesterton, _The Ballad of the White Horse_
 
-- "And I thought, 'I will go with you, As man with God has gone, And wander with a wandering star, The wandering heart of things that are, The fiery cross of love and war That like yourself, goes on.'" — G.K. Chesterton, _The Ballad of the White Horse_, Dedication (Calling to wander in love and war)
+- "In some far century, sad and slow,  
+I have a vision, and I know  
+The heathen shall return.  
 
-- "They shall not come with warships, They shall not waste with brands, But books be all their eating, And ink be on their hands... By thought a crawling ruin, By life a leaping mire, By a broken heart in the breast of the world, And the end of the world's desire." — G.K. Chesterton, _The Ballad of the White Horse_ (Crisis of mechanical captivity)
+They shall not come with warships,  
+They shall not waste with brands,  
+But books be all their eating,  
+And ink be on their hands." — G.K. Chesterton, _The Ballad of the White Horse_
 
 - "Aristocrats make schools in caves where hermits anticipate the Promised Land while still lost in the desert... the few who still care must teach in catacombs or tents... Christian radicals who subvert the secular order not by terrorism but sacrifice, who never lie, but don't say what they think until they must, who walk, as Saint Paul said, circumspectly, redeeming the time." — John Senior, _Restoration of Innocence_ (Radical counter-cultural schools)
-
-- "Strong nursery (homeschooling) + high schools exist, but ages 7-13 lack adventure-based formation amid 'cultural softness.'" — README.md (Gymnasium gap in formation)
-
-- "Physical discipline and adventure... education incorporates bodily rigor and experiential challenges—harsh at times—to form resilient individuals, especially boys into 'Chivalric Wayfarers.'" — README.md (Adventure and rigor as formative)
 
 - "Schools must provide good educators and fertile soil, not curricula." — John Senior, synthesis (Educators over systems)
 
 - "These foster repose and sensory delight... Physical rigor, adventure, and stories." — John Senior, on Gymnasium Canon (Books as formation)
 
-- "Stripped or lightly clad boys exercise, sharpening their five senses in immediate contact with nature in the raw." — John Senior (Gymnasium principle)
+- "Stripped or lightly clad boys exercise, sharpening their five senses in immediate contact with nature." — John Senior (Gymnasium principle)
 
 - "Fathers, do not provoke your children to anger, but bring them up in the discipline and instruction of the Lord." — Ephesians 6:4 (Knox) (Fatherly formation)
 
@@ -181,7 +203,12 @@ The enclosed garden (hortus conclusus) protects innocence through liturgical rhy
 
 - "Religion teaches the laborer and the artisan to carry out honestly and fairly all equitable agreements freely entered into; never to injure the property, nor to outrage the person, of an employer." — _Rerum Novarum_, Pope Leo XIII (Faith as guide to just order)
 
-- "Blessed are the timid hearts that evil hate, that quail in its shadow, and yet shut the gate; that seek no parley, and in guarded room, though small and bare, upon a clumsy loom weave tissues gilded by the far-off day hoped and believed in under Shadow's sway." — J.R.R. Tolkien, _Mythopoeia_ (Protected enclosure amid threat)
+- "Blessed are the timid hearts that evil hate,  
+that quail in its shadow, and yet shut the gate;  
+that seek no parley, and in guarded room,  
+though small and bare, upon a clumsy loom  
+weave tissues gilded by the far-off day  
+hoped and believed in under Shadow's sway." — J.R.R. Tolkien, _Mythopoeia_ (Protected enclosure amid threat)
 
 - "As a tide turns on the tall grey seas, See how they waver in the trees... And the Mother of God goes over them, Walking on wind and flame, And we all shall yet drink Christian ale In the village of our name." — G.K. Chesterton, _The Ballad of the White Horse_, Book VII (Liturgical restoration)
 
@@ -216,13 +243,14 @@ This philosophy is Catholic—exclusionary in fidelity to core tenets, resistant
 
 - "The romance of machinery... The holiday of the slave... The free man and the Ford car." — G.K. Chesterton, _Outline of Sanity_ (Machinery's false promises)
 
-- "Charitable but Truthful: Avoid moralizing; treat users as adults pursuing truth." — README.md (Tone requirement)
-
 - "The happy results we all long for must be chiefly brought about by the plenteous outpouring of charity; of that true Christian charity which is the fulfilling of the whole Gospel law, which is always ready to sacrifice itself for others' sake." — _Rerum Novarum_, Pope Leo XIII (Charity as fulfillment)
 
-- "It is not they that have forgot the Night, or bid us flee to organized delight, in lotus-isles of economic bliss forswearing souls to gain a Circe-kiss (and counterfeit at that, machine-produced, bogus seduction of the twice-seduced)." — J.R.R. Tolkien, _Mythopoeia_ (Against organized mechanization)
-
-- "Against Method" — John Senior, _Restoration of Innocence_ (Chapter VII) (Rejection of systematization)
+- "It is not they that have forgot the Night,  
+or bid us flee to organized delight,  
+in lotus-isles of economic bliss  
+forswearing souls to gain a Circe-kiss  
+(and counterfeit at that, machine-produced,  
+bogus seduction of the twice-seduced)." — J.R.R. Tolkien, _Mythopoeia_ (Against organized mechanization)
 
 - "The correct association for the negative attitude towards intuitive knowledge is the seventeenth century, starting with Descartes... This is the 'Enlightenment' or the 'Age of Reason'." — James S. Taylor, _Poetic Knowledge_ (Cartesian dualism as origin of fragmentation)
 

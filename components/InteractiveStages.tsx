@@ -74,46 +74,62 @@ export default function InteractiveStages() {
       <div className="flex flex-wrap justify-center gap-6 mb-12">
         <button
           onClick={() => setSelectedStage('nursery')}
-          className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-nursery transition-transform hover:scale-105"
+          className="focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-nursery transition-all duration-300 hover:scale-105"
         >
           <StageBadge
             stage="nursery"
             size="lg"
             whiteText
-            className={selectedStage === 'nursery' ? 'ring-2 ring-white shadow-lg' : 'opacity-70'}
+            className={
+              selectedStage === 'nursery'
+                ? 'ring-4 ring-gold/70 shadow-2xl scale-105'
+                : 'opacity-60 hover:opacity-85'
+            }
           />
         </button>
         <button
           onClick={() => setSelectedStage('gymnasium')}
-          className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gymnasium transition-transform hover:scale-105"
+          className="focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-gymnasium transition-all duration-300 hover:scale-105"
         >
           <StageBadge
             stage="gymnasium"
             size="lg"
             whiteText
-            className={selectedStage === 'gymnasium' ? 'ring-2 ring-white shadow-lg' : 'opacity-70'}
+            className={
+              selectedStage === 'gymnasium'
+                ? 'ring-4 ring-gold/70 shadow-2xl scale-105'
+                : 'opacity-60 hover:opacity-85'
+            }
           />
         </button>
         <button
           onClick={() => setSelectedStage('poetic')}
-          className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-poetic transition-transform hover:scale-105"
+          className="focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-poetic transition-all duration-300 hover:scale-105"
         >
           <StageBadge
             stage="poetic"
             size="lg"
             whiteText
-            className={selectedStage === 'poetic' ? 'ring-2 ring-white shadow-lg' : 'opacity-70'}
+            className={
+              selectedStage === 'poetic'
+                ? 'ring-4 ring-gold/70 shadow-2xl scale-105'
+                : 'opacity-60 hover:opacity-85'
+            }
           />
         </button>
         <button
           onClick={() => setSelectedStage('spiritual')}
-          className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-spiritual transition-transform hover:scale-105"
+          className="focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-spiritual transition-all duration-300 hover:scale-105"
         >
           <StageBadge
             stage="spiritual"
             size="lg"
             whiteText
-            className={selectedStage === 'spiritual' ? 'ring-2 ring-white shadow-lg' : 'opacity-70'}
+            className={
+              selectedStage === 'spiritual'
+                ? 'ring-4 ring-gold/70 shadow-2xl scale-105'
+                : 'opacity-60 hover:opacity-85'
+            }
           />
         </button>
       </div>
@@ -121,7 +137,8 @@ export default function InteractiveStages() {
       {/* Selected Stage Description */}
       <div className="max-w-3xl mx-auto">
         <div
-          className={`${currentStage.bgColor} border-2 ${currentStage.borderColor} p-8 rounded-lg transition-all duration-300 ease-in-out`}
+          key={selectedStage}
+          className={`stage-content-enter ${currentStage.bgColor} border-2 ${currentStage.borderColor} p-8 rounded-lg transition-all duration-300 ease-in-out`}
         >
           <h3 className={`text-3xl font-playfair ${currentStage.textColor} mb-4 flex items-center gap-3`}>
             <span className={`inline-block px-4 py-2 ${currentStage.badgeBgColor} text-white rounded text-base font-lato`}>
