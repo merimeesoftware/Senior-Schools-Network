@@ -1,6 +1,5 @@
 import ProblemSolutionPanel from "@/components/ProblemSolutionPanel";
 import EvidenceQuoteGroup from "@/components/EvidenceQuoteGroup";
-import CardGrid from "@/components/CardGrid";
 
 /**
  * CrisisSubsectionB Component
