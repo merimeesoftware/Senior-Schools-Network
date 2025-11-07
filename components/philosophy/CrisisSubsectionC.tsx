@@ -140,9 +140,8 @@ export function CrisisSubsectionC({ className = '' }: CrisisSubsectionCProps) {
 
       <SummaryBox variant="major-premise" title="The Crisis Established:">
         <p className="text-xl leading-relaxed">
-          Modern education has <strong>failed our sons</strong> by poisoning the well of wonder,
-          eliminating physical and moral formation, and rushing to utilitarian specialization. The
-          gymnasium and poetic stages—ages 7-17—have been abandoned.
+          Modern education has <strong>failed us and our children</strong> by poisoning the well of wonder,
+          eliminating physical and moral formation, and rushing to utilitarian specialization.
         </p>
       </SummaryBox>
     </div>

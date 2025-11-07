@@ -20,33 +20,50 @@ export default function ProgressIndicator({
   className = '',
   hideUntilId,
 }: Readonly<ProgressIndicatorProps>) {
-  const [activeSection, setActiveSection] = useState<string>(sections[0]?.id || '');
-  const [isVisible, setIsVisible] = useState(!hideUntilId); // Start visible if no hideUntilId
-  const observerRef = useRef<IntersectionObserver | null>(null);
+  const [activeSection, setActiveSection] = useState<string>('');
+  const [isVisible, setIsVisible] = useState(!hideUntilId);
   const visibilityObserverRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    // Observer for tracking active section
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        threshold: [0, 0.3, 0.6, 1],
-        rootMargin: '-100px 0px -50% 0px',
-      }
-    );
+    // Function to determine active section based on scroll position
+    const updateActiveSection = () => {
+      // Get viewport top position (accounting for any sticky headers)
+      const scrollPosition = window.scrollY + 150; // offset for sticky header
+      
+      let currentSection = '';
+      let closestDistance = Infinity;
 
-    sections.forEach((section) => {
-      const element = document.getElementById(section.id);
-      if (element && observerRef.current) {
-        observerRef.current.observe(element);
+      sections.forEach((section) => {
+        const element = document.getElementById(section.id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const elementTop = rect.top + window.scrollY;
+          const distance = Math.abs(scrollPosition - elementTop);
+          
+          // If this section is above or at scroll position and closer than previous
+          if (elementTop <= scrollPosition && distance < closestDistance) {
+            closestDistance = distance;
+            currentSection = section.id;
+          }
+        }
+      });
+
+      // If we found a section, set it as active
+      if (currentSection) {
+        setActiveSection(currentSection);
       }
-    });
+    };
+
+    // Update on scroll
+    const handleScroll = () => {
+      updateActiveSection();
+    };
+
+    // Initial update
+    updateActiveSection();
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     // Observer for visibility control
     if (hideUntilId) {
@@ -69,9 +86,7 @@ export default function ProgressIndicator({
     }
 
     return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
+      window.removeEventListener('scroll', handleScroll);
       if (visibilityObserverRef.current) {
         visibilityObserverRef.current.disconnect();
       }

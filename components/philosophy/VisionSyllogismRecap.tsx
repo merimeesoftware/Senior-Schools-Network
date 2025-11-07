@@ -47,7 +47,7 @@ export function VisionSyllogismRecap({ className = '' }: VisionSyllogismRecapPro
           <div className="flex-1">
             <p className="text-lg text-charcoal/90">
               <strong className="text-green-900">The Restoration:</strong> Poetic knowledge—cultivated
-              through Senior's four stages—is the remedy. The gymnasium stage (7-13) builds the
+              through the four stages—is the remedy. The gymnasium stage (7-13) builds the
               physical and moral courage prerequisite for all higher learning.
             </p>
           </div>

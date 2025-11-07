@@ -99,7 +99,7 @@ export function RestorationSubsectionC({ className = '' }: RestorationSubsection
 
           <SummaryBox variant="minor-premise" title="The Restoration Established:">
             <p className="text-xl leading-relaxed">
-              Poetic knowledge—cultivated through Senior's four stages (nursery, gymnasium, poetic,
+              Poetic knowledge—cultivated through the four stages (nursery, gymnasium, poetic,
               spiritual)—is the remedy to modern education's failure. The <strong>gymnasium stage
               (7-13)</strong> is the pivot: physical courage and ordered habit lay the foundation for
               all higher learning. Restore the gymnasium, integrate the poetic, and warrior poets will

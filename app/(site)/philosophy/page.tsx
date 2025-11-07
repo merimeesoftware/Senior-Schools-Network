@@ -34,9 +34,9 @@ export default async function PhilosophyPage() {
 
   // Define syllogistic argument sections for progress indicator
   const argumentSections = [
-    { id: 'demo-major-premise', label: 'Modern Education Fails', number: 'I' },
-    { id: 'demo-minor-premise', label: 'Poetic Mode Restores', number: 'II' },
-    { id: 'demo-conclusion', label: 'Embrace the Poetic Path', number: '∴' },
+    { id: 'major-premise', label: 'Modern Education Fails', number: 'I' },
+    { id: 'minor-premise', label: 'Poetic Mode Restores', number: 'II' },
+    { id: 'conclusion', label: 'Embrace the Poetic Path', number: '∴' },
   ];
 
   // Get foundational wisdom quotes for hero section - provide all for rotating display
@@ -143,7 +143,7 @@ export default async function PhilosophyPage() {
                 The Restoration
               </p>
               <p className="text-base text-charcoal/80 leading-relaxed mb-4">
-                Senior's four stages restore the natural order: nursery (wonder), gymnasium
+                The four stages restore the natural order: nursery (wonder), gymnasium
                 (physical risk), poetic (integrated learning), spiritual (liturgical wisdom). The
                 gymnasium stage builds the physical and moral courage prerequisite for all higher
                 learning.
@@ -254,7 +254,7 @@ export default async function PhilosophyPage() {
       <SyllogismSection 
         type="minor" 
         title="The Restoration: Poetic Knowledge Is the Remedy"
-        subtitle="Senior's four stages restore the natural order: wonder, discipline, integration, and wisdom. The gymnasium stage (7-13) is the pivot—building physical courage and ordered habit as prerequisites for poetic and spiritual formation."
+        subtitle="The four stages restore the natural order: wonder, discipline, integration, and wisdom. The gymnasium stage (7-13) is the pivot—building physical courage and ordered habit as prerequisites for poetic and spiritual formation."
         number="II" 
         id="minor-premise"
       >

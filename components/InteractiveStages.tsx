@@ -213,13 +213,6 @@ export default function InteractiveStages({
           <p className="text-lg text-charcoal/80 leading-relaxed pr-12">{displayDescription}</p>
         </div>
       </div>
-
-      {/* Mode Indicator Text */}
-      {currentMode === 'crisis' && (
-        <div className="text-center text-sm text-red-900 font-medium mt-6">
-          <span aria-hidden="true">⚠️</span> Crisis Mode: Showing modern education failures
-        </div>
-      )}
     </div>
   );
 }

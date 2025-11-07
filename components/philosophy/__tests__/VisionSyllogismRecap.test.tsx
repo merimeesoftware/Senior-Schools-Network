@@ -27,7 +27,7 @@ describe('VisionSyllogismRecap', () => {
     render(<VisionSyllogismRecap />);
     expect(screen.getByText('II.')).toBeInTheDocument();
     expect(screen.getByText('The Restoration:')).toBeInTheDocument();
-    expect(screen.getByText(/Poetic knowledge—cultivated through Senior's four stages/i)).toBeInTheDocument();
+    expect(screen.getByText(/Poetic knowledge—cultivated through the four stages/i)).toBeInTheDocument();
   });
 
   it('displays ∴ The Vision with gold styling', () => {

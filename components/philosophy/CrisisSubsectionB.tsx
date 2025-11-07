@@ -87,36 +87,6 @@ export function CrisisSubsectionB({ className = '' }: CrisisSubsectionBProps) {
           }
         ]}
       />
-
-      <div className="space-y-6">
-        <h4 className="font-playfair text-2xl font-bold text-forest text-center">
-          What the Gymnasium Stage Looks Like
-        </h4>
-        <CardGrid
-          variant="crisis"
-          columns={3}
-          cards={[
-            {
-              emoji: "⚔️",
-              heading: "Sport",
-              description: "Rugby, boxing, wrestling\nSwimming (cold water)\nLong-distance running\nTeam discipline"
-            },
-            {
-              emoji: "📖",
-              heading: "Latin",
-              description: "Memory training\nOrdered syntax\nDeclensions/conjugations\nFoundation for grammar"
-            },
-            {
-              emoji: "🏕️",
-              heading: "Adventure",
-              description: "Camping (no phones)\nRock climbing, hiking\nSurvival skills\nBenevolent neglect"
-            }
-          ]}
-        />
-        <p className="text-center text-sm text-charcoal/70 italic">
-          Ages 7-13: The window for physical and moral formation
-        </p>
-      </div>
     </div>
   );
 }

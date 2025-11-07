@@ -51,7 +51,7 @@ export function VisionWarriorPoet({ className = '' }: VisionWarriorPoetProps) {
       />
 
       <p className="text-lg text-charcoal/90 text-center max-w-3xl mx-auto leading-relaxed">
-        The warrior poet is not a romantic ideal but the natural outcome of Senior's four stages.
+        The warrior poet is not a romantic ideal but the natural outcome of the four stages.
         Physical courage (gymnasium) + integrated learning (poetic) + liturgical wisdom (spiritual)
         = men who can restore Christendom.
       </p>

@@ -85,7 +85,7 @@ export function CrisisSubsectionA({ className = '' }: CrisisSubsectionAProps) {
 
       <div className="space-y-6">
         <h4 className="font-playfair text-2xl font-bold text-forest text-center">
-          Where the Crisis Hits: Nursery & Gymnasium
+          Where the Crisis Hits
         </h4>
         <InteractiveStages mode="crisis" />
         <p className="text-center text-sm text-charcoal/70 italic">
