@@ -11,17 +11,22 @@ interface ProgressIndicatorProps {
   sections: Section[];
   position?: 'sticky-top' | 'sticky-side';
   className?: string;
+  hideUntilId?: string; // ID of element - hide indicator until this element is visible
 }
 
 export default function ProgressIndicator({
   sections,
   position = 'sticky-top',
   className = '',
+  hideUntilId,
 }: Readonly<ProgressIndicatorProps>) {
   const [activeSection, setActiveSection] = useState<string>(sections[0]?.id || '');
+  const [isVisible, setIsVisible] = useState(!hideUntilId); // Start visible if no hideUntilId
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const visibilityObserverRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
+    // Observer for tracking active section
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -43,12 +48,35 @@ export default function ProgressIndicator({
       }
     });
 
+    // Observer for visibility control
+    if (hideUntilId) {
+      visibilityObserverRef.current = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            setIsVisible(entry.isIntersecting || entry.boundingClientRect.top < 0);
+          });
+        },
+        {
+          threshold: 0,
+          rootMargin: '0px',
+        }
+      );
+
+      const hideUntilElement = document.getElementById(hideUntilId);
+      if (hideUntilElement && visibilityObserverRef.current) {
+        visibilityObserverRef.current.observe(hideUntilElement);
+      }
+    }
+
     return () => {
       if (observerRef.current) {
         observerRef.current.disconnect();
       }
+      if (visibilityObserverRef.current) {
+        visibilityObserverRef.current.disconnect();
+      }
     };
-  }, [sections]);
+  }, [sections, hideUntilId]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -60,7 +88,9 @@ export default function ProgressIndicator({
   if (position === 'sticky-side') {
     return (
       <nav
-        className={`hidden lg:block fixed left-8 top-1/3 z-30 ${className}`}
+        className={`hidden lg:block fixed left-8 top-1/3 z-30 transition-opacity duration-300 ${
+          isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        } ${className}`}
         aria-label="Argument progress"
       >
         <ul className="space-y-4">
