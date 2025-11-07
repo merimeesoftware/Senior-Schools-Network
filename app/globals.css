@@ -12,7 +12,87 @@
   }
 }
 
+/* Slide-up animation for stage content panel */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stage-content-enter {
+  animation: slideInUp 0.3s ease-out;
+}
+
 @layer base {
+  :root {
+    --color-primary: #4A7A4A;
+    --color-gold: #CDAF6F;
+    --color-parchment: #F5F1E9;
+    --gradient-hero: linear-gradient(to bottom, rgba(74,122,74,0.2), rgba(44,74,44,0.3));
+  }
+
+  /* Liturgical Season Theming - Tridentine 1962 Rubrics */
+  [data-season="requiem"] {
+    --color-primary: #4A4A4A;
+    --color-gold: #B89A5A;
+    --color-parchment: #E8DCC8;
+    --gradient-hero: linear-gradient(to bottom, rgba(74,74,74,0.5), rgba(44,44,44,0.7));
+  }
+
+  [data-season="advent"] {
+    --color-primary: #7B2D8E;
+    --color-gold: #B8860B;
+    --color-parchment: #D8C8B8;
+    --gradient-hero: linear-gradient(to bottom, rgba(123,45,142,0.3), rgba(58,48,82,0.5));
+  }
+
+  [data-season="christmas"] {
+    --color-primary: #FFFFFF;
+    --color-gold: #D4AF37;
+    --color-parchment: #FFF8E7;
+    --gradient-hero: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(212,175,55,0.3));
+  }
+
+  [data-season="epiphany"] {
+    --color-primary: #4A7A4A;
+    --color-gold: #B8860B;
+    --color-parchment: #E8E0D0;
+    --gradient-hero: linear-gradient(to bottom, rgba(74,122,74,0.2), rgba(44,74,44,0.3));
+  }
+
+  [data-season="septuagesima"] {
+    --color-primary: #6A4A7A;
+    --color-gold: #9A7A5A;
+    --color-parchment: #D8C8D0;
+    --gradient-hero: linear-gradient(to bottom, rgba(106,74,122,0.3), rgba(74,58,82,0.5));
+  }
+
+  [data-season="lent"] {
+    --color-primary: #5A3A6A;
+    --color-gold: #8A6A5A;
+    --color-parchment: #D0C8C0;
+    --gradient-hero: linear-gradient(to bottom, rgba(90,58,106,0.4), rgba(58,58,58,0.6));
+  }
+
+  [data-season="easter"] {
+    --color-primary: #FFFFFF;
+    --color-gold: #FFD700;
+    --color-parchment: #FFFAEB;
+    --gradient-hero: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,215,0,0.4));
+  }
+
+  [data-season="pentecost"] {
+    --color-primary: #4A7A4A;
+    --color-gold: #B8860B;
+    --color-parchment: #E8E0D0;
+    --gradient-hero: linear-gradient(to bottom, rgba(74,122,74,0.2), rgba(44,74,44,0.3));
+  }
+
   body {
     @apply bg-parchment text-charcoal font-merriweather;
   }
@@ -35,10 +115,25 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
+    
+    .animate-bounce {
+      animation: none;
+    }
   }
 }
 
 @layer components {
+  /* Subtle parchment texture for organic feel */
+  .parchment-texture {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath d='M0 0h1v1H0zm2 2h1v1H2z' fill='%23000' opacity='0.08'/%3E%3C/svg%3E");
+  }
+
+  @media (max-width: 768px) {
+    .parchment-texture {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath d='M0 0h1v1H0zm2 2h1v1H2z' fill='%23000' opacity='0.06'/%3E%3C/svg%3E");
+    }
+  }
+
   /* Vertical pan animation for hero images - animates transform to reveal full image */
   .hero-image-pan {
     animation: vertical-pan 30s ease-in-out infinite alternate;
@@ -66,6 +161,11 @@
     }
   }
 
+  /* Hero seasonal gradient overlay */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
   /* Accessible screen-reader-only helper (reveal on focus handled inline) */
   .sr-only {
     position: absolute !important;
@@ -89,6 +189,15 @@
 
   .btn-outline {
     @apply border-2 border-forest text-forest bg-transparent px-6 py-3 rounded-organic font-lato font-semibold transition-all duration-200 hover:bg-forest hover:text-gold focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2 focus:ring-offset-parchment;
+  }
+
+  /* Hero-specific buttons with backdrop for universal readability */
+  .btn-hero-primary {
+    @apply bg-forest/90 backdrop-blur-sm text-gold px-6 py-3 rounded-organic font-lato font-semibold transition-all duration-200 hover:bg-forest hover:shadow-organic-lg focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-transparent;
+  }
+
+  .btn-hero-outline {
+    @apply border-2 border-parchment/90 text-parchment bg-charcoal/40 backdrop-blur-sm px-6 py-3 rounded-organic font-lato font-semibold transition-all duration-200 hover:bg-parchment hover:text-forest hover:border-parchment focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-transparent;
   }
 
   .card {
@@ -122,5 +231,97 @@
   /* Optional overlay utility for text-over-image contrast if needed */
   .image-overlay-gradient {
     @apply absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40 pointer-events-none;
+  }
+
+  /* Syllogism Section Decorations */
+  .syllogism-number {
+    @apply absolute -left-16 top-0 text-6xl font-playfair text-forest/20;
+  }
+
+  .major-premise-border {
+    @apply border-l-8 border-poetic/30;
+  }
+
+  .minor-premise-border {
+    @apply border-l-8 border-forest/30;
+  }
+
+  .conclusion-border {
+    @apply border-l-8 border-gold/60;
+  }
+
+  /* Responsive numeral sizing */
+  @media (min-width: 1280px) {
+    .syllogism-number {
+      @apply text-8xl -left-20;
+    }
+  }
+
+  /* Problem vs Solution Panel Styling */
+  .problem-panel {
+    @apply bg-charcoal/5 border-l-4 border-red-700/40;
+    filter: grayscale(30%) brightness(0.95);
+  }
+
+  .solution-panel {
+    @apply bg-spiritual/5 border-l-4 border-green-700/40;
+  }
+
+  /* Ensure images respect filters */
+  .problem-panel img {
+    filter: grayscale(70%) brightness(0.9);
+  }
+
+  .solution-panel img {
+    filter: none;
+  }
+
+  /* Counterargument Accordion Styling */
+  .counterargument-item {
+    @apply border-l-4 border-spiritual/40 bg-spiritual/5;
+  }
+
+  .counterargument-item[data-state="open"] {
+    @apply border-spiritual bg-spiritual/10;
+  }
+
+  .counterargument-item[data-state="open"]::before {
+    content: "✓";
+    @apply absolute -left-10 top-4 text-2xl text-spiritual;
+  }
+
+  /* Argument Accordion Variant */
+  .argument-accordion-item {
+    @apply relative;
+  }
+
+  .argument-accordion-item[data-state="open"] {
+    @apply border-green-700/40 shadow-lg shadow-green-700/10;
+  }
+
+  .argument-accordion-item[data-state="open"]::before {
+    content: "";
+    @apply absolute -left-1 top-0 bottom-0 w-1 bg-green-700 rounded-l-lg;
+  }
+
+  /* Enhanced animation for argument variant */
+  .argument-accordion-item .accordion-content {
+    @apply transition-all duration-300;
+  }
+
+  /* Tooltip fade-in animation for RotatingQuotes */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
   }
 }

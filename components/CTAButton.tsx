@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 interface CTAButtonProps {
   href?: string;
   onClick?: () => void;
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'hero-primary' | 'hero-outline';
   size?: 'sm' | 'md' | 'lg';
   disabled?: boolean;
   children: ReactNode;
@@ -26,6 +26,8 @@ export default function CTAButton({
     primary: 'btn-primary',
     secondary: 'btn-secondary',
     outline: 'btn-outline',
+    'hero-primary': 'btn-hero-primary',
+    'hero-outline': 'btn-hero-outline',
   };
 
   const sizeClasses = {

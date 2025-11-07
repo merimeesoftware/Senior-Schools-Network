@@ -1,0 +1,40 @@
+﻿
+> senior-schools-network@0.1.0 build
+> next build
+
+  Γû▓ Next.js 14.2.33
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/24) ...
+   Generating static pages (6/24) 
+   Generating static pages (12/24) 
+   Generating static pages (18/24) 
+ Γ£ô Generating static pages (24/24)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                            Size     First Load JS
+Γöî Γùï /                                                  3.98 kB         110 kB
+Γö£ Γùï /_not-found                                        873 B          88.2 kB
+Γö£ Γùï /engage                                            186 B           101 kB
+Γö£ Γùï /philosophy                                        7.66 kB         109 kB
+Γö£ Γùï /robots.txt                                        0 B                0 B
+Γö£ Γùï /schools                                           2.74 kB         104 kB
+Γö£ Γùï /sitemap.xml                                       0 B                0 B
+Γöö ΓùÅ /texts/[slug]                                      175 B          96.2 kB
+    Γö£ /texts/1927-GK-Chesterton-The-Outline-of-Sanity
+    Γö£ /texts/Art-Suggestions
+    Γö£ /texts/Boethius the Consolation of Philosophy
+    Γöö [+12 more paths]
++ First Load JS shared by all                          87.3 kB
+  Γö£ chunks/117-58722ea4c45ba778.js                     31.8 kB
+  Γö£ chunks/fd9d1056-b38af91eca32e757.js                53.6 kB
+  Γöö other shared chunks (total)                        1.89 kB
+
+
+Γùï  (Static)  prerendered as static content
+ΓùÅ  (SSG)     prerendered as static HTML (uses getStaticProps)
+

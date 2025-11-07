@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Playfair_Display, Merriweather, Lato } from 'next/font/google';
 import './globals.css';
+import { getCurrentLiturgicalSeason, getSeasonClassName } from '@/lib/utils/liturgical';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -87,12 +88,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const seasonInfo = getCurrentLiturgicalSeason();
+  const seasonClass = getSeasonClassName(seasonInfo);
+  
   return (
     <html
       lang="en"
       className={`${playfair.variable} ${merriweather.variable} ${lato.variable}`}
     >
-      <body>
+      <body 
+        className={seasonClass}
+        data-season={seasonInfo.season}
+        data-season-color={seasonInfo.color}
+      >
         {/* Skip to content for keyboard users */}
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus-visible-ring bg-parchment text-forest px-4 py-2 rounded-organic z-[100]">
           Skip to main content

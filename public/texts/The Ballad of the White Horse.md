@@ -114,9 +114,16 @@ Aeons on aeons gone, Was peace and war in western hills, And the White Horse loo
 
 For the White Horse knew England When there was none to know; He saw the first oar break or bend, He saw heaven fall and the world end, O God, how long ago.
 
-For the end of the world was long ago, And all we dwell to-day As children of some second birth, Like a strange people left on earth After a judgment day.
+For the end of the world was long ago,  
+And all we dwell to-day  
+As children of some second birth,  
+Like a strange people left on earth  
+After a judgment day.
 
-For the end of the world was long ago, When the ends of the world waxed free, When Rome was sunk in a waste of slaves, And the sun drowned in the sea.
+For the end of the world was long ago,  
+When the ends of the world waxed free,  
+When Rome was sunk in a waste of slaves,  
+And the sun drowned in the sea.
 
 When Caesar's sun fell out of the sky And whoso hearkened right Could only hear the plunging Of the nations in the night.
 

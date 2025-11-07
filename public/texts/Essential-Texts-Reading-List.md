@@ -2,7 +2,6 @@
 title: Essential Texts Reading List
 category: philosophy
 description: Foundational texts exploring John Senior's philosophy and Catholic intellectual tradition
-tags: [philosophy, education, Catholic, reading-list]
 ---
 
 # Essential Texts Reading List
@@ -106,6 +105,20 @@ This curated guide introduces the foundational texts and excerpts behind the Sen
 **Key Themes**: Heroism, faith, cultural memory, epic poetry, Christian civilization
 
 **Why Read It**: This is the kind of poetry Senior recommends for gymnasium-stage boys — rousing, heroic, and morally clarifying. It cultivates courage and cultural identity.
+
+---
+
+## St. John Bosco
+
+### [The Preventative System](/texts/The%20Preventative%20System)
+
+**Author**: St. John Bosco (1877)
+
+**Description**: St. Don Bosco's foundational address on his educational philosophy, delivered at the opening of St. Peter's Youth Centre in Nice. This work outlines the "Preventive System" in contrast to the "Repressive System" — emphasizing loving guidance, vigilant supervision, and formation through reason, religion, and kindness rather than punishment and fear. Bosco advocates for making students "unable to do wrong" through fatherly presence, frequent sacraments, and creating environments of trust and joy. His approach revolutionized Catholic education and remains profoundly relevant for parents and educators seeking to form virtue without crushing the spirit.
+
+**Key Themes**: Preventive vs. repressive education, loving authority, vigilant supervision, reason and religion, frequent sacraments, practical pedagogy, formation over punishment
+
+**Why Read It**: This text provides a practical, pastoral model for Catholic education that complements Senior's emphasis on wonder and poetic knowledge. Where Senior focuses on *what* to teach (fairy tales, nature, adventure), Don Bosco shows *how* to teach — with love, presence, and preventive care. His system demonstrates how discipline and freedom, authority and affection, can coexist in forming virtuous young people. Essential reading for anyone implementing a Catholic educational vision.
 
 ---
 

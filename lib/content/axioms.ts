@@ -29,18 +29,26 @@ function slugify(input: string): string {
  * - "Quote text" — Author, Source
  * - "Quote text" — Author (Source)
  * - "Quote text" — Author
+ * Handles multi-line input (e.g., poetry) by preserving newlines in quote text.
  */
-function parseBullet(line: string): Quote | null {
-  const trimmed = line.trim().replace(/^[-*]\s+/, '');
-  // Expect something like "..." — Author ...
+function parseBullet(input: string): Quote | null {
+  // Remove bullet marker from first line only
+  const lines = input.split('\n');
+  if (lines.length === 0) return null;
+  
+  const firstLine = lines[0].trim().replace(/^[-*]\s+/, '');
+  const restLines = lines.slice(1).map(l => l.trim());
+  const fullText = [firstLine, ...restLines].join('\n');
+  
   // Normalize md smart quotes & em dash variants
-  const norm = trimmed
-    .replace(/[“”]/g, '"')
+  const norm = fullText
+    .replace(/[""]/g, '"')
     .replace(/—/g, '—')
     .replace(/--/g, '—');
 
   // Match: "Quote" — Author [ , Source | (Source) ]
-  const quoteMatch = /^"(.+?)"\s+—\s+(.+?)(?:\s*[,(]\s*(.+))?$/.exec(norm);
+  // Use DOTALL flag to match across newlines
+  const quoteMatch = /^"([\s\S]+?)"\s+—\s+(.+?)(?:\s*[,(]\s*(.+))?$/.exec(norm);
   if (!quoteMatch) return null;
 
   const [, quoteText, authorPart, sourceRaw] = quoteMatch;
@@ -66,6 +74,7 @@ function parseBullet(line: string): Quote | null {
  * Extract quotes under a markdown heading (e.g., 'On Wonder & Beginnings').
  * We search for a line starting with '### <title>' and capture bullet list items
  * until the next heading of level >= 3.
+ * Handles multi-line bullets (e.g., poetry) by accumulating continuation lines.
  */
 export async function getAxiomsQuotesBySection(title: string): Promise<Quote[]> {
   const lines = await readAxioms();
@@ -76,20 +85,55 @@ export async function getAxiomsQuotesBySection(title: string): Promise<Quote[]> 
   if (startIdx === -1) return [];
 
   const collected: Quote[] = [];
+  let currentBullet: string[] = [];
+  
   for (let i = startIdx + 1; i < lines.length; i++) {
     const line = lines[i];
-    if (nextHeadingRegex.test(line)) break;
+    
+    // If we hit another heading, process any pending bullet and stop
+    if (nextHeadingRegex.test(line)) {
+      if (currentBullet.length > 0) {
+        const q = parseBullet(currentBullet.join('\n'));
+        if (q) collected.push(q);
+      }
+      break;
+    }
+    
+    // Start of new bullet
     if (/^\s*[-*]\s+/.test(line)) {
-      const q = parseBullet(line);
+      // Process previous bullet if exists
+      if (currentBullet.length > 0) {
+        const q = parseBullet(currentBullet.join('\n'));
+        if (q) collected.push(q);
+      }
+      // Start new bullet
+      currentBullet = [line];
+    }
+    // Continuation line (non-empty, non-bullet)
+    else if (currentBullet.length > 0 && line.trim()) {
+      currentBullet.push(line);
+    }
+    // Empty line ends current bullet
+    else if (!line.trim() && currentBullet.length > 0) {
+      const q = parseBullet(currentBullet.join('\n'));
       if (q) collected.push(q);
+      currentBullet = [];
     }
   }
+  
+  // Process final bullet if exists
+  if (currentBullet.length > 0) {
+    const q = parseBullet(currentBullet.join('\n'));
+    if (q) collected.push(q);
+  }
+  
   return collected;
 }
 
 /**
  * Extract quotes by explicit 1-based line range in PHILOSOPHICAL-AXIOMS.md
  * e.g., getAxiomsQuotesByLineRange(610, 617)
+ * Handles multi-line bullets by accumulating continuation lines.
  */
 export async function getAxiomsQuotesByLineRange(
   startLine: number,
@@ -100,12 +144,37 @@ export async function getAxiomsQuotesByLineRange(
   const end = Math.min(lines.length, endLine);
   const slice = lines.slice(start, end);
   const quotes: Quote[] = [];
+  let currentBullet: string[] = [];
+  
   for (const line of slice) {
+    // Start of new bullet
     if (/^\s*[-*]\s+/.test(line)) {
-      const q = parseBullet(line);
+      // Process previous bullet if exists
+      if (currentBullet.length > 0) {
+        const q = parseBullet(currentBullet.join('\n'));
+        if (q) quotes.push(q);
+      }
+      // Start new bullet
+      currentBullet = [line];
+    }
+    // Continuation line (non-empty, non-bullet)
+    else if (currentBullet.length > 0 && line.trim()) {
+      currentBullet.push(line);
+    }
+    // Empty line ends current bullet
+    else if (!line.trim() && currentBullet.length > 0) {
+      const q = parseBullet(currentBullet.join('\n'));
       if (q) quotes.push(q);
+      currentBullet = [];
     }
   }
+  
+  // Process final bullet if exists
+  if (currentBullet.length > 0) {
+    const q = parseBullet(currentBullet.join('\n'));
+    if (q) quotes.push(q);
+  }
+  
   return quotes;
 }
 

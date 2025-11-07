@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`SummaryBox Snapshots matches snapshot for conclusion variant 1`] = `
+<div
+  class="max-w-4xl mx-auto bg-gold/5 border-2 border-gold/40 rounded-lg p-8 md:p-8 sm:p-6 text-center "
+>
+  <div
+    class="text-charcoal/90 leading-relaxed"
+  >
+    <p>
+      Therefore, embrace the poetic path.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`SummaryBox Snapshots matches snapshot for major-premise variant 1`] = `
+<div
+  class="max-w-4xl mx-auto bg-red-100 border-4 border-red-700 rounded-lg p-8 md:p-8 sm:p-6 text-center "
+>
+  <h3
+    class="font-playfair text-2xl font-bold text-red-900 mb-4"
+  >
+    The Crisis:
+  </h3>
+  <div
+    class="text-charcoal/90 leading-relaxed"
+  >
+    <p>
+      Modern education has failed.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`SummaryBox Snapshots matches snapshot for minor-premise variant 1`] = `
+<div
+  class="max-w-4xl mx-auto bg-green-100 border-4 border-green-700 rounded-lg p-8 md:p-8 sm:p-6 text-center "
+>
+  <h3
+    class="font-playfair text-2xl font-bold text-green-900 mb-4"
+  >
+    The Restoration:
+  </h3>
+  <div
+    class="text-charcoal/90 leading-relaxed"
+  >
+    <p>
+      Poetic knowledge restores.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`SummaryBox Snapshots matches snapshot without title 1`] = `
+<div
+  class="max-w-4xl mx-auto bg-red-100 border-4 border-red-700 rounded-lg p-8 md:p-8 sm:p-6 text-center "
+>
+  <div
+    class="text-charcoal/90 leading-relaxed"
+  >
+    <p>
+      Content without title
+    </p>
+  </div>
+</div>
+`;

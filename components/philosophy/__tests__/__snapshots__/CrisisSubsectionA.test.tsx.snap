@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`CrisisSubsectionA matches snapshot 1`] = `
+<div
+  class="space-y-12 "
+  id="major-premise-a"
+>
+  <h3
+    class="font-playfair text-4xl font-bold text-red-900"
+  >
+    A. Loss of Wonder & Sensory Integration
+  </h3>
+  <div
+    data-testid="problem-solution-panel"
+  >
+    <div
+      data-testid="problem-title"
+    >
+      The Problem: Screen Addiction
+    </div>
+    <div
+      data-testid="solution-title"
+    >
+      The Solution: Nature & Wonder
+    </div>
+  </div>
+  <div
+    data-testid="evidence-quote-group"
+    data-variant="major-premise"
+  >
+    <h4>
+      Evidence from the Sources
+    </h4>
+    <div
+      data-testid="quote-count"
+    >
+      3
+       quotes
+    </div>
+  </div>
+  <div
+    class="space-y-6"
+  >
+    <h4
+      class="font-playfair text-2xl font-bold text-forest text-center"
+    >
+      Where the Crisis Hits: Nursery & Gymnasium
+    </h4>
+    <div
+      data-mode="crisis"
+      data-testid="interactive-stages"
+    >
+      Interactive Stages Component
+    </div>
+    <p
+      class="text-center text-sm text-charcoal/70 italic"
+    >
+      Click each stage to see the modern failure
+    </p>
+  </div>
+</div>
+`;

@@ -22,8 +22,8 @@ interface TextPageProps {
 export async function generateStaticParams() {
   const slugs = await getAllTextSlugs();
   return slugs.map((slug) => ({
-    // URL-encode the slug for Next.js routing
-    slug: encodeURIComponent(slug),
+    // Next.js handles URL encoding automatically
+    slug: slug,
   }));
 }
 

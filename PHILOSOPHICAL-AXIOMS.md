@@ -1,6 +1,12 @@
 # Philosophical Axioms & Quote Library
 ## Senior Schools Network
 
+Hero quotes (crisis hook + remedy)
+Major Premise quotes (A: sensory loss, B: gymnasium crisis, C: fragmentation)
+Minor Premise quotes (A: poetic foundation, B: adventure, C: liturgy)
+Conclusion quotes (warrior poets vision)
+Counterarguments quotes (elitism, boys-focus, practicality)
+
 **Purpose**: This document serves dual functions:
 1. **Philosophical Synthesis**: Extracts the essential DNA from core texts to guide AI-generated content
 2. **Quote Repository**: Provides searchable, thematic quotes for site copy, user flows, blog posts, and resources
@@ -36,12 +42,6 @@ Sensory delight forms the foundation of wonder and knowledge. Through the five s
 
 - "To be connatural with a thing is to participate in some way with its nature... a metaphysical encounter." — James S. Taylor (Presence through participation)
 
-- "Man, sub-creator, the refracted light through whom is splintered from a single White to many hues, and endlessly combined in living shapes that move from mind to mind." — J.R.R. Tolkien, _Mythopoeia_ (Sub-creation as sensory mediation)
-
-- "We make still by the law in which we're made." — J.R.R. Tolkien, _Mythopoeia_ (Creation through connaturality)
-
-- "Trees are not 'trees', until so named and seen and never were so named, till those had been who speech's involuted breath unfurled, faint echo and dim picture of the world." — J.R.R. Tolkien, _Mythopoeia_ (Language and sensory naming)
-
 - "Poetic knowledge is a knowledge through affective union. It proceeds from the essential recesses of the subjectivity enriched by the intuitive donations of the senses and of tendency or instinct." — Jacques Maritain, _Creative Intuition in Art and Poetry_ (Affective and sensory grounding)
 
 - "The soul knows bodies through the intellect." — Thomas Aquinas, _Summa Theologica_ I, Q84, A1 (Intellectual mediation of sensory knowledge)
@@ -51,6 +51,18 @@ Sensory delight forms the foundation of wonder and knowledge. Through the five s
 - "I look up at those heavens of thine, the work of thy hands, at the moon and the stars, which thou hast set in their places." — Psalm 8 (Knox) (Sensory wonder at creation)
 
 - "Great is this force of memory, exceeding great, O my God... And men go abroad to admire the heights of mountains, the mighty billows of the sea... and pass themselves by." — Augustine, _Confessions_ X.8 (Sensory wonder and inward memory)
+
+- "Man, sub-creator, the refracted light  
+through whom is splintered from a single White  
+to many hues, and endlessly combined  
+in living shapes that move from mind to mind." — J.R.R. Tolkien, _Mythopoeia_
+
+- "We make still by the law in which we're made." — J.R.R. Tolkien, _Mythopoeia_
+
+- "Trees are not 'trees', until so named and seen  
+and never were so named, till those had been  
+who speech's involuted breath unfurled,  
+faint echo and dim picture of the world." — J.R.R. Tolkien, _Mythopoeia_
 
 ---
 
@@ -95,6 +107,12 @@ Poetic knowledge synthesizes and integrates rather than fragments and analyzes. 
 
 - "Without love, education is nothing." — John Senior, _Restoration of Innocence_ II.3 (Love as prerequisite)
 
+- "Love is patient, love is kind … it bears all things … hopes all things, endures all things." — St. Paul, 1 Cor. 13:4,7 (quoted by St. Don Bosco, _The Preventative System_) (Foundation of preventive education)
+
+- "The educator at work among his pupils should make himself loved, if he wishes to be respected." — St. Don Bosco, _The Preventative System_ (Love precedes respect)
+
+- "The educator can still speak to him in the language of the heart, whether during the time of his education or later." — St. Don Bosco, _The Preventative System_ (Heart language as pedagogy)
+
 ---
 
 ## III. MISSION AND ADVENTURE (The Gymnasium and Chivalric Formation)
@@ -108,35 +126,57 @@ Ages 7-13—the gymnasium—call forth boys' innate restlessness and power. Here
 
 - "_Puer_, the Latin word for 'boy,' derives from 'pure' because concupiscence has not reared up as yet. 'Pure' comes from _pyros_, purifying 'fire' (boys burn with gem-like flames) which in turn derives from _pu_, an Indo-European root meaning 'power,' or potential force like the energy in atoms and the elements." — John Senior, _Restoration of Innocence_ (Etymological essence of boyhood)
 
-- "The elementary school is a gymnasium (from _gymnos_, 'naked') where stripped or lightly clad boys exercise, sharpening their five senses in immediate contact with nature in the raw." — John Senior, _Restoration of Innocence_ I.3 (Gymnasium as rigorous sensory formation)
+- "For the end of the world was long ago,  
+And all we dwell to-day  
+As children of some second birth,  
+Like a strange people left on earth  
+After a judgment day." — G.K. Chesterton, _The Ballad of the White Horse_
 
-- "For the end of the world was long ago, And all we dwell to-day As children of some second birth, Like a strange people left on earth After a judgment day." — G.K. Chesterton, _The Ballad of the White Horse_ (Post-apocalyptic calling)
+- "Blessed are the legend-makers with their rhyme  
+of things not found within recorded time.  
+It is not they that have forgot the Night,  
+or bid us flee to organized delight." — J.R.R. Tolkien, _Mythopoeia_ (Myth-making against mechanization)
 
-- "Blessed are the legend-makers with their rhyme of things not found within recorded time. It is not they that have forgot the Night, or bid us flee to organized delight." — J.R.R. Tolkien, _Mythopoeia_ (Myth-making against mechanization)
+- "Blessed are the men of Noah's race that build  
+their little arks, though frail and poorly filled,  
+and steer through winds contrary towards a wraith,  
+a rumour of a harbour guessed by faith." — J.R.R. Tolkien, _Mythopoeia_ (Faithful wayfaring through chaos)
 
-- "Blessed are the men of Noah's race that build their little arks, though frail and poorly filled, and steer through winds contrary towards a wraith, a rumour of a harbour guessed by faith." — J.R.R. Tolkien, _Mythopoeia_ (Faithful wayfaring through chaos)
+- "And I thought, 'I will go with you,  
+As man with God has gone,  
+And wander with a wandering star,  
+The wandering heart of things that are,  
+The fiery cross of love and war  
+That like yourself, goes on.'" — G.K. Chesterton, _The Ballad of the White Horse_
 
-- "And I thought, 'I will go with you, As man with God has gone, And wander with a wandering star, The wandering heart of things that are, The fiery cross of love and war That like yourself, goes on.'" — G.K. Chesterton, _The Ballad of the White Horse_, Dedication (Calling to wander in love and war)
+- "In some far century, sad and slow,  
+I have a vision, and I know  
+The heathen shall return.  
 
-- "They shall not come with warships, They shall not waste with brands, But books be all their eating, And ink be on their hands... By thought a crawling ruin, By life a leaping mire, By a broken heart in the breast of the world, And the end of the world's desire." — G.K. Chesterton, _The Ballad of the White Horse_ (Crisis of mechanical captivity)
+They shall not come with warships,  
+They shall not waste with brands,  
+But books be all their eating,  
+And ink be on their hands." — G.K. Chesterton, _The Ballad of the White Horse_
 
 - "Aristocrats make schools in caves where hermits anticipate the Promised Land while still lost in the desert... the few who still care must teach in catacombs or tents... Christian radicals who subvert the secular order not by terrorism but sacrifice, who never lie, but don't say what they think until they must, who walk, as Saint Paul said, circumspectly, redeeming the time." — John Senior, _Restoration of Innocence_ (Radical counter-cultural schools)
-
-- "Strong nursery (homeschooling) + high schools exist, but ages 7-13 lack adventure-based formation amid 'cultural softness.'" — README.md (Gymnasium gap in formation)
-
-- "Physical discipline and adventure... education incorporates bodily rigor and experiential challenges—harsh at times—to form resilient individuals, especially boys into 'Chivalric Wayfarers.'" — README.md (Adventure and rigor as formative)
 
 - "Schools must provide good educators and fertile soil, not curricula." — John Senior, synthesis (Educators over systems)
 
 - "These foster repose and sensory delight... Physical rigor, adventure, and stories." — John Senior, on Gymnasium Canon (Books as formation)
 
-- "Stripped or lightly clad boys exercise, sharpening their five senses in immediate contact with nature in the raw." — John Senior (Gymnasium principle)
+- "Stripped or lightly clad boys exercise, sharpening their five senses in immediate contact with nature." — John Senior (Gymnasium principle)
 
 - "Fathers, do not provoke your children to anger, but bring them up in the discipline and instruction of the Lord." — Ephesians 6:4 (Knox) (Fatherly formation)
 
 - "A boy will keep the course he has begun; even when he grows old, he will not leave it." — Proverbs 22:6 (Knox) (Early formation as determinative)
 
 - "The beginning in every work is the chief thing, especially in the case of anything young and tender. For then especially is the character moulded." — Plato, _Republic_ II.376-377 (Early formation's decisive importance)
+
+- "Give them ample liberty to jump, run, and make a din as much as they please. Gymnastics, music, declamation (of poems, etc), theatricals, and hikes, are very effective methods for getting discipline; they favor good living and good health." — St. Don Bosco, _The Preventative System_ (Physical liberty as formative discipline)
+
+- "Do whatever you wish; for me, it is enough you do not sin." — St. Philip Neri (quoted by St. Don Bosco, _The Preventative System_) (Freedom within virtue)
+
+- "The students are always under the vigilant eye of the Director and the assistants, who like loving fathers will converse with them, act as guides in every event, counsel them and lovingly correct them." — St. Don Bosco, _The Preventative System_ (Fatherly vigilance and guidance)
 
 ---
 
@@ -169,9 +209,24 @@ The enclosed garden (hortus conclusus) protects innocence through liturgical rhy
 
 - "Religion teaches the laborer and the artisan to carry out honestly and fairly all equitable agreements freely entered into; never to injure the property, nor to outrage the person, of an employer." — _Rerum Novarum_, Pope Leo XIII (Faith as guide to just order)
 
-- "Blessed are the timid hearts that evil hate, that quail in its shadow, and yet shut the gate; that seek no parley, and in guarded room, though small and bare, upon a clumsy loom weave tissues gilded by the far-off day hoped and believed in under Shadow's sway." — J.R.R. Tolkien, _Mythopoeia_ (Protected enclosure amid threat)
+- "Blessed are the timid hearts that evil hate,  
+that quail in its shadow, and yet shut the gate;  
+that seek no parley, and in guarded room,  
+though small and bare, upon a clumsy loom  
+weave tissues gilded by the far-off day  
+hoped and believed in under Shadow's sway." — J.R.R. Tolkien, _Mythopoeia_ (Protected enclosure amid threat)
 
 - "As a tide turns on the tall grey seas, See how they waver in the trees... And the Mother of God goes over them, Walking on wind and flame, And we all shall yet drink Christian ale In the village of our name." — G.K. Chesterton, _The Ballad of the White Horse_, Book VII (Liturgical restoration)
+
+- "Frequent Confession, frequent Communion, and daily Mass are the pillars that ought to support an educational edifice, from which one would want to keep at bay threats and violence." — St. Don Bosco, _The Preventative System_ (Sacraments as educational pillars)
+
+- "Frequent Confession and Communion, and Daily Mass well heard... If you do not make use of these religious means, you must turn to threats and the stick." — St. Don Bosco, _The Preventative System_ (Anecdote to English minister) (Religion vs. coercion)
+
+- "Religion or the rod." — St. Don Bosco, _The Preventative System_ (Stark choice in education)
+
+- "Every evening after the usual prayers, and before the students go to bed, the Director or someone in his place should offer a few kind words in public... This is the key to good behavior, progress, and educational success." — St. Don Bosco, _The Preventative System_ (Daily rhythm of fatherly counsel)
+
+- "Once a child can tell the difference between bread and bread, and shows himself to be sufficiently instructed, pay no attention to his age and let the Heavenly King come to reign in that happy soul." — St. Don Bosco, _The Preventative System_ (Early First Communion)
 
 ---
 
@@ -194,13 +249,14 @@ This philosophy is Catholic—exclusionary in fidelity to core tenets, resistant
 
 - "The romance of machinery... The holiday of the slave... The free man and the Ford car." — G.K. Chesterton, _Outline of Sanity_ (Machinery's false promises)
 
-- "Charitable but Truthful: Avoid moralizing; treat users as adults pursuing truth." — README.md (Tone requirement)
-
 - "The happy results we all long for must be chiefly brought about by the plenteous outpouring of charity; of that true Christian charity which is the fulfilling of the whole Gospel law, which is always ready to sacrifice itself for others' sake." — _Rerum Novarum_, Pope Leo XIII (Charity as fulfillment)
 
-- "It is not they that have forgot the Night, or bid us flee to organized delight, in lotus-isles of economic bliss forswearing souls to gain a Circe-kiss (and counterfeit at that, machine-produced, bogus seduction of the twice-seduced)." — J.R.R. Tolkien, _Mythopoeia_ (Against organized mechanization)
-
-- "Against Method" — John Senior, _Restoration of Innocence_ (Chapter VII) (Rejection of systematization)
+- "It is not they that have forgot the Night,  
+or bid us flee to organized delight,  
+in lotus-isles of economic bliss  
+forswearing souls to gain a Circe-kiss  
+(and counterfeit at that, machine-produced,  
+bogus seduction of the twice-seduced)." — J.R.R. Tolkien, _Mythopoeia_ (Against organized mechanization)
 
 - "The correct association for the negative attitude towards intuitive knowledge is the seventeenth century, starting with Descartes... This is the 'Enlightenment' or the 'Age of Reason'." — James S. Taylor, _Poetic Knowledge_ (Cartesian dualism as origin of fragmentation)
 
@@ -213,6 +269,28 @@ This philosophy is Catholic—exclusionary in fidelity to core tenets, resistant
 - "What music can be found more sweet than the pronunciation of a well-ordered speech?" — Cicero, _De Oratore_ II.85 (Ordered speech as beauty)
 
 - "The received is in the receiver according to the mode of the receiver." — Thomas Aquinas, _Summa_ I, Q84, A1 (Receiver's nature determines reception of truth)
+
+- "This system is all based on reason, religion, and loving kindness." — St. Don Bosco, _The Preventative System_ (Threefold foundation of education)
+
+- "Only a Christian can successfully apply the Preventive system. Reason and Religion are the means the educator should constantly make use of, teaching them, making use of them himself, if he wishes to be obeyed and to attain his goal." — St. Don Bosco, _The Preventative System_ (Christian pedagogy as essential)
+
+- "An educator is one devoted to the well-being of his students, and for this reason, ought to be ready to face every inconvenience, and every fatigue to achieve his goal, which is the civil, moral, and intellectual education of his students." — St. Don Bosco, _The Preventative System_ (Educator's total devotion)
+
+- "The Preventive system makes a friend of the student, who in the teacher sees a benefactor who gives him good advice, wants to make him good, to shield him from unpleasantness, punishment, and dishonor." — St. Don Bosco, _The Preventative System_ (Friendship over coercion)
+
+- "The basic reason (why young people get into trouble) is youthful fickleness which in a moment can forget the rules of discipline and the punishments they threaten." — St. Don Bosco, _The Preventative System_ (Understanding youth nature)
+
+- "Young people do not forget the punishments they have suffered, and generally remain embittered, wanting to throw off the yolk, and even to take revenge." — St. Don Bosco, _The Preventative System_ (Repressive system's lasting harm)
+
+- "The student will have the greatest respect for the educator and will go on recalling with pleasure the orientation he was given, always considering his teachers and the other Superiors as fathers and brothers." — St. Don Bosco, _The Preventative System_ (Preventive system's lasting fruit)
+
+- "Exercise the strictest vigilance to prevent there being allowed in the Institute friends, books, or persons who carry on bad conversations. The appointment of a good doorkeeper constitutes a treasure for a house of education." — St. Don Bosco, _The Preventative System_ (Protective vigilance)
+
+- "One should use the greatest prudence and patience to have the student understand his fault through reason and religion." — St. Don Bosco, _The Preventative System_ (Correction through understanding)
+
+- "To strike one in any way, to make one kneel in a painful position, to pull anyone's ears and similar punishments should be absolutely avoided because they are forbidden by the law of the land, they greatly irritate the young, and they degrade the educator." — St. Don Bosco, _The Preventative System_ (Absolute rejection of corporal punishment)
+
+- "For these forty years during which I have dealt with the young, I do not remember ever having used any kind of punishment, and with the help of God, I have always got not only what was necessary, but even had my wishes met." — St. Don Bosco, _The Preventative System_ (Testimony of preventive success)
 
 ---
 

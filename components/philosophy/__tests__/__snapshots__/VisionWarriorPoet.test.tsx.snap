@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`VisionWarriorPoet matches snapshot 1`] = `
+<div
+  class="space-y-12 "
+>
+  <h3
+    class="font-playfair text-4xl font-bold text-gold-dark text-center"
+  >
+    What Is a Warrior Poet?
+  </h3>
+  <div
+    data-columns="3"
+    data-testid="mock-card-grid"
+    data-variant="vision"
+  >
+    <div
+      data-testid="card-0"
+    >
+      <span
+        data-testid="emoji-0"
+      >
+        🛡️
+      </span>
+      <h4
+        data-testid="heading-0"
+      >
+        Warrior
+      </h4>
+      <p
+        data-testid="description-0"
+      >
+        Physically resilient, morally courageous, ready to defend truth and family. Forged in the gymnasium through sport, adventure, and discipline.
+      </p>
+    </div>
+    <div
+      data-testid="card-1"
+    >
+      <span
+        data-testid="emoji-1"
+      >
+        🎨
+      </span>
+      <h4
+        data-testid="heading-1"
+      >
+        Poet
+      </h4>
+      <p
+        data-testid="description-1"
+      >
+        Rooted in poetic knowledge: music, art, philosophy integrated through liturgical rhythm. Sees reality as a unified whole, not fragmented facts.
+      </p>
+    </div>
+    <div
+      data-testid="card-2"
+    >
+      <span
+        data-testid="emoji-2"
+      >
+        ✝️
+      </span>
+      <h4
+        data-testid="heading-2"
+      >
+        Catholic
+      </h4>
+      <p
+        data-testid="description-2"
+      >
+        Formed in liturgical wisdom, rooted in Tradition, ordered to eternal truth. Education is formation for heaven, not mere career preparation.
+      </p>
+    </div>
+  </div>
+  <p
+    class="text-lg text-charcoal/90 text-center max-w-3xl mx-auto leading-relaxed"
+  >
+    The warrior poet is not a romantic ideal but the natural outcome of the four stages. Physical courage (gymnasium) + integrated learning (poetic) + liturgical wisdom (spiritual) = men who can restore Christendom.
+  </p>
+</div>
+`;

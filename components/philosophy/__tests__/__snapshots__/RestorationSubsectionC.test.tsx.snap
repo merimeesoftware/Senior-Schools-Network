@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`RestorationSubsectionC matches snapshot 1`] = `
+<div
+  class="space-y-12 "
+  id="minor-premise-c"
+>
+  <h3
+    class="font-playfair text-4xl font-bold text-green-900"
+  >
+    C. The Poetic Stage: Integrated Learning
+  </h3>
+  <p
+    class="text-lg leading-relaxed text-charcoal/90 max-w-4xl mx-auto"
+  >
+    Only after the gymnasium lays the foundation can the poetic stage (ages 13-17) flourish. Here, music, art, poetry, and philosophy are integrated—not as isolated subjects, but as expressions of a unified vision of reality. Science comes last, growing from this fertile poetic soil.
+  </p>
+  <div
+    data-testid="mock-study-grid"
+    data-variant="restoration"
+  >
+    <h4>
+      The IHP Model: Integrated Humanities
+    </h4>
+    <p>
+      The Integrated Humanities Program at the University of Kansas (founded by Senior, Quinn, and Nelick) demonstrates poetic education in practice. Students spend three years studying Great Books, Gregorian chant, sacred art, and philosophy—all integrated through liturgical rhythm and natural law. Only after this foundation do they pursue specialized study.
+    </p>
+    <div
+      data-testid="left-heading"
+    >
+      What They Study:
+    </div>
+    <div
+      data-testid="right-heading"
+    >
+      What They Don't Study (Yet):
+    </div>
+    <div
+      data-testid="footer"
+    >
+      First integration, then specialization. First wonder, then analysis.
+    </div>
+  </div>
+  <div
+    data-testid="mock-evidence-quote-group"
+    data-variant="minor-premise"
+  >
+    <h4>
+      Evidence from the Sources
+    </h4>
+    <div
+      data-testid="quotes-count"
+    >
+      3
+       quotes
+    </div>
+  </div>
+  <div
+    class="pt-16 border-t-4 border-green-700"
+  >
+    <div
+      class="max-w-4xl mx-auto space-y-8"
+    >
+      <h3
+        class="font-playfair text-4xl font-bold text-forest text-center"
+      >
+        Summary: The Remedy Is Clear
+      </h3>
+      <div
+        data-testid="mock-summary-box"
+        data-variant="minor-premise"
+      >
+        <h5>
+          The Restoration Established:
+        </h5>
+        <p
+          class="text-xl leading-relaxed"
+        >
+          Poetic knowledge—cultivated through the four stages (nursery, gymnasium, poetic, spiritual)—is the remedy to modern education's failure. The 
+          <strong>
+            gymnasium stage (7-13)
+          </strong>
+           is the pivot: physical courage and ordered habit lay the foundation for all higher learning. Restore the gymnasium, integrate the poetic, and warrior poets will emerge.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

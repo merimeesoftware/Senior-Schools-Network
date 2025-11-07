@@ -95,6 +95,10 @@ const config: Config = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
+        'gradient-radial-top': 'radial-gradient(ellipse at top, var(--tw-gradient-stops))',
+      },
     },
   },
   plugins: [],
