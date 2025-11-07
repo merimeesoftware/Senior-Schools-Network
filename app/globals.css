@@ -232,4 +232,96 @@
   .image-overlay-gradient {
     @apply absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40 pointer-events-none;
   }
+
+  /* Syllogism Section Decorations */
+  .syllogism-number {
+    @apply absolute -left-16 top-0 text-6xl font-playfair text-forest/20;
+  }
+
+  .major-premise-border {
+    @apply border-l-8 border-poetic/30;
+  }
+
+  .minor-premise-border {
+    @apply border-l-8 border-forest/30;
+  }
+
+  .conclusion-border {
+    @apply border-l-8 border-gold/60;
+  }
+
+  /* Responsive numeral sizing */
+  @media (min-width: 1280px) {
+    .syllogism-number {
+      @apply text-8xl -left-20;
+    }
+  }
+
+  /* Problem vs Solution Panel Styling */
+  .problem-panel {
+    @apply bg-charcoal/5 border-l-4 border-red-700/40;
+    filter: grayscale(30%) brightness(0.95);
+  }
+
+  .solution-panel {
+    @apply bg-spiritual/5 border-l-4 border-green-700/40;
+  }
+
+  /* Ensure images respect filters */
+  .problem-panel img {
+    filter: grayscale(70%) brightness(0.9);
+  }
+
+  .solution-panel img {
+    filter: none;
+  }
+
+  /* Counterargument Accordion Styling */
+  .counterargument-item {
+    @apply border-l-4 border-spiritual/40 bg-spiritual/5;
+  }
+
+  .counterargument-item[data-state="open"] {
+    @apply border-spiritual bg-spiritual/10;
+  }
+
+  .counterargument-item[data-state="open"]::before {
+    content: "✓";
+    @apply absolute -left-10 top-4 text-2xl text-spiritual;
+  }
+
+  /* Argument Accordion Variant */
+  .argument-accordion-item {
+    @apply relative;
+  }
+
+  .argument-accordion-item[data-state="open"] {
+    @apply border-green-700/40 shadow-lg shadow-green-700/10;
+  }
+
+  .argument-accordion-item[data-state="open"]::before {
+    content: "";
+    @apply absolute -left-1 top-0 bottom-0 w-1 bg-green-700 rounded-l-lg;
+  }
+
+  /* Enhanced animation for argument variant */
+  .argument-accordion-item .accordion-content {
+    @apply transition-all duration-300;
+  }
+
+  /* Tooltip fade-in animation for RotatingQuotes */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
 }
