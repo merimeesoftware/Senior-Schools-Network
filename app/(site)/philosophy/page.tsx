@@ -9,6 +9,7 @@ import RotatingQuotes from '@/components/RotatingQuotes';
 import SyllogismSection from '@/components/SyllogismSection';
 import ProgressIndicator from '@/components/ProgressIndicator';
 import CounterargumentAccordion from '@/components/CounterargumentAccordion';
+import SubsectionTabs from '@/components/SubsectionTabs';
 import { CrisisSubsectionA, CrisisSubsectionB, CrisisSubsectionC } from '@/components/philosophy/CrisisSubsections';
 import { RestorationSubsectionA, RestorationSubsectionB, RestorationSubsectionC } from '@/components/philosophy/RestorationSubsections';
 import { VisionSyllogismRecap, VisionWarriorPoet, VisionCallToAction } from '@/components/philosophy/VisionSubsections';
@@ -243,10 +244,66 @@ export default async function PhilosophyPage() {
         number="I" 
         id="major-premise"
       >
-        <div className="max-w-6xl mx-auto space-y-16">
-          <CrisisSubsectionA />
-          <CrisisSubsectionB />
-          <CrisisSubsectionC />
+        <div className="max-w-6xl mx-auto space-y-8">
+          
+          {/* Summary: Three Poisons - Moved to top for TL;DR */}
+          <div className="bg-red-50 border-l-4 border-red-700 p-6 rounded-r-lg">
+            <h3 className="font-playfair text-2xl font-bold text-red-900 mb-4">
+              Summary: The Three Poisons
+            </h3>
+            <p className="text-base text-charcoal/90 leading-relaxed mb-6">
+              Modern education has systematically destroyed the gymnasium and poetic stages through three interconnected failures:
+            </p>
+            
+            {/* Compact 3-column card grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div className="text-4xl mb-2">📱</div>
+                <div className="font-playfair font-bold text-red-900 mb-1 text-lg">Screens</div>
+                <div className="text-sm text-charcoal/70 leading-snug">
+                  Replace wonder & sensory integration
+                </div>
+              </div>
+              
+              <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div className="text-4xl mb-2">🛡️</div>
+                <div className="font-playfair font-bold text-red-900 mb-1 text-lg">Softness</div>
+                <div className="text-sm text-charcoal/70 leading-snug">
+                  Replace risk & physical discipline
+                </div>
+              </div>
+              
+              <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div className="text-4xl mb-2">🔬</div>
+                <div className="font-playfair font-bold text-red-900 mb-1 text-lg">Specialization</div>
+                <div className="text-sm text-charcoal/70 leading-snug">
+                  Replace integrated poetic knowledge
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Tabbed subsections */}
+          <SubsectionTabs
+            variant="crisis"
+            tabs={[
+              {
+                id: 'loss-of-wonder',
+                label: 'Loss of Wonder & Sensory Integration',
+                content: <CrisisSubsectionA />
+              },
+              {
+                id: 'gymnasium-crisis',
+                label: 'Cultural Softness & Gymnasium Crisis',
+                content: <CrisisSubsectionB />
+              },
+              {
+                id: 'specialization',
+                label: 'The Specialized Knowledge Crisis',
+                content: <CrisisSubsectionC />
+              }
+            ]}
+          />
         </div>
       </SyllogismSection>
 
@@ -258,10 +315,27 @@ export default async function PhilosophyPage() {
         number="II" 
         id="minor-premise"
       >
-        <div className="max-w-6xl mx-auto space-y-16">
-          <RestorationSubsectionA />
-          <RestorationSubsectionB />
-          <RestorationSubsectionC />
+        <div className="max-w-6xl mx-auto">
+          <SubsectionTabs
+            variant="restoration"
+            tabs={[
+              {
+                id: 'four-stages',
+                label: 'The Four Stages of Restoration',
+                content: <RestorationSubsectionA />
+              },
+              {
+                id: 'gymnasium-foundation',
+                label: 'The Gymnasium Stage: Foundation for Warriors',
+                content: <RestorationSubsectionB />
+              },
+              {
+                id: 'poetic-foundation',
+                label: 'The Poetic Stage: Science from Fertile Soil',
+                content: <RestorationSubsectionC />
+              }
+            ]}
+          />
         </div>
       </SyllogismSection>
 
@@ -273,51 +347,71 @@ export default async function PhilosophyPage() {
         number="∴" 
         id="conclusion"
       >
-        <div className="max-w-6xl mx-auto space-y-16">
-          <VisionSyllogismRecap />
-          <VisionWarriorPoet />
-
-          {/* Counterarguments */}
-          <div className="space-y-8">
-            <h3 className="font-playfair text-4xl font-bold text-forest text-center">
-              Objections & Answers
-            </h3>
-
-            <CounterargumentAccordion
-              objections={[
-                {
-                  question: "Isn't this too rigorous? Most boys can't handle this level of discipline.",
-                  answer: "This objection assumes boys are fragile. They are not. Boys are designed for risk, adventure, and discipline. The modern epidemic of anxiety and weakness is not the natural state—it is the result of coddling.\n\nThe gymnasium stage meets boys where they are—ages 7-13, when they crave physical challenge. To deny them this is to cripple them.",
-                  quote: {
-                    id: "boys-not-fragile",
-                    quote: "Boys are not fragile. They are designed for hardship. The modern epidemic of anxiety is the result of too little discipline, not too much.",
-                    author: "Dr. John Senior",
-                    source: "The Death of Christian Culture",
-                    category: "discipline" as const,
-                  },
-                },
-                {
-                  question: "Isn't this elitist? Not every family can afford private classical schools.",
-                  answer: "Senior's philosophy is not elitist—it is natural. Homeschool families can adapt the gymnasium stage: outdoor play, Latin primers, local sports teams. The IHP model began with middle-class families in Kansas, not aristocrats.\n\nWhat is elitist? Telling working-class parents their sons must accept screen addiction and indoor confinement because they cannot afford elite schools. Poetic knowledge is for everyone—it is the birthright of baptized boys.",
-                },
-                {
-                  question: "Is this practical? Can warrior poets succeed in the modern economy?",
-                  answer: "IHP graduates have become doctors, lawyers, engineers, business owners—and many have large Catholic families. Poetic knowledge does not prevent career success; it roots it in something higher than utility.\n\nThe question is not 'Can they get jobs?' but 'Will they live fully human lives?' The warrior poet works to live; he does not live to work.",
-                  quote: {
-                    id: "ihp-success",
-                    quote: "Our graduates succeed in every field because they bring integrated minds to specialized work. They are not cogs; they are men.",
-                    author: "Dr. Dennis Quinn",
-                    source: "IHP Alumni Survey",
-                    category: "philosophy" as const,
-                  },
-                },
-              ]}
-            />
-          </div>
-
-          <VisionCallToAction />
+        <div className="max-w-6xl mx-auto">
+          <SubsectionTabs
+            variant="vision"
+            tabs={[
+              {
+                id: 'syllogism-recap',
+                label: 'The Argument Complete',
+                content: <VisionSyllogismRecap />
+              },
+              {
+                id: 'warrior-poet',
+                label: 'What Is a Warrior Poet?',
+                content: <VisionWarriorPoet />
+              }
+            ]}
+          />
         </div>
       </SyllogismSection>
+
+      {/* Objections & Answers - Always Visible */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <h3 className="font-playfair text-4xl font-bold text-forest text-center mb-12">
+            Objections & Answers
+          </h3>
+
+          <CounterargumentAccordion
+            objections={[
+              {
+                question: "Isn't this too rigorous? Most boys can't handle this level of discipline.",
+                answer: "This objection assumes boys are fragile. They are not. Boys are designed for risk, adventure, and discipline. The modern epidemic of anxiety and weakness is not the natural state—it is the result of coddling.\n\nThe gymnasium stage meets boys where they are—ages 7-13, when they crave physical challenge. To deny them this is to cripple them.",
+                quote: {
+                  id: "boys-not-fragile",
+                  quote: "Boys are not fragile. They are designed for hardship. The modern epidemic of anxiety is the result of too little discipline, not too much.",
+                  author: "Dr. John Senior",
+                  source: "The Death of Christian Culture",
+                  category: "discipline" as const,
+                },
+              },
+              {
+                question: "Isn't this elitist? Not every family can afford private classical schools.",
+                answer: "Senior's philosophy is not elitist—it is natural. Homeschool families can adapt the gymnasium stage: outdoor play, Latin primers, local sports teams. The IHP model began with middle-class families in Kansas, not aristocrats.\n\nWhat is elitist? Telling working-class parents their sons must accept screen addiction and indoor confinement because they cannot afford elite schools. Poetic knowledge is for everyone—it is the birthright of baptized boys.",
+              },
+              {
+                question: "Is this practical? Can warrior poets succeed in the modern economy?",
+                answer: "IHP graduates have become doctors, lawyers, engineers, business owners—and many have large Catholic families. Poetic knowledge does not prevent career success; it roots it in something higher than utility.\n\nThe question is not 'Can they get jobs?' but 'Will they live fully human lives?' The warrior poet works to live; he does not live to work.",
+                quote: {
+                  id: "ihp-success",
+                  quote: "Our graduates succeed in every field because they bring integrated minds to specialized work. They are not cogs; they are men.",
+                  author: "Dr. Dennis Quinn",
+                  source: "IHP Alumni Survey",
+                  category: "philosophy" as const,
+                },
+              },
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* Your Path Forward - Always Visible */}
+      <section className="py-16 bg-parchment/30">
+        <div className="max-w-6xl mx-auto px-6">
+          <VisionCallToAction />
+        </div>
+      </section>
       </div>
 
       {/* Scripture Waypoints */}

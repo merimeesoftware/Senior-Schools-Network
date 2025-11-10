@@ -84,19 +84,19 @@ const stageDetails: Record<Stage, StageDetail> = {
 
 interface InteractiveStagesProps {
   mode?: 'default' | 'crisis';
-  showToggle?: boolean;
+  allowModeToggle?: boolean;
   className?: string;
 }
 
 export default function InteractiveStages({
   mode: initialMode = 'default',
-  showToggle = false,
+  allowModeToggle = false,
   className = '',
 }: InteractiveStagesProps) {
   const [selectedStage, setSelectedStage] = useState<Stage>('nursery');
   const [viewMode, setViewMode] = useState<'default' | 'crisis'>(initialMode);
 
-  const currentMode = showToggle ? viewMode : initialMode;
+  const currentMode = allowModeToggle ? viewMode : initialMode;
   const currentStage = stageDetails[selectedStage];
   
   const displayBgColor = currentMode === 'crisis' ? currentStage.crisisBgColor : currentStage.bgColor;
@@ -105,27 +105,42 @@ export default function InteractiveStages({
 
   return (
     <div className={className}>
-      {/* Toggle Button */}
-      {showToggle && (
-        <div className="flex justify-center mb-8">
-          <button
-            onClick={() => setViewMode(viewMode === 'default' ? 'crisis' : 'default')}
-            className={`
-              px-6 py-3 rounded-lg font-semibold transition-all duration-300
-              focus:outline-none focus:ring-4 focus:ring-offset-2
-              ${
-                viewMode === 'crisis'
-                  ? 'bg-green-100 text-green-900 border-2 border-green-600 hover:bg-green-200 focus:ring-green-600'
-                  : 'bg-red-100 text-red-900 border-2 border-red-600 hover:bg-red-200 focus:ring-red-600'
-              }
-            `}
-            aria-pressed={viewMode === 'crisis'}
-          >
-            <span className="inline-flex items-center gap-2">
-              <span aria-hidden="true">{viewMode === 'crisis' ? '🛡️' : '⚠️'}</span>
-              <span>{viewMode === 'crisis' ? 'View Solution' : 'View Crisis'}</span>
-            </span>
-          </button>
+      {/* Mode Toggle - Two Button Design */}
+      {allowModeToggle && (
+        <div className="flex justify-center mb-6">
+          <div className="inline-flex rounded-lg border-2 border-forest/20 p-1 bg-parchment/50">
+            <button
+              onClick={() => setViewMode('default')}
+              className={`
+                px-6 py-2 rounded-md font-lato font-medium text-sm transition-all
+                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700
+                ${viewMode === 'default' 
+                  ? 'bg-green-700 text-white shadow-md' 
+                  : 'text-charcoal/70 hover:text-forest'
+                }
+              `}
+              aria-pressed={viewMode === 'default'}
+            >
+              <span className="mr-2" aria-hidden="true">✨</span>
+              <span>Restoration View</span>
+            </button>
+            
+            <button
+              onClick={() => setViewMode('crisis')}
+              className={`
+                px-6 py-2 rounded-md font-lato font-medium text-sm transition-all
+                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-700
+                ${viewMode === 'crisis' 
+                  ? 'bg-red-700 text-white shadow-md' 
+                  : 'text-charcoal/70 hover:text-forest'
+                }
+              `}
+              aria-pressed={viewMode === 'crisis'}
+            >
+              <span className="mr-2" aria-hidden="true">⚠️</span>
+              <span>Crisis View</span>
+            </button>
+          </div>
         </div>
       )}
 

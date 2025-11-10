@@ -1,7 +1,9 @@
+'use client';
+import { useState } from 'react';
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import ProblemSolutionPanel from "@/components/ProblemSolutionPanel";
 import EvidenceQuoteGroup from "@/components/EvidenceQuoteGroup";
 import ComparisonDiagram from "@/components/ComparisonDiagram";
-import CardGrid from "@/components/CardGrid";
 import SummaryBox from "@/components/SummaryBox";
 
 /**
@@ -15,6 +17,7 @@ import SummaryBox from "@/components/SummaryBox";
  * @component
  * @param {CrisisSubsectionCProps} props - Component props
  * @param {string} [props.className] - Optional CSS class name for styling
+ * @param {boolean} [props.summaryMode=true] - Whether to show summary view initially
  * 
  * @example
  * ```tsx
@@ -24,17 +27,54 @@ import SummaryBox from "@/components/SummaryBox";
 
 interface CrisisSubsectionCProps {
   className?: string;
+  summaryMode?: boolean;
 }
 
-export function CrisisSubsectionC({ className = '' }: CrisisSubsectionCProps) {
+export function CrisisSubsectionC({ className = '', summaryMode = true }: CrisisSubsectionCProps) {
+  const [isExpanded, setIsExpanded] = useState(!summaryMode);
+
+  // Summary view
+  if (!isExpanded) {
+    return (
+      <div className={`space-y-6 ${className}`}>
+        <div className="bg-parchment/30 border-l-4 border-red-700 p-6 rounded-r-lg">
+          <h3 className="font-playfair text-3xl font-bold text-red-900 mb-3">
+            C. The Specialized Knowledge Crisis
+          </h3>
+          <p className="text-lg text-charcoal/80 leading-relaxed mb-4">
+            Rushing boys into STEM specialization by age 13—before poetic knowledge is established—produces alienated technicians, not integrated thinkers. Boys memorize biology terms but never feel wonder at creation; they solve calculus but never read poetry. Senior's solution: three years of integrated humanities (music, art, philosophy) before any specialized study, establishing poetic knowledge as the fertile soil from which all learning grows.
+          </p>
+          <button
+            onClick={() => setIsExpanded(true)}
+            className="flex items-center gap-2 text-forest font-medium hover:text-gold transition-colors focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-lg px-4 py-2"
+            aria-label="Read full argument for The Specialized Knowledge Crisis"
+          >
+            <span>Read Full Argument</span>
+            <ChevronDownIcon className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Expanded view
   return (
     <div id="major-premise-c" className={`space-y-12 ${className}`}>
+      <button
+        onClick={() => setIsExpanded(false)}
+        className="flex items-center gap-2 text-charcoal/70 hover:text-forest text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-lg px-3 py-1.5"
+        aria-label="Collapse The Specialized Knowledge Crisis"
+      >
+        <ChevronUpIcon className="w-4 h-4" />
+        <span>Collapse</span>
+      </button>
       <h3 className="font-playfair text-4xl font-bold text-red-900">
         C. The Specialized Knowledge Crisis
       </h3>
 
       <ProblemSolutionPanel
         layout="split"
+        collapsible={true}
         problem={{
           title: "The Problem: STEM-First Curriculum",
           description: "Modern education rushes to specialization. By age 13, boys are pushed into STEM tracks, AP classes, and college prep—all before they have cultivated the poetic soil from which science, philosophy, and theology should naturally grow.\n\nThe consequence? Boys who can solve calculus problems but have never read a poem. Boys who memorize biology terms but have never felt wonder at a frog. Boys who ace SAT tests but are spiritually and aesthetically dead. Specialized knowledge without poetic knowledge produces alienation, not integration.",
@@ -62,6 +102,7 @@ export function CrisisSubsectionC({ className = '' }: CrisisSubsectionCProps) {
       <EvidenceQuoteGroup
         variant="major-premise"
         title="Evidence from the Sources"
+        collapsible={true}
         quotes={[
           {
             quote: "Poetic knowledge is not specialized knowledge but that connaturality and right harmony with things which Adam and Eve possessed in Eden. It is the soil from which science, philosophy, and theology grow. If you poison the soil, nothing true or beautiful can flourish.",
@@ -106,37 +147,6 @@ export function CrisisSubsectionC({ className = '' }: CrisisSubsectionCProps) {
           result: "= Integrated Warrior Poet"
         }}
       />
-
-      <div className="space-y-8">
-        <h3 className="font-playfair text-3xl font-bold text-forest text-center">
-          Summary: The Three Poisons
-        </h3>
-        <p className="text-center text-lg text-charcoal/90 max-w-3xl mx-auto">
-          Modern education has systematically destroyed the gymnasium and poetic stages through three
-          interconnected failures:
-        </p>
-        <CardGrid
-          variant="crisis"
-          columns={3}
-          cards={[
-            {
-              emoji: "📱",
-              heading: "Screens",
-              description: "Replace wonder & sensory integration"
-            },
-            {
-              emoji: "🛡️",
-              heading: "Softness",
-              description: "Replace risk & physical discipline"
-            },
-            {
-              emoji: "🔬",
-              heading: "Specialization",
-              description: "Replace integrated poetic knowledge"
-            }
-          ]}
-        />
-      </div>
 
       <SummaryBox variant="major-premise" title="The Crisis Established:">
         <p className="text-xl leading-relaxed">
