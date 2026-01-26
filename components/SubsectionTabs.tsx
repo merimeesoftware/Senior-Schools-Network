@@ -126,7 +126,7 @@ export default function SubsectionTabs({
         ref={tabListRef}
         role="tablist"
         aria-label="Subsection navigation"
-        className="flex flex-wrap gap-2 mb-8 border-b-2 border-charcoal/10"
+        className="flex flex-wrap gap-3 mb-8 pb-4 border-b-2 border-charcoal/20"
       >
         {tabs.map((tab, index) => {
           const isActive = activeTab === index;
@@ -143,18 +143,18 @@ export default function SubsectionTabs({
               onClick={() => setActiveTab(index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
               className={`
-                px-6 py-3 rounded-t-lg font-lato font-medium text-base
+                px-5 py-4 rounded-lg font-lato font-semibold text-base
                 transition-all duration-200
-                border-b-4
+                border-2 shadow-sm
                 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-forest/50
                 ${
                   isActive
-                    ? `${styles.activeBg} ${styles.activeText} ${styles.activeBorder}`
-                    : `${styles.inactiveText} ${styles.hoverBg} border-transparent opacity-70 hover:opacity-100`
+                    ? `${styles.activeBg} ${styles.activeText} ${styles.activeBorder} shadow-md`
+                    : `${styles.inactiveText} ${styles.hoverBg} border-charcoal/20 hover:border-charcoal/40 hover:shadow-md`
                 }
               `}
             >
-              <span className="font-playfair text-lg mr-2">{letter}.</span>
+              <span className="font-playfair text-xl font-bold mr-2">{letter}.</span>
               <span>{tab.label}</span>
             </button>
           );
@@ -173,7 +173,6 @@ export default function SubsectionTabs({
             aria-labelledby={`tab-${tab.id}`}
             hidden={!isActive}
             className={`
-              border-l-4 ${styles.panelBorder} pl-8
               ${isActive ? 'animate-fadeIn' : ''}
             `}
           >

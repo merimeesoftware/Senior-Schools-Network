@@ -6,14 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "preview": "npx serve out -l 3000",
+    "preview": "bunx serve out -l 3000",
     "lint": "next lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "images:convert": "bun scripts/convert-images.ts",
+    "images:convert:clean": "bun scripts/convert-images.ts --clean",
+    "images:convert:dry": "bun scripts/convert-images.ts --dry-run"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -40,6 +43,7 @@
     "jest-environment-jsdom": "^30.2.0",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
+    "sharp": "0.34.5",
     "tailwindcss": "^3.4.14",
     "ts-jest": "^29.4.4",
     "typescript": "^5"

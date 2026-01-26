@@ -1,3 +1,3 @@
 export { VisionSyllogismRecap } from './VisionSyllogismRecap';
-export { VisionWarriorPoet } from './VisionWarriorPoet';
+export { VisionArchetypes } from './VisionArchetypes';
 export { VisionCallToAction } from './VisionCallToAction';

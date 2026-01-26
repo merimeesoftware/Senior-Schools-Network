@@ -39,7 +39,7 @@ export default function ProblemSolutionPanel({
     return (
       <div className={`space-y-6 ${className}`}>
         {/* Problem Accordion */}
-        <div className="border-l-4 border-red-700 bg-red-50/50 rounded-r-lg overflow-hidden">
+        <div className="bg-red-50/50 rounded-lg overflow-hidden">
           <button
             onClick={() => setIsProblemExpanded(!isProblemExpanded)}
             onKeyDown={(e) => {
@@ -95,7 +95,7 @@ export default function ProblemSolutionPanel({
         </div>
 
         {/* Solution Accordion */}
-        <div className="border-l-4 border-green-700 bg-green-50/50 rounded-r-lg overflow-hidden">
+        <div className="bg-green-50/50 rounded-lg overflow-hidden">
           <button
             onClick={() => setIsSolutionExpanded(!isSolutionExpanded)}
             onKeyDown={(e) => {

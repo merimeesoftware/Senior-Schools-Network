@@ -11,7 +11,7 @@ describe('ComparisonDiagram', () => {
   const mockRightColumn = {
     label: 'Classical Education',
     steps: ['🌿Nursery (0-7)', '🛡️Gymnasium (7-13)', '🎨Poetic (13-17)', '🔬Science (from soil)'],
-    result: '= Integrated Warrior Poet',
+    result: '= Integrated Chivalric Wayfarer',
   };
 
   const mockTitle = 'The Poisoned Well: STEM Without Poetic Soil';
@@ -155,7 +155,7 @@ describe('ComparisonDiagram', () => {
           rightColumn={mockRightColumn}
         />
       );
-      expect(screen.getByText('= Integrated Warrior Poet')).toBeInTheDocument();
+      expect(screen.getByText('= Integrated Chivalric Wayfarer')).toBeInTheDocument();
     });
 
     it('left column result has red styling', () => {
@@ -178,7 +178,7 @@ describe('ComparisonDiagram', () => {
           rightColumn={mockRightColumn}
         />
       );
-      const rightResult = screen.getByText('= Integrated Warrior Poet');
+      const rightResult = screen.getByText('= Integrated Chivalric Wayfarer');
       expect(rightResult).toHaveClass('text-green-900');
     });
   });

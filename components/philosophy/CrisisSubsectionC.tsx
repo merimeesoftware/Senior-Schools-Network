@@ -1,6 +1,4 @@
 'use client';
-import { useState } from 'react';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import ProblemSolutionPanel from "@/components/ProblemSolutionPanel";
 import EvidenceQuoteGroup from "@/components/EvidenceQuoteGroup";
 import ComparisonDiagram from "@/components/ComparisonDiagram";
@@ -17,7 +15,6 @@ import SummaryBox from "@/components/SummaryBox";
  * @component
  * @param {CrisisSubsectionCProps} props - Component props
  * @param {string} [props.className] - Optional CSS class name for styling
- * @param {boolean} [props.summaryMode=true] - Whether to show summary view initially
  * 
  * @example
  * ```tsx
@@ -27,60 +24,29 @@ import SummaryBox from "@/components/SummaryBox";
 
 interface CrisisSubsectionCProps {
   className?: string;
-  summaryMode?: boolean;
 }
 
-export function CrisisSubsectionC({ className = '', summaryMode = true }: CrisisSubsectionCProps) {
-  const [isExpanded, setIsExpanded] = useState(!summaryMode);
-
-  // Summary view
-  if (!isExpanded) {
-    return (
-      <div className={`space-y-6 ${className}`}>
-        <div className="bg-parchment/30 border-l-4 border-red-700 p-6 rounded-r-lg">
-          <h3 className="font-playfair text-3xl font-bold text-red-900 mb-3">
-            C. The Specialized Knowledge Crisis
-          </h3>
-          <p className="text-lg text-charcoal/80 leading-relaxed mb-4">
-            Rushing boys into STEM specialization by age 13—before poetic knowledge is established—produces alienated technicians, not integrated thinkers. Boys memorize biology terms but never feel wonder at creation; they solve calculus but never read poetry. Senior's solution: three years of integrated humanities (music, art, philosophy) before any specialized study, establishing poetic knowledge as the fertile soil from which all learning grows.
-          </p>
-          <button
-            onClick={() => setIsExpanded(true)}
-            className="flex items-center gap-2 text-forest font-medium hover:text-gold transition-colors focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-lg px-4 py-2"
-            aria-label="Read full argument for The Specialized Knowledge Crisis"
-          >
-            <span>Read Full Argument</span>
-            <ChevronDownIcon className="w-5 h-5" />
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  // Expanded view
+export function CrisisSubsectionC({ className = '' }: CrisisSubsectionCProps) {
+  // Always show full content
   return (
-    <div id="major-premise-c" className={`space-y-12 ${className}`}>
-      <button
-        onClick={() => setIsExpanded(false)}
-        className="flex items-center gap-2 text-charcoal/70 hover:text-forest text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-lg px-3 py-1.5"
-        aria-label="Collapse The Specialized Knowledge Crisis"
-      >
-        <ChevronUpIcon className="w-4 h-4" />
-        <span>Collapse</span>
-      </button>
+    <div id="major-premise-c" className={`space-y-8 ${className}`}>
       <h3 className="font-playfair text-4xl font-bold text-red-900">
         C. The Specialized Knowledge Crisis
       </h3>
 
+      <p className="text-lg text-charcoal/80 leading-relaxed">
+        Rushing boys into STEM specialization by age 13—before poetic knowledge is established—produces alienated technicians, not integrated thinkers. Boys memorize biology terms but never feel wonder at creation; they solve calculus but never read poetry. Senior's solution: three years of integrated humanities (music, art, philosophy) before any specialized study, establishing poetic knowledge as the fertile soil from which all learning grows.
+      </p>
+
       <ProblemSolutionPanel
         layout="split"
-        collapsible={true}
+        collapsible={false}
         problem={{
           title: "The Problem: STEM-First Curriculum",
           description: "Modern education rushes to specialization. By age 13, boys are pushed into STEM tracks, AP classes, and college prep—all before they have cultivated the poetic soil from which science, philosophy, and theology should naturally grow.\n\nThe consequence? Boys who can solve calculus problems but have never read a poem. Boys who memorize biology terms but have never felt wonder at a frog. Boys who ace SAT tests but are spiritually and aesthetically dead. Specialized knowledge without poetic knowledge produces alienation, not integration.",
           quote: {
             id: "alienated-technicians",
-            quote: "Result: Alienated technicians, not warrior poets. Utilitarian minds severed from beauty, truth, and God.",
+            quote: "Result: Alienated technicians, not Poetic Guardians. Utilitarian minds severed from beauty, truth, and God.",
             author: "",
             source: "",
             category: "discipline" as const,
@@ -102,7 +68,7 @@ export function CrisisSubsectionC({ className = '', summaryMode = true }: Crisis
       <EvidenceQuoteGroup
         variant="major-premise"
         title="Evidence from the Sources"
-        collapsible={true}
+        collapsible={false}
         quotes={[
           {
             quote: "Poetic knowledge is not specialized knowledge but that connaturality and right harmony with things which Adam and Eve possessed in Eden. It is the soil from which science, philosophy, and theology grow. If you poison the soil, nothing true or beautiful can flourish.",
@@ -138,13 +104,13 @@ export function CrisisSubsectionC({ className = '', summaryMode = true }: Crisis
         description="Specialization must grow from poetic soil, not replace it"
         leftColumn={{
           label: "Modern Education",
-          steps: ["📱 Screens (0-13)", "🛡️ Gymnasium (skipped)", "🎨 Poetic (skipped)", "🔬 STEM-first"],
+          steps: ["Screens (0-13)", "Gymnasium (skipped)", "Poetic (skipped)", "STEM-first"],
           result: "= Alienated Technician"
         }}
         rightColumn={{
           label: "Classical Education",
-          steps: ["🌿 Nursery (0-7)", "🛡️ Gymnasium (7-13)", "🎨 Poetic (13-17)", "🔬 Science (from soil)"],
-          result: "= Integrated Warrior Poet"
+          steps: ["Nursery (0-7)", "Gymnasium (7-13)", "Poetic (13-17)", "Science (from soil)"],
+          result: "= Integrated Chivalric Wayfarer"
         }}
       />
 

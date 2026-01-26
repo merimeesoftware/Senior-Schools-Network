@@ -1,6 +1,4 @@
 'use client';
-import { useState } from 'react';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import InteractiveStages from "@/components/InteractiveStages";
 import EvidenceQuoteGroup from "@/components/EvidenceQuoteGroup";
 
@@ -25,47 +23,12 @@ import EvidenceQuoteGroup from "@/components/EvidenceQuoteGroup";
 
 interface RestorationSubsectionAProps {
   className?: string;
-  summaryMode?: boolean;
 }
 
-export function RestorationSubsectionA({ className = '', summaryMode = true }: RestorationSubsectionAProps) {
-  const [isExpanded, setIsExpanded] = useState(!summaryMode);
-
-  // Summary view
-  if (!isExpanded) {
-    return (
-      <div className={`space-y-6 ${className}`}>
-        <div className="bg-parchment/30 border-l-4 border-green-700 p-6 rounded-r-lg">
-          <h3 className="font-playfair text-3xl font-bold text-green-900 mb-3">
-            A. The Four Stages of Restoration
-          </h3>
-          <p className="text-lg text-charcoal/80 leading-relaxed mb-4">
-            Dr. John Senior's model follows four natural developmental stages: nursery (ages 0-7, wonder), gymnasium (7-13, discipline), poetic (13-17, integration), and spiritual (all ages, wisdom). These are not arbitrary divisions but organic phases corresponding to the child's physical, intellectual, and spiritual maturation. Skip any stage and the whole structure collapses.
-          </p>
-          <button
-            onClick={() => setIsExpanded(true)}
-            className="flex items-center gap-2 text-forest font-medium hover:text-gold transition-colors focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-lg px-4 py-2"
-            aria-label="Read full argument for The Four Stages of Restoration"
-          >
-            <span>Read Full Argument</span>
-            <ChevronDownIcon className="w-5 h-5" />
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  // Expanded view
+export function RestorationSubsectionA({ className = '' }: RestorationSubsectionAProps) {
+  // Always show expanded view - content is concise enough to display fully
   return (
     <div id="minor-premise-a" className={`space-y-12 ${className}`}>
-      <button
-        onClick={() => setIsExpanded(false)}
-        className="flex items-center gap-2 text-charcoal/70 hover:text-forest text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-lg px-3 py-1.5"
-        aria-label="Collapse The Four Stages of Restoration"
-      >
-        <ChevronUpIcon className="w-4 h-4" />
-        <span>Collapse</span>
-      </button>
       <h3 className="font-playfair text-4xl font-bold text-green-900">
         A. The Four Stages of Restoration
       </h3>
@@ -85,7 +48,7 @@ export function RestorationSubsectionA({ className = '', summaryMode = true }: R
       <EvidenceQuoteGroup
         variant="minor-premise"
         title="Evidence from the Sources"
-        collapsible={true}
+        collapsible={false}
         quotes={[
           {
             quote: "The four stages are not a curriculum but a way of life. Nursery is wonder. Gymnasium is discipline. Poetic is integration. Spiritual is wisdom. Skip any stage and the whole structure collapses.",

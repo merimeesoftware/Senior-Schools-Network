@@ -81,13 +81,6 @@ export default function EvidenceQuoteGroup({
 }: Readonly<EvidenceQuoteGroupProps>) {
   const [isCollapsed, setIsCollapsed] = useState(collapsible ? defaultCollapsed : false);
 
-  // Variant-specific border colors
-  const borderColors = {
-    'major-premise': 'border-forest/20',
-    'minor-premise': 'border-gold/30',
-    'conclusion': 'border-red-800/20',
-  };
-
   // Non-collapsible mode: original behavior
   if (!collapsible) {
     return (
@@ -118,7 +111,7 @@ export default function EvidenceQuoteGroup({
 
   // Collapsible mode
   return (
-    <div className={`mt-12 border-l-4 ${borderColors[variant]} pl-6 ${className}`}>
+    <div className={`mt-12 ${className}`}>
       <button
         onClick={() => setIsCollapsed(!isCollapsed)}
         onKeyDown={(e) => {

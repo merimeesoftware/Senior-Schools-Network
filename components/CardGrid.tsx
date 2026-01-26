@@ -77,11 +77,6 @@ export default function CardGrid({
           key={index}
           className={`bg-white border-2 ${borderColor} rounded-lg p-6 text-center space-y-4`}
         >
-          {/* Emoji Icon */}
-          <div className="text-5xl" aria-hidden="true">
-            {card.emoji}
-          </div>
-
           {/* Heading */}
           <h4 className="font-playfair text-2xl font-bold text-forest">
             {card.heading}

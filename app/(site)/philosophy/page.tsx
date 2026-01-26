@@ -11,8 +11,8 @@ import ProgressIndicator from '@/components/ProgressIndicator';
 import CounterargumentAccordion from '@/components/CounterargumentAccordion';
 import SubsectionTabs from '@/components/SubsectionTabs';
 import { CrisisSubsectionA, CrisisSubsectionB, CrisisSubsectionC } from '@/components/philosophy/CrisisSubsections';
-import { RestorationSubsectionA, RestorationSubsectionB, RestorationSubsectionC } from '@/components/philosophy/RestorationSubsections';
-import { VisionSyllogismRecap, VisionWarriorPoet, VisionCallToAction } from '@/components/philosophy/VisionSubsections';
+import { RestorationSubsectionA } from '@/components/philosophy/RestorationSubsections';
+import { VisionSyllogismRecap, VisionArchetypes, VisionCallToAction } from '@/components/philosophy/VisionSubsections';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
@@ -35,9 +35,9 @@ export default async function PhilosophyPage() {
 
   // Define syllogistic argument sections for progress indicator
   const argumentSections = [
-    { id: 'major-premise', label: 'Modern Education Fails', number: 'I' },
-    { id: 'minor-premise', label: 'Poetic Mode Restores', number: 'II' },
-    { id: 'conclusion', label: 'Embrace the Poetic Path', number: '∴' },
+    { id: 'major-premise', label: 'The Failure', number: 'I' },
+    { id: 'minor-premise', label: 'The Opportunity', number: 'II' },
+    { id: 'conclusion', label: 'The Vision', number: '∴' },
   ];
 
   // Get foundational wisdom quotes for hero section - provide all for rotating display
@@ -101,18 +101,19 @@ export default async function PhilosophyPage() {
                 <div className="text-6xl font-playfair text-red-700/30 leading-none">I</div>
               </div>
               <h3 className="font-playfair text-2xl font-bold text-red-900 mb-3">
-                Modern education has failed our sons.
+                Modern education fragments the soul.
               </h3>
               <p className="text-base text-charcoal/70 mb-3 italic">
-                The Crisis
+                The Gap
               </p>
               <p className="text-base text-charcoal/80 leading-relaxed mb-4">
-                Screens replace wonder. Softness replaces risk. Specialized knowledge replaces
-                integrated wisdom. The gymnasium stage—ages 7-13—has been abandoned, leaving boys
-                weak, distracted, and disconnected.
+                Screens dominate, stealing sensory wonder from boys who once climbed trees and felt raw nature. 
+                Softness coddles, replacing risk with confinement, while specialization silos knowledge, 
+                abandoning integrated wisdom. This leaves sons weak, distracted, disconnected—cultural decay 
+                where "the end of the world was long ago" (Chesterton).
               </p>
               <div className="flex items-center text-forest font-medium group-hover:text-gold transition-colors">
-                <span>Read the diagnosis</span>
+                <span>Explore the gap</span>
                 <svg
                   className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
                   fill="none"
@@ -144,13 +145,13 @@ export default async function PhilosophyPage() {
                 The Restoration
               </p>
               <p className="text-base text-charcoal/80 leading-relaxed mb-4">
-                The four stages restore the natural order: nursery (wonder), gymnasium
-                (physical risk), poetic (integrated learning), spiritual (liturgical wisdom). The
-                gymnasium stage builds the physical and moral courage prerequisite for all higher
-                learning.
+                Through nursery repose, gymnasium adventure, poetic integration, and spiritual liturgy, 
+                boys reclaim wonder via senses and stories. Physical courage builds moral foundations; 
+                narrative immersion awakens the soul. As Senior teaches, "Poetic knowledge gets inside 
+                and becomes a part of what is known"—a flexible path for resilient formation.
               </p>
               <div className="flex items-center text-forest font-medium group-hover:text-gold transition-colors">
-                <span>Read the prescription</span>
+                <span>Discover the path</span>
                 <svg
                   className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
                   fill="none"
@@ -176,18 +177,19 @@ export default async function PhilosophyPage() {
                 <div className="text-6xl font-playfair text-gold/50 leading-none">∴</div>
               </div>
               <h3 className="font-playfair text-2xl font-bold text-gold-dark mb-3">
-                Warrior poets will restore Christendom.
+                Chivalric Wayfarers restore Christendom.
               </h3>
               <p className="text-base text-charcoal/70 mb-3 italic">
-                The Vision
+                The Outcome
               </p>
               <p className="text-base text-charcoal/80 leading-relaxed mb-4">
-                Boys formed in the gymnasium—physically resilient, morally courageous—and rooted in
-                poetic knowledge will become the warrior poets our age desperately needs: men who
-                defend truth, build families, and restore Christian culture.
+                Formed as Poetic Guardians, boys emerge resilient, courageous, rooted in truth—defending 
+                families and culture with humility. "The farther you go... you really don't know very much 
+                at all" (Socrates via lecture), yet they live fully human lives, succeeding in fields while 
+                anchored in divine order, not utility.
               </p>
               <div className="flex items-center text-forest font-medium group-hover:text-gold transition-colors">
-                <span>Read the vision</span>
+                <span>See the vision</span>
                 <svg
                   className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
                   fill="none"
@@ -209,19 +211,19 @@ export default async function PhilosophyPage() {
           <div className="mt-16 max-w-2xl mx-auto text-center">
             <div className="inline-flex items-center gap-4 text-lg font-medium text-forest">
               <span className="px-4 py-2 bg-red-100 border-2 border-red-700 rounded-lg">
-                Crisis
+                Failure
               </span>
               <span className="text-2xl">+</span>
               <span className="px-4 py-2 bg-green-100 border-2 border-green-700 rounded-lg">
-                Remedy
+                Opportunity
               </span>
               <span className="text-2xl">=</span>
               <span className="px-4 py-2 bg-gold/20 border-2 border-gold rounded-lg">
-                Restoration
+                Vision
               </span>
             </div>
             <p className="mt-4 text-sm text-charcoal/70 italic">
-              A classical argument rooted in Senior, IHP, and Scripture
+              A classical argument rooted in Senior, animating principles, and Scripture
             </p>
           </div>
         </ContentContainer>
@@ -236,18 +238,18 @@ export default async function PhilosophyPage() {
           hideUntilId="major-premise"
         />
 
-        {/* PART I: THE CRISIS - Modern Education Has Failed */}
+        {/* PART I: THE FAILURE - Modern Education's Gaps */}
         <SyllogismSection 
         type="major" 
-        title="The Crisis: Modern Education Has Failed"
-        subtitle="Three poisons—screens, softness, specialization—have destroyed the gymnasium stage and with it, the foundation for all higher learning."
+        title="The Failure: Modern Education's Gaps"
+        subtitle="Three poisons—screens, softness, specialization—erode the foundation for wonder and integrated learning."
         number="I" 
         id="major-premise"
       >
         <div className="max-w-6xl mx-auto space-y-8">
           
           {/* Summary: Three Poisons - Moved to top for TL;DR */}
-          <div className="bg-red-50 border-l-4 border-red-700 p-6 rounded-r-lg">
+          <div className="bg-red-50 rounded-lg p-6">
             <h3 className="font-playfair text-2xl font-bold text-red-900 mb-4">
               Summary: The Three Poisons
             </h3>
@@ -258,24 +260,21 @@ export default async function PhilosophyPage() {
             {/* Compact 3-column card grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="text-center p-4 bg-white rounded-lg shadow-sm">
-                <div className="text-4xl mb-2">📱</div>
-                <div className="font-playfair font-bold text-red-900 mb-1 text-lg">Screens</div>
+                <div className="font-playfair font-bold text-red-900 mb-2 text-xl">Screens</div>
                 <div className="text-sm text-charcoal/70 leading-snug">
                   Replace wonder & sensory integration
                 </div>
               </div>
               
               <div className="text-center p-4 bg-white rounded-lg shadow-sm">
-                <div className="text-4xl mb-2">🛡️</div>
-                <div className="font-playfair font-bold text-red-900 mb-1 text-lg">Softness</div>
+                <div className="font-playfair font-bold text-red-900 mb-2 text-xl">Softness</div>
                 <div className="text-sm text-charcoal/70 leading-snug">
                   Replace risk & physical discipline
                 </div>
               </div>
               
               <div className="text-center p-4 bg-white rounded-lg shadow-sm">
-                <div className="text-4xl mb-2">🔬</div>
-                <div className="font-playfair font-bold text-red-900 mb-1 text-lg">Specialization</div>
+                <div className="font-playfair font-bold text-red-900 mb-2 text-xl">Specialization</div>
                 <div className="text-sm text-charcoal/70 leading-snug">
                   Replace integrated poetic knowledge
                 </div>
@@ -307,43 +306,27 @@ export default async function PhilosophyPage() {
         </div>
       </SyllogismSection>
 
-      {/* PART II: THE RESTORATION - Poetic Knowledge Is the Remedy */}
+      {/* PART II: THE OPPORTUNITY - Poetic Restoration */}
       <SyllogismSection 
         type="minor" 
-        title="The Restoration: Poetic Knowledge Is the Remedy"
-        subtitle="The four stages restore the natural order: wonder, discipline, integration, and wisdom. The gymnasium stage (7-13) is the pivot—building physical courage and ordered habit as prerequisites for poetic and spiritual formation."
+        title="The Opportunity: Poetic Restoration"
+        subtitle="Restore through four stages: nursery wonder, gymnasium risk, poetic integration, spiritual wisdom."
         number="II" 
         id="minor-premise"
       >
         <div className="max-w-6xl mx-auto">
-          <SubsectionTabs
-            variant="restoration"
-            tabs={[
-              {
-                id: 'four-stages',
-                label: 'The Four Stages of Restoration',
-                content: <RestorationSubsectionA />
-              },
-              {
-                id: 'gymnasium-foundation',
-                label: 'The Gymnasium Stage: Foundation for Warriors',
-                content: <RestorationSubsectionB />
-              },
-              {
-                id: 'poetic-foundation',
-                label: 'The Poetic Stage: Science from Fertile Soil',
-                content: <RestorationSubsectionC />
-              }
-            ]}
-          />
+          <p className="text-center text-lg text-charcoal/70 italic mb-8">
+            Toggle between views to see how each stage should be restored vs. how modern education fails
+          </p>
+          <RestorationSubsectionA />
         </div>
       </SyllogismSection>
 
-      {/* PART III: THE VISION - Warrior Poets Will Restore Christendom */}
+      {/* PART III: THE VISION - Chivalric Wayfarers for Christendom */}
       <SyllogismSection 
         type="conclusion" 
-        title="The Vision: Warrior Poets Will Restore Christendom"
-        subtitle="Boys formed in the gymnasium—physically resilient, morally courageous—and rooted in poetic knowledge will become the warrior poets our age desperately needs."
+        title="The Vision: Chivalric Wayfarers for Christendom"
+        subtitle="Boys as Poetic Guardians: resilient, courageous, restoring culture through truth and families."
         number="∴" 
         id="conclusion"
       >
@@ -357,9 +340,9 @@ export default async function PhilosophyPage() {
                 content: <VisionSyllogismRecap />
               },
               {
-                id: 'warrior-poet',
-                label: 'What Is a Warrior Poet?',
-                content: <VisionWarriorPoet />
+                id: 'archetypes',
+                label: 'Chivalric Wayfarers & Poetic Guardians',
+                content: <VisionArchetypes />
               }
             ]}
           />
@@ -391,8 +374,8 @@ export default async function PhilosophyPage() {
                 answer: "Senior's philosophy is not elitist—it is natural. Homeschool families can adapt the gymnasium stage: outdoor play, Latin primers, local sports teams. The IHP model began with middle-class families in Kansas, not aristocrats.\n\nWhat is elitist? Telling working-class parents their sons must accept screen addiction and indoor confinement because they cannot afford elite schools. Poetic knowledge is for everyone—it is the birthright of baptized boys.",
               },
               {
-                question: "Is this practical? Can warrior poets succeed in the modern economy?",
-                answer: "IHP graduates have become doctors, lawyers, engineers, business owners—and many have large Catholic families. Poetic knowledge does not prevent career success; it roots it in something higher than utility.\n\nThe question is not 'Can they get jobs?' but 'Will they live fully human lives?' The warrior poet works to live; he does not live to work.",
+                question: "Is this practical? Can these boys succeed in the modern economy?",
+                answer: "Graduates become doctors, lawyers, engineers—rooted in wisdom beyond utility. They bring integrated minds to work, living fully human lives. Question isn't jobs, but souls.",
                 quote: {
                   id: "ihp-success",
                   quote: "Our graduates succeed in every field because they bring integrated minds to specialized work. They are not cogs; they are men.",
@@ -400,6 +383,14 @@ export default async function PhilosophyPage() {
                   source: "IHP Alumni Survey",
                   category: "philosophy" as const,
                 },
+              },
+              {
+                question: "Isn't this anti-modern?",
+                answer: "Poetic mode awakens wonder as foundation for modernity, not opposition. It integrates senses with reason, countering fragmentation without rejecting progress. \"Wonder is the beginning of wisdom\" (Aristotle)—humbly pursuing truth in a mechanized world.",
+              },
+              {
+                question: "Isn't this anti-science? Won't my child fall behind in STEM?",
+                answer: "Poetic foundations nurture imagination essential for science; wonder as \"fertile soil\" orders knowledge organically. IHP principles yield integrated thinkers succeeding in STEM while soul-anchored. Without poetic base, analysis fragments—Senior restores wholeness for true discovery.",
               },
             ]}
           />
