@@ -2,6 +2,7 @@ import QuoteCard from '@/components/QuoteCard';
 import SectionHeading from '@/components/SectionHeading';
 import ContentContainer from '@/components/ContentContainer';
 import OptimizedImage from '@/components/OptimizedImage';
+import QuoteImageBreak from '@/components/QuoteImageBreak';
 import { getQuotesBySource } from '@/lib/content';
 import { getAxiomsQuotesBySection } from '@/lib/content/axioms';
 import { getRandomAssetFromFolder } from '@/lib/assets';
@@ -42,6 +43,10 @@ export default async function PhilosophyPage() {
 
   // Get foundational wisdom quotes for hero section - provide all for rotating display
   const foundationalQuotes = await getAxiomsQuotesBySection('Quote Bank: Foundational Wisdom');
+  
+  // Quote banks for image breaks between sections
+  const missionQuotes = await getAxiomsQuotesBySection('Quote Bank: Mission and Adventure');
+  const liturgicalQuotes = await getAxiomsQuotesBySection('Quote Bank: Liturgical Rhythm and Rest');
   
   // Get a random hero image for visual interest (manuscript or classical art)
   const heroAsset = getRandomAssetFromFolder('sacred-texts');
@@ -229,6 +234,14 @@ export default async function PhilosophyPage() {
         </ContentContainer>
       </section>
 
+      <QuoteImageBreak
+        quotes={liturgicalQuotes}
+        imageFolder="art-sacred"
+        imageAlt="Sacred art and liturgical beauty"
+        showRefreshButton={true}
+        enableParallax={true}
+      />
+
       {/* Wrap argument sections with progress indicator */}
       <div className="relative">
         {/* Progress Indicator - Tracks syllogistic argument flow */}
@@ -306,6 +319,15 @@ export default async function PhilosophyPage() {
         </div>
       </SyllogismSection>
 
+      {/* Quote/Image Break - Between Failure and Opportunity */}
+      <QuoteImageBreak
+        quotes={missionQuotes}
+        imageFolder="adventure"
+        imageAlt="Adventure and physical discipline"
+        showRefreshButton={true}
+        enableParallax={true}
+      />
+
       {/* PART II: THE OPPORTUNITY - Poetic Restoration */}
       <SyllogismSection 
         type="minor" 
@@ -321,6 +343,15 @@ export default async function PhilosophyPage() {
           <RestorationSubsectionA />
         </div>
       </SyllogismSection>
+
+      {/* Quote/Image Break - Between Opportunity and Vision */}
+      <QuoteImageBreak
+        quotes={liturgicalQuotes}
+        imageFolder="art-sacred"
+        imageAlt="Sacred art and liturgical beauty"
+        showRefreshButton={true}
+        enableParallax={true}
+      />
 
       {/* PART III: THE VISION - Chivalric Wayfarers for Christendom */}
       <SyllogismSection 
@@ -405,7 +436,7 @@ export default async function PhilosophyPage() {
       </section>
       </div>
 
-      {/* Scripture Waypoints */}
+      {/* Scripture Waypoints
       <section className="py-16 bg-parchment/30">
         <ContentContainer width="wide">
           <SectionHeading level={2} align="center" className="mb-12">
@@ -425,7 +456,7 @@ export default async function PhilosophyPage() {
           </div>
 
         </ContentContainer>
-      </section>
+      </section> */}
     </>
   );
 }

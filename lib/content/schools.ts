@@ -35,7 +35,7 @@ export const SCHOOLS: School[] = [
     admissionsLink: 'https://stdunstansacademy.org/contact/',
     supportLink: 'https://stdunstansacademy.org/donate/',
     faith: ['Anglican'],
-    logoPath: 'Dunston Shield.png',
+    logoPath: 'Dunston Shield.webp',
   },
   {
     id: 'st-josephs-academy',
@@ -49,7 +49,7 @@ export const SCHOOLS: School[] = [
     admissionsLink: 'https://www.saintjosephtheworkeracademy.org/',
     supportLink: 'https://www.saintjosephtheworkeracademy.org/',
     faith: ['Roman Catholic'],
-    logoPath: 'Saint Joseph the Worker Highschool.png',
+    logoPath: 'Saint Joseph the Worker Highschool.webp',
   },
   {
     id: 'gregory-the-great-academy',
@@ -63,7 +63,7 @@ export const SCHOOLS: School[] = [
     admissionsLink: 'https://gregorythegreatacademy.org/admissions/',
     supportLink: 'https://gregorythegreatacademy.org/support-the-academy/',
     faith: ['Roman Catholic'],
-    logoPath: 'Gregory The Great.png',
+    logoPath: 'Gregory The Great.webp',
   },
   {
     id: 'la-salette-academy',
@@ -77,7 +77,7 @@ export const SCHOOLS: School[] = [
     admissionsLink: 'https://www.lasalette.net/admissions',
     supportLink: 'https://www.lasalette.net/donate',
     faith: ['Catholic SSPX'],
-    logoPath: 'La Salette.png',
+    logoPath: 'La Salette.webp',
   },
   {
     id: 'saint-andrews-academy',
@@ -91,7 +91,7 @@ export const SCHOOLS: School[] = [
     admissionsLink: 'https://saintandrewsacademy.org/#sp-puubit',
     supportLink: 'https://saintandrewsacademy.org/support-the-academy',
     faith: ['Catholic SSPX'],
-    logoPath: 'St. Andrews.png',
+    logoPath: 'St. Andrews.webp',
   },
   {
     id: 'st-martins-academy',
@@ -105,7 +105,7 @@ export const SCHOOLS: School[] = [
     admissionsLink: 'https://saintmartinsacademy.org/#admissions',
     supportLink: 'https://saintmartinsacademy.org/raise-the-rafters/',
     faith: ['Roman Catholic'],
-    logoPath: 'Martins Academy.png',
+    logoPath: 'Martins Academy.webp',
   },
 ];
 

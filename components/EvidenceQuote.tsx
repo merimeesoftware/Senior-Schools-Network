@@ -18,20 +18,11 @@ export default function EvidenceQuote({
   evidenceLabel,
   showSourceLink = false,
   sourceSlug,
-  variant = 'major-premise',
   className = '',
 }: Readonly<EvidenceQuoteProps>) {
-  const borderColors = {
-    'major-premise': 'border-red-800/40',
-    'minor-premise': 'border-green-800/40',
-    conclusion: 'border-gold/60',
-  };
-
-  const borderColor = borderColors[variant];
-
   return (
     <div
-      className={`evidence-quote border-l-8 ${borderColor} pl-6 py-4 bg-gold/5 ${className}`}
+      className={`evidence-quote pl-6 py-4 bg-gold/5 ${className}`}
     >
       {/* Evidence Label */}
       {evidenceLabel && (
