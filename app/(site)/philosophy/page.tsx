@@ -71,7 +71,7 @@ export default async function PhilosophyPage() {
           </>
         )}
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 pt-24 pb-12 text-center">
           <SectionHeading level={1} align="center" decorated className="text-white hero-text-shadow">
             Philosophy
           </SectionHeading>
