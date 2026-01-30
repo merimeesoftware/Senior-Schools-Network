@@ -1,9 +1,7 @@
-import QuoteCard from '@/components/QuoteCard';
 import SectionHeading from '@/components/SectionHeading';
 import ContentContainer from '@/components/ContentContainer';
 import OptimizedImage from '@/components/OptimizedImage';
 import QuoteImageBreak from '@/components/QuoteImageBreak';
-import { getQuotesBySource } from '@/lib/content';
 import { getAxiomsQuotesBySection } from '@/lib/content/axioms';
 import { getRandomAssetFromFolder } from '@/lib/assets';
 import RotatingQuotes from '@/components/RotatingQuotes';
@@ -18,12 +16,12 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Philosophy & Resources',
+  title: 'Philosophy',
   description:
     "Explore John Senior's philosophy: poetic knowledge, gymnasium discipline, and wonder-filled Catholic formation.",
   alternates: { canonical: '/philosophy' },
   openGraph: {
-    title: 'Philosophy & Resources - Senior Schools Network',
+    title: 'Philosophy - Senior Schools Network',
     description:
       'Four core concepts: poetic knowledge, physical discipline, poetic-scientific foundations, and liturgical rhythm.',
     url: 'https://seniorschoolsnetwork.org/philosophy',
@@ -32,8 +30,6 @@ export const metadata: Metadata = {
 };
 
 export default async function PhilosophyPage() {
-  const scriptureQuotes = await getQuotesBySource('Knox');
-
   // Define syllogistic argument sections for progress indicator
   const argumentSections = [
     { id: 'major-premise', label: 'The Failure', number: 'I' },
@@ -76,8 +72,8 @@ export default async function PhilosophyPage() {
         )}
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
-          <SectionHeading level={1} align="center" decorated className="text-white [text-shadow:_0_2px_8px_rgb(0_0_0_/_80%)]">
-            Philosophy & Resources
+          <SectionHeading level={1} align="center" decorated className="text-white hero-text-shadow">
+            Philosophy
           </SectionHeading>
 
           {foundationalQuotes && foundationalQuotes.length > 0 && (

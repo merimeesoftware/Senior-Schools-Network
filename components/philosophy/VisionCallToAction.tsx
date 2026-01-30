@@ -38,8 +38,8 @@ export function VisionCallToAction({ className = '' }: VisionCallToActionProps) 
             heading: "Found a School",
             description: "Gather families in your area. Hire a headmaster. Build the gymnasium stage. We can help.",
             action: (
-              <CTAButton href="/engage" variant="primary" size="md">
-                Get the Founder's Toolkit
+              <CTAButton href="/contact" variant="primary" size="md">
+                Get in Touch
               </CTAButton>
             )
           },

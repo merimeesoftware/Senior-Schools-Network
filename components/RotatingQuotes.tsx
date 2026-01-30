@@ -19,8 +19,8 @@ export default function RotatingQuotes({
   intervalMs = 6000,
   autoplay = true,
   className = '',
-  quoteClassName = 'text-3xl md:text-5xl font-playfair italic text-white mb-6 leading-tight drop-shadow-lg',
-  authorClassName = 'text-xl md:text-2xl text-parchment/90 not-italic font-lato',
+  quoteClassName = 'text-3xl md:text-5xl font-playfair italic text-white mb-6 leading-tight hero-text-shadow',
+  authorClassName = 'text-xl md:text-2xl text-parchment/90 not-italic font-lato hero-text-shadow',
   showRefreshButton = false,
   onRefresh,
 }: Readonly<RotatingQuotesProps>) {

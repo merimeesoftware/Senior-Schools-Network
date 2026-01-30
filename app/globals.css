@@ -58,7 +58,7 @@
     --color-primary: #4A7A4A;
     --color-gold: #CDAF6F;
     --color-parchment: #F5F1E9;
-    --gradient-hero: linear-gradient(to bottom, rgba(74,122,74,0.2), rgba(44,74,44,0.3));
+    --gradient-hero: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.55));
   }
 
   /* Liturgical Season Theming - Tridentine 1962 Rubrics */
@@ -66,56 +66,56 @@
     --color-primary: #4A4A4A;
     --color-gold: #B89A5A;
     --color-parchment: #E8DCC8;
-    --gradient-hero: linear-gradient(to bottom, rgba(74,74,74,0.5), rgba(44,44,44,0.7));
+    --gradient-hero: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7));
   }
 
   [data-season="advent"] {
     --color-primary: #7B2D8E;
     --color-gold: #B8860B;
     --color-parchment: #D8C8B8;
-    --gradient-hero: linear-gradient(to bottom, rgba(123,45,142,0.3), rgba(58,48,82,0.5));
+    --gradient-hero: linear-gradient(to bottom, rgba(40,20,50,0.45), rgba(30,20,40,0.6));
   }
 
   [data-season="christmas"] {
     --color-primary: #FFFFFF;
     --color-gold: #D4AF37;
     --color-parchment: #FFF8E7;
-    --gradient-hero: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(212,175,55,0.3));
+    --gradient-hero: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
   }
 
   [data-season="epiphany"] {
     --color-primary: #4A7A4A;
     --color-gold: #B8860B;
     --color-parchment: #E8E0D0;
-    --gradient-hero: linear-gradient(to bottom, rgba(74,122,74,0.2), rgba(44,74,44,0.3));
+    --gradient-hero: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.55));
   }
 
   [data-season="septuagesima"] {
     --color-primary: #6A4A7A;
     --color-gold: #9A7A5A;
     --color-parchment: #D8C8D0;
-    --gradient-hero: linear-gradient(to bottom, rgba(106,74,122,0.3), rgba(74,58,82,0.5));
+    --gradient-hero: linear-gradient(to bottom, rgba(40,30,50,0.45), rgba(30,25,40,0.6));
   }
 
   [data-season="lent"] {
     --color-primary: #5A3A6A;
     --color-gold: #8A6A5A;
     --color-parchment: #D0C8C0;
-    --gradient-hero: linear-gradient(to bottom, rgba(90,58,106,0.4), rgba(58,58,58,0.6));
+    --gradient-hero: linear-gradient(to bottom, rgba(30,20,40,0.5), rgba(20,20,30,0.65));
   }
 
   [data-season="easter"] {
     --color-primary: #FFFFFF;
     --color-gold: #FFD700;
     --color-parchment: #FFFAEB;
-    --gradient-hero: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,215,0,0.4));
+    --gradient-hero: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
   }
 
   [data-season="pentecost"] {
     --color-primary: #4A7A4A;
     --color-gold: #B8860B;
     --color-parchment: #E8E0D0;
-    --gradient-hero: linear-gradient(to bottom, rgba(74,122,74,0.2), rgba(44,74,44,0.3));
+    --gradient-hero: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.55));
   }
 
   body {
@@ -189,6 +189,14 @@
   /* Hero seasonal gradient overlay */
   .hero-gradient {
     background: var(--gradient-hero);
+  }
+
+  /* Strong text shadow for text over images */
+  .hero-text-shadow {
+    text-shadow: 
+      0 0 20px rgba(0,0,0,0.9),
+      0 0 40px rgba(0,0,0,0.7),
+      0 2px 4px rgba(0,0,0,0.9);
   }
 
   /* Accessible screen-reader-only helper (reveal on focus handled inline) */

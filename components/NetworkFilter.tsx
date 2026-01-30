@@ -306,8 +306,8 @@ export default function NetworkFilter({ members }: NetworkFilterProps) {
             formation.
           </p>
           <div className="text-center">
-            <CTAButton href="/philosophy#resources" variant="primary" size="lg">
-              Explore Founding Resources
+            <CTAButton href="/engage" variant="primary" size="lg">
+              Connect & Get Inspired
             </CTAButton>
           </div>
         </div>

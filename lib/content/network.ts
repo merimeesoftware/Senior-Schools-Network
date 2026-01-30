@@ -158,6 +158,22 @@ export const SCHOOLS: NetworkMember[] = [
     educationLevels: ['college'] as const,
     coordinates: { lat: 42.8330, lng: -108.7307 },
   },
+  {
+    id: 'childrens-tradition',
+    name: "The Children's Tradition",
+    location: 'Homeschooling',
+    stages: ['nursery', 'gymnasium'] as const,
+    type: 'program',
+    description:
+    "The Children's Tradition offers a homeschool curriculum inspired by John Senior and Charlotte Mason, focusing on gymnastic and musical education through sensory-emotional immersion in nature and books. It nurtures wonder and delight in elementary years, providing an embodied classical education that calls students to hard things while fostering poetic knowledge. The program integrates faith and virtue, aligning with narrative and sensory-based learning for holistic child formation.",
+    website: 'https://www.thechildrenstradition.com/',
+    admissionsLink: '',
+    supportLink: '',
+    faith: ['Catholic'],
+    logoPath: "The Childrens Tradition.webp",
+    grades: 'Elementary (K-6)',
+    educationLevels: ['grade-school'] as const,
+ },
 ];
 
 /**

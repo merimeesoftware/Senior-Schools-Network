@@ -27,9 +27,9 @@ export default function QuoteImageBreak({
   quotes,
   imageFolder,
   imageAlt,
-  quoteClassName = "text-xl md:text-3xl font-playfair italic text-white leading-relaxed drop-shadow-2xl",
-  authorClassName = "text-lg md:text-xl text-parchment/90 font-lato mt-4",
-  showRefreshButton = true,
+  quoteClassName = "text-xl md:text-3xl font-playfair italic text-white leading-relaxed hero-text-shadow",
+  authorClassName = "text-lg md:text-xl text-parchment/90 font-lato mt-4 hero-text-shadow",
+  showRefreshButton = false,
   enableParallax = true,
   portraitMode = 'cover-crop',
 }: QuoteImageBreakProps) {
