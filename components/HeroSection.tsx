@@ -71,9 +71,6 @@ export default function HeroSection({
     return { objectFit: 'cover' as const, objectPosition: '50% 40%', useBackground: false };
   };
 
-  // When no buttons, position content lower in the hero
-  const contentPosition = showButtons ? 'justify-center' : 'justify-end pb-32 md:pb-40';
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {heroImages[heroImageIndex] && (() => {
@@ -121,7 +118,7 @@ export default function HeroSection({
         );
       })()}
 
-      <div className={`relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col ${contentPosition} min-h-screen py-8`}>
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center min-h-screen pt-24 pb-12">
         {/* Title overlay */}
         {title && (
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair text-white mb-8 hero-text-shadow">

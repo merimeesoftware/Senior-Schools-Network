@@ -22,7 +22,7 @@ export default function Navigation() {
     >
       <div className="section-container">
         <div className="flex justify-between h-24 items-center">
-          <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3 focus-visible-ring rounded">
             <OptimizedImage
               assetId="ssn-logo"
               imageClassName="h-16 w-auto"
@@ -31,7 +31,7 @@ export default function Navigation() {
             <span className="font-playfair text-xl text-parchment-light hidden sm:inline">
               The Senior School Network
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
