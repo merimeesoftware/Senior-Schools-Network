@@ -84,48 +84,60 @@ const stageDetails: Record<Stage, StageDetail> = {
 
 interface InteractiveStagesProps {
   mode?: 'default' | 'crisis';
-  showToggle?: boolean;
+  allowModeToggle?: boolean;
   className?: string;
 }
 
 export default function InteractiveStages({
   mode: initialMode = 'default',
-  showToggle = false,
+  allowModeToggle = false,
   className = '',
 }: InteractiveStagesProps) {
   const [selectedStage, setSelectedStage] = useState<Stage>('nursery');
   const [viewMode, setViewMode] = useState<'default' | 'crisis'>(initialMode);
 
-  const currentMode = showToggle ? viewMode : initialMode;
+  const currentMode = allowModeToggle ? viewMode : initialMode;
   const currentStage = stageDetails[selectedStage];
   
   const displayBgColor = currentMode === 'crisis' ? currentStage.crisisBgColor : currentStage.bgColor;
-  const displayBorderColor = currentMode === 'crisis' ? currentStage.crisisBorderColor : currentStage.borderColor;
   const displayDescription = currentMode === 'crisis' ? currentStage.crisisDescription : currentStage.description;
 
   return (
     <div className={className}>
-      {/* Toggle Button */}
-      {showToggle && (
-        <div className="flex justify-center mb-8">
-          <button
-            onClick={() => setViewMode(viewMode === 'default' ? 'crisis' : 'default')}
-            className={`
-              px-6 py-3 rounded-lg font-semibold transition-all duration-300
-              focus:outline-none focus:ring-4 focus:ring-offset-2
-              ${
-                viewMode === 'crisis'
-                  ? 'bg-green-100 text-green-900 border-2 border-green-600 hover:bg-green-200 focus:ring-green-600'
-                  : 'bg-red-100 text-red-900 border-2 border-red-600 hover:bg-red-200 focus:ring-red-600'
-              }
-            `}
-            aria-pressed={viewMode === 'crisis'}
-          >
-            <span className="inline-flex items-center gap-2">
-              <span aria-hidden="true">{viewMode === 'crisis' ? '🛡️' : '⚠️'}</span>
-              <span>{viewMode === 'crisis' ? 'View Solution' : 'View Crisis'}</span>
-            </span>
-          </button>
+      {/* Mode Toggle - Two Button Design */}
+      {allowModeToggle && (
+        <div className="flex justify-center mb-6">
+          <div className="inline-flex rounded-lg border-2 border-forest/20 p-1 bg-parchment/50">
+            <button
+              onClick={() => setViewMode('default')}
+              className={`
+                px-6 py-2 rounded-md font-lato font-medium text-sm transition-all
+                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700
+                ${viewMode === 'default' 
+                  ? 'bg-green-700 text-white shadow-md' 
+                  : 'text-charcoal/70 hover:text-forest'
+                }
+              `}
+              aria-pressed={viewMode === 'default'}
+            >
+              <span>Restoration View</span>
+            </button>
+            
+            <button
+              onClick={() => setViewMode('crisis')}
+              className={`
+                px-6 py-2 rounded-md font-lato font-medium text-sm transition-all
+                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-700
+                ${viewMode === 'crisis' 
+                  ? 'bg-red-700 text-white shadow-md' 
+                  : 'text-charcoal/70 hover:text-forest'
+                }
+              `}
+              aria-pressed={viewMode === 'crisis'}
+            >
+              <span>Crisis View</span>
+            </button>
+          </div>
         </div>
       )}
 
@@ -133,7 +145,7 @@ export default function InteractiveStages({
       <div className="flex flex-wrap justify-center gap-6 mb-12">
         <button
           onClick={() => setSelectedStage('nursery')}
-          className="focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-nursery transition-all duration-300 hover:scale-105"
+          className="focus:outline-none transition-all duration-300 hover:scale-105"
         >
           <StageBadge
             stage="nursery"
@@ -141,14 +153,14 @@ export default function InteractiveStages({
             whiteText
             className={
               selectedStage === 'nursery'
-                ? 'ring-4 ring-gold/70 shadow-2xl scale-105'
+                ? 'shadow-lg scale-105'
                 : 'opacity-60 hover:opacity-85'
             }
           />
         </button>
         <button
           onClick={() => setSelectedStage('gymnasium')}
-          className="focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-gymnasium transition-all duration-300 hover:scale-105"
+          className="focus:outline-none transition-all duration-300 hover:scale-105"
         >
           <StageBadge
             stage="gymnasium"
@@ -156,14 +168,14 @@ export default function InteractiveStages({
             whiteText
             className={
               selectedStage === 'gymnasium'
-                ? 'ring-4 ring-gold/70 shadow-2xl scale-105'
+                ? 'shadow-lg scale-105'
                 : 'opacity-60 hover:opacity-85'
             }
           />
         </button>
         <button
           onClick={() => setSelectedStage('poetic')}
-          className="focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-poetic transition-all duration-300 hover:scale-105"
+          className="focus:outline-none transition-all duration-300 hover:scale-105"
         >
           <StageBadge
             stage="poetic"
@@ -171,14 +183,14 @@ export default function InteractiveStages({
             whiteText
             className={
               selectedStage === 'poetic'
-                ? 'ring-4 ring-gold/70 shadow-2xl scale-105'
+                ? 'shadow-lg scale-105'
                 : 'opacity-60 hover:opacity-85'
             }
           />
         </button>
         <button
           onClick={() => setSelectedStage('spiritual')}
-          className="focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-spiritual transition-all duration-300 hover:scale-105"
+          className="focus:outline-none transition-all duration-300 hover:scale-105"
         >
           <StageBadge
             stage="spiritual"
@@ -186,7 +198,7 @@ export default function InteractiveStages({
             whiteText
             className={
               selectedStage === 'spiritual'
-                ? 'ring-4 ring-gold/70 shadow-2xl scale-105'
+                ? 'shadow-lg scale-105'
                 : 'opacity-60 hover:opacity-85'
             }
           />
@@ -197,20 +209,15 @@ export default function InteractiveStages({
       <div className="max-w-3xl mx-auto">
         <div
           key={selectedStage}
-          className={`stage-content-enter ${displayBgColor} border-2 ${displayBorderColor} p-8 rounded-lg transition-all duration-300 ease-in-out relative`}
+          className={`stage-content-enter ${displayBgColor} p-8 rounded-lg transition-all duration-300 ease-in-out`}
         >
-          {/* Mode Indicator Icon */}
-          <div className="absolute top-4 right-4 text-3xl" aria-hidden="true">
-            {currentMode === 'crisis' ? '⚠️' : '🛡️'}
-          </div>
-          
           <h3 className={`text-3xl font-playfair ${currentStage.textColor} mb-4 flex items-center gap-3`}>
             <span className={`inline-block px-4 py-2 ${currentStage.badgeBgColor} text-white rounded text-base font-lato`}>
               {currentStage.ageRange}
             </span>{' '}
             {currentStage.title}
           </h3>
-          <p className="text-lg text-charcoal/80 leading-relaxed pr-12">{displayDescription}</p>
+          <p className="text-lg text-charcoal/80 leading-relaxed">{displayDescription}</p>
         </div>
       </div>
     </div>

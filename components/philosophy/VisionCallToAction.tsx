@@ -24,7 +24,7 @@ interface VisionCallToActionProps {
 
 export function VisionCallToAction({ className = '' }: VisionCallToActionProps) {
   return (
-    <div className={`pt-16 border-t-4 border-gold space-y-12 ${className}`}>
+    <div className={`space-y-12 ${className}`}>
       <h3 className="font-playfair text-4xl font-bold text-forest text-center">
         What You Can Do
       </h3>
@@ -38,8 +38,8 @@ export function VisionCallToAction({ className = '' }: VisionCallToActionProps) 
             heading: "Found a School",
             description: "Gather families in your area. Hire a headmaster. Build the gymnasium stage. We can help.",
             action: (
-              <CTAButton href="/engage" variant="primary" size="md">
-                Get the Founder's Toolkit
+              <CTAButton href="/contact" variant="primary" size="md">
+                Get in Touch
               </CTAButton>
             )
           },
@@ -48,8 +48,8 @@ export function VisionCallToAction({ className = '' }: VisionCallToActionProps) 
             heading: "Join a School",
             description: "Explore the network of schools already implementing Senior's philosophy.",
             action: (
-              <CTAButton href="/schools" variant="secondary" size="md">
-                Browse Schools
+              <CTAButton href="/network-directory" variant="secondary" size="md">
+                Browse Directory
               </CTAButton>
             )
           },

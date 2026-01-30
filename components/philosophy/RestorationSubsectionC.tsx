@@ -1,3 +1,6 @@
+'use client';
+import { useState } from 'react';
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import StudyGrid from "@/components/StudyGrid";
 import EvidenceQuoteGroup from "@/components/EvidenceQuoteGroup";
 import SummaryBox from "@/components/SummaryBox";
@@ -13,6 +16,7 @@ import SummaryBox from "@/components/SummaryBox";
  * @component
  * @param {RestorationSubsectionCProps} props - Component props
  * @param {string} [props.className] - Optional CSS class name for styling
+ * @param {boolean} [props.summaryMode=true] - Whether to show summary view initially
  * 
  * @example
  * ```tsx
@@ -22,11 +26,47 @@ import SummaryBox from "@/components/SummaryBox";
 
 interface RestorationSubsectionCProps {
   className?: string;
+  summaryMode?: boolean;
 }
 
-export function RestorationSubsectionC({ className = '' }: RestorationSubsectionCProps) {
+export function RestorationSubsectionC({ className = '', summaryMode = true }: RestorationSubsectionCProps) {
+  const [isExpanded, setIsExpanded] = useState(!summaryMode);
+
+  // Summary view
+  if (!isExpanded) {
+    return (
+      <div className={`space-y-6 ${className}`}>
+        <div className="bg-parchment/30 border-l-4 border-green-700 p-6 rounded-r-lg">
+          <h3 className="font-playfair text-3xl font-bold text-green-900 mb-3">
+            C. The Poetic Stage: Integrated Learning
+          </h3>
+          <p className="text-lg text-charcoal/80 leading-relaxed mb-4">
+            The poetic stage (ages 13-17) is the fertile soil from which all higher learning must grow. Music, art, poetry, and philosophy—integrated through liturgical rhythm—train the boy to see reality as a whole, not as fragmented facts. The IHP model: three years of integrated humanities before any specialized study. Only after poetic knowledge is established can science and specialization be safely introduced.
+          </p>
+          <button
+            onClick={() => setIsExpanded(true)}
+            className="flex items-center gap-2 text-forest font-medium hover:text-gold transition-colors focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-lg px-4 py-2"
+            aria-label="Read full argument for The Poetic Stage: Integrated Learning"
+          >
+            <span>Read Full Argument</span>
+            <ChevronDownIcon className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Expanded view
   return (
     <div id="minor-premise-c" className={`space-y-12 ${className}`}>
+      <button
+        onClick={() => setIsExpanded(false)}
+        className="flex items-center gap-2 text-charcoal/70 hover:text-forest text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-lg px-3 py-1.5"
+        aria-label="Collapse The Poetic Stage: Integrated Learning"
+      >
+        <ChevronUpIcon className="w-4 h-4" />
+        <span>Collapse</span>
+      </button>
       <h3 className="font-playfair text-4xl font-bold text-green-900">
         C. The Poetic Stage: Integrated Learning
       </h3>
@@ -68,6 +108,7 @@ export function RestorationSubsectionC({ className = '' }: RestorationSubsection
       <EvidenceQuoteGroup
         variant="minor-premise"
         title="Evidence from the Sources"
+        collapsible={true}
         quotes={[
           {
             quote: "The Integrated Humanities Program exists because specialized knowledge has failed. We restore the integrated vision—music, art, philosophy, theology—before we introduce specialization. The poetic stage is not optional; it is prerequisite.",

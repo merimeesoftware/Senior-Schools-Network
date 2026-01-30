@@ -1,3 +1,4 @@
+'use client';
 import InteractiveStages from "@/components/InteractiveStages";
 import EvidenceQuoteGroup from "@/components/EvidenceQuoteGroup";
 
@@ -12,6 +13,7 @@ import EvidenceQuoteGroup from "@/components/EvidenceQuoteGroup";
  * @component
  * @param {RestorationSubsectionAProps} props - Component props
  * @param {string} [props.className] - Optional CSS class name for styling
+ * @param {boolean} [props.summaryMode=true] - Whether to show summary view initially
  * 
  * @example
  * ```tsx
@@ -24,6 +26,7 @@ interface RestorationSubsectionAProps {
 }
 
 export function RestorationSubsectionA({ className = '' }: RestorationSubsectionAProps) {
+  // Always show expanded view - content is concise enough to display fully
   return (
     <div id="minor-premise-a" className={`space-y-12 ${className}`}>
       <h3 className="font-playfair text-4xl font-bold text-green-900">
@@ -36,11 +39,16 @@ export function RestorationSubsectionA({ className = '' }: RestorationSubsection
         corresponding to the child's physical, intellectual, and spiritual maturation.
       </p>
 
-      <InteractiveStages mode="default" />
+      <p className="text-center text-sm text-charcoal/70 italic mb-4">
+        Toggle between views to see how each stage should be restored vs. how modern education fails
+      </p>
+
+      <InteractiveStages mode="default" allowModeToggle={true} />
 
       <EvidenceQuoteGroup
         variant="minor-premise"
         title="Evidence from the Sources"
+        collapsible={false}
         quotes={[
           {
             quote: "The four stages are not a curriculum but a way of life. Nursery is wonder. Gymnasium is discipline. Poetic is integration. Spiritual is wisdom. Skip any stage and the whole structure collapses.",

@@ -18,6 +18,7 @@ interface HeroSectionProps {
   imageAlt?: string;
   showButtons?: boolean;
   buttons?: CTAButtonConfig[];
+  title?: string; // Optional large title overlay
 }
 
 export default function HeroSection({
@@ -26,9 +27,10 @@ export default function HeroSection({
   imageAlt = "Classical landscape evoking wonder",
   showButtons = true,
   buttons = [
-    { text: 'Explore Schools', href: '/schools', variant: 'hero-primary' as const },
+    { text: 'Explore Directory', href: '/network-directory', variant: 'hero-primary' as const },
     { text: 'Our Philosophy', href: '/philosophy', variant: 'hero-outline' as const },
   ],
+  title,
 }: HeroSectionProps) {
   // Get all images from folder and shuffle them
   const [heroImages] = useState(() => {
@@ -45,11 +47,7 @@ export default function HeroSection({
     return shuffled;
   });
   
-  const [heroImageIndex, setHeroImageIndex] = useState(0);
-  
-  const handleRefresh = () => {
-    setHeroImageIndex((i) => (i + 1) % heroImages.length);
-  };
+  const [heroImageIndex] = useState(0);
 
   // Determine display strategy based on image aspect ratio
   const getImageStrategy = (image: typeof heroImages[0]) => {
@@ -72,6 +70,9 @@ export default function HeroSection({
     // Medium landscape/square images - cover with slight top bias
     return { objectFit: 'cover' as const, objectPosition: '50% 40%', useBackground: false };
   };
+
+  // When no buttons, position content lower in the hero
+  const contentPosition = showButtons ? 'justify-center' : 'justify-end pb-32 md:pb-40';
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -120,16 +121,22 @@ export default function HeroSection({
         );
       })()}
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col justify-center min-h-screen py-8">
-        {/* Quote display with refresh button */}
+      <div className={`relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col ${contentPosition} min-h-screen py-8`}>
+        {/* Title overlay */}
+        {title && (
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair text-white mb-8 hero-text-shadow">
+            {title}
+          </h1>
+        )}
+        
+        {/* Quote display */}
         {quotes.length > 0 && (
           <RotatingQuotes 
             quotes={quotes}
             autoplay={false}
-            showRefreshButton={heroImages.length > 1 || quotes.length > 1}
-            onRefresh={handleRefresh}
-            quoteClassName="text-2xl md:text-4xl font-playfair italic text-white mb-6 leading-relaxed drop-shadow-lg"
-            authorClassName="text-xl md:text-2xl text-parchment/90 not-italic font-lato"
+            showRefreshButton={false}
+            quoteClassName="text-2xl md:text-4xl font-playfair italic text-white mb-6 leading-relaxed hero-text-shadow"
+            authorClassName="text-xl md:text-2xl text-parchment/90 not-italic font-lato hero-text-shadow"
             className="mb-8 max-w-4xl mx-auto"
           />
         )}

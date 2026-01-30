@@ -1,7 +1,7 @@
+'use client';
 import ProblemSolutionPanel from "@/components/ProblemSolutionPanel";
 import EvidenceQuoteGroup from "@/components/EvidenceQuoteGroup";
 import ComparisonDiagram from "@/components/ComparisonDiagram";
-import CardGrid from "@/components/CardGrid";
 import SummaryBox from "@/components/SummaryBox";
 
 /**
@@ -27,20 +27,26 @@ interface CrisisSubsectionCProps {
 }
 
 export function CrisisSubsectionC({ className = '' }: CrisisSubsectionCProps) {
+  // Always show full content
   return (
-    <div id="major-premise-c" className={`space-y-12 ${className}`}>
+    <div id="major-premise-c" className={`space-y-8 ${className}`}>
       <h3 className="font-playfair text-4xl font-bold text-red-900">
         C. The Specialized Knowledge Crisis
       </h3>
 
+      <p className="text-lg text-charcoal/80 leading-relaxed">
+        Rushing boys into STEM specialization by age 13—before poetic knowledge is established—produces alienated technicians, not integrated thinkers. Boys memorize biology terms but never feel wonder at creation; they solve calculus but never read poetry. Senior's solution: three years of integrated humanities (music, art, philosophy) before any specialized study, establishing poetic knowledge as the fertile soil from which all learning grows.
+      </p>
+
       <ProblemSolutionPanel
         layout="split"
+        collapsible={false}
         problem={{
           title: "The Problem: STEM-First Curriculum",
           description: "Modern education rushes to specialization. By age 13, boys are pushed into STEM tracks, AP classes, and college prep—all before they have cultivated the poetic soil from which science, philosophy, and theology should naturally grow.\n\nThe consequence? Boys who can solve calculus problems but have never read a poem. Boys who memorize biology terms but have never felt wonder at a frog. Boys who ace SAT tests but are spiritually and aesthetically dead. Specialized knowledge without poetic knowledge produces alienation, not integration.",
           quote: {
             id: "alienated-technicians",
-            quote: "Result: Alienated technicians, not warrior poets. Utilitarian minds severed from beauty, truth, and God.",
+            quote: "Result: Alienated technicians, not Poetic Guardians. Utilitarian minds severed from beauty, truth, and God.",
             author: "",
             source: "",
             category: "discipline" as const,
@@ -62,6 +68,7 @@ export function CrisisSubsectionC({ className = '' }: CrisisSubsectionCProps) {
       <EvidenceQuoteGroup
         variant="major-premise"
         title="Evidence from the Sources"
+        collapsible={false}
         quotes={[
           {
             quote: "Poetic knowledge is not specialized knowledge but that connaturality and right harmony with things which Adam and Eve possessed in Eden. It is the soil from which science, philosophy, and theology grow. If you poison the soil, nothing true or beautiful can flourish.",
@@ -97,46 +104,15 @@ export function CrisisSubsectionC({ className = '' }: CrisisSubsectionCProps) {
         description="Specialization must grow from poetic soil, not replace it"
         leftColumn={{
           label: "Modern Education",
-          steps: ["📱 Screens (0-13)", "🛡️ Gymnasium (skipped)", "🎨 Poetic (skipped)", "🔬 STEM-first"],
+          steps: ["Screens (0-13)", "Gymnasium (skipped)", "Poetic (skipped)", "STEM-first"],
           result: "= Alienated Technician"
         }}
         rightColumn={{
           label: "Classical Education",
-          steps: ["🌿 Nursery (0-7)", "🛡️ Gymnasium (7-13)", "🎨 Poetic (13-17)", "🔬 Science (from soil)"],
-          result: "= Integrated Warrior Poet"
+          steps: ["Nursery (0-7)", "Gymnasium (7-13)", "Poetic (13-17)", "Science (from soil)"],
+          result: "= Integrated Chivalric Wayfarer"
         }}
       />
-
-      <div className="space-y-8">
-        <h3 className="font-playfair text-3xl font-bold text-forest text-center">
-          Summary: The Three Poisons
-        </h3>
-        <p className="text-center text-lg text-charcoal/90 max-w-3xl mx-auto">
-          Modern education has systematically destroyed the gymnasium and poetic stages through three
-          interconnected failures:
-        </p>
-        <CardGrid
-          variant="crisis"
-          columns={3}
-          cards={[
-            {
-              emoji: "📱",
-              heading: "Screens",
-              description: "Replace wonder & sensory integration"
-            },
-            {
-              emoji: "🛡️",
-              heading: "Softness",
-              description: "Replace risk & physical discipline"
-            },
-            {
-              emoji: "🔬",
-              heading: "Specialization",
-              description: "Replace integrated poetic knowledge"
-            }
-          ]}
-        />
-      </div>
 
       <SummaryBox variant="major-premise" title="The Crisis Established:">
         <p className="text-xl leading-relaxed">

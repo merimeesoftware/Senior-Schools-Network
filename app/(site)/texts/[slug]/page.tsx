@@ -178,8 +178,8 @@ export default async function TextPage({ params }: TextPageProps) {
               <CTAButton href="/philosophy" variant="outline" size="lg">
                 ← Back to Philosophy
               </CTAButton>
-              <CTAButton href="/philosophy#resources" variant="primary" size="lg">
-                View All Resources
+              <CTAButton href="/engage#resources" variant="primary" size="lg">
+                View All Texts
               </CTAButton>
             </div>
           </div>

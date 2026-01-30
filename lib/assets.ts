@@ -583,7 +583,7 @@ const adventure: ImageAsset[] = [
 const logos: ImageAsset[] = [
   {
     id: 'ssn-logo',
-    src: '/assets/logos/Senior School Network Logo.png',
+    src: '/assets/logos/Senior School Network Logo.webp',
     alt: 'Senior Schools Network logo',
     width: 400,
     height: 100,

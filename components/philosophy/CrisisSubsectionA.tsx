@@ -1,6 +1,6 @@
+'use client';
 import ProblemSolutionPanel from "@/components/ProblemSolutionPanel";
 import EvidenceQuoteGroup from "@/components/EvidenceQuoteGroup";
-import InteractiveStages from "@/components/InteractiveStages";
 
 /**
  * CrisisSubsectionA Component
@@ -25,14 +25,20 @@ interface CrisisSubsectionAProps {
 }
 
 export function CrisisSubsectionA({ className = '' }: CrisisSubsectionAProps) {
+  // Always show full content
   return (
-    <div id="major-premise-a" className={`space-y-12 ${className}`}>
+    <div id="major-premise-a" className={`space-y-8 ${className}`}>
       <h3 className="font-playfair text-4xl font-bold text-red-900">
         A. Loss of Wonder & Sensory Integration
       </h3>
 
+      <p className="text-lg text-charcoal/80 leading-relaxed">
+        Screen addiction (7 hours/day) has replaced outdoor wonder. Boys who have never climbed trees or felt physical risk cannot develop the connaturality with reality that Senior calls "poetic knowledge." The solution: nature immersion and "benevolent neglect" that restores sensory integration.
+      </p>
+
       <ProblemSolutionPanel
         layout="split"
+        collapsible={false}
         problem={{
           title: "The Problem: Screen Addiction",
           description: "The average American child now spends 7 hours per day on screens. Outdoor play has declined by 50% in a single generation. The consequence? A generation of boys who have never climbed a tree, caught a frog, or felt the terror and thrill of real physical risk.\n\nIndoor confinement has replaced the gymnasium stage's natural habitat: fields, forests, rivers. Without sensory integration—touch, smell, movement—boys cannot develop the connaturality with reality that Senior calls \"poetic knowledge.\"",
@@ -60,6 +66,7 @@ export function CrisisSubsectionA({ className = '' }: CrisisSubsectionAProps) {
       <EvidenceQuoteGroup
         variant="major-premise"
         title="Evidence from the Sources"
+        collapsible={false}
         quotes={[
           {
             quote: "Wonder is the first and most fundamental disposition of the soul, the beginning of all philosophy and all poetry. The child who has never felt wonder is already dead.",
@@ -82,16 +89,6 @@ export function CrisisSubsectionA({ className = '' }: CrisisSubsectionAProps) {
           }
         ]}
       />
-
-      <div className="space-y-6">
-        <h4 className="font-playfair text-2xl font-bold text-forest text-center">
-          Where the Crisis Hits
-        </h4>
-        <InteractiveStages mode="crisis" />
-        <p className="text-center text-sm text-charcoal/70 italic">
-          Click each stage to see the modern failure
-        </p>
-      </div>
     </div>
   );
 }

@@ -1,0 +1,14 @@
+# Bun configuration for Senior Schools Network
+# https://bun.sh/docs/runtime/bunfig
+
+[install]
+# Use exact versions for reproducibility
+exact = true
+
+[install.lockfile]
+# Print a link to save the lockfile to the bun.lock
+save = true
+
+[run]
+# Silent mode for cleaner output
+silent = false
