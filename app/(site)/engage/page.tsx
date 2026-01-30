@@ -273,8 +273,8 @@ export default async function EngagePage() {
                 <CTAButton href="/philosophy" variant="outline" size="lg">
                   Explore Philosophy
                 </CTAButton>
-                <CTAButton href="/schools" variant="primary" size="lg">
-                  Browse Schools
+                <CTAButton href="/network-directory" variant="primary" size="lg">
+                  Browse Directory
                 </CTAButton>
               </div>
             </div>
@@ -373,8 +373,8 @@ export default async function EngagePage() {
               <CTAButton href="/engage" variant="primary" size="lg">
                 Engage & Connect
               </CTAButton>
-              <CTAButton href="/schools" variant="outline" size="lg">
-                Explore Schools
+              <CTAButton href="/network-directory" variant="outline" size="lg">
+                Explore Directory
               </CTAButton>
             </div>
           </div>

@@ -9,8 +9,8 @@ export default function Navigation() {
 
   const navItems = [
     { href: '/', label: 'Home' },
-    { href: '/philosophy', label: 'Philosophy & Resources' },
-    { href: '/schools', label: 'Schools Network' },
+    { href: '/philosophy', label: 'Philosophy' },
+    { href: '/network-directory', label: 'Schools & Programs' },
     { href: '/engage', label: 'Engage' },
   ];
 

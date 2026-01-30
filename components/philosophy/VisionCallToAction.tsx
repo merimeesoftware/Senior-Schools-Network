@@ -48,8 +48,8 @@ export function VisionCallToAction({ className = '' }: VisionCallToActionProps) 
             heading: "Join a School",
             description: "Explore the network of schools already implementing Senior's philosophy.",
             action: (
-              <CTAButton href="/schools" variant="secondary" size="md">
-                Browse Schools
+              <CTAButton href="/network-directory" variant="secondary" size="md">
+                Browse Directory
               </CTAButton>
             )
           },

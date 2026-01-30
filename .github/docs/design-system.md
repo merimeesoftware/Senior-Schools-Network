@@ -261,8 +261,8 @@ Home (/)
 │   ├── Scripture Ties
 │   └── Media Embeds (videos/podcasts)
 │
-├── Schools Network (/schools)
-│   └── Directory (filter by stage focus: gymnasium, high school boarding)
+├── Schools & Programs (/network-directory)
+│   └── Directory (filter by type and stage focus)
 │
 ├── Resources for Home Application (/home-application)
 │   ├── Gymnasium Guide (downloadable PDF)
@@ -580,7 +580,7 @@ CTA: Reach Out/Toolkit
 
 **Usage**:
 ```tsx
-<CTAButton href="/schools" variant="primary" size="lg">
+<CTAButton href="/network-directory" variant="primary" size="lg">
   Find a School
 </CTAButton>
 
@@ -623,11 +623,11 @@ CTA: Reach Out/Toolkit
 
 ---
 
-#### SchoolsFilter
+#### NetworkFilter
 
-**File**: `components/SchoolsFilter.tsx`
+**File**: `components/NetworkFilter.tsx`
 
-**Purpose**: Filter schools by stage with accessible controls
+**Purpose**: Filter schools and programs by type and stage with accessible controls
 
 **Props**:
 - `onFilterChange`: (stage: string | null) => void (required)
@@ -939,7 +939,7 @@ public/
 - [ ] Founder's Toolkit cover (600x800): Portrait orientation
 - [ ] Network support imagery (1200x800): Educator retreat
 
-**Schools Directory (`/schools`)**:
+**Network Directory (`/network-directory`)**:
 
 - [ ] Hero banner (3200x1200): Map overlay or campus montage
 - [ ] Placeholder school photos (per listing):

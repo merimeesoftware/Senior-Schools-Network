@@ -28,7 +28,7 @@ export default async function HomePage() {
         imageAlt="Classical landscape evoking wonder"
         showButtons={true}
         buttons={[
-          { text: 'Explore Schools', href: '/schools', variant: 'hero-primary' },
+          { text: 'Explore Directory', href: '/network-directory', variant: 'hero-primary' },
           { text: 'Our Philosophy', href: '/philosophy', variant: 'hero-outline' },
         ]}
       />
@@ -61,7 +61,7 @@ export default async function HomePage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <FadeIn delay={0}>
-              <Link href="/schools" className="group block">
+              <Link href="/network-directory" className="group block">
               <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg border-l-4 border-gymnasium">
                 <h3 className="text-2xl font-playfair text-forest group-hover:text-gold transition-colors">
                   Senior Schools
@@ -169,7 +169,7 @@ export default async function HomePage() {
                 participate in the renewal of wonder-filled learning.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center pt-4">
-                <CTAButton href="/schools" variant="primary" size="lg">
+                <CTAButton href="/network-directory" variant="primary" size="lg">
                   Find a School
                 </CTAButton>
                 <CTAButton href="/engage" variant="outline" size="lg">

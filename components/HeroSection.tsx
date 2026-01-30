@@ -18,6 +18,7 @@ interface HeroSectionProps {
   imageAlt?: string;
   showButtons?: boolean;
   buttons?: CTAButtonConfig[];
+  title?: string; // Optional large title overlay
 }
 
 export default function HeroSection({
@@ -26,9 +27,10 @@ export default function HeroSection({
   imageAlt = "Classical landscape evoking wonder",
   showButtons = true,
   buttons = [
-    { text: 'Explore Schools', href: '/schools', variant: 'hero-primary' as const },
+    { text: 'Explore Directory', href: '/network-directory', variant: 'hero-primary' as const },
     { text: 'Our Philosophy', href: '/philosophy', variant: 'hero-outline' as const },
   ],
+  title,
 }: HeroSectionProps) {
   // Get all images from folder and shuffle them
   const [heroImages] = useState(() => {
@@ -121,6 +123,13 @@ export default function HeroSection({
       })()}
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col justify-center min-h-screen py-8">
+        {/* Title overlay */}
+        {title && (
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair text-white mb-8 drop-shadow-lg">
+            {title}
+          </h1>
+        )}
+        
         {/* Quote display with refresh button */}
         {quotes.length > 0 && (
           <RotatingQuotes 

@@ -9,32 +9,32 @@ export default function StageBadge({
   stage,
   size = 'md',
   className = '',
-  whiteText = false,
+  whiteText = true, // Default to white text for better contrast
 }: Readonly<StageBadgeProps>) {
   const stageConfig = {
     nursery: {
       label: 'Nursery (0-7)',
       bg: 'bg-nursery',
       text: 'text-nursery-dark',
-      border: 'border-nursery-dark',
+      border: 'border-nursery-dark/50',
     },
     gymnasium: {
       label: 'Gymnasium (7-13)',
       bg: 'bg-gymnasium',
       text: 'text-gymnasium-dark',
-      border: 'border-gymnasium-dark',
+      border: 'border-gymnasium-dark/50',
     },
     poetic: {
       label: 'Poetic (13-20)',
       bg: 'bg-poetic',
       text: 'text-poetic-dark',
-      border: 'border-poetic-dark',
+      border: 'border-poetic-dark/50',
     },
     spiritual: {
       label: 'Spiritual (All Ages)',
       bg: 'bg-spiritual',
       text: 'text-spiritual-dark',
-      border: 'border-spiritual-dark',
+      border: 'border-spiritual-dark/50',
     },
   };
 
