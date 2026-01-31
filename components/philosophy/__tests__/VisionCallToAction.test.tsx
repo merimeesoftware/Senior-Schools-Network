@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { VisionCallToAction } from '../VisionCallToAction';
 
 // Mock CardGrid component
-jest.mock('@/components/CardGrid', () => ({
+jest.mock('@/components/content/CardGrid', () => ({
   __esModule: true,
   default: ({ variant, columns, cards }: any) => (
     <div data-testid="mock-card-grid" data-variant={variant} data-columns={columns}>
@@ -20,7 +20,7 @@ jest.mock('@/components/CardGrid', () => ({
 }));
 
 // Mock CTAButton component
-jest.mock('@/components/CTAButton', () => ({
+jest.mock('@/components/ui/CTAButton', () => ({
   __esModule: true,
   default: ({ href, variant, size, children }: any) => (
     <a href={href} data-testid="mock-cta-button" data-variant={variant} data-size={size}>

@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { VisionWarriorPoet } from '../VisionWarriorPoet';
 
 // Mock CardGrid component
-jest.mock('@/components/CardGrid', () => ({
+jest.mock('@/components/content/CardGrid', () => ({
   __esModule: true,
   default: ({ variant, columns, cards }: any) => (
     <div data-testid="mock-card-grid" data-variant={variant} data-columns={columns}>

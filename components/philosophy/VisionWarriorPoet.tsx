@@ -1,4 +1,4 @@
-import CardGrid from "@/components/CardGrid";
+import CardGrid from "@/components/content/CardGrid";
 
 /**
  * VisionWarriorPoet Component

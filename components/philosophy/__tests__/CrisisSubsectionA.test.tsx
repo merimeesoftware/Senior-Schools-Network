@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { CrisisSubsectionA } from '../CrisisSubsectionA';
 
 // Mock child components to isolate testing
-jest.mock('@/components/ProblemSolutionPanel', () => ({
+jest.mock('@/components/content/ProblemSolutionPanel', () => ({
   __esModule: true,
   default: ({ problem, solution }: any) => (
     <div data-testid="problem-solution-panel">
@@ -13,7 +13,7 @@ jest.mock('@/components/ProblemSolutionPanel', () => ({
   ),
 }));
 
-jest.mock('@/components/EvidenceQuoteGroup', () => ({
+jest.mock('@/components/content/EvidenceQuoteGroup', () => ({
   __esModule: true,
   default: ({ variant, title, quotes }: any) => (
     <div data-testid="evidence-quote-group" data-variant={variant}>
@@ -23,7 +23,7 @@ jest.mock('@/components/EvidenceQuoteGroup', () => ({
   ),
 }));
 
-jest.mock('@/components/InteractiveStages', () => ({
+jest.mock('@/components/interactive/InteractiveStages', () => ({
   __esModule: true,
   default: ({ mode }: any) => (
     <div data-testid="interactive-stages" data-mode={mode}>

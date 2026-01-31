@@ -7,7 +7,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import type { Quote } from '@/lib/types/content';
 
-const AXIOMS_PATH = path.join(process.cwd(), 'PHILOSOPHICAL-AXIOMS.md');
+const AXIOMS_PATH = path.join(process.cwd(), 'public', 'texts', 'PHILOSOPHICAL-AXIOMS.md');
 
 async function readAxioms(): Promise<string[]> {
   const content = await fs.readFile(AXIOMS_PATH, 'utf-8');

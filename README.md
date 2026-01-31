@@ -103,7 +103,7 @@ bun run dev
 
 ### Quotes
 
-Quotes are parsed from `PHILOSOPHICAL-AXIOMS.md` using `getAxiomsQuotesBySection()`. Each section is tagged for use in specific components (hero, rotating quotes, etc.).
+Quotes are parsed from `public/texts/PHILOSOPHICAL-AXIOMS.md` using `getAxiomsQuotesBySection()`. Each section is tagged for use in specific components (hero, rotating quotes, etc.).
 
 ### Images
 
@@ -111,7 +111,7 @@ Static image manifest in `lib/assets.ts`. Images stored in `public/images/` with
 
 ### Schools Data
 
-School directory loaded from CSV (`Schools+Network - Schools+Network.csv`) and rendered via the schools filter component.
+School directory defined in `lib/content/network.ts` and rendered via the NetworkFilter component.
 
 ## Deployment
 

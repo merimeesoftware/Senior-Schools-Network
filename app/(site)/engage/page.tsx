@@ -1,12 +1,12 @@
-import QuoteCard from '@/components/QuoteCard';
-import SectionHeading from '@/components/SectionHeading';
-import ContentContainer from '@/components/ContentContainer';
-import QuoteImageBreak from '@/components/QuoteImageBreak';
+import QuoteCard from '@/components/content/QuoteCard';
+import SectionHeading from '@/components/ui/SectionHeading';
+import ContentContainer from '@/components/layout/ContentContainer';
+import QuoteImageBreak from '@/components/content/QuoteImageBreak';
 import { getAxiomsQuotesBySection } from '@/lib/content/axioms';
-import CTAButton from '@/components/CTAButton';
+import CTAButton from '@/components/ui/CTAButton';
 import { getQuotesBySource } from '@/lib/content';
-import EssentialTextsGrid from '@/components/EssentialTextsGrid';
-import HeroSection from '@/components/HeroSection';
+import EssentialTextsGrid from '@/components/content/EssentialTextsGrid';
+import HeroSection from '@/components/layout/HeroSection';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -50,7 +50,7 @@ export default async function EngagePage() {
       tags: ['distributism', 'culture', 'sanity'],
     },
     {
-      slug: 'Boethius%20the%20Consolation%20of%20Philosophy',
+      slug: 'Boethius-the-Consolation-of-Philosophy',
       title: 'The Consolation of Philosophy',
       author: 'Boethius',
       description: 'Medieval masterwork blending philosophy and poetry to explore providence, fortune, and true happiness.',
@@ -64,14 +64,14 @@ export default async function EngagePage() {
       tags: ['myth', 'imagination', 'poetry'],
     },
     {
-      slug: 'The%20Preventative%20System',
+      slug: 'The-Preventative-System',
       title: 'The Preventative System',
       author: 'St. John Bosco',
       description: "St. Don Bosco's educational philosophy emphasizing prevention over punishment through loving guidance, reason, religion, and kindness.",
       tags: ['education', 'virtue', 'discipline'],
     },
     {
-      slug: 'other%20textual%20excerpts',
+      slug: 'other-textual-excerpts',
       title: 'Other Textual Excerpts',
       description: 'A compilation of passages from Hugh of St. Victor, medieval scholastics, and others providing context for poetic knowledge and sensory formation.',
       tags: ['medieval', 'philosophy', 'excerpts'],

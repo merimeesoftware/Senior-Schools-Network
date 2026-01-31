@@ -1,5 +1,5 @@
-import CardGrid from "@/components/CardGrid";
-import CTAButton from "@/components/CTAButton";
+import CardGrid from "@/components/content/CardGrid";
+import CTAButton from "@/components/ui/CTAButton";
 
 /**
  * VisionCallToAction Component

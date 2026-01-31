@@ -1,8 +1,8 @@
 'use client';
-import ProblemSolutionPanel from "@/components/ProblemSolutionPanel";
-import EvidenceQuoteGroup from "@/components/EvidenceQuoteGroup";
-import ComparisonDiagram from "@/components/ComparisonDiagram";
-import SummaryBox from "@/components/SummaryBox";
+import ProblemSolutionPanel from "@/components/content/ProblemSolutionPanel";
+import EvidenceQuoteGroup from "@/components/content/EvidenceQuoteGroup";
+import ComparisonDiagram from "@/components/content/ComparisonDiagram";
+import SummaryBox from "@/components/content/SummaryBox";
 
 /**
  * CrisisSubsectionC Component

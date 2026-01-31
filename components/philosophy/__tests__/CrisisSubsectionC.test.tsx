@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { CrisisSubsectionC } from '../CrisisSubsectionC';
 
 // Mock child components to isolate testing
-jest.mock('@/components/ProblemSolutionPanel', () => ({
+jest.mock('@/components/content/ProblemSolutionPanel', () => ({
   __esModule: true,
   default: ({ problem, solution }: any) => (
     <div data-testid="problem-solution-panel">
@@ -13,7 +13,7 @@ jest.mock('@/components/ProblemSolutionPanel', () => ({
   ),
 }));
 
-jest.mock('@/components/EvidenceQuoteGroup', () => ({
+jest.mock('@/components/content/EvidenceQuoteGroup', () => ({
   __esModule: true,
   default: ({ variant, title, quotes }: any) => (
     <div data-testid="evidence-quote-group" data-variant={variant}>
@@ -23,7 +23,7 @@ jest.mock('@/components/EvidenceQuoteGroup', () => ({
   ),
 }));
 
-jest.mock('@/components/ComparisonDiagram', () => ({
+jest.mock('@/components/content/ComparisonDiagram', () => ({
   __esModule: true,
   default: ({ title, description, leftColumn, rightColumn }: any) => (
     <div data-testid="comparison-diagram">
@@ -35,7 +35,7 @@ jest.mock('@/components/ComparisonDiagram', () => ({
   ),
 }));
 
-jest.mock('@/components/CardGrid', () => ({
+jest.mock('@/components/content/CardGrid', () => ({
   __esModule: true,
   default: ({ variant, columns, cards }: any) => (
     <div data-testid="card-grid" data-variant={variant} data-columns={columns}>
@@ -49,7 +49,7 @@ jest.mock('@/components/CardGrid', () => ({
   ),
 }));
 
-jest.mock('@/components/SummaryBox', () => ({
+jest.mock('@/components/content/SummaryBox', () => ({
   __esModule: true,
   default: ({ variant, title, children }: any) => (
     <div data-testid="summary-box" data-variant={variant}>

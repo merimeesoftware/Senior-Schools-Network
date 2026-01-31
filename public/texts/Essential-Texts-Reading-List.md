@@ -40,7 +40,7 @@ This curated guide introduces the foundational texts and excerpts behind the Sen
 
 ## Boethius
 
-### [The Consolation of Philosophy](/texts/Boethius%20the%20Consolation%20of%20Philosophy)
+### [The Consolation of Philosophy](/texts/Boethius-the-Consolation-of-Philosophy)
 
 **Author**: Boethius (c. 524 AD)
 
@@ -68,7 +68,7 @@ This curated guide introduces the foundational texts and excerpts behind the Sen
 
 ## Hugh of St. Victor
 
-### [The Didascalicon (Excerpts)](/texts/other%20textual%20excerpts)
+### [The Didascalicon (Excerpts)](/texts/other-textual-excerpts)
 
 **Author**: Hugh of St. Victor (12th century)
 
@@ -96,7 +96,7 @@ This curated guide introduces the foundational texts and excerpts behind the Sen
 
 ## G.K. Chesterton (Poetry)
 
-### [The Ballad of the White Horse](/texts/The%20Ballad%20of%20the%20White%20Horse)
+### [The Ballad of the White Horse](/texts/The-Ballad-of-the-White-Horse)
 
 **Author**: G.K. Chesterton
 
@@ -110,7 +110,7 @@ This curated guide introduces the foundational texts and excerpts behind the Sen
 
 ## St. John Bosco
 
-### [The Preventative System](/texts/The%20Preventative%20System)
+### [The Preventative System](/texts/The-Preventative-System)
 
 **Author**: St. John Bosco (1877)
 
@@ -124,7 +124,7 @@ This curated guide introduces the foundational texts and excerpts behind the Sen
 
 ## Additional Excerpts
 
-### [Other Textual Excerpts](/texts/other%20textual%20excerpts)
+### [Other Textual Excerpts](/texts/other-textual-excerpts)
 
 **Description**: A compilation of passages from various authors (including Hugh of St. Victor, medieval scholastics, and others) providing context for poetic knowledge, sensory formation, and Catholic intellectual tradition.
 

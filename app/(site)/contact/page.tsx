@@ -1,19 +1,25 @@
-import ContentContainer from '@/components/ContentContainer';
-import SectionHeading from '@/components/SectionHeading';
-import CTAButton from '@/components/CTAButton';
+import ContentContainer from '@/components/layout/ContentContainer';
+import SectionHeading from '@/components/ui/SectionHeading';
+import CTAButton from '@/components/ui/CTAButton';
+import type { Metadata } from 'next';
 
-export const metadata = {
-  title: 'Contact | Senior Schools Network',
+export const metadata: Metadata = {
+  title: 'Contact',
   description: 'Contact the Senior Schools Network for inquiries about Catholic education rooted in poetic knowledge.',
+  alternates: { canonical: '/contact' },
 };
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-parchment py-20">
-      <ContentContainer width="narrow">
-        <SectionHeading level={1} align="center">
-          Contact
-        </SectionHeading>
+    <main className="min-h-screen bg-parchment">
+      {/* Spacer for absolute navigation */}
+      <div className="h-24" aria-hidden="true" />
+      
+      <div className="pt-8 pb-20">
+        <ContentContainer width="narrow">
+          <SectionHeading level={1} align="center">
+            Contact
+          </SectionHeading>
         
         <div className="mt-8 text-charcoal/90 leading-relaxed space-y-8">
           <p className="text-xl text-center">
@@ -28,10 +34,10 @@ export default function ContactPage() {
             </h2>
             <p className="text-lg mb-2">
               <a 
-                href="tel:+1-555-123-4567" 
+                href="tel:+1-440-876-8036" 
                 className="text-gold hover:text-gold-dark transition-colors font-lato font-semibold underline decoration-2 underline-offset-4"
               >
-                (555) 123-4567
+                (440) 876-8036
               </a>
             </p>
             <p className="text-sm text-charcoal/60">
@@ -42,13 +48,21 @@ export default function ContactPage() {
           {/* About the Creator */}
           <div className="bg-white rounded-organic-lg p-8 border border-charcoal/10">
             <h2 className="text-2xl font-playfair text-forest mb-4 text-center">
-              About the Creator
+              About the Creator of this Site: Michael Merimee
             </h2>
             <p className="text-body leading-relaxed">
-              This site was created by a father and educator inspired by John Senior's vision 
-              of poetic education. While not yet having founded a school or program personally, 
-              this network exists to gather, connect, and inspire those already doing this work — 
-              and those discerning how to begin.
+              My own education was varied and, at times, chaotic: 
+              homeschooled, then moving through an early classical Catholic school, 
+              a boarding academy, Gregory the Great Academy (where I first encountered Senior’s 
+              poetic vision in practice), a conventional Catholic high school, Wyoming Catholic College, 
+              community college, and online courses. After teaching at a couple of local classical schools, 
+              I transitioned to engineering to support my family. In my adult years and especially as a father, 
+              this patchwork of approaches—classical, modern, and Senior-inspired—drove me to study educational 
+              philosophies deeply over the last decade. I became convinced that Senior’s and the IHP’s emphasis 
+              on wonder, sense, story, and liturgy offers a soul-nourishing alternative to schematized
+              modern education and many of the prevailing classical models being pursued in this recent revival of
+              Catholic Education. I created this network to gather, connect, 
+              and inspire those already living this vision and those discerning how to begin.
             </p>
           </div>
 
@@ -60,6 +74,7 @@ export default function ContactPage() {
             <p className="text-body leading-relaxed mb-6">
               For specific questions about individual schools and programs, we encourage 
               you to reach out to them directly through their own websites and contact pages.
+              They are in the thick of it and can help you best!
             </p>
             <CTAButton href="/network-directory" variant="outline" size="md">
               Browse the Directory
@@ -72,6 +87,7 @@ export default function ContactPage() {
           </p>
         </div>
       </ContentContainer>
+      </div>
     </main>
   );
 }

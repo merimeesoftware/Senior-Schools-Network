@@ -1,7 +1,7 @@
-import ContentContainer from '@/components/ContentContainer';
-import CTAButton from '@/components/CTAButton';
-import HeroSection from '@/components/HeroSection';
-import NetworkFilter from '@/components/NetworkFilter';
+import ContentContainer from '@/components/layout/ContentContainer';
+import CTAButton from '@/components/ui/CTAButton';
+import HeroSection from '@/components/layout/HeroSection';
+import NetworkFilter from '@/components/interactive/NetworkFilter';
 import { NETWORK_MEMBERS } from '@/lib/content/network';
 import { getAxiomsQuotesBySection } from '@/lib/content/axioms';
 import type { Metadata } from 'next';

@@ -45,12 +45,13 @@ This directory contains subsection components for the philosophy page syllogisti
 
 ## Pattern Components Used
 
-All subsections utilize pattern components from the root `/components` directory:
-- **CardGrid** - Responsive 2-3 column card grids with variant theming
-- **SummaryBox** - Conclusion boxes with variant-specific styling
-- **EvidenceQuoteGroup** - Evidence quote containers with heading
-- **ComparisonDiagram** - Two-column flow diagrams with arrows
-- **StudyGrid** - Two-column list comparisons
+All subsections utilize pattern components from organized subdirectories:
+- **CardGrid** (`components/content/`) - Responsive 2-3 column card grids with variant theming
+- **SummaryBox** (`components/content/`) - Conclusion boxes with variant-specific styling
+- **EvidenceQuoteGroup** (`components/content/`) - Evidence quote containers with heading
+- **ComparisonDiagram** (`components/content/`) - Two-column flow diagrams with arrows
+- **StudyGrid** (`components/content/`) - Two-column list comparisons
+- **InteractiveStages** (`components/interactive/`) - Stage selection with crisis/restoration toggle
 
 ## Barrel Exports
 
