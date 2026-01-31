@@ -1,5 +1,5 @@
 'use client';
-import CardGrid from "@/components/CardGrid";
+import CardGrid from "@/components/content/CardGrid";
 
 /**
  * VisionArchetypes Component

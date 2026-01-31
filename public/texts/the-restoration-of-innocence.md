@@ -188,7 +188,7 @@ _Infans_ means "not able to speak." Though little children make their
 
 wants known, they lack speech in the proper sense of rational discourse. An infant is a child before the age of reason who, in the nursery, explores his consciousness and gains control of his body.
 
-_Puer_, the Latin word for "boy," derives from "pure" because concupiscence has not reared up as yet. "Pure" comes from _pyros_, purifying "fire" (boys burn with gem-like flames) which in turn derives from _pu_, an Indo-European root meaning "power," or potential force like the energy in atoms and the elements, the ABCs of language and things. The elementary school is a gymnasium (from _gymnos,_ "naked") where stripped or lightly clad boys exercise, sharpening their five senses in immediate contact with nature in the raw.
+_Puer_, the Latin word for "boy," derives from "pure" because concupiscence has not reared up as yet. "Pure" comes from _pyros_, purifying "fire" (boys burn with gem-like flames) which in turn derives from _pu_, an Indo-European root meaning "power," or potential force like the energy in atoms and the elements, the ABCs of language and things. The elementary school is a gymnasium (from _gymnos,_ "naked") where lightly clad boys exercise, sharpening their five senses in immediate contact with nature in the raw.
 
 "Adolescence" (from _oleum,_ "oil") means to burn with a living, sometimes smoky and dangerous flame. It starts at puberty when sex flares up along with emotions, first among them _pudor_ (modest shame) when nature itself suggests that boyish nakedness must now be covered. As Saint Isidore explains,
 

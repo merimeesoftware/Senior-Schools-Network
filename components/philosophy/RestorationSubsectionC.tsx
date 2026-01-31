@@ -1,9 +1,9 @@
 'use client';
 import { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
-import StudyGrid from "@/components/StudyGrid";
-import EvidenceQuoteGroup from "@/components/EvidenceQuoteGroup";
-import SummaryBox from "@/components/SummaryBox";
+import StudyGrid from "@/components/content/StudyGrid";
+import EvidenceQuoteGroup from "@/components/content/EvidenceQuoteGroup";
+import SummaryBox from "@/components/content/SummaryBox";
 
 /**
  * RestorationSubsectionC Component

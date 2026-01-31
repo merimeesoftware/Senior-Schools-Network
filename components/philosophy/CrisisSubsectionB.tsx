@@ -1,6 +1,6 @@
 'use client';
-import ProblemSolutionPanel from "@/components/ProblemSolutionPanel";
-import EvidenceQuoteGroup from "@/components/EvidenceQuoteGroup";
+import ProblemSolutionPanel from "@/components/content/ProblemSolutionPanel";
+import EvidenceQuoteGroup from "@/components/content/EvidenceQuoteGroup";
 
 /**
  * CrisisSubsectionB Component

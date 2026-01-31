@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { RestorationSubsectionC } from '../RestorationSubsectionC';
 
 // Mock child components
-jest.mock('@/components/StudyGrid', () => ({
+jest.mock('@/components/content/StudyGrid', () => ({
   __esModule: true,
   default: ({ title, description, variant, leftColumn, rightColumn, footer }: any) => (
     <div data-testid="mock-study-grid" data-variant={variant}>
@@ -16,7 +16,7 @@ jest.mock('@/components/StudyGrid', () => ({
   ),
 }));
 
-jest.mock('@/components/EvidenceQuoteGroup', () => ({
+jest.mock('@/components/content/EvidenceQuoteGroup', () => ({
   __esModule: true,
   default: ({ variant, title, quotes }: any) => (
     <div data-testid="mock-evidence-quote-group" data-variant={variant}>
@@ -26,7 +26,7 @@ jest.mock('@/components/EvidenceQuoteGroup', () => ({
   ),
 }));
 
-jest.mock('@/components/SummaryBox', () => ({
+jest.mock('@/components/content/SummaryBox', () => ({
   __esModule: true,
   default: ({ variant, title, children }: any) => (
     <div data-testid="mock-summary-box" data-variant={variant}>

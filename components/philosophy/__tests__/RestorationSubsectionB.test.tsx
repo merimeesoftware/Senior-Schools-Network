@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { RestorationSubsectionB } from '../RestorationSubsectionB';
 
 // Mock child components
-jest.mock('@/components/ProblemSolutionPanel', () => ({
+jest.mock('@/components/content/ProblemSolutionPanel', () => ({
   __esModule: true,
   default: ({ layout, problem, solution }: any) => (
     <div data-testid="mock-problem-solution-panel" data-layout={layout}>
@@ -13,7 +13,7 @@ jest.mock('@/components/ProblemSolutionPanel', () => ({
   ),
 }));
 
-jest.mock('@/components/EvidenceQuoteGroup', () => ({
+jest.mock('@/components/content/EvidenceQuoteGroup', () => ({
   __esModule: true,
   default: ({ variant, title, quotes }: any) => (
     <div data-testid="mock-evidence-quote-group" data-variant={variant}>

@@ -32,7 +32,7 @@ Promote a loose network of Catholic schools aligned with John Senior's philosoph
 
 ## Content Rules
 
-- Quote only from repo sources (`PHILOSOPHICAL-AXIOMS.md`, `public/texts/*`)
+- Quote only from repo sources (`public/texts/PHILOSOPHICAL-AXIOMS.md`, `public/texts/*`)
 - Never fabricate quotes—attribute all citations
 - Maintain Catholic fidelity and charitable tone
 - Platform is network-focused—no content about specific prototype schools

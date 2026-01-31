@@ -1,13 +1,16 @@
 import Link from 'next/link';
-import CTAButton from '@/components/CTAButton';
-import ContentContainer from '@/components/ContentContainer';
-import InteractiveStages from '@/components/InteractiveStages';
-import QuoteImageBreak from '@/components/QuoteImageBreak';
-import HeroSection from '@/components/HeroSection';
-import FadeIn from '@/components/FadeIn';
+import CTAButton from '@/components/ui/CTAButton';
+import ContentContainer from '@/components/layout/ContentContainer';
+import InteractiveStages from '@/components/interactive/InteractiveStages';
+import QuoteImageBreak from '@/components/content/QuoteImageBreak';
+import HeroSection from '@/components/layout/HeroSection';
+import FadeIn from '@/components/ui/FadeIn';
 import { getAxiomsQuotesBySection } from '@/lib/content/axioms';
+import type { Metadata } from 'next';
 
-// Metadata moved to layout or generated via generateMetadata in parent
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 export default async function HomePage() {
   // Get hero quotes from Foundational Wisdom section in axioms

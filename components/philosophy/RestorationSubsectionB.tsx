@@ -1,8 +1,8 @@
 'use client';
 import { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
-import ProblemSolutionPanel from "@/components/ProblemSolutionPanel";
-import EvidenceQuoteGroup from "@/components/EvidenceQuoteGroup";
+import ProblemSolutionPanel from "@/components/content/ProblemSolutionPanel";
+import EvidenceQuoteGroup from "@/components/content/EvidenceQuoteGroup";
 
 /**
  * RestorationSubsectionB Component

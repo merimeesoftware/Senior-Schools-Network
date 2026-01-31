@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { RestorationSubsectionA } from '../RestorationSubsectionA';
 
 // Mock child components
-jest.mock('@/components/InteractiveStages', () => ({
+jest.mock('@/components/interactive/InteractiveStages', () => ({
   __esModule: true,
   default: ({ mode }: any) => (
     <div data-testid="mock-interactive-stages" data-mode={mode}>
@@ -12,7 +12,7 @@ jest.mock('@/components/InteractiveStages', () => ({
   ),
 }));
 
-jest.mock('@/components/EvidenceQuoteGroup', () => ({
+jest.mock('@/components/content/EvidenceQuoteGroup', () => ({
   __esModule: true,
   default: ({ variant, title, quotes }: any) => (
     <div data-testid="mock-evidence-quote-group" data-variant={variant}>

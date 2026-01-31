@@ -55,7 +55,7 @@ export const quotesIndex: Quote[] = [
     // keep legacy id for existing usages
     id: 'adventure-stories',
     quote:
-      "The elementary school is a gymnasium (from 'gymnos', 'naked') where stripped or lightly clad boys exercise, sharpening their five senses in immediate contact with nature in the raw.",
+      "The elementary school is a gymnasium where lightly clad boys play, sharpening their five senses in immediate contact with nature.",
     author: 'John Senior',
     source: 'The Restoration of Innocence',
     category: 'discipline',

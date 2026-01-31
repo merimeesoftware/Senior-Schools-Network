@@ -504,7 +504,6 @@ export default async function HomePage() {
 
 **Curated Quotes** (from axioms):
 - "Boys burn with gem-like flames" — John Senior
-- "Stripped or lightly clad boys exercise, sharpening their five senses in immediate contact with nature in the raw" — Senior
 - "Blessed are the legend-makers with their rhyme of things not found within recorded time" — Tolkien
 - "And I thought, 'I will go with you, As man with God has gone, And wander with a wandering star...'" — Chesterton
 

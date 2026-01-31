@@ -1,18 +1,24 @@
-import ContentContainer from '@/components/ContentContainer';
-import SectionHeading from '@/components/SectionHeading';
+import ContentContainer from '@/components/layout/ContentContainer';
+import SectionHeading from '@/components/ui/SectionHeading';
+import type { Metadata } from 'next';
 
-export const metadata = {
-  title: 'Privacy Policy | Senior Schools Network',
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
   description: 'Privacy policy for the Senior Schools Network website.',
+  alternates: { canonical: '/privacy' },
 };
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-parchment py-20">
-      <ContentContainer width="narrow">
-        <SectionHeading level={1} align="center">
-          Privacy Policy
-        </SectionHeading>
+    <main className="min-h-screen bg-parchment">
+      {/* Spacer for absolute navigation */}
+      <div className="h-24" aria-hidden="true" />
+      
+      <div className="pt-8 pb-20">
+        <ContentContainer width="narrow">
+          <SectionHeading level={1} align="center">
+            Privacy Policy
+          </SectionHeading>
         
         <div className="prose prose-lg mt-8 text-charcoal/90 leading-relaxed space-y-6">
           <p>
@@ -58,6 +64,7 @@ export default function PrivacyPage() {
           </p>
         </div>
       </ContentContainer>
+      </div>
     </main>
   );
 }

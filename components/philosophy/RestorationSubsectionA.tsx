@@ -1,6 +1,6 @@
 'use client';
-import InteractiveStages from "@/components/InteractiveStages";
-import EvidenceQuoteGroup from "@/components/EvidenceQuoteGroup";
+import InteractiveStages from "@/components/interactive/InteractiveStages";
+import EvidenceQuoteGroup from "@/components/content/EvidenceQuoteGroup";
 
 /**
  * RestorationSubsectionA Component
