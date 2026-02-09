@@ -36,7 +36,7 @@ export default function BrandHeader({
         <h1 className="text-4xl md:text-5xl font-playfair text-forest group-hover:text-forest-dark transition-colors mb-2">
           Senior Schools Network
         </h1>
-        <p className="text-sm md:text-base font-lato text-charcoal/70 italic">
+        <p className="text-sm md:text-base font-accent text-charcoal/70 italic">
           Promoting schools aligned with poetic knowledge and Catholic formation
         </p>
       </Link>

@@ -48,9 +48,14 @@ const config: Config = {
         charcoal: '#4A4A4A',
       },
       fontFamily: {
-        playfair: ['var(--font-playfair)', 'serif'],
-        merriweather: ['var(--font-merriweather)', 'serif'],
-        lato: ['var(--font-lato)', 'sans-serif'],
+        // New semantic font names
+        body: ['var(--font-body)', 'Georgia', 'serif'],
+        heading: ['var(--font-heading)', 'Georgia', 'serif'],
+        accent: ['var(--font-accent)', 'cursive'],
+        // Legacy aliases — map old names to new fonts for backward compat
+        playfair: ['var(--font-heading)', 'Georgia', 'serif'],
+        merriweather: ['var(--font-body)', 'Georgia', 'serif'],
+        lato: ['var(--font-heading)', 'Georgia', 'serif'],
       },
       fontSize: {
         hero: ['3rem', { lineHeight: '1.2', letterSpacing: '-0.02em' }],

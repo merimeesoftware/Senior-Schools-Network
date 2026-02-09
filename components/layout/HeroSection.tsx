@@ -72,7 +72,7 @@ export default function HeroSection({
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
       {heroImages[heroImageIndex] && (() => {
         const strategy = getImageStrategy(heroImages[heroImageIndex]);
         return (
@@ -81,7 +81,7 @@ export default function HeroSection({
               {strategy.useBackground && (
                 <div 
                   className="hero-image-pan absolute inset-0 w-full" 
-                  style={{ height: '120vh' }}
+                  style={{ height: '140%', top: '-20%' }}
                 >
                   <OptimizedImage
                     asset={heroImages[heroImageIndex]}
@@ -98,7 +98,7 @@ export default function HeroSection({
               )}
               <div 
                 className="hero-image-pan absolute inset-0 w-full" 
-                style={{ height: '120vh' }}
+                style={{ height: '140%', top: '-20%' }}
               >
                 <OptimizedImage
                   asset={heroImages[heroImageIndex]}
@@ -118,7 +118,7 @@ export default function HeroSection({
         );
       })()}
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center min-h-screen pt-24 pb-12">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center min-h-[100svh] pt-[14vh] pb-12">
         {/* Title overlay */}
         {title && (
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair text-white mb-8 hero-text-shadow">
@@ -133,7 +133,7 @@ export default function HeroSection({
             autoplay={false}
             showRefreshButton={false}
             quoteClassName="text-2xl md:text-4xl font-playfair italic text-white mb-6 leading-relaxed hero-text-shadow"
-            authorClassName="text-xl md:text-2xl text-parchment/90 not-italic font-lato hero-text-shadow"
+            authorClassName="text-xl md:text-2xl text-parchment/90 not-italic font-accent hero-text-shadow"
             className="mb-8 max-w-4xl mx-auto"
           />
         )}

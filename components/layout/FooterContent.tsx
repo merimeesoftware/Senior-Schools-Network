@@ -18,7 +18,7 @@ export default async function FooterContent() {
 
       {/* Scripture Waypoints Carousel */}
       <div className="mb-8">
-        <h2 className="text-xl font-playfair text-gold mb-6 text-center">
+        <h2 className="text-xl font-accent text-gold mb-6 text-center">
           Scripture Waypoints
         </h2>
         <ScriptureCarousel waypoints={scriptureWaypoints} />
