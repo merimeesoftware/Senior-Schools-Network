@@ -82,7 +82,7 @@ export const SCHOOLS: NetworkMember[] = [
     description:
       "Gregory the Great Academy, a private Catholic boys' boarding school for grades 9-12, delivers a liberal arts education in the Catholic tradition, cultivating virtue, faith, and intellect through adventurous encounters with the good, true, and beautiful. Emphasizing the poetic mode of learning, it forms whole and happy men by prioritizing good hearts alongside good minds, fostering growth in wisdom through wonder in a technology-free environment. Integrating sensory immersion via natural world encounters and liturgical rhythm through daily Lauds, chores, classes, Holy Mass, and recreation, the academy weaves narrative into virile, pious formation where students engage in diverse activities from choir to unicycling and animal care.",
     website: 'https://gregorythegreatacademy.org/',
-    admissionsLink: 'https://gregorythegreatacademy.org/admissions/',
+    admissionsLink: 'https://gregorythegreatacademy.org/apply-for-admission/',
     supportLink: 'https://gregorythegreatacademy.org/support-the-academy/',
     faith: ['Roman Catholic'],
     logoPath: 'Gregory The Great.webp',
@@ -151,7 +151,7 @@ export const SCHOOLS: NetworkMember[] = [
         "Wyoming Catholic College, an intentional and deeply Catholic academic community, heals modern fragmentation by steeping students in wonder and forming them in wisdom through classical learning and the Western tradition. Its philosophy emphasizes poetic knowledge with strong sensory immersion in nature, viewing it as 'God's First Book' via unique outdoor expeditions that foster enchantment and truth. Key programs integrate academics, arts, and liturgical rhythm, cultivating holistic formation in a supportive environment aligned with Catholic ideals.",
     website: 'https://wyomingcatholic.edu/',
     admissionsLink: 'https://wyomingcatholic.edu/admissions',
-    supportLink: '',
+    supportLink: 'https://wyomingcatholic.edu/support/',
     faith: ['Roman Catholic'],
     logoPath: 'Wyoming Catholic College.webp',
     grades: 'College',
@@ -167,8 +167,8 @@ export const SCHOOLS: NetworkMember[] = [
     description:
     "The Children's Tradition offers a homeschool curriculum inspired by John Senior and Charlotte Mason, focusing on gymnastic and musical education through sensory-emotional immersion in nature and books. It nurtures wonder and delight in elementary years, providing an embodied classical education that calls students to hard things while fostering poetic knowledge. The program integrates faith and virtue, aligning with narrative and sensory-based learning for holistic child formation.",
     website: 'https://www.thechildrenstradition.com/',
-    admissionsLink: '',
-    supportLink: '',
+    admissionsLink: 'https://the-toolshed.circle.so/c/start-here/',
+    supportLink: 'https://www.thechildrenstradition.com/shop',
     faith: ['Catholic'],
     logoPath: "The Childrens Tradition.webp",
     grades: 'Elementary (K-6)',
@@ -189,7 +189,7 @@ export const PROGRAMS: NetworkMember[] = [
     description:
         "Iliad Athletics nurtures lifelong fitness grounded in classic American values, transforming physical education to integrate body, mind, and soul through fitness, nature immersion, and character development aligned with classical and Western traditions. It fosters poetic knowledge via wonder in the outdoors as a lifelong playground, emphasizing sensory experiences through strenuous activities and narrative-driven challenges that echo ancient virtues. Unique programs like the immersive Educator Certification Course and youth camps cultivate grit, teamwork, and self-mastery for holistic formation, preparing participants for life's demands beyond the classroom.",
     website: 'https://iliadathletics.com/',
-    admissionsLink: 'https://iliadathletics.com/training-and-professional-development/',
+    admissionsLink: '',
     supportLink: '',
     faith: [],
     logoPath: 'Iliad Athletics.webp',
@@ -209,8 +209,8 @@ export const PROGRAMS: NetworkMember[] = [
     supportLink: 'https://www.sebaste.org/donate',
     faith: ['Catholic'],
     logoPath: 'sebaste-logo-red-w-background.webp',
-    grades: 'Middle School to College',
-    educationLevels: ['middle-school', 'high-school', 'college'] as const,
+    grades: 'Middle School to High School',
+    educationLevels: ['middle-school', 'high-school'] as const,
     coordinates: { lat: 35.5281, lng: -108.7426 },
   },
 ];
