@@ -119,7 +119,10 @@
   }
 
   body {
-    @apply bg-parchment text-charcoal font-merriweather;
+    @apply bg-parchment text-charcoal font-body;
+    font-size: 16px;
+    line-height: 1.7;
+    letter-spacing: 0.02em;
   }
 
   h1,
@@ -128,7 +131,8 @@
   h4,
   h5,
   h6 {
-    @apply font-playfair;
+    @apply font-heading;
+    letter-spacing: 0.01em;
   }
 
   /* Respect reduced motion preferences */
@@ -199,6 +203,11 @@
       0 2px 4px rgba(0,0,0,0.9);
   }
 
+  /* Ink depth shadow for parchment aesthetic */
+  .ink-depth {
+    text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  }
+
   /* Accessible screen-reader-only helper (reveal on focus handled inline) */
   .sr-only {
     position: absolute !important;
@@ -242,7 +251,7 @@
   }
 
   .quote-block {
-    @apply border-l-4 border-gold pl-6 py-4 my-6 italic font-playfair text-lg text-charcoal;
+    @apply border-l-4 border-gold pl-6 py-4 my-6 italic font-body text-lg text-charcoal;
   }
 
   .section-container {
@@ -268,7 +277,7 @@
 
   /* Syllogism Section Decorations */
   .syllogism-number {
-    @apply absolute -left-16 top-0 text-6xl font-playfair text-forest/20;
+    @apply absolute -left-16 top-0 text-6xl font-heading text-forest/20;
   }
 
   .major-premise-border {

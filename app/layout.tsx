@@ -1,25 +1,28 @@
 import type { Metadata } from 'next';
-import { Playfair_Display, Merriweather, Lato } from 'next/font/google';
+import { EB_Garamond, IM_Fell_English, Petit_Formal_Script } from 'next/font/google';
 import './globals.css';
 import { getCurrentLiturgicalSeason, getSeasonClassName } from '@/lib/utils/liturgical';
 
-const playfair = Playfair_Display({
+const ebGaramond = EB_Garamond({
   subsets: ['latin'],
-  variable: '--font-playfair',
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-body',
   display: 'swap',
 });
 
-const merriweather = Merriweather({
+const imFellEnglish = IM_Fell_English({
   subsets: ['latin'],
-  weight: ['300', '400', '700'],
-  variable: '--font-merriweather',
+  weight: ['400'],
+  style: ['normal', 'italic'],
+  variable: '--font-heading',
   display: 'swap',
 });
 
-const lato = Lato({
+const petitFormalScript = Petit_Formal_Script({
   subsets: ['latin'],
-  weight: ['300', '400', '700'],
-  variable: '--font-lato',
+  weight: ['400'],
+  variable: '--font-accent',
   display: 'swap',
 });
 
@@ -94,7 +97,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${merriweather.variable} ${lato.variable}`}
+      className={`${ebGaramond.variable} ${imFellEnglish.variable} ${petitFormalScript.variable}`}
     >
       <body 
         className={seasonClass}

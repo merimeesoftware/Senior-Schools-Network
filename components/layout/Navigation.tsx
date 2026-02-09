@@ -16,19 +16,23 @@ export default function Navigation() {
 
   return (
     <nav
-      className="bg-forest/30 text-parchment-light shadow-organic-lg absolute top-0 left-0 right-0 z-50 backdrop-blur-md"
+      className="text-parchment-light absolute top-0 left-0 right-0 z-50"
       role="navigation"
       aria-label="Main navigation"
+      style={{
+        background: 'linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%)',
+        paddingBottom: '2vh',
+      }}
     >
       <div className="section-container">
-        <div className="flex justify-between h-24 items-center">
-          <Link href="/" className="flex items-center gap-3 focus-visible-ring rounded">
+        <div className="flex justify-between h-[22vh] items-center mx-auto">
+          <Link href="/" className="flex items-center gap-5 focus-visible-ring rounded">
             <OptimizedImage
               assetId="ssn-logo"
-              imageClassName="h-16 w-auto"
+              imageClassName="h-[18vh] w-auto"
               alt="The Senior School Network"
             />
-            <span className="font-playfair text-xl text-parchment-light hidden sm:inline">
+            <span className="font-accent text-xl text-parchment-light hidden sm:inline">
               The Senior School Network
             </span>
           </Link>
@@ -39,7 +43,7 @@ export default function Navigation() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="font-lato text-parchment hover:text-gold hover:bg-forest-dark transition-colors px-4 py-2 rounded-md text-base focus-visible-ring"
+                className="font-lato text-parchment hover:text-gold hover:bg-forest-dark transition-colors px-4 py-2 rounded-md text-lg focus-visible-ring"
               >
                 {item.label}
               </Link>
