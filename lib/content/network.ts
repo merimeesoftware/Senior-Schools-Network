@@ -159,6 +159,23 @@ export const SCHOOLS: NetworkMember[] = [
     coordinates: { lat: 42.8330, lng: -108.7307 },
   },
   {
+    id: 'saint-martins-academy',
+    name: "Saint Martin's Academy",
+    location: 'Fort Scott, Kansas, US',
+    stages: ['poetic'] as const,
+    type: 'school',
+    description:
+      "Saint Martin's Academy is a Catholic all-boys boarding high school set on a working farm in rural Kansas, forming young men in body, mind, and soul through a classical curriculum, daily farm labor, athletics, and a life of deep prayer. Rooted in the Catholic intellectual tradition, the Academy cultivates authentic masculinity and a sense of wonder through rigorous engagement with classical literature, philosophy, Latin, theology, and the natural sciences. Its screen-free, agrarian environment provides rich sensory immersion in nature and liturgical rhythm, nurturing poetic knowledge and preparing students to pursue truth, goodness, and beauty as devoted servants of God and neighbor.",
+    website: 'https://saintmartinsacademy.org/',
+    admissionsLink: 'https://saintmartinsacademy.org/admissions/',
+    supportLink: 'https://saintmartinsacademy.org/donate/',
+    faith: ['Roman Catholic'],
+    logoPath: 'Martins Academy.webp',
+    grades: 'High School (9-12)',
+    educationLevels: ['high-school'] as const,
+    coordinates: { lat: 37.8393, lng: -94.7058 },
+  },
+  {
     id: 'childrens-tradition',
     name: "The Children's Tradition",
     location: 'Homeschooling',
