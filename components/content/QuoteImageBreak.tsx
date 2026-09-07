@@ -33,21 +33,22 @@ export default function QuoteImageBreak({
   enableParallax = true,
   portraitMode = 'cover-crop',
 }: QuoteImageBreakProps) {
-  // Get all images from folder and shuffle them for rotation
-  const [images] = useState(() => {
-    const allImages = getAssetsFromFolder(imageFolder);
-    if (allImages.length === 0) return [];
-    
-    // Fisher-Yates shuffle for random order
-    const shuffled = [...allImages];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    
-    return shuffled;
-  });
-  
+  // Start with the folder's deterministic order so the server-rendered HTML and the
+  // first client render match (prevents hydration mismatches). Shuffle after mount.
+  const [images, setImages] = useState(() => getAssetsFromFolder(imageFolder));
+
+  useEffect(() => {
+    setImages((current) => {
+      if (current.length <= 1) return current;
+      const shuffled = [...current];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    });
+  }, [imageFolder]);
+
   const [imageIndex, setImageIndex] = useState(0);
   
   // Parallax effect
