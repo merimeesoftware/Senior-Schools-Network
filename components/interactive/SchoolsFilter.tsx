@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import StageBadge from '../ui/StageBadge';
+import StageBadge, { STAGE_LABELS } from '../ui/StageBadge';
 import CTAButton from '../ui/CTAButton';
 import type { Stage } from '@/lib/types/content';
 import Image from 'next/image';
@@ -67,7 +67,7 @@ export default function SchoolsFilter({ schools }: SchoolsFilterProps) {
                     : 'opacity-60 hover:opacity-100'
                 } focus-visible-ring`}
                 aria-pressed={selectedStages.has(stage)}
-                aria-label={`Filter by ${stage} stage`}
+                aria-label={`Filter by ${STAGE_LABELS[stage]}`}
               >
                 <StageBadge stage={stage} size="md" />
               </button>

@@ -5,6 +5,15 @@ interface StageBadgeProps {
   whiteText?: boolean;
 }
 
+// Visible labels for each stage. Exported so interactive controls (e.g. filters)
+// can build accessible names that contain the visible text (WCAG 2.5.3 Label in Name).
+export const STAGE_LABELS: Record<StageBadgeProps['stage'], string> = {
+  nursery: 'Nursery (0-7)',
+  gymnasium: 'Gymnasium (7-13)',
+  poetic: 'Poetic (13-20)',
+  spiritual: 'Spiritual (All Ages)',
+};
+
 export default function StageBadge({
   stage,
   size = 'md',
@@ -13,25 +22,25 @@ export default function StageBadge({
 }: Readonly<StageBadgeProps>) {
   const stageConfig = {
     nursery: {
-      label: 'Nursery (0-7)',
+      label: STAGE_LABELS.nursery,
       bg: 'bg-nursery',
       text: 'text-nursery-dark',
       border: 'border-nursery-dark/50',
     },
     gymnasium: {
-      label: 'Gymnasium (7-13)',
+      label: STAGE_LABELS.gymnasium,
       bg: 'bg-gymnasium',
       text: 'text-gymnasium-dark',
       border: 'border-gymnasium-dark/50',
     },
     poetic: {
-      label: 'Poetic (13-20)',
+      label: STAGE_LABELS.poetic,
       bg: 'bg-poetic',
       text: 'text-poetic-dark',
       border: 'border-poetic-dark/50',
     },
     spiritual: {
-      label: 'Spiritual (All Ages)',
+      label: STAGE_LABELS.spiritual,
       bg: 'bg-spiritual',
       text: 'text-spiritual-dark',
       border: 'border-spiritual-dark/50',

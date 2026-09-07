@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import OptimizedImage from '../media/OptimizedImage';
 import CTAButton from '../ui/CTAButton';
 import RotatingQuotes from '../content/RotatingQuotes';
@@ -32,21 +32,22 @@ export default function HeroSection({
   ],
   title,
 }: HeroSectionProps) {
-  // Get all images from folder and shuffle them
-  const [heroImages] = useState(() => {
-    const allImages = getAssetsFromFolder(imageFolder);
-    if (allImages.length === 0) return [];
-    
-    // Fisher-Yates shuffle
-    const shuffled = [...allImages];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    
-    return shuffled;
-  });
-  
+  // Start with the folder's deterministic order so the server-rendered HTML and the
+  // first client render match (prevents hydration mismatches). Shuffle after mount.
+  const [heroImages, setHeroImages] = useState(() => getAssetsFromFolder(imageFolder));
+
+  useEffect(() => {
+    setHeroImages((current) => {
+      if (current.length <= 1) return current;
+      const shuffled = [...current];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    });
+  }, [imageFolder]);
+
   const [heroImageIndex] = useState(0);
 
   // Determine display strategy based on image aspect ratio

@@ -163,15 +163,19 @@ export default function ScriptureCarousel({
             <button
               key={waypoint.id}
               onClick={() => goToSlide(index)}
-              className={`w-2 h-2 rounded-full transition-all focus-visible-ring ${
-                index === currentIndex
-                  ? 'bg-gold w-8'
-                  : 'bg-parchment/40 hover:bg-parchment/60'
-              }`}
+              className="flex h-6 min-w-6 items-center justify-center rounded-full focus-visible-ring"
               aria-label={`View ${waypoint.verse}`}
               aria-selected={index === currentIndex}
               role="tab"
-            />
+            >
+              <span
+                className={`block h-2 rounded-full transition-all ${
+                  index === currentIndex
+                    ? 'bg-gold w-8'
+                    : 'bg-parchment/40 hover:bg-parchment/60 w-2'
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>

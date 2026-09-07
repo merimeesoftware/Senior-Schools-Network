@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import StageBadge from '../ui/StageBadge';
+import StageBadge, { STAGE_LABELS } from '../ui/StageBadge';
 import CTAButton from '../ui/CTAButton';
 import type { Stage } from '@/lib/types/content';
 import type { NetworkMember, NetworkMemberType, EducationLevel } from '@/lib/content/network';
@@ -245,7 +245,7 @@ export default function NetworkFilter({ members }: NetworkFilterProps) {
                     : 'opacity-80 hover:opacity-100'
                 } focus-visible-ring rounded-md`}
                 aria-pressed={selectedStages.has(stage)}
-                aria-label={`Filter by ${stage} stage`}
+                aria-label={`Filter by ${STAGE_LABELS[stage]}`}
               >
                 <StageBadge stage={stage} size="md" className="w-full justify-center" />
               </button>
