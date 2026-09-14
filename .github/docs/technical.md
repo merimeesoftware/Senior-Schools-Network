@@ -39,7 +39,7 @@ Prioritizing CI/CD for automated, reliable workflows, we use GitHub Actions (fre
     - Test: Execute Jest suites.
     - Security Scan: Semgrep (SAST).
     - Build: Next.js static export (`out/`).
-    - Deploy: On push to `main`, `wrangler deploy` of `out/` to Cloudflare Workers Static Assets.
+    - Deploy: Cloudflare Workers Builds (GitHub App). `main` → `wrangler deploy`; feature branches → `wrangler versions upload` preview URLs.
 - **Integration Ease**: All tools run as simple Actions marketplace steps (e.g., `semgrep/semgrep-action`, `aquasecurity/trivy-action`). Example YAML snippet:
   ```
   jobs:
@@ -54,8 +54,8 @@ Prioritizing CI/CD for automated, reliable workflows, we use GitHub Actions (fre
 
 ## Deployment
 
-- **Primary Option**: Cloudflare Workers Static Assets – Host the Next.js static export (`out/`) with no Worker script. GitHub Actions runs `bun run build` then `wrangler deploy` on push to `main`. Config: `wrangler.jsonc`; headers: `public/_headers`.
-- **Configuration**: Build command `bun install --frozen-lockfile && bun run build`; asset directory `out`; 404 via `not_found_handling: 404-page` (uses generated `out/404.html`). Custom domain is attached in the Cloudflare dashboard after the `*.workers.dev` URL is verified.
+- **Primary Option**: Cloudflare Workers Static Assets via Workers Builds Git integration – Host the Next.js static export (`out/`) with no Worker script. Cloudflare pulls from GitHub (no API token in GitHub Actions). Config: `wrangler.jsonc`; headers: `public/_headers`.
+- **Configuration**: Build command `bun run build`; production deploy `npx wrangler deploy`; feature branches `npx wrangler versions upload` (enable **Builds for non-production branches**). Asset directory `out`; 404 via `not_found_handling: 404-page`. Preview URLs are enabled in `wrangler.jsonc`. Custom domain is attached in the Cloudflare dashboard after the production `*.workers.dev` URL is verified.
 - **Rollback**: `netlify.toml` is kept until Cloudflare is proven in production; DNS cutover is reversible by pointing the zone back to Netlify.
 - **Coolify**: Future bare metal deployment (preferred long term but do not have metal servers setup yet or bought)
 

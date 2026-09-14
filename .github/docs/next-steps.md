@@ -106,7 +106,7 @@ Potential improvements:
 
 ### Render Migration
 **Decision**: Host on Cloudflare Workers Static Assets (not Render, not Netlify long-term)  
-**Rationale**: The org target is GitHub Actions → Cloudflare. The site is a pure static export (`out/`), so Workers Static Assets is sufficient; `@cloudflare/next-on-pages` is unnecessary. `netlify.toml` is kept until DNS cutover is proven. Revisit Workers+Functions only if a real form/API is added.
+**Rationale**: The org target is GitHub Actions (quality) → Cloudflare Workers Builds (deploy). The site is a pure static export (`out/`), so Workers Static Assets is sufficient; `@cloudflare/next-on-pages` is unnecessary. Feature branches get preview URLs via `wrangler versions upload`. `netlify.toml` is kept until DNS cutover is proven. Revisit Workers+Functions only if a real form/API is added.
 
 ### Service Worker / Offline Support
 **Decision**: Deferred  

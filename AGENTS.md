@@ -6,7 +6,7 @@ This repo is the **Senior Schools Network** site: a single, fully static **Next.
 
 ### Runtime / package manager
 - **Bun is the package manager** (`bun.lock`, `bunfig.toml`); use `bun install` and `bun run <script>`. Bun is preinstalled at `~/.bun/bin` (also on PATH via `~/.bashrc`) and the startup update script keeps deps in sync. Node 22 is also available.
-- Do not use `npm ci` locally: there is no `package-lock.json` in the repo (the GitHub Actions CI workflow references `npm ci`, which is a repo-level inconsistency, not a local-setup step).
+- Do not use `npm ci` locally: there is no `package-lock.json` in the repo. CI uses Bun (`oven-sh/setup-bun` + `bun install --frozen-lockfile`).
 
 ### Running / building
 - Dev server: `bun run dev` → http://localhost:3000 (hot reload). This single process is the whole product.

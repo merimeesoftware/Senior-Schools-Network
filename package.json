@@ -18,7 +18,8 @@
     "images:convert:clean": "bun scripts/convert-images.ts --clean",
     "images:convert:dry": "bun scripts/convert-images.ts --dry-run",
     "cf:dev": "wrangler dev",
-    "cf:deploy": "bun run build && wrangler deploy"
+    "cf:deploy": "bun run build && wrangler deploy",
+    "cf:preview": "bun run build && wrangler versions upload"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
