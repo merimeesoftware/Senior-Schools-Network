@@ -105,10 +105,8 @@ Potential improvements:
 - Dynamic personalization is needed
 
 ### Render Migration
-**Decision**: Stay with Netlify  
-**Rationale**: For pure static sites, Netlify's edge CDN and native Next.js plugin are optimal. Render's advantages (databases, SSR) are irrelevant for static architecture. Revisit if:
-- SSR/API routes become necessary
-- Netlify pricing or features change
+**Decision**: Host on Cloudflare Workers Static Assets (not Render, not Netlify long-term)  
+**Rationale**: The org target is GitHub Actions (quality) → Cloudflare Workers Builds (deploy). The site is a pure static export (`out/`), so Workers Static Assets is sufficient; `@cloudflare/next-on-pages` is unnecessary. Feature branches get preview URLs via `wrangler versions upload`. `netlify.toml` is kept until DNS cutover is proven. Revisit Workers+Functions only if a real form/API is added.
 
 ### Service Worker / Offline Support
 **Decision**: Deferred  

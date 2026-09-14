@@ -16,7 +16,10 @@
     "typecheck": "tsc --noEmit",
     "images:convert": "bun scripts/convert-images.ts",
     "images:convert:clean": "bun scripts/convert-images.ts --clean",
-    "images:convert:dry": "bun scripts/convert-images.ts --dry-run"
+    "images:convert:dry": "bun scripts/convert-images.ts --dry-run",
+    "cf:dev": "wrangler dev",
+    "cf:deploy": "bun run build && wrangler deploy",
+    "cf:preview": "bun run build && wrangler versions upload"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -47,6 +50,7 @@
     "sharp": "0.34.5",
     "tailwindcss": "^3.4.14",
     "ts-jest": "^29.4.4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.0.0"
   }
 }

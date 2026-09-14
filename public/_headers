@@ -1,0 +1,16 @@
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Versioned / aliased preview URLs and the workers.dev production hostname
+https://:preview.:subdomain.workers.dev/*
+  X-Robots-Tag: noindex

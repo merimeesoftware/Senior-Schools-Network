@@ -2,7 +2,7 @@
 
 A static website promoting schools aligned with Dr. John Senior's philosophy of poetic knowledge, sensory-based learning, and Catholic formation.
 
-**Live Site**: [seniorschoolsnetwork.com](https://seniorschoolsnetwork.com) (Netlify)
+**Live Site**: [seniorschoolsnetwork.com](https://seniorschoolsnetwork.com)
 
 ## Quick Start
 
@@ -26,13 +26,16 @@ bun run dev
 | `bun run dev` | Start Next.js dev server with hot reload |
 | `bun run build` | Build static site to `out/` folder |
 | `bun run preview` | Serve built site locally (port 3000) |
-| `bun run test` | Run Jest test suite (366 tests) |
+| `bun run test` | Run Jest test suite |
 | `bun run test:watch` | Run tests in watch mode |
 | `bun run test:coverage` | Generate coverage report |
 | `bun run lint` | Run ESLint |
 | `bun run typecheck` | Run TypeScript type checking |
 | `bun run format` | Format code with Prettier |
 | `bun run format:check` | Check formatting without changes |
+| `bun run cf:dev` | Serve the built `out/` directory via Wrangler (run `bun run build` first) |
+| `bun run cf:deploy` | Build the static export and deploy production (`wrangler deploy`) |
+| `bun run cf:preview` | Build and upload a Worker version with a preview URL (`wrangler versions upload`) |
 
 ## Tech Stack
 
@@ -40,7 +43,7 @@ bun run dev
 - **Framework**: Next.js 14.2 (static export)
 - **Styling**: Tailwind CSS 3.4
 - **Testing**: Jest 30 + React Testing Library
-- **Deployment**: Netlify (static hosting)
+- **Deployment**: Cloudflare Workers Static Assets (Workers Builds; feature-branch preview URLs)
 
 ## Project Structure
 
@@ -61,8 +64,10 @@ bun run dev
 │   ├── markdown.ts        # Markdown/quote parsing
 │   └── content/           # Content type definitions
 ├── public/                # Static assets
+│   ├── _headers           # Cloudflare security + cache headers
 │   ├── images/            # Site images
 │   └── texts/             # Downloadable PDFs
+├── wrangler.jsonc         # Cloudflare Workers Static Assets config
 └── .github/docs/          # Project documentation
     ├── north-star.md      # Philosophical foundation
     ├── technical.md       # Technical architecture
@@ -115,15 +120,46 @@ School directory defined in `lib/content/network.ts` and rendered via the Networ
 
 ## Deployment
 
-The site deploys automatically to Netlify on push to `main`.
+The site is a fully static Next.js export (`output: 'export'`). Hosting is **Cloudflare Workers Static Assets** via **Workers Builds** (Cloudflare pulls from GitHub — no API token in GitHub Actions).
 
-**Build command**: `bun install && bun run build`  
-**Publish directory**: `out`
+**Worker name**: `senior-schools-network` (must match `wrangler.jsonc`)  
+**Asset directory**: `out`  
+**Headers**: `public/_headers` is copied into `out/` by the Next export.
 
-Manual deploy:
+### Connect GitHub once (no per-app token)
+
+1. Cloudflare dashboard → [Workers & Pages](https://dash.cloudflare.com/?to=/:account/workers-and-pages) → **Create** → **Import a repository** (or open the Worker → **Settings** → **Builds** → **Connect**).
+2. Install the **Cloudflare Workers and Pages** GitHub App on `merimeesoftware` (org owner / GitHub Apps Manager). Limit it to selected repos.
+3. Import `Senior-Schools-Network`. Use these build settings:
+
+| Setting | Value |
+|---------|-------|
+| Production branch | `main` |
+| Build command | `bun run build` |
+| Deploy command | `npx wrangler deploy` |
+| Non-production deploy command | `npx wrangler versions upload` |
+
+4. Under **Settings → Build → Branch control**, enable **Builds for non-production branches**.
+
+After that, later apps on the same GitHub account are “pick the repo” — Cloudflare stores the build token on its side.
+
+### What deploys where
+
+| Git event | Command | Result |
+|-----------|---------|--------|
+| Push / merge to `main` | `wrangler deploy` | Production Worker (`senior-schools-network.<subdomain>.workers.dev`, then the custom domain) |
+| Push to a feature branch / PR | `wrangler versions upload` | A **preview URL** for that version. Cloudflare comments the URL on the PR. |
+
+Preview URLs look like `<hash>-senior-schools-network.<subdomain>.workers.dev`. Each feature branch gets its own live site; they do not overwrite each other (a single shared “dev” Worker would). Preview hostnames are `noindex` via `public/_headers`.
+
+Custom-domain DNS cutover (`seniorschoolsnetwork.com` / `.org`) is a dashboard step after the production `*.workers.dev` URL is verified. Keep `netlify.toml` until Cloudflare is proven in production; rollback is pointing DNS back to Netlify.
+
+Manual / local:
 ```bash
-bun run build
-# Upload out/ folder to any static host
+bun run build && bun run preview          # static files locally
+bun run build && bunx wrangler dev        # Wrangler local
+bun run cf:deploy                         # production (needs wrangler login)
+bun run cf:preview                        # upload a preview version
 ```
 
 ## Documentation
