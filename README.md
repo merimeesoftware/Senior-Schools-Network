@@ -2,7 +2,7 @@
 
 A static website promoting schools aligned with Dr. John Senior's philosophy of poetic knowledge, sensory-based learning, and Catholic formation.
 
-**Live Site**: [seniorschoolsnetwork.com](https://seniorschoolsnetwork.com) (Netlify)
+**Live Site**: [seniorschoolsnetwork.com](https://seniorschoolsnetwork.com)
 
 ## Quick Start
 
@@ -26,13 +26,15 @@ bun run dev
 | `bun run dev` | Start Next.js dev server with hot reload |
 | `bun run build` | Build static site to `out/` folder |
 | `bun run preview` | Serve built site locally (port 3000) |
-| `bun run test` | Run Jest test suite (366 tests) |
+| `bun run test` | Run Jest test suite |
 | `bun run test:watch` | Run tests in watch mode |
 | `bun run test:coverage` | Generate coverage report |
 | `bun run lint` | Run ESLint |
 | `bun run typecheck` | Run TypeScript type checking |
 | `bun run format` | Format code with Prettier |
 | `bun run format:check` | Check formatting without changes |
+| `bun run cf:dev` | Serve the built `out/` directory via Wrangler (run `bun run build` first) |
+| `bun run cf:deploy` | Build the static export and deploy to Cloudflare Workers |
 
 ## Tech Stack
 
@@ -40,7 +42,7 @@ bun run dev
 - **Framework**: Next.js 14.2 (static export)
 - **Styling**: Tailwind CSS 3.4
 - **Testing**: Jest 30 + React Testing Library
-- **Deployment**: Netlify (static hosting)
+- **Deployment**: Cloudflare Workers Static Assets (`wrangler deploy` of `out/`)
 
 ## Project Structure
 
@@ -61,8 +63,10 @@ bun run dev
 │   ├── markdown.ts        # Markdown/quote parsing
 │   └── content/           # Content type definitions
 ├── public/                # Static assets
+│   ├── _headers           # Cloudflare security + cache headers
 │   ├── images/            # Site images
 │   └── texts/             # Downloadable PDFs
+├── wrangler.jsonc         # Cloudflare Workers Static Assets config
 └── .github/docs/          # Project documentation
     ├── north-star.md      # Philosophical foundation
     ├── technical.md       # Technical architecture
@@ -115,15 +119,31 @@ School directory defined in `lib/content/network.ts` and rendered via the Networ
 
 ## Deployment
 
-The site deploys automatically to Netlify on push to `main`.
+The site is a fully static Next.js export (`output: 'export'`). Production hosting is **Cloudflare Workers Static Assets**: GitHub Actions builds `out/` and runs `wrangler deploy` on push to `main`.
 
-**Build command**: `bun install && bun run build`  
-**Publish directory**: `out`
+**Build command**: `bun install --frozen-lockfile && bun run build`  
+**Asset directory**: `out`  
+**Worker name**: `senior-schools-network`  
+**Config**: `wrangler.jsonc` (no Worker script; assets-only)  
+**Headers**: `public/_headers` is copied into `out/` by the Next export.
 
 Manual deploy:
 ```bash
 bun run build
-# Upload out/ folder to any static host
+bunx wrangler deploy
+```
+
+Required GitHub Actions secrets (Workers:Edit, scoped to this account):
+
+- `CLOUDFLARE_API_TOKEN`
+- `CLOUDFLARE_ACCOUNT_ID`
+
+Custom-domain DNS cutover (`seniorschoolsnetwork.com` / `.org`) is a dashboard step after the `*.workers.dev` URL is verified. Keep `netlify.toml` until Cloudflare is proven in production; rollback is pointing DNS back to Netlify.
+
+Local preview of the export:
+```bash
+bun run build && bun run preview
+# or: bunx wrangler dev  (serves ./out after a build)
 ```
 
 ## Documentation

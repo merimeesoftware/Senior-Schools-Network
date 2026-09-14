@@ -5,94 +5,139 @@ on:
     branches: [main, ai-dev]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   quality:
-    name: Code Quality & Tests
+    name: Code Quality & Build
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: '22'
-          cache: 'npm'
-      
+          bun-version: 1.3.6
+
       - name: Install dependencies
-        run: npm ci
-      
+        run: bun install --frozen-lockfile
+
       - name: Run linter
-        run: npm run lint
-      
+        run: bun run lint
+
       - name: Run type check
-        run: npm run typecheck
-      
+        run: bun run typecheck
+
+      - name: Build application
+        run: bun run build
+
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.6
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
       - name: Run tests
-        run: npm test -- --ci --coverage --maxWorkers=2
-      
+        run: bun run test -- --ci --coverage --maxWorkers=2
+
       - name: Upload coverage reports
         uses: codecov/codecov-action@v4
         if: always()
         with:
           fail_ci_if_error: false
-      
-      - name: Build application
-        run: npm run build
-  
+
   security:
     name: Security Scan
     runs-on: ubuntu-latest
-    
+    container:
+      image: semgrep/semgrep
+
     permissions:
       security-events: write
       actions: read
       contents: read
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
       - name: Run Semgrep
-        uses: returntocorp/semgrep-action@v1
-        with:
-          config: >-
-            p/security-audit
-            p/javascript
-            p/typescript
-            p/react
-          generateSarif: true
-      
+        run: >
+          semgrep ci
+          --config p/security-audit
+          --config p/javascript
+          --config p/typescript
+          --config p/react
+          --sarif
+          --output=semgrep.sarif
+
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
         if: always()
         with:
           sarif_file: semgrep.sarif
-  
+
   docs-check:
     name: Documentation Verification
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Verify required Phase 2 docs exist
+
+      - name: Verify core docs exist
         run: |
           test -f README.md
-          test -f .github/current-phase.md
-          test -f .github/technical.md
-          test -f .github/roadmap.md
-          test -f .github/instructions/instructions.md
-          test -f docs/site-blueprint.md
-          test -f docs/assets-inventory.md
-          test -f docs/component-inventory.md
-          test -f PROJECT_NOTES.md
-          test -f .github/prompts/phase-2/01-environment-setup.md
-          test -f .github/prompts/phase-2/06-quality-ci-and-readiness.md
-      
-      - name: Verify Phase 2 content presence
+          test -f TECH_STACK.md
+          test -f .github/copilot-instructions.md
+          for f in technical north-star design-system next-steps; do
+            test -f ".github/docs/$f.md"
+          done
+
+      - name: Verify content presence
         run: |
           grep -qi "Senior" README.md
-          grep -qi "Phase 2" .github/current-phase.md
-          grep -qi "Next.js" PROJECT_NOTES.md
+          grep -qi "Next.js" TECH_STACK.md
+
+  deploy:
+    name: Deploy to Cloudflare
+    needs: quality
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      deployments: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.6
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build static export
+        run: bun run build
+
+      - name: Deploy Worker (static assets)
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          packageManager: bun
+          command: deploy

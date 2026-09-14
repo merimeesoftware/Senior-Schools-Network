@@ -28,7 +28,7 @@ Promote a loose network of Catholic schools aligned with John Senior's philosoph
 - **Framework**: Next.js 14.2 (static export to `out/`)
 - **Styling**: Tailwind CSS 3.4
 - **Testing**: Jest 30 + React Testing Library
-- **Deployment**: Netlify (static hosting)
+- **Deployment**: Cloudflare Workers Static Assets (`out/`)
 
 ## Content Rules
 
