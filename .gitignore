@@ -67,3 +67,7 @@ test-results
 .cache
 .parcel-cache
 .turbo
+
+# Cloudflare / Wrangler
+.wrangler
+.dev.vars

@@ -1,0 +1,9 @@
+# Redirects for the static site.
+# Read by Cloudflare Workers Static Assets (and Netlify) from the deploy root.
+# This file is copied from public/ into out/ at build time.
+#
+# Canonical host is the apex (seniorschoolsnetwork.com); send www -> apex.
+# Note: cross-host canonicalization is most robustly done with a zone-level
+# Cloudflare Redirect Rule once the domain is on Cloudflare — this file is the
+# portable fallback. Flip the direction here if you prefer www as canonical.
+https://www.seniorschoolsnetwork.com/*  https://seniorschoolsnetwork.com/:splat  301
