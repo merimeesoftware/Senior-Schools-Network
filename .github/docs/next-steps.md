@@ -2,11 +2,25 @@
 
 > This document tracks potential improvements, shelved features, and technical debt for the Senior Schools Network platform. Items are prioritized by impact and effort. Use this as a living backlog rather than detailed phase plans—AI-assisted development has reduced the need for granular prompts.
 
-**Last Updated**: January 31, 2026
+**Last Updated**: September 15, 2026
 
 ---
 
 ## Active Priorities
+
+### 0. Align site UI and filters to the locked five modes
+**Status**: Next content pass  
+**Impact**: High (taxonomy, Copilot, directory)
+
+Canonical card: `.github/docs/stages.md`.
+
+Modes in order: musical, gymnastic, poetic, romantic, virtuous.
+
+**Scope**:
+- `InteractiveStages` and philosophy subsections still say “four stages” in places
+- Schools / network filters should use the five slugs
+- Map legacy “garden” / “nursery” tags to `musical`
+- Book and Western lists retagged in a later pass
 
 ### 1. Content Curation: QuoteImageBreak & HeroSection Updates
 **Status**: Next up  
@@ -53,21 +67,9 @@ Add GitHub repository link and other relevant external links to footer.
 - [x] Add npm scripts for manual and prebuild conversion
 - [x] Test with existing images (85% size reduction achieved)
 
-**Commands**:
-- `bun run images:convert` — Convert all PNG/JPG to WebP (keep originals)
-- `bun run images:convert:clean` — Convert and remove originals
-- `bun run images:convert:dry` — Preview what would be converted
-
 ### 4. QuoteImageBreak Performance Optimization
 **Status**: Shelved  
 **Impact**: Low (current implementation works)
-
-Potential improvements:
-- Add `IntersectionObserver` to only activate parallax when visible
-- Reduce image height from 140vh to 120vh
-- Test CSS-only `background-attachment: fixed` alternative
-
-**Note**: Current visual outcome is correct—optimize only if performance issues arise.
 
 ---
 
@@ -81,38 +83,27 @@ Potential improvements:
 
 ### InteractiveStages Test Alignment
 **Status**: Needs attention  
-**Issue**: Component was refactored to use two-button toggle design ("Restoration View" / "Crisis View") but tests still look for old "View Crisis" / "View Solution" button names. Also removed: mode indicator icons, "Crisis Mode" text display.  
-**Fix**: Update test file to match current component implementation.
+**Issue**: Component was refactored to use two-button toggle design ("Restoration View" / "Crisis View") but tests still look for old button names. Five-mode labels will require a further test pass.  
+**Fix**: Update tests to match current component, then to stages.md.
 
 ### Structured Data
-**Decision**: Shelved  
-**Rationale**: For a small network site with ~20 schools, Schema.org markup provides marginal SEO benefit. Rich results (star ratings, contact cards) require review data we don't have. Revisit if organic traffic becomes significant.
+**Decision**: Shelved
 
 ### Font Subsetting
-- Current: Full Google Fonts via `next/font`
-- Potential: Self-host subsetted fonts for ~20KB savings
-- **Decision**: Keep current approach—simplicity over marginal gain
+**Decision**: Keep current approach—simplicity over marginal gain
 
 ---
 
 ## Shelved Features
 
 ### Database for Quotes/Images
-**Decision**: Keep static  
-**Rationale**: ~50 quotes and ~47 images don't justify database complexity. Current PHILOSOPHICAL-AXIOMS.md quote banks work well with section-based parsing. Revisit only if:
-- Quote volume exceeds 200+
-- Admin editing without rebuild becomes essential
-- Dynamic personalization is needed
+**Decision**: Keep static
 
 ### Render Migration
-**Decision**: Stay with Netlify  
-**Rationale**: For pure static sites, Netlify's edge CDN and native Next.js plugin are optimal. Render's advantages (databases, SSR) are irrelevant for static architecture. Revisit if:
-- SSR/API routes become necessary
-- Netlify pricing or features change
+**Decision**: Stay with Netlify
 
 ### Service Worker / Offline Support
-**Decision**: Deferred  
-**Rationale**: Low value for content site. Users unlikely to need offline access. Adds complexity.
+**Decision**: Deferred
 
 ---
 
@@ -137,49 +128,13 @@ Potential improvements:
 - [x] Remove npm lock file, use bun.lock
 - [x] Create bunfig.toml configuration
 
-### January 2026 Cleanup
-- [x] Deleted redundant `jest.setup.js` (TypeScript version sufficient)
-- [x] Moved `test-liturgical.ts` to `lib/utils/__tests__/`
-- [x] Added `build-output.txt` to `.gitignore`
-- [x] Archived Phase 3 detailed prompts (no longer needed)
-
-### Phase 3 Deliverables
-- [x] Asset integration (all placeholder images replaced)
-- [x] Accessibility (skip links, focus management, reduced motion)
-- [x] SEO metadata (titles, descriptions, Open Graph)
-- [x] Sitemap and robots.txt
-- [x] Curated image galleries
-
----
-
-## Workflow Evolution
-
-### Old Workflow (Pre-2025)
-1. Create detailed phase plan with checklists
-2. Write series of structured prompts
-3. AI executes prompts sequentially
-4. Manual validation against checklists
-
-### Current Workflow (2026+)
-1. Maintain high-level north star (README.md) and design constraints
-2. Use conversational AI for implementation
-3. Track decisions and shelved items in this backlog
-4. Validate with automated tests + spot checks
-
-**Key insight**: Detailed prompts are now obsolete. Modern AI agents can:
-- Infer context from codebase structure
-- Make reasonable architectural decisions
-- Ask clarifying questions when needed
-- Self-correct based on errors
-
-**Recommendation**: Keep `.github/prompts/` for complex multi-step tasks or specialized domain knowledge (e.g., philosophical alignment criteria), but don't require prompts for routine development.
-
 ---
 
 ## Decision Log
 
 | Date | Decision | Rationale |
 |------|----------|-----------|
+| 2026-09-15 | Lock five modes: musical, gymnastic, poetic, romantic, virtuous | Same grammatical fashion; musical = Muses/garden; poetic look before romantic quest; card at `.github/docs/stages.md` |
 | 2026-01-31 | Curate QuoteImageBreak content next | High visual impact, aligns philosophy with imagery |
 | 2026-01-31 | Expand AXIOMS.md from QUOTES.md | Consolidate quote sources for programmatic access |
 | 2026-01-31 | Add GitHub link to footer | Transparency, open source credibility |
@@ -195,6 +150,8 @@ Potential improvements:
 
 ## Quick Reference
 
+**Stages**: `.github/docs/stages.md` — slugs `musical` `gymnastic` `poetic` `romantic` `virtuous`.
+
 **Quote Parsing**: Use `getAxiomsQuotesBySection()` with section titles from PHILOSOPHICAL-AXIOMS.md:
 - `"Quote Bank: Sense and Story"`
 - `"Quote Bank: Poetic Knowledge"`
@@ -202,23 +159,16 @@ Potential improvements:
 - `"Quote Bank: Liturgical Rhythm and Rest"`
 - `"Quote Bank: Foundational Wisdom"`
 
-**Potential New Quote Banks** (to derive from `public/texts/`):
-- Scripture passages from `QUOTES.md` (Knox translation, organized by theme)
-- Chesterton quotes from `1927-GK-Chesterton-The-Outline-of-Sanity.md`
-- Boethius on consolation from `Boethius-the-Consolation-of-Philosophy.md`
-- Don Bosco on education from `The-Preventative-System.md`
-- Tolkien's Mythopoeia from `Mythopoeia.md`
-
 **Image Assets**: All images in `lib/assets.ts` manifest. Collections in `public/images/`:
 - `adventure/` — outdoor, exploration imagery
 - `art-sacred/` — religious art, icons
-- `beatrix-potter/` — nursery stage illustrations
+- `beatrix-potter/` — musical-mode illustrations
 - `landscapes/` — nature, contemplative scenes
-- `medieval-tales/` — chivalric, gymnasium themes
+- `medieval-tales/` — chivalric, gymnastic and romantic themes
 - `otto-of-the-silver-hand/` — medieval youth adventure
 - `robin-hood/` — adventure, heroism
 - `sacred-texts/` — scripture, manuscripts
-- `winnie-the-pooh/` — nursery stage classics
+- `winnie-the-pooh/` — musical-mode classics
 
 **Build Commands**:
 ```bash
