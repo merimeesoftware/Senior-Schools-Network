@@ -12,9 +12,25 @@ The objectives are:
 
 All development in this repository must align with these goals, ensuring outputs reflect Senior's vision of education as soul formation through repose, wonder, and integrated humanities, without enforcing schemas that contradict the poetic, connatural approach.
 
+## The Five Modes
+
+Canonical labels, slugs, and order live in [`.github/docs/stages.md`](./stages.md). Do not invent a sixth mode or reorder these five.
+
+> the musical, the gymnastic, the poetic, the romantic, the virtuous
+
+| Mode | Slug | Place-image |
+|------|------|-------------|
+| Musical | `musical` | Garden / *hortus conclusus* |
+| Gymnastic | `gymnastic` | Gymnasium |
+| Poetic | `poetic` | Lyric / first look |
+| Romantic | `romantic` | Province of romance |
+| Virtuous | `virtuous` | City / household |
+
+These are cumulative developmental modes for the network (a tree, not a rocket), not a prescribed curriculum. They are related to, but not the same list as, Senior’s five modes of knowledge (gymnastic, musical, poetic, dialectic, rhetoric). Wonder is the fruit of the poetic, not the name of the first mode. Musical means the Muses, not band class. Romantic means medieval quest, not modern sentiment.
+
 ## Foundational Influence: The Integrated Humanities Program (IHP)
 
-The Senior Schools Network traces its spiritual lineage to the Integrated Humanities Program (IHP), founded by Dr. John Senior along with Dennis Quinn and Frank Nelick at the University of Kansas from 1967 to 1983. As the "grandfather" of this project, the IHP exemplified poetic knowledge through immersive experiences in great books, poetry recitation, music, stargazing, and communal activities like waltzing—designed to awaken wonder and pursue truth without rigid structures. This program, which led to profound conversions and lifelong transformations among students, emphasized the poetic mode as the fertile soil for wisdom, countering modern fragmentation by integrating senses, emotions, and intellect in a Catholic-inspired framework. The network honors this legacy by promoting similar educator-driven, wonder-based approaches in contemporary schools, adapting IHP's principles of repose and narrative immersion for stages like the gymnasium (physical adventure) while maintaining organic flexibility.
+The Senior Schools Network traces its spiritual lineage to the Integrated Humanities Program (IHP), founded by Dr. John Senior along with Dennis Quinn and Frank Nelick at the University of Kansas from 1967 to 1983. As the "grandfather" of this project, the IHP exemplified poetic knowledge through immersive experiences in great books, poetry recitation, music, stargazing, and communal activities like waltzing—designed to awaken wonder and pursue truth without rigid structures. This program, which led to profound conversions and lifelong transformations among students, emphasized the poetic mode as the fertile soil for wisdom, countering modern fragmentation by integrating senses, emotions, and intellect in a Catholic-inspired framework. The network honors this legacy by promoting similar educator-driven, wonder-based approaches in contemporary schools, adapting IHP's principles of repose and narrative immersion across the five modes while maintaining organic flexibility.
 
 ## Core Philosophy
 
@@ -24,9 +40,9 @@ The guiding light is Senior's framework from the _Integrated Humanities lecture_
 
 - **Poetic Knowledge**: As described in Taylor's excerpts (from _Poetic Knowledge: The Recovery of Education_), this is an intuitive, connatural mode of knowing through senses, emotions, and imagination—contrasting with rational or scientific modes. It begins with wonder (e.g., a child's encounter with nature) and progresses to wisdom. Senior's "five modes of knowledge" (gymnastic, musical, poetic, dialectic, rhetoric) and "eight modes of teaching" emphasize starting from sensory delight, as in Hugh of St. Victor's sensory ascent to wisdom, relying on good educators rather than imposed structures. From Tolkien's _Mythopoeia_: "Man, sub-creator, the refracted light through whom is splintered from a single White to many hues, and endlessly combined in living shapes that move from mind to mind."
 
-- **Liturgical Rhythm and Spiritual Formation**: Education mirrors the "ages of man" (nursery, gymnasium, poetic, etc.), integrated with daily prayer, sacraments, and seasonal feasts in a flexible, organic way. Senior's "hortus conclusus" (enclosed garden) evokes a protected space for innocence, drawing from _Rerum Novarum_'s emphasis on justice, property, and family. Liturgical immersion and narrative adventures foster repose and virtue, countering modern mechanization (per Chesterton), without rigid curricula. From Boethius's _The Consolation of Philosophy_: "Earth we grasp with the earthly, fire with flame, Liquid with moisture, air with our breath."
+- **Liturgical Rhythm and Spiritual Formation**: Education follows the five modes (musical through virtuous), integrated with daily prayer, sacraments, and seasonal feasts in a flexible, organic way. Senior's "hortus conclusus" (enclosed garden) is the place-image of the musical mode, drawing from _Rerum Novarum_'s emphasis on justice, property, and family. Liturgical immersion and narrative adventures foster repose and virtue, countering modern mechanization (per Chesterton), without rigid curricula. From Boethius's _The Consolation of Philosophy_: "Earth we grasp with the earthly, fire with flame, Liquid with moisture, air with our breath."
 
-- **Physical Discipline and Adventure**: Particularly in the gymnasium stage (ages 7-13), education incorporates bodily rigor and experiential challenges—harsh at times—to form resilient individuals, especially boys into "Chivalric Wayfarers." This blends sports, outdoor adventures, and risk-taking with stories, learning, and liturgical rhythms with stories, addressing contemporary issues like sedentary lifestyles and the erosion of physical resilience in modern youth. It counters cultural softness by emphasizing benevolent neglect and natural toughness with play and story. From Chesterton's _The Ballad of the White Horse_: "For the end of the world was long ago, And all we dwell to-day As children of some second birth, Like a strange people left on earth After a judgment day."
+- **Physical Discipline and Adventure**: Particularly in the gymnastic mode (about ages 7-13), education incorporates bodily rigor and experiential challenges—harsh at times—to form resilient individuals, especially boys into "Chivalric Wayfarers." This blends sports, outdoor adventures, and risk-taking with stories, learning, and liturgical rhythms, addressing contemporary issues like sedentary lifestyles and the erosion of physical resilience in modern youth. It counters cultural softness by emphasizing benevolent neglect and natural toughness with play and story. From Chesterton's _The Ballad of the White Horse_: "For the end of the world was long ago, And all we dwell to-day As children of some second birth, Like a strange people left on earth After a judgment day."
 
 - **Poetic Foundations for Scientific Pursuit**: Poetic knowledge serves as the fertile soil for scientific inquiry, nurturing imagination and wonder as prerequisites for disciplined reasoning. Modern education often misorders this, prioritizing analysis over wonder—IHP countered this through stargazing and poetry as gateways to truth. From Aquinas's _Summa Theologica_ (Question 84, Article 1): "The soul knows bodies through the intellect."
 
@@ -36,23 +52,23 @@ The platform follows the StoryBrand methodology. Visitors (parents, educators, a
 
 ### Primary User Flow (Discovery → School Consideration)
 
-As a parent (hero), I seek an education rooted in wonder, faith, and formation for my children—whether in the nursery years, gymnasium stage, or beyond (problem: modern schooling fragments learning and neglects the soul). I discover Senior's ideas as a guide, explore schools and programs aligned with my child's current stage, and achieve success (children formed through sense, story, and liturgy at each phase of growth).
+As a parent (hero), I seek an education rooted in wonder, faith, and formation for my children—whether in the musical years, the gymnasium, or beyond (problem: modern schooling fragments learning and neglects the soul). I discover Senior's ideas as a guide, explore schools and programs aligned with my child's current mode, and achieve success (children formed through sense, story, and liturgy at each phase of growth).
 
-_Flow_: Home → Philosophy Overview → Schools Directory (filter by stage) → CTA: "Inquire About Enrollment" or "Apply to Affiliate."
+_Flow_: Home → Philosophy Overview → Schools Directory (filter by mode) → CTA: "Inquire About Enrollment" or "Apply to Affiliate."
 
 _Waypoint_: "Fathers, do not provoke your children to anger, but bring them up in the discipline and instruction of the Lord." (Ephesians 6:4)
 
 ### Secondary User Flow (Resource Exploration → Family Application)
 
-As a homeschooling parent or engaged family (hero), I want to enrich my children's formation at their current stage—whether nursery wonder, gymnasium adventure, or poetic reflection (problem: lack of resources grounded in this tradition). Senior's resources guide me to adapt ideas at home—nature walks for the young, physical challenges and crafts for the middle years, great books for the older—succeeding in cultivating fertile soil for my children's souls.
+As a homeschooling parent or engaged family (hero), I want to enrich my children's formation at their current mode—musical repose, gymnastic adventure, poetic looking, romantic quest, or virtuous service (problem: lack of resources grounded in this tradition). Senior's resources guide me to adapt ideas at home—songs and picture books for the young, physical challenges and crafts for the middle years, first-look stories then quests for the older—succeeding in cultivating fertile soil for my children's souls.
 
-_Flow_: Home/Resources → Browse by stage or theme → CTA: "Download Family Guide" or "Explore Book Lists."
+_Flow_: Home/Resources → Browse by mode or theme → CTA: "Download Family Guide" or "Explore Book Lists."
 
 _Waypoint_: "Train up a child in the way he should go: and when he is old, he will not depart from it." (Proverbs 22:6)
 
 ### Tertiary User Flow (Inspiration → Founding or Teaching)
 
-As an aspiring founder or educator (hero), I recognize a gap in faithful, wonder-based education—perhaps at a specific stage underserved in my region (problem: isolation and lack of models). Senior's resources connect me with others already doing this work, providing inspiration and informal guidance to found or join a stage-specific initiative.
+As an aspiring founder or educator (hero), I recognize a gap in faithful, wonder-based education—perhaps at a specific mode underserved in my region (problem: isolation and lack of models). Senior's resources connect me with others already doing this work, providing inspiration and informal guidance to found or join a mode-specific initiative.
 
 _Flow_: Home → Encouragement page → CTA: "Reach Out for Guidance" or "Connect with Founders."
 
@@ -62,7 +78,7 @@ _Waypoint_: "Come unto me, all ye that labour and are heavy laden, and I will gi
 
 - **Alignment**: All contributions must reference uploaded documents for authenticity; promote balanced, non-partisan viewpoints. Avoid imposing curricula—focus on promotion and loose connections.
 - **Ethical Focus**: Emphasize charity, humility; avoid moralizing—treat users as adults pursuing truth.
-- **Derivation Chain**: Technical details derive from `technical.md`; AI instructions from `copilot-instructions.md`; backlog from `next-steps.md`.
+- **Derivation Chain**: Stage names derive from `stages.md`; technical details from `technical.md`; AI instructions from `copilot-instructions.md`; backlog from `next-steps.md`.
 - **Iteration**: Use phases for builds; commit changes with references to philosophy.
 
 This north star ensures the project remains faithful to Senior's vision, fostering a renaissance in education through poetic, faith-integrated means without rigid enforcement.
