@@ -11,16 +11,17 @@ Operating constraints for AI agents working in this repository.
 | Document | Purpose |
 |----------|---------|
 | `.github/docs/north-star.md` | Philosophical foundation, mission, user flows |
+| `.github/docs/stages.md` | Locked developmental modes (musical → virtuous) |
 | `.github/docs/technical.md` | Architecture and technical decisions |
 | `.github/docs/design-system.md` | Colors, typography, component patterns |
 | `.github/docs/next-steps.md` | Backlog and decision log |
 | `README.md` | Contributor guide and commands |
 
-Priority order: north-star.md > technical.md > design-system.md > next-steps.md.
+Priority order: north-star.md > stages.md > technical.md > design-system.md > next-steps.md.
 
 ## Mission
 
-Promote a loose network of Catholic schools aligned with John Senior's philosophy of **education through sense, story, and liturgy**. The network spans all developmental stages—nursery, gymnasium, poetic, and beyond. Inspire and connect; never prescribe curricula.
+Promote a loose network of Catholic schools aligned with John Senior's philosophy of **education through sense, story, and liturgy**. The network spans the five locked modes—musical, gymnastic, poetic, romantic, and virtuous. Inspire and connect; never prescribe curricula. See `.github/docs/stages.md` before naming or filtering stages.
 
 ## Technical Stack
 
@@ -36,6 +37,7 @@ Promote a loose network of Catholic schools aligned with John Senior's philosoph
 - Never fabricate quotes—attribute all citations
 - Maintain Catholic fidelity and charitable tone
 - Platform is network-focused—no content about specific prototype schools
+- Stage labels, slugs, and filter order must match `.github/docs/stages.md`
 
 ## Workflow
 
@@ -58,6 +60,7 @@ Modern AI agents can infer context from codebase structure. Detailed prompts are
 - Add complexity without evaluating simpler alternatives
 - Generate content not grounded in repo sources
 - Over-engineer—static is better than dynamic when possible
+- Rename or reorder the five modes without an explicit human decision
 
 ## Tenets
 
