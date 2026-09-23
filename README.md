@@ -2,6 +2,8 @@
 
 A static website promoting schools aligned with Dr. John Senior's philosophy of poetic knowledge, sensory-based learning, and Catholic formation.
 
+Canon (one job each): [`PRODUCT.md`](PRODUCT.md) words, [`DESIGN.md`](DESIGN.md) look, [`TECH_STACK.md`](TECH_STACK.md) runtime. Read order: [`DOC_INDEX.md`](DOC_INDEX.md).
+
 **Live Site**: [seniorschoolsnetwork.com](https://seniorschoolsnetwork.com) (Netlify)
 
 ## Quick Start
@@ -130,9 +132,13 @@ bun run build
 
 | Document | Purpose |
 |----------|---------|
-| [north-star.md](.github/docs/north-star.md) | Philosophical foundation and mission |
-| [technical.md](.github/docs/technical.md) | Architecture and technical decisions |
-| [design-system.md](.github/docs/design-system.md) | Colors, typography, component patterns |
+| [DOC_INDEX.md](DOC_INDEX.md) | Read order, conflict rule, leftovers |
+| [PRODUCT.md](PRODUCT.md) | Hero, plan, CTA, locked lines, voice |
+| [DESIGN.md](DESIGN.md) | World, type, color, rooms, components |
+| [TECH_STACK.md](TECH_STACK.md) | Language, deploy, CI |
+| [north-star.md](.github/docs/north-star.md) | Philosophical foundation (leftover; PRODUCT wins on words) |
+| [technical.md](.github/docs/technical.md) | Older architecture notes (leftover; TECH_STACK wins on runtime) |
+| [design-system.md](.github/docs/design-system.md) | Older UI notes (leftover; DESIGN wins on look) |
 | [next-steps.md](.github/docs/next-steps.md) | Backlog and decision log |
 | [copilot-instructions.md](.github/copilot-instructions.md) | AI agent guardrails |
 

@@ -1,5 +1,18 @@
 # AGENTS.md
 
+Before changing copy or UI:
+
+1. Read `DOC_INDEX.md`.
+2. Words only from `PRODUCT.md`.
+3. Look only from `DESIGN.md`.
+4. Stack only from `TECH_STACK.md`.
+5. Wrap Impeccable via the `frontend-quality` skill. Do not invent a parallel command set.
+
+Do not rewrite the one-liner, plan, or direct CTA to sound clever.
+Do not copy another merimeesoftware product’s type or accent.
+
+Conflict rule: words → `PRODUCT.md`. Look → `DESIGN.md`. Runtime → `TECH_STACK.md`.
+
 ## Cursor Cloud specific instructions
 
 This repo is the **Senior Schools Network** site: a single, fully static **Next.js 14 (App Router, `output: 'export'`)** website. There is no backend, database, API, or auth — all content is file-backed under `lib/content/`, `public/texts/`, and `public/images/`. Standard commands live in `README.md` and `package.json` scripts; prefer those.

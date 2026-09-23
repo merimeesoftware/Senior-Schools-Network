@@ -1,0 +1,60 @@
+---
+description: Frontend styling and visual design guidelines. Wraps Impeccable. Load DESIGN.md before painting.
+globs: **/*.tsx, **/*.jsx, **/*.vue, **/*.astro, **/*.css, **/*.svelte
+alwaysApply: false
+---
+
+# UI & Visual Quality Directives
+
+Read root `DESIGN.md` and `PRODUCT.md` before changing visible UI.
+If `DESIGN.md` is missing, stop and ask for it. Do not invent a palette.
+`PRODUCT.md` is the StoryBrand script. Customer is the hero. Brand is the guide. Do not rewrite the one-liner, plan, or CTA to sound clever.
+Philosophies in skill `design-global`. Prize and door in the first viewport. 3D is weather or one totem, never the catalog. Still plate is the real site. Sound off by default. Do not make the user mine.
+Speak Impeccable commands (`/impeccable polish`, `/impeccable typeset`, etc.). Do not invent a parallel dialect.
+
+Two-pass: do not restyle and rewire logic in the same edit when the component already works.
+
+Compose from `@/components/ui/*` (or the primitive path in DESIGN.md). Do not freehand dialogs, dropdowns, or date pickers.
+
+## No Generic AI Palettes
+
+Never use default purple/indigo gradients or saturated flat primary buttons.
+Default to the palette in DESIGN.md. If that file names one accent, use only that accent.
+
+## Borders & Layering
+
+Avoid heavy solid borders.
+Use subtle, semi-transparent borders (e.g. `border-black/[0.08] dark:border-white/[0.1]`) paired with subtle inner rings (`ring-1 ring-inset ring-black/5 dark:ring-white/10`) unless DESIGN.md specifies otherwise.
+
+## Typography Hierarchy
+
+Never keep headings and body text at the same visual weight.
+Use tight tracking on bold display headings (`tracking-tight font-semibold`), high-contrast primary text, and strictly readable secondary text (avoid dropping below `text-zinc-600 dark:text-zinc-400` unless DESIGN.md sets a different floor).
+Do not use Inter unless DESIGN.md names it.
+
+## Interactive States
+
+Every clickable element must include:
+
+- Hover background shift (`hover:bg-zinc-100 dark:hover:bg-zinc-800/60` or the DESIGN.md equivalent)
+- Active compression (`active:scale-[0.98] transition-transform`)
+- Distinct `focus-visible:ring-2` outline for accessibility
+
+## Spacing Rhythm
+
+Do not put `p-6` on everything.
+Create intentional visual density: tighter internal card padding (`p-4` or `p-5`) with generous outer whitespace (`gap-8` or `gap-12` between major layout blocks), unless DESIGN.md sets other numbers.
+
+## Motion
+
+Honor DESIGN.md motion budget.
+No looping pulses, no bounce-in heroes, no motion that precedes meaning.
+Honor `prefers-reduced-motion`.
+
+## Polish utilities (defaults, override from DESIGN.md)
+
+- Card highlight edge: `ring-1 ring-inset ring-white/10`
+- Tactile buttons: `active:scale-[0.98] transition-all duration-100`
+- Text contrast: `text-zinc-900 dark:text-zinc-100 font-medium`
+- Layered shadows: `shadow-[0_1px_2px_rgba(0,0,0,0.05),0_8px_16px_rgba(0,0,0,0.03)]`
+- Glass/surface blur only when DESIGN.md asks: `bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md`
