@@ -16,8 +16,7 @@ const CRISIS_DESCRIPTIONS: Record<Stage, string> = {
   poetic:
     'Specialization forces analysis before wonder. The poetic collapses into premature sexualization.',
   romantic: 'The romantic collapses into premature sexualization.',
-  // TODO(philosophy): Diagnosis does not name a virtuous-only crisis. Nearest lines: specialization/fragmentation, and Failure “soul untended.”
-  virtuous: 'Specialization and fragmentation leave the soul untended.',
+  virtuous: 'Justice and governing never ripen — household and city go untended; faith is never kept.',
 };
 
 const STAGE_CHROME: Record<

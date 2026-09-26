@@ -178,7 +178,7 @@ describe('InteractiveStages - Crisis Mode Enhancement', () => {
       const virtuousButton = screen.getByRole('button', { name: /Virtuous \(youth onward\)/i });
       fireEvent.click(virtuousButton);
       
-      expect(screen.getByText(/soul untended/i)).toBeInTheDocument();
+      expect(screen.getByText('Justice and governing never ripen — household and city go untended; faith is never kept.')).toBeInTheDocument();
     });
   });
 
@@ -265,7 +265,7 @@ describe('InteractiveStages - Crisis Mode Enhancement', () => {
         { name: 'Gymnastic (7–13)', text: 'Screens evacuate the gymnasium' },
         { name: 'Poetic (~12–15)', text: 'Specialization forces analysis before wonder' },
         { name: 'Romantic (~15–18+)', text: 'The romantic collapses into premature sexualization' },
-        { name: 'Virtuous (youth onward)', text: 'soul untended' }
+        { name: 'Virtuous (youth onward)', text: 'Justice and governing never ripen — household and city go untended; faith is never kept.' }
       ];
       
       stages.forEach((stage) => {
