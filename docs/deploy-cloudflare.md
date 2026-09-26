@@ -13,14 +13,13 @@ This is an **assets-only Worker**. There is no Worker script (`wrangler.jsonc` h
 | `wrangler.jsonc`                            | Worker name `senior-schools-network`, assets directory `./out`, `not_found_handling: 404-page`, `html_handling: auto-trailing-slash`, `compatibility_date` `2026-09-26`, `preview_urls: true`, empty `previews` block |
 | `public/_headers`                           | Copied to `out/_headers` by `next build`. Security headers on `/*`. Immutable cache on `/_next/static/*`, `/images/*`, and `/assets/*`. `X-Robots-Tag: noindex` on `*.*.workers.dev` |
 | `public/_redirects`                         | Copied to `out/_redirects`. **Comments only.** Path redirects can be added later. Host redirects cannot                                                                                   |
-| `.github/workflows/deploy-cloudflare.yml`   | On push to `main`: Bun install, lint, typecheck, build, then `wrangler deploy` when secrets exist                                                                                         |
 | `lib/site.ts`                               | Canonical origin `https://seniorschools.org` for metadata, sitemap, robots, and Open Graph                                                                                                |
 
 `html_handling: auto-trailing-slash` matches Next's default `trailingSlash: false`, which emits `philosophy.html` and serves it at `/philosophy`. Confirm that on the first `workers.dev` deploy before changing DNS.
 
-## Branch previews
+## CI/CD: Workers Builds
 
-[Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/) is already connected to `senior-schools-network`. This repo does not change that connection, and it does not add a second preview workflow.
+[Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/) is the only CI/CD. It is the native Cloudflare↔GitHub connection already attached to `senior-schools-network`. This repo has no `.github/workflows/`. Deploy does not use GitHub Actions or the repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
 
 Commands configured in the dashboard (not in git):
 
@@ -29,19 +28,18 @@ Commands configured in the dashboard (not in git):
 | `main` | `bun run build` | `npx wrangler deploy` |
 | any other branch | `bun run build` | `npx wrangler preview` |
 
-`wrangler preview` creates a [Worker Preview](https://developers.cloudflare.com/workers/previews/) for that branch. It does not replace the active deployment. Cloudflare comments the Preview URL on the pull request. The command fails unless `wrangler.jsonc` contains a `previews` block. This Worker has no bindings, so the block is empty. Assets and `compatibility_date` stay at the top level.
+`npx wrangler deploy` on `main` publishes the active deployment from `out/`. `npx wrangler preview` on every other branch creates a [Worker Preview](https://developers.cloudflare.com/workers/previews/). A preview does not replace the active deployment. Cloudflare comments the Preview URL on the pull request. The preview command fails unless `wrangler.jsonc` contains a `previews` block. This Worker has no bindings, so the block is empty. Assets and `compatibility_date` stay at the top level.
 
 `wrangler.jsonc` sets `preview_urls: true`. Wrangler still calls the field `preview_urls`. Setting it explicitly keeps workers.dev Preview URLs on if `workers_dev` is later turned off. The next production deploy applies that setting.
 
-Closed PR #13 used `wrangler versions upload` as the non-production command. The connected Builds project already uses `npx wrangler preview`, which is the current preview command. This change does not switch it back. A GitHub Actions job that also ran `wrangler versions upload` would publish a second URL beside the Builds preview, so that job is not added.
+Closed PR #13 used `wrangler versions upload` as the non-production command. The connected Builds project uses `npx wrangler preview`, which is the current preview command.
 
-`.github/workflows/deploy-cloudflare.yml` still deploys `main` with `wrangler deploy` when `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` are set. Workers Builds also deploys `main`. Both are already in place. This change does not remove either. When both succeed, the same commit is published twice.
+The Git connection and these two commands stay as they are. Do not add a GitHub Actions workflow beside them.
 
-No new Cloudflare dashboard steps. Do not install another GitHub App connection, and do not change the preview command.
-
-Local equivalent of the non-production command, after `bun run build`:
+Optional local tools. They do not run the Next build. Run `bun run build` first:
 
 ```bash
+bun run deploy:cloudflare
 bun run preview:cloudflare
 ```
 
@@ -57,25 +55,16 @@ A Worker script that inspects `Host` would also work, but only if `assets.run_wo
 
 Do this in Cloudflare. Do not change live DNS until the `workers.dev` (or custom-domain) preview has been checked.
 
-### 1. API token and GitHub secrets
+### 1. First deploy
 
-The deploy workflow does not deploy until both secrets are set. It still runs lint, typecheck, and build, then emits a notice and skips deploy.
+Push to `main`. Workers Builds runs `bun run build`, then `npx wrangler deploy`.
 
-| GitHub secret           | Value                                                                                                                                                                                                    |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CLOUDFLARE_API_TOKEN`  | Custom token with **Account → Workers Scripts → Edit**, scoped to the account that will own the Worker. [Create a token](https://developers.cloudflare.com/workers/ci-cd/external-cicd/github-actions/). |
-| `CLOUDFLARE_ACCOUNT_ID` | Account ID from the Workers dashboard                                                                                                                                                                    |
-
-No token is stored in the repo.
-
-### 2. First deploy
-
-Either push to `main` after the secrets exist, or locally:
+The same publish from a machine already logged in to Wrangler:
 
 ```bash
 bun install
 bun run build
-bunx wrangler deploy
+bun run deploy:cloudflare
 ```
 
 `wrangler deploy` publishes `out/` using `wrangler.jsonc`. It does not run the Next build.
@@ -89,13 +78,13 @@ Check, before any DNS change:
 - the `workers.dev` response includes `X-Robots-Tag: noindex` (the canonical host does not)
 - a file under `/_next/static/` sends `Cache-Control: public, max-age=31536000, immutable`
 
-### 3. Canonical custom domain
+### 2. Canonical custom domain
 
 Add **`seniorschools.org`** as a custom domain on the `senior-schools-network` Worker (Workers & Pages → the Worker → Settings → Domains & Routes → Add → Custom domain). Cloudflare creates the proxied DNS record when the zone is on the same account.
 
 Enable **Always Use HTTPS** on that zone so `http://seniorschools.org` upgrades to `https://` before any other rule.
 
-### 4. Host 301s (path and query preserved)
+### 3. Host 301s (path and query preserved)
 
 Create one account-level Bulk Redirect List and attach it to every zone below. For each row:
 
@@ -130,7 +119,7 @@ http.host eq "www.seniorschools.org"
 
 Repeat for the other four hosts. Preview one path-and-query URL in the dashboard before deploying the rule.
 
-### 5. Cutover and rollback
+### 4. Cutover and rollback
 
 1. Lower DNS TTL on the hostnames you will move.
 2. Leave the Netlify site (`seniorschoolnetwork.netlify.app`) running.
@@ -141,5 +130,4 @@ Repeat for the other four hosts. Preview one path-and-query URL in the dashboard
 
 - **`html_handling: auto-trailing-slash`** is the Workers default and matches this export. If a route 404s on the first deploy, inspect `out/` for `route.html` vs `route/index.html` before changing it.
 - **`workers.dev` stays enabled** (Wrangler default) so the first deploy has a URL before the custom domain exists. `public/_headers` sends `X-Robots-Tag: noindex` on that host and on Version URLs. Set `"workers_dev": false` later if that hostname should not remain public. `preview_urls: true` keeps workers.dev Preview URLs on if `workers_dev` is turned off.
-- **The GitHub deploy job skips, and does not fail, when the two secrets are unset.** That keeps `main` green until the token exists. Workers Builds can still deploy `main` without those GitHub secrets. After cutover, change the skip into a hard failure if a missing token should block the branch.
-- **Deploy does not wait on the `quality` or `test` CI jobs.** Both use Bun. `quality` runs lint, typecheck, and build. `test` runs Jest, which still has pre-existing content-drift failures on `main` and is not a deploy gate. The deploy workflow runs its own lint, typecheck, and build.
+- **Workers Builds is the deploy.** It runs the build and Wrangler commands above. It does not run Jest. The suite still has pre-existing content-drift failures on `main`; run `bun run lint`, `bun run typecheck`, and `bun run test` locally.

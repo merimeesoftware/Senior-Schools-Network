@@ -25,7 +25,7 @@ This repo is the **Senior Schools Network** site: a single, fully static **Next.
 
 ### Runtime / package manager
 - **Bun is the package manager** (`bun.lock`, `bunfig.toml`); use `bun install` and `bun run <script>`. Bun is preinstalled at `~/.bun/bin` (also on PATH via `~/.bashrc`) and the startup update script keeps deps in sync. Node 22 is also available.
-- Do not use `npm ci`: there is no `package-lock.json`. CI uses Bun (`oven-sh/setup-bun` + `bun install --frozen-lockfile`).
+- There is no `package-lock.json`. CI/CD is Cloudflare Workers Builds (`docs/deploy-cloudflare.md`): `main` runs `bun run build` then `npx wrangler deploy`; other branches run `bun run build` then `npx wrangler preview`. There is no GitHub Actions workflow and no GitHub secrets `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID`. Optional local scripts: `bun run deploy:cloudflare` and `bun run preview:cloudflare` after `bun run build`.
 
 ### Running / building
 - Dev server: `bun run dev` → http://localhost:3000 (hot reload). This single process is the whole product.
