@@ -1,9 +1,10 @@
 import type { MetadataRoute } from 'next';
 import { getAllTextSlugs } from '@/lib/content/teasers';
+import { SITE_ORIGIN } from '@/lib/site';
 
 // Sitemap listing all routes for SEO
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = 'https://seniorschoolsnetwork.org';
+  const base = SITE_ORIGIN;
   const now = new Date().toISOString();
 
   // Static routes

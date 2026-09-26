@@ -100,7 +100,7 @@ Add GitHub repository link and other relevant external links to footer.
 **Decision**: Keep static
 
 ### Render Migration
-**Decision**: Stay with Netlify
+**Decision**: Stay with Netlify (2026-01-24). Superseded as the target on 2026-09-26 by Cloudflare Workers + Static Assets. `netlify.toml` stays until DNS cutover. See `docs/deploy-cloudflare.md`.
 
 ### Service Worker / Offline Support
 **Decision**: Deferred
@@ -134,6 +134,7 @@ Add GitHub repository link and other relevant external links to footer.
 
 | Date | Decision | Rationale |
 |------|----------|-----------|
+| 2026-09-26 | Target host: Cloudflare Workers + Static Assets. Canonical origin `https://seniorschools.org`. Keep `netlify.toml` until post-cutover cleanup | Static export needs no Next adapter. Workers `_redirects` cannot 301 other hostnames; those are Bulk Redirects (`docs/deploy-cloudflare.md`) |
 | 2026-09-15 | Lock five modes: musical, gymnastic, poetic, romantic, virtuous | Same grammatical fashion; musical = Muses/garden; poetic look before romantic quest; card at `.github/docs/stages.md` |
 | 2026-01-31 | Curate QuoteImageBreak content next | High visual impact, aligns philosophy with imagery |
 | 2026-01-31 | Expand AXIOMS.md from QUOTES.md | Consolidate quote sources for programmatic access |

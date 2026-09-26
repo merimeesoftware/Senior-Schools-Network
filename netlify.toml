@@ -1,3 +1,7 @@
+# Retained until post-cutover cleanup. The target host is Cloudflare Workers
+# + Static Assets (wrangler.jsonc, docs/deploy-cloudflare.md). Do not delete
+# this file until DNS has moved off Netlify and rollback is no longer needed.
+#
 # Bun-powered static site deployment
 # No Next.js plugin needed - we use static export (output: 'export')
 

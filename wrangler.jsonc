@@ -1,0 +1,20 @@
+{
+  // Assets-only Worker: Next.js `output: 'export'` has no server runtime.
+  // Do not set "main". A Worker script is not required for static hosting.
+  //
+  // Host 301s are NOT expressed here. Workers Static Assets `_redirects`
+  // does not support domain-level redirects. Configure Bulk Redirects (or
+  // Single Redirects) in the dashboard. See docs/deploy-cloudflare.md.
+  "name": "senior-schools-network",
+  // Set when this config was added. Bump deliberately when adopting a
+  // newer Workers compatibility change.
+  "compatibility_date": "2026-09-26",
+  "assets": {
+    "directory": "./out",
+    // Serve the static export's out/404.html for unknown paths.
+    "not_found_handling": "404-page",
+    // Next.js default `trailingSlash: false` emits `route.html`, not
+    // `route/index.html`. This serves those files at `/route`.
+    "html_handling": "auto-trailing-slash",
+  },
+}

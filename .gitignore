@@ -12,6 +12,9 @@ out
 build
 dist
 
+# Wrangler local state
+.wrangler
+
 # Production
 *.log
 npm-debug.log*

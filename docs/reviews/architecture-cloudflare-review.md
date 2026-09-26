@@ -7,6 +7,8 @@
 
 > This is an analysis-only deliverable. No application code, config, or build files were changed.
 
+> **Resolved 2026-09-26:** Canonical origin is `https://seniorschools.org` (`lib/site.ts`). The chosen host is Workers + Static Assets (`wrangler.jsonc`), not Pages. Host 301s are dashboard Bulk Redirects because Workers `_redirects` does not support domain-level redirects (`docs/deploy-cloudflare.md`). `netlify.toml` stays until DNS cutover.
+
 ---
 
 ## 1. Executive summary
@@ -335,6 +337,8 @@ This introduces the project's **first secrets** (`CLOUDFLARE_API_TOKEN`, `CLOUDF
 
 > Note the domain discrepancy to resolve during cutover: `README.md:5` and `netlify.toml` context use **seniorschoolsnetwork.com**, while metadata/sitemap/canonicals use **seniorschoolsnetwork.org** (`app/layout.tsx:30,52`, `app/sitemap.ts:6`, `app/robots.ts:4`, `app/(site)/engage/page.tsx:21`). Confirm the canonical domain and make DNS + `metadataBase` agree; this is independent of Netlify vs Cloudflare but should be settled at cutover.
 
+> **Resolved 2026-09-26:** The canonical origin is `https://seniorschools.org`. The names in this paragraph were both wrong (`seniorschoolsnetwork`, extra "s", is not a registered domain). Legacy `seniorschoolnetwork.com` / `.org` (and `www`) 301 to the canonical origin.
+
 ### 6.8 Migration effort & risk by subsystem (no calendar estimates)
 
 | Change | Files touched | Risk |
@@ -351,7 +355,7 @@ This introduces the project's **first secrets** (`CLOUDFLARE_API_TOKEN`, `CLOUDF
 
 ## 7. Risks & open questions
 
-1. **Canonical domain (.com vs .org).** Metadata/sitemap use `.org`; README/live-site use `.com` (§6.7). Which is authoritative? This affects DNS, `metadataBase`, canonicals, and OG URLs, and should be fixed at cutover.
+1. **Canonical domain (.com vs .org).** Metadata/sitemap use `.org`; README/live-site use `.com` (§6.7). Which is authoritative? This affects DNS, `metadataBase`, canonicals, and OG URLs, and should be fixed at cutover. **Resolved 2026-09-26:** `https://seniorschools.org`.
 2. **Bun version on the Cloudflare build image.** Netlify pins `BUN_VERSION=1.3.6` (`netlify.toml:9`). Confirm the Pages build detects Bun and, if a specific version is required for reproducibility, pin it via a build env var. Low risk (build is deterministic from `bun.lock`), but verify the first production build matches local output.
 3. **Green-before-migrate ordering.** The CI and test failures (P0-1/2/3) are independent of hosting but should be fixed **first** so the migration lands on a trustworthy pipeline; otherwise "it deployed" masks a red suite.
 4. **Future dynamic needs.** If a real "Submit a School" form or newsletter is added, revisit the Pages-vs-Workers decision (§6.5) — that is the trigger to adopt Workers Static Assets + a Function/Turnstile, and it is the only realistic path to needing more than static hosting.

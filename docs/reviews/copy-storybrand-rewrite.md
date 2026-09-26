@@ -1,6 +1,6 @@
 # Copy Rewrite Proposal — StoryBrand (SB7) + Grunt Test
 
-**Site:** Senior Schools Network (seniorschoolsnetwork.com)
+**Site:** Senior Schools Network (canonical origin, set 2026-09-26: https://seniorschools.org)
 **Method:** Donald Miller's StoryBrand SB7 framework + the "grunt test" (a caveman / 5‑second test: *What do you offer? How does it make my life better? What do I do to buy/get it?*)
 **Scope:** Every user‑facing page and the section components each renders.
 **Constraint honored:** No source files were edited. This is a copy proposal only. Every recommendation is grounded in `/.github/docs/north-star.md`, `/.github/copilot-instructions.md`, `/.github/docs/design-system.md` (Part 8), and the primary texts in `/public/texts/`.
@@ -389,7 +389,7 @@ The design system and axioms use **Knox**; several page‑level snippets drift t
 ### D. Other accuracy notes
 
 - **Privacy page** claims analytics + contact‑form data collection that `copilot-instructions.md` forbids and the static architecture doesn't support (see §4.6). Fix to reflect reality.
-- **OpenGraph URLs** in page metadata point to `seniorschoolsnetwork.org`, but the live site is `seniorschoolsnetwork.com`. Not user‑facing copy, but worth aligning for share cards/SEO. *(Flagged for the owner; outside the copy scope.)*
+- **OpenGraph URLs** in page metadata point to `seniorschoolsnetwork.org`, but the live site is `seniorschoolsnetwork.com`. Not user‑facing copy, but worth aligning for share cards/SEO. *(Flagged for the owner; outside the copy scope.)* **Resolved 2026-09-26:** canonical origin is `https://seniorschools.org` (`lib/site.ts`). Both hostnames in this bullet were wrong.
 - **Brand name mismatch:** nav wordmark "The Senior School Network" vs. footer/docs "Senior Schools Network." Standardize (see §4.8).
 - **No prototype‑school claims** appear in the reviewed copy — the directory is populated from `lib/content/network.ts` data and the pages speak network‑wide. This is compliant with the "network‑focused only" rule; keep it that way in any rewrite.
 
