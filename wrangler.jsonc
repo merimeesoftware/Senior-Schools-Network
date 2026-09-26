@@ -9,6 +9,11 @@
   // Set when this config was added. Bump deliberately when adopting a
   // newer Workers compatibility change.
   "compatibility_date": "2026-09-26",
+  // Version URLs for `wrangler versions upload` (pull-request previews).
+  // The field is still named preview_urls. Explicit so version URLs stay
+  // on if workers_dev is later set to false. A version upload does not
+  // replace the active deployment. See docs/deploy-cloudflare.md.
+  "preview_urls": true,
   "assets": {
     "directory": "./out",
     // Serve the static export's out/404.html for unknown paths.

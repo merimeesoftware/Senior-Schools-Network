@@ -1,0 +1,117 @@
+# Upload a Cloudflare Worker version for pull requests.
+#
+# Does not promote that version to the active deployment. Production stays
+# on deploy-cloudflare.yml (`wrangler deploy` on push to main).
+#
+# Workers Builds Git integration is intentionally not used. Connecting the
+# GitHub App would also build and deploy main, which would publish the live
+# Worker a second time. See docs/deploy-cloudflare.md.
+#
+# Same repository secrets as production:
+#   CLOUDFLARE_API_TOKEN  — Account → Workers Scripts → Edit
+#   CLOUDFLARE_ACCOUNT_ID
+# The build always runs. Upload is skipped with a notice until both exist.
+name: Preview Cloudflare Workers
+
+on:
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: cloudflare-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  preview:
+    name: Upload version preview
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.6
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build static export
+        run: bun run build
+
+      - name: Check Cloudflare credentials
+        id: cf
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -n "$CF_TOKEN" ] && [ -n "$CF_ACCOUNT" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Cloudflare preview skipped::Set repository secrets CLOUDFLARE_API_TOKEN (Workers Scripts:Edit) and CLOUDFLARE_ACCOUNT_ID. See docs/deploy-cloudflare.md."
+          fi
+
+      - name: Upload Worker version
+        id: upload
+        if: steps.cf.outputs.ready == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -o pipefail
+          bunx wrangler versions upload --message "PR ${{ github.event.pull_request.number }} ${{ github.sha }}" 2>&1 | tee upload.txt
+          url=$(grep -Eo 'https://[A-Za-z0-9._-]+\.workers\.dev' upload.txt | head -n 1 || true)
+          if [ -z "$url" ]; then
+            echo "::error::wrangler versions upload did not print a workers.dev URL"
+            exit 1
+          fi
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+
+      - name: Comment version URL on the pull request
+        if: steps.cf.outputs.ready == 'true'
+        uses: actions/github-script@v7
+        env:
+          PREVIEW_URL: ${{ steps.upload.outputs.url }}
+        with:
+          script: |
+            const marker = "<!-- cloudflare-version-preview -->";
+            const url = process.env.PREVIEW_URL;
+            const body = [
+              marker,
+              "Cloudflare **version preview** for this pull request (not production):",
+              "",
+              url,
+              "",
+              "This hostname is `noindex`. Uploading a version does not replace the active deployment of `senior-schools-network`.",
+            ].join("\n");
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              per_page: 100,
+            });
+            const existing = comments.find((comment) =>
+              comment.body?.startsWith(marker)
+            );
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }

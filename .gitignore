@@ -12,8 +12,9 @@ out
 build
 dist
 
-# Wrangler local state
+# Wrangler local state and local secrets
 .wrangler
+.dev.vars
 
 # Production
 *.log

@@ -10,13 +10,37 @@ This is an **assets-only Worker**. There is no Worker script (`wrangler.jsonc` h
 
 | File                                      | Role                                                                                                                                                                    |
 | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `wrangler.jsonc`                          | Worker name `senior-schools-network`, assets directory `./out`, `not_found_handling: 404-page`, `html_handling: auto-trailing-slash`, `compatibility_date` `2026-09-26` |
-| `public/_headers`                         | Copied to `out/_headers` by `next build`. Security headers on `/*`. Immutable cache on `/_next/static/*`, `/images/*`, and `/assets/*`                                  |
-| `public/_redirects`                       | Copied to `out/_redirects`. **Comments only.** Path redirects can be added later. Host redirects cannot                                                                 |
-| `.github/workflows/deploy-cloudflare.yml` | On push to `main`: Bun install, lint, typecheck, build, then `wrangler deploy` when secrets exist                                                                       |
-| `lib/site.ts`                             | Canonical origin `https://seniorschools.org` for metadata, sitemap, robots, and Open Graph                                                                              |
+| `wrangler.jsonc`                            | Worker name `senior-schools-network`, assets directory `./out`, `not_found_handling: 404-page`, `html_handling: auto-trailing-slash`, `compatibility_date` `2026-09-26`, `preview_urls: true` |
+| `public/_headers`                           | Copied to `out/_headers` by `next build`. Security headers on `/*`. Immutable cache on `/_next/static/*`, `/images/*`, and `/assets/*`. `X-Robots-Tag: noindex` on `*.*.workers.dev` |
+| `public/_redirects`                         | Copied to `out/_redirects`. **Comments only.** Path redirects can be added later. Host redirects cannot                                                                                   |
+| `.github/workflows/deploy-cloudflare.yml`   | On push to `main`: Bun install, lint, typecheck, build, then `wrangler deploy` when secrets exist                                                                                         |
+| `.github/workflows/preview-cloudflare.yml`  | On pull request to `main`: Bun install, build, then `wrangler versions upload` when the same secrets exist. Does not promote the version                                              |
+| `lib/site.ts`                               | Canonical origin `https://seniorschools.org` for metadata, sitemap, robots, and Open Graph                                                                                                |
 
 `html_handling: auto-trailing-slash` matches Next's default `trailingSlash: false`, which emits `philosophy.html` and serves it at `/philosophy`. Confirm that on the first `workers.dev` deploy before changing DNS.
+
+## Branch version previews
+
+Production deploys stay on `.github/workflows/deploy-cloudflare.yml` (`wrangler deploy` on push to `main`). That workflow is the deploy model from the Workers + Static Assets prep. This repo does not connect [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/) Git integration. Connecting it would also build and deploy `main`, and would publish the live Worker `senior-schools-network` a second time.
+
+Pull requests get a [Version URL](https://developers.cloudflare.com/workers/versions-and-deployments/preview-urls/) instead:
+
+- `wrangler.jsonc` sets `preview_urls: true`. Wrangler still calls the field `preview_urls`. Setting it explicitly keeps Version URLs on if `workers_dev` is later turned off.
+- `.github/workflows/preview-cloudflare.yml` runs on pull requests to `main`. It builds `out/` and runs `wrangler versions upload`. That uploads a version and does not promote it to the active deployment.
+- The workflow uses the same `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets as production. If either is missing, it still builds, then skips the upload with a notice.
+- When the upload runs, the workflow comments the Version URL on the pull request and updates that comment on later pushes.
+
+Version URLs look like `<version-prefix>-senior-schools-network.<subdomain>.workers.dev`. They serve that upload's assets. They are not a separate Worker, and they are not [Worker Previews](https://developers.cloudflare.com/workers/previews/) (`wrangler preview`). Worker Previews are what Workers Builds uses for non-production branches, and they need the Git connection this repo does not add.
+
+There are no new Cloudflare dashboard steps for previews. Do not install the Cloudflare Workers and Pages GitHub App for this repository as part of this setup.
+
+Local equivalent, after `bun run build`:
+
+```bash
+bun run preview:cloudflare
+```
+
+`public/_headers` sends `X-Robots-Tag: noindex` for `https://:version.:subdomain.workers.dev/*`. That pattern is one hostname label plus the account subdomain, so it matches the production `workers.dev` host and Version URLs. It does not match `https://seniorschools.org`. Cloudflare adds `noindex` on its own for workers.dev Worker Preview URLs; this rule covers Version URLs and the production workers.dev host.
 
 ## Why host 301s are not in `_redirects`
 
@@ -57,6 +81,7 @@ Check, before any DNS change:
 - one `/texts/<slug>` page
 - an unknown path returns the site 404 page (status 404)
 - response headers include `X-Frame-Options: DENY` and `X-Content-Type-Options: nosniff`
+- the `workers.dev` response includes `X-Robots-Tag: noindex` (the canonical host does not)
 - a file under `/_next/static/` sends `Cache-Control: public, max-age=31536000, immutable`
 
 ### 3. Canonical custom domain
@@ -110,6 +135,6 @@ Repeat for the other four hosts. Preview one path-and-query URL in the dashboard
 ## Uncertain choices
 
 - **`html_handling: auto-trailing-slash`** is the Workers default and matches this export. If a route 404s on the first deploy, inspect `out/` for `route.html` vs `route/index.html` before changing it.
-- **`workers.dev` stays enabled** (Wrangler default) so the first deploy has a URL before the custom domain exists. Set `"workers_dev": false` later if that hostname should not remain public.
-- **The GitHub deploy job skips, and does not fail, when the two secrets are unset.** That keeps `main` green until the token exists. After cutover, change the skip into a hard failure if a missing token should block the branch.
-- **Deploy does not wait on the existing `quality` CI job.** That job still runs `npm ci` and there is no `package-lock.json`, so it fails before tests. This workflow runs its own lint, typecheck, and build with Bun. The Jest suite has pre-existing failures on `main` and is not a deploy gate.
+- **`workers.dev` stays enabled** (Wrangler default) so the first deploy has a URL before the custom domain exists. `public/_headers` sends `X-Robots-Tag: noindex` on that host and on Version URLs. Set `"workers_dev": false` later if that hostname should not remain public. `preview_urls: true` keeps Version URLs on if `workers_dev` is turned off.
+- **The GitHub deploy job skips, and does not fail, when the two secrets are unset.** That keeps `main` green until the token exists. The pull-request version upload skips the same way. After cutover, change the skip into a hard failure if a missing token should block the branch.
+- **Deploy does not wait on the `quality` or `test` CI jobs.** Both use Bun. `quality` runs lint, typecheck, and build. `test` runs Jest, which still has pre-existing content-drift failures on `main` and is not a deploy gate. The deploy workflow runs its own lint, typecheck, and build.

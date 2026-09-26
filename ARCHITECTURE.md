@@ -45,7 +45,7 @@ Live routes: `/`, `/philosophy`, `/network-directory`, `/engage`, `/texts/[slug]
 
 - StoryBrand, mode definitions, and public lines — `PRODUCT.md`.
 - Palette, type, and components’ visual rules — `DESIGN.md`.
-- Bun version, GitHub Actions steps, Wrangler secrets, and the `npm ci` / Bun mismatch — `TECH_STACK.md`.
+- Bun version, GitHub Actions steps, and Wrangler secrets — `TECH_STACK.md`.
 - Page-by-page copy proposals — `docs/reviews/`.
 - Phase plans. Older docs spoke of Phase 2 / Phase 3. Those are not a roadmap. The durable shape is the static export plus the Cloudflare cutover above.
 

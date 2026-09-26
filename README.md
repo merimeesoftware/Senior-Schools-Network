@@ -131,6 +131,8 @@ School directory defined in `lib/content/network.ts` and rendered via the Networ
 
 Push to `main` runs `.github/workflows/deploy-cloudflare.yml` (lint, typecheck, build, then `wrangler deploy`). Deploy runs only after the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets are set. Host 301s are Bulk Redirects in the Cloudflare dashboard, not `_redirects` (Workers Static Assets does not support domain-level redirects).
 
+Pull requests run `.github/workflows/preview-cloudflare.yml`, which uploads a Worker version (`wrangler versions upload`) and comments the Version URL. That upload does not replace the active deployment. Workers Builds Git integration is not connected, because it would also deploy `main`.
+
 Full cutover steps: [docs/deploy-cloudflare.md](docs/deploy-cloudflare.md).
 
 Manual deploy:
@@ -138,6 +140,13 @@ Manual deploy:
 ```bash
 bun run build
 bun run deploy:cloudflare
+```
+
+Manual version upload (preview URL, not production):
+
+```bash
+bun run build
+bun run preview:cloudflare
 ```
 
 ## Documentation
