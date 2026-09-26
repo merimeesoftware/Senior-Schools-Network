@@ -8,6 +8,8 @@
 > This is an analysis-only deliverable. No application code, config, or build files were changed.
 
 > **Resolved 2026-09-26:** Canonical origin is `https://seniorschools.org` (`lib/site.ts`). The chosen host is Workers + Static Assets (`wrangler.jsonc`), not Pages. Host 301s are dashboard Bulk Redirects because Workers `_redirects` does not support domain-level redirects (`docs/deploy-cloudflare.md`). `netlify.toml` stays until DNS cutover.
+>
+> **Resolved 2026-09-26 (CI/CD):** GitHub Actions is removed. `.github/workflows/ci.yml` and `.github/workflows/deploy-cloudflare.yml` are gone. CI/CD is Cloudflare Workers Builds only: `main` runs `bun run build` then `npx wrangler deploy`; other branches run `bun run build` then `npx wrangler preview`. Do not set GitHub secrets `CLOUDFLARE_API_TOKEN` or `CLOUDFLARE_ACCOUNT_ID`. Sections below that describe Actions jobs, Semgrep, `docs-check`, or those secrets are historical. Current commands: `docs/deploy-cloudflare.md`.
 
 ---
 
@@ -303,7 +305,9 @@ Rationale: the security headers are a direct copy. The Netlify `for = "/*.js"` /
 
 ### 6.6 CI/CD on Cloudflare
 
-Two viable models; pick one:
+> **Superseded 2026-09-26.** The choice below is closed. CI/CD is Workers Builds only (`docs/deploy-cloudflare.md`). Do not add GitHub Actions or the secrets `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID`. The YAML in this section is a historical sketch.
+
+Two viable models at review time; pick one:
 
 1. **Cloudflare Git integration (simplest).** Cloudflare builds on push to `main` (production) and on PRs (preview). Keep the GitHub Actions `quality`/`security` jobs (once fixed per §4) as required status checks. This mirrors the current Netlify auto-deploy model with the least moving parts.
 2. **Deploy from GitHub Actions with Wrangler** (more control, keeps deploy logic in-repo):

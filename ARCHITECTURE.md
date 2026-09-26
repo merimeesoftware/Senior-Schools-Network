@@ -45,12 +45,12 @@ Live routes: `/`, `/philosophy`, `/network-directory`, `/engage`, `/texts/[slug]
 
 - StoryBrand, mode definitions, and public lines — `PRODUCT.md`.
 - Palette, type, and components’ visual rules — `DESIGN.md`.
-- Bun version, GitHub Actions steps, and Wrangler secrets — `TECH_STACK.md`.
+- Bun version and Workers Builds commands — `TECH_STACK.md`.
 - Page-by-page copy proposals — `docs/reviews/`.
 - Phase plans. Older docs spoke of Phase 2 / Phase 3. Those are not a roadmap. The durable shape is the static export plus the Cloudflare cutover above.
 
 ## Pointers
 
 - `TECH_STACK.md` — language, deploy target, CI, gaps.
-- `docs/deploy-cloudflare.md` — token, Bulk Redirects, cutover order.
+- `docs/deploy-cloudflare.md` — Workers Builds commands, Bulk Redirects, cutover order.
 - `wrangler.jsonc` — `assets.directory`: `./out`, `not_found_handling`: `404-page`, `html_handling`: `auto-trailing-slash`, empty `previews` block for `wrangler preview`.

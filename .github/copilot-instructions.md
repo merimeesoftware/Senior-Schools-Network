@@ -28,7 +28,7 @@ Promote a loose network of Catholic schools aligned with John Senior's philosoph
 - **Framework**: Next.js 14.2 (static export to `out/`)
 - **Styling**: Tailwind CSS 3.4
 - **Testing**: Jest 30 + React Testing Library
-- **Deployment**: Cloudflare Workers + Static Assets (target; `wrangler.jsonc`). Workers Builds is already connected: `main` runs `wrangler deploy`, other branches run `wrangler preview`. Do not add a second preview workflow. `netlify.toml` stays until post-cutover cleanup. Canonical origin: `https://seniorschools.org` (`lib/site.ts`).
+- **Deployment**: Cloudflare Workers + Static Assets (`wrangler.jsonc`). CI/CD is Workers Builds only: `main` runs `bun run build` then `npx wrangler deploy`; other branches run `bun run build` then `npx wrangler preview`. Optional local scripts, after `bun run build`: `deploy:cloudflare`, `preview:cloudflare`. `netlify.toml` stays until post-cutover cleanup. Canonical origin: `https://seniorschools.org` (`lib/site.ts`).
 
 ## Content Rules
 
@@ -56,6 +56,7 @@ Modern AI agents can infer context from codebase structure. Detailed prompts are
 ## Don't
 
 - Add analytics, tracking, or data collection
+- Add GitHub Actions workflows, or repository secrets `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID`. CI/CD is Workers Builds (`docs/deploy-cloudflare.md`)
 - Add complexity without evaluating simpler alternatives
 - Generate content not grounded in repo sources
 - Over-engineer—static is better than dynamic when possible

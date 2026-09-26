@@ -35,6 +35,8 @@ bun run dev
 | `bun run typecheck` | Run TypeScript type checking |
 | `bun run format` | Format code with Prettier |
 | `bun run format:check` | Check formatting without changes |
+| `bun run deploy:cloudflare` | Optional local `wrangler deploy` (run `bun run build` first). Production CI/CD is Workers Builds |
+| `bun run preview:cloudflare` | Optional local `wrangler preview` (run `bun run build` first). Branch previews are Workers Builds |
 
 ## Tech Stack
 
@@ -42,7 +44,7 @@ bun run dev
 - **Framework**: Next.js 14.2 (static export)
 - **Styling**: Tailwind CSS 3.4
 - **Testing**: Jest 30 + React Testing Library
-- **Deployment**: Cloudflare Workers + Static Assets (target). `netlify.toml` remains until post-cutover cleanup.
+- **Deployment**: Cloudflare Workers + Static Assets via Workers Builds. `netlify.toml` remains until post-cutover cleanup.
 
 ## Project Structure
 
@@ -128,26 +130,27 @@ School directory defined in `lib/content/network.ts` and rendered via the Networ
 | Output | `out/` |
 | Worker config | `wrangler.jsonc` (`name`: `senior-schools-network`) |
 | Canonical origin | `https://seniorschools.org` |
+| CI/CD | [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/) only |
 
-Push to `main` runs `.github/workflows/deploy-cloudflare.yml` (lint, typecheck, build, then `wrangler deploy`). Deploy runs only after the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets are set. Host 301s are Bulk Redirects in the Cloudflare dashboard, not `_redirects` (Workers Static Assets does not support domain-level redirects).
+Workers Builds is the native Cloudflare↔GitHub connection. Commands live in the dashboard, not in git:
 
-Workers Builds is already connected to the Worker. `main` runs `wrangler deploy`. Other branches run `wrangler preview`, which does not replace the active deployment. This repo does not add a second preview workflow. GitHub Actions can also deploy `main` when the Cloudflare secrets are set, so a push to `main` may publish twice. See [docs/deploy-cloudflare.md](docs/deploy-cloudflare.md).
+| Branch | Build | Then |
+| --- | --- | --- |
+| `main` | `bun run build` | `npx wrangler deploy` |
+| any other branch | `bun run build` | `npx wrangler preview` |
 
-Full cutover steps: [docs/deploy-cloudflare.md](docs/deploy-cloudflare.md).
+`npx wrangler preview` publishes a Worker Preview and does not replace the active deployment. Cloudflare comments the Preview URL on the pull request. Host 301s are Bulk Redirects in the Cloudflare dashboard. Workers Static Assets does not support domain-level redirects in `_redirects`.
 
-Manual deploy:
+This repo has no GitHub Actions workflows and does not use repository secrets `CLOUDFLARE_API_TOKEN` or `CLOUDFLARE_ACCOUNT_ID`.
+
+Optional local tools (run `bun run build` first; these scripts do not build):
 
 ```bash
-bun run build
 bun run deploy:cloudflare
-```
-
-Manual branch preview (same command Workers Builds uses off `main`):
-
-```bash
-bun run build
 bun run preview:cloudflare
 ```
+
+Full cutover steps: [docs/deploy-cloudflare.md](docs/deploy-cloudflare.md).
 
 ## Documentation
 
