@@ -53,4 +53,4 @@ Live routes: `/`, `/philosophy`, `/network-directory`, `/engage`, `/texts/[slug]
 
 - `TECH_STACK.md` — language, deploy target, CI, gaps.
 - `docs/deploy-cloudflare.md` — token, Bulk Redirects, cutover order.
-- `wrangler.jsonc` — `assets.directory`: `./out`, `not_found_handling`: `404-page`, `html_handling`: `auto-trailing-slash`.
+- `wrangler.jsonc` — `assets.directory`: `./out`, `not_found_handling`: `404-page`, `html_handling`: `auto-trailing-slash`, empty `previews` block for `wrangler preview`.

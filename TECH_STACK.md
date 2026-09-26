@@ -27,6 +27,6 @@ Cursor + MCP + skills → GitHub Actions → Cloudflare (Pages/Workers) when pra
 ## Notes
 
 - Next.js 14.2 with `output: 'export'` and `images.unoptimized: true` (`next.config.js`).
-- Cloudflare Worker `senior-schools-network`: Workers Builds runs `bun run build` then `npx wrangler deploy` on `main`, and `npx wrangler preview` on other branches. `preview_urls: true`. `public/_headers` sends `X-Robots-Tag: noindex` on `*.*.workers.dev`. `netlify.toml` still builds with Bun 1.3.6 and publishes `out/` until post-cutover cleanup.
+- Cloudflare Worker `senior-schools-network`: Workers Builds runs `bun run build` then `npx wrangler deploy` on `main`, and `npx wrangler preview` on other branches. `preview_urls: true`. `previews` is an empty object (required by `wrangler preview`; no bindings to isolate). `public/_headers` sends `X-Robots-Tag: noindex` on `*.*.workers.dev`. `netlify.toml` still builds with Bun 1.3.6 and publishes `out/` until post-cutover cleanup.
 - CI: Bun 1.3.6, `bun install --frozen-lockfile`. `quality` is lint, typecheck, and build. `test` is Jest with coverage. Semgrep security scan and docs verification are separate jobs (`ci.yml`).
 - Content is file-backed static data, not a database; analytics/tracking explicitly avoided in agent instructions.

@@ -22,4 +22,8 @@
     // `route/index.html`. This serves those files at `/route`.
     "html_handling": "auto-trailing-slash",
   },
+  // Required by `wrangler preview` (Workers Builds on branches other than
+  // main). Empty: this Worker has no bindings to isolate. Assets and
+  // compatibility_date stay at the top level and are not repeated here.
+  "previews": {},
 }

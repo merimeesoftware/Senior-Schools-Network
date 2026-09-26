@@ -10,7 +10,7 @@ This is an **assets-only Worker**. There is no Worker script (`wrangler.jsonc` h
 
 | File                                      | Role                                                                                                                                                                    |
 | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `wrangler.jsonc`                            | Worker name `senior-schools-network`, assets directory `./out`, `not_found_handling: 404-page`, `html_handling: auto-trailing-slash`, `compatibility_date` `2026-09-26`, `preview_urls: true` |
+| `wrangler.jsonc`                            | Worker name `senior-schools-network`, assets directory `./out`, `not_found_handling: 404-page`, `html_handling: auto-trailing-slash`, `compatibility_date` `2026-09-26`, `preview_urls: true`, empty `previews` block |
 | `public/_headers`                           | Copied to `out/_headers` by `next build`. Security headers on `/*`. Immutable cache on `/_next/static/*`, `/images/*`, and `/assets/*`. `X-Robots-Tag: noindex` on `*.*.workers.dev` |
 | `public/_redirects`                         | Copied to `out/_redirects`. **Comments only.** Path redirects can be added later. Host redirects cannot                                                                                   |
 | `.github/workflows/deploy-cloudflare.yml`   | On push to `main`: Bun install, lint, typecheck, build, then `wrangler deploy` when secrets exist                                                                                         |
@@ -29,7 +29,7 @@ Commands configured in the dashboard (not in git):
 | `main` | `bun run build` | `npx wrangler deploy` |
 | any other branch | `bun run build` | `npx wrangler preview` |
 
-`wrangler preview` creates a [Worker Preview](https://developers.cloudflare.com/workers/previews/) for that branch. It does not replace the active deployment. Cloudflare comments the Preview URL on the pull request.
+`wrangler preview` creates a [Worker Preview](https://developers.cloudflare.com/workers/previews/) for that branch. It does not replace the active deployment. Cloudflare comments the Preview URL on the pull request. The command fails unless `wrangler.jsonc` contains a `previews` block. This Worker has no bindings, so the block is empty. Assets and `compatibility_date` stay at the top level.
 
 `wrangler.jsonc` sets `preview_urls: true`. Wrangler still calls the field `preview_urls`. Setting it explicitly keeps workers.dev Preview URLs on if `workers_dev` is later turned off. The next production deploy applies that setting.
 
