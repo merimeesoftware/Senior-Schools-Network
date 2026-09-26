@@ -53,11 +53,11 @@ describe('Content Loading Utilities', () => {
     });
 
     it('should filter books by stage', async () => {
-      const nurseryBooks = await getBookListsByStage('nursery');
-      expect(Array.isArray(nurseryBooks)).toBe(true);
-      if (nurseryBooks.length > 0) {
-        nurseryBooks.forEach((book) => {
-          expect(book.stage).toBe('nursery');
+      const musicalBooks = await getBookListsByStage('musical');
+      expect(Array.isArray(musicalBooks)).toBe(true);
+      if (musicalBooks.length > 0) {
+        musicalBooks.forEach((book) => {
+          expect(book.stage).toBe('musical');
         });
       }
     });
@@ -70,15 +70,15 @@ describe('Content Loading Utilities', () => {
         expect(book).toHaveProperty('title');
         expect(book).toHaveProperty('author');
         expect(book).toHaveProperty('stage');
-        expect(['nursery', 'gymnasium', 'poetic', 'spiritual']).toContain(
+        expect(['musical', 'gymnastic', 'poetic', 'romantic', 'virtuous']).toContain(
           book.stage
         );
       }
     });
 
-    it('should handle gymnasium stage books', async () => {
-      const gymnasiumBooks = await getBookListsByStage('gymnasium');
-      expect(Array.isArray(gymnasiumBooks)).toBe(true);
+    it('should handle gymnastic stage books', async () => {
+      const gymnasticBooks = await getBookListsByStage('gymnastic');
+      expect(Array.isArray(gymnasticBooks)).toBe(true);
     });
 
     it('should handle poetic stage books', async () => {
@@ -86,9 +86,14 @@ describe('Content Loading Utilities', () => {
       expect(Array.isArray(poeticBooks)).toBe(true);
     });
 
-    it('should handle spiritual stage books', async () => {
-      const spiritualBooks = await getBookListsByStage('spiritual');
-      expect(Array.isArray(spiritualBooks)).toBe(true);
+    it('should handle romantic stage books', async () => {
+      const romanticBooks = await getBookListsByStage('romantic');
+      expect(Array.isArray(romanticBooks)).toBe(true);
+    });
+
+    it('should handle virtuous stage books', async () => {
+      const virtuousBooks = await getBookListsByStage('virtuous');
+      expect(Array.isArray(virtuousBooks)).toBe(true);
     });
   });
 
@@ -168,7 +173,7 @@ describe('Content Loading Utilities', () => {
           content: '',
           source: 'test',
           category: 'general',
-          stage: 'nursery',
+          stage: 'musical',
         },
         {
           id: '2',
@@ -176,7 +181,7 @@ describe('Content Loading Utilities', () => {
           content: '',
           source: 'test',
           category: 'general',
-          stage: 'gymnasium',
+          stage: 'gymnastic',
         },
         {
           id: '3',
@@ -184,18 +189,18 @@ describe('Content Loading Utilities', () => {
           content: '',
           source: 'test',
           category: 'general',
-          stage: 'nursery',
+          stage: 'musical',
         },
       ];
 
       const grouped = groupByStage(items);
       expect(grouped.length).toBeGreaterThan(0);
 
-      const nurseryGroup = grouped.find((g) => g.stage === 'nursery');
-      expect(nurseryGroup?.items.length).toBe(2);
+      const musicalGroup = grouped.find((g) => g.stage === 'musical');
+      expect(musicalGroup?.items.length).toBe(2);
 
-      const gymnasiumGroup = grouped.find((g) => g.stage === 'gymnasium');
-      expect(gymnasiumGroup?.items.length).toBe(1);
+      const gymnasticGroup = grouped.find((g) => g.stage === 'gymnastic');
+      expect(gymnasticGroup?.items.length).toBe(1);
     });
 
     it('should handle items without stage', () => {

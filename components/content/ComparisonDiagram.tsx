@@ -44,8 +44,8 @@ interface ComparisonDiagramProps {
  *   }}
  *   rightColumn={{
  *     label: "Classical Education",
- *     steps: ["🌿Nursery (0-7)", "🛡️Gymnasium (7-13)", "🔬Science (from soil)"],
- *     result: "= Integrated Warrior Poet"
+ *     steps: ["Musical (0–7)", "Gymnastic (7–13)", "Poetic (~12–15)", "Romantic (~15–18+)", "Virtuous (youth onward)"],
+ *     result: "= Integrated Chivalric Wayfarer"
  *   }}
  * />
  * ```

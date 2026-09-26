@@ -7,7 +7,7 @@ describe('InteractiveStages - Crisis Mode Enhancement', () => {
       render(<InteractiveStages />);
       
       // Should show solution content by default
-      expect(screen.getByText(/Literary experience begins/i)).toBeInTheDocument();
+      expect(screen.getByText(/teaches repose/i)).toBeInTheDocument();
       
       // Should NOT show crisis indicator
       expect(screen.queryByText(/Crisis Mode/i)).not.toBeInTheDocument();
@@ -17,10 +17,10 @@ describe('InteractiveStages - Crisis Mode Enhancement', () => {
       render(<InteractiveStages />);
       
       // Click gymnasium stage
-      const gymnasiumButton = screen.getByRole('button', { name: /Gymnasium \(7-13\)/i });
-      fireEvent.click(gymnasiumButton);
+      const gymnasticButton = screen.getByRole('button', { name: /Gymnastic \(7–13\)/i });
+      fireEvent.click(gymnasticButton);
       
-      expect(screen.getByText(/Chivalric Wayfarer/i)).toBeInTheDocument();
+      expect(screen.getByText(/teaches adventure/i)).toBeInTheDocument();
       expect(screen.queryByText(/7 hrs\/day screens/i)).not.toBeInTheDocument();
     });
 
@@ -38,7 +38,7 @@ describe('InteractiveStages - Crisis Mode Enhancement', () => {
       render(<InteractiveStages mode="crisis" />);
       
       // Should show crisis content
-      expect(screen.getByText(/Screen babysitting/i)).toBeInTheDocument();
+      expect(screen.getByText(/Screens invade the musical garden/i)).toBeInTheDocument();
       
       // Should show crisis indicator
       expect(screen.getByText(/Crisis Mode/i)).toBeInTheDocument();
@@ -48,11 +48,11 @@ describe('InteractiveStages - Crisis Mode Enhancement', () => {
       render(<InteractiveStages mode="crisis" />);
       
       // Click poetic stage
-      const poeticButton = screen.getByRole('button', { name: /Poetic \(13-20\)/i });
+      const poeticButton = screen.getByRole('button', { name: /Poetic \(~12–15\)/i });
       fireEvent.click(poeticButton);
       
-      expect(screen.getByText(/STEM-first curriculum/i)).toBeInTheDocument();
-      expect(screen.queryByText(/Integration of arts/i)).not.toBeInTheDocument();
+      expect(screen.getByText(/Specialization forces analysis before wonder/i)).toBeInTheDocument();
+      expect(screen.queryByText(/teaches the first look/i)).not.toBeInTheDocument();
     });
 
     it('displays warning icon in crisis mode', () => {
@@ -89,14 +89,14 @@ describe('InteractiveStages - Crisis Mode Enhancement', () => {
       render(<InteractiveStages allowModeToggle={true} />);
       
       // Initially in default mode
-      expect(screen.getByText(/Literary experience/i)).toBeInTheDocument();
+      expect(screen.getByText(/teaches repose/i)).toBeInTheDocument();
       
       // Click toggle
       const toggleButton = screen.getByRole('button', { name: /View Crisis/i });
       fireEvent.click(toggleButton);
       
       // Now in crisis mode
-      expect(screen.getByText(/Screen babysitting/i)).toBeInTheDocument();
+      expect(screen.getByText(/Screens invade the musical garden/i)).toBeInTheDocument();
       expect(screen.getByText(/Crisis Mode/i)).toBeInTheDocument();
     });
 
@@ -107,13 +107,13 @@ describe('InteractiveStages - Crisis Mode Enhancement', () => {
       const toggleButton = screen.getByRole('button', { name: /View Crisis/i });
       fireEvent.click(toggleButton);
       
-      expect(screen.getByText(/Screen babysitting/i)).toBeInTheDocument();
+      expect(screen.getByText(/Screens invade the musical garden/i)).toBeInTheDocument();
       
       // Click toggle back to solution
       const solutionButton = screen.getByRole('button', { name: /View Solution/i });
       fireEvent.click(solutionButton);
       
-      expect(screen.getByText(/Literary experience/i)).toBeInTheDocument();
+      expect(screen.getByText(/teaches repose/i)).toBeInTheDocument();
       expect(screen.queryByText(/Crisis Mode/i)).not.toBeInTheDocument();
     });
 
@@ -162,25 +162,23 @@ describe('InteractiveStages - Crisis Mode Enhancement', () => {
       render(<InteractiveStages allowModeToggle={true} />);
       
       // Switch to crisis mode
-      fireEvent.click(screen.getByRole('button', { name: /View Crisis/i }));
+      fireEvent.click(screen.getByRole('button', { name: /Crisis View/i }));
       
-      // Switch to gymnasium stage
-      const gymnasiumButton = screen.getByRole('button', { name: /Gymnasium \(7-13\)/i });
-      fireEvent.click(gymnasiumButton);
+      const gymnasticButton = screen.getByRole('button', { name: /Gymnastic \(7–13\)/i });
+      fireEvent.click(gymnasticButton);
       
       // Should still show crisis content
-      expect(screen.getByText(/7 hrs\/day screens/i)).toBeInTheDocument();
-      expect(screen.getByText(/Crisis Mode/i)).toBeInTheDocument();
+      expect(screen.getByText(/Screens evacuate the gymnasium/i)).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /Crisis View/i })).toHaveAttribute('aria-pressed', 'true');
     });
 
-    it('shows correct crisis description for spiritual stage', () => {
+    it('shows correct crisis description for virtuous mode', () => {
       render(<InteractiveStages mode="crisis" />);
       
-      // Click spiritual stage
-      const spiritualButton = screen.getByRole('button', { name: /Spiritual \(All Ages\)/i });
-      fireEvent.click(spiritualButton);
+      const virtuousButton = screen.getByRole('button', { name: /Virtuous \(youth onward\)/i });
+      fireEvent.click(virtuousButton);
       
-      expect(screen.getByText(/Liturgical amnesia/i)).toBeInTheDocument();
+      expect(screen.getByText(/soul untended/i)).toBeInTheDocument();
     });
   });
 
@@ -259,14 +257,15 @@ describe('InteractiveStages - Crisis Mode Enhancement', () => {
       expect(rootDiv).toHaveClass('test-class');
     });
 
-    it('works with all four stages', () => {
+    it('works with all five modes', () => {
       render(<InteractiveStages mode="crisis" />);
       
       const stages = [
-        { name: 'Nursery (0-7)', text: 'Screen babysitting' },
-        { name: 'Gymnasium (7-13)', text: '7 hrs/day screens' },
-        { name: 'Poetic (13-20)', text: 'STEM-first curriculum' },
-        { name: 'Spiritual (All Ages)', text: 'Liturgical amnesia' }
+        { name: 'Musical (0–7)', text: 'Screens invade the musical garden' },
+        { name: 'Gymnastic (7–13)', text: 'Screens evacuate the gymnasium' },
+        { name: 'Poetic (~12–15)', text: 'Specialization forces analysis before wonder' },
+        { name: 'Romantic (~15–18+)', text: 'The romantic collapses into premature sexualization' },
+        { name: 'Virtuous (youth onward)', text: 'soul untended' }
       ];
       
       stages.forEach((stage) => {

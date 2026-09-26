@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     'poetic knowledge',
     'Catholic education',
     'classical education',
-    'gymnasium stage',
+    'gymnastic years',
     'wonder-filled learning',
     'integrated humanities program',
   ],

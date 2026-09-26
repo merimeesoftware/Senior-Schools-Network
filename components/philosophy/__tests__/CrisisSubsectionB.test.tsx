@@ -51,7 +51,7 @@ describe('CrisisSubsectionB', () => {
     const panel = screen.getByTestId('problem-solution-panel');
     expect(panel).toBeInTheDocument();
     expect(screen.getByTestId('problem-title')).toHaveTextContent('The Problem: Elimination of Risk');
-    expect(screen.getByTestId('solution-title')).toHaveTextContent('The Solution: Gymnasium Rigor');
+    expect(screen.getByTestId('solution-title')).toHaveTextContent('The Solution: The Gymnastic Years');
   });
 
   it('renders EvidenceQuoteGroup with major-premise variant', () => {
@@ -61,10 +61,10 @@ describe('CrisisSubsectionB', () => {
     expect(quoteGroup).toHaveAttribute('data-variant', 'major-premise');
   });
 
-  it('renders EvidenceQuoteGroup with 4 quotes', () => {
+  it('renders EvidenceQuoteGroup with 3 quotes', () => {
     render(<CrisisSubsectionB />);
     const quoteCount = screen.getByTestId('quote-count');
-    expect(quoteCount).toHaveTextContent('4 quotes');
+    expect(quoteCount).toHaveTextContent('3 quotes');
   });
 
   it('renders CardGrid with crisis variant and 3 columns', () => {

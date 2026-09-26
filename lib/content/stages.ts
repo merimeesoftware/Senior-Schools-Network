@@ -1,50 +1,74 @@
 /**
- * Stage metadata and constants
- * Defines the four developmental stages from README.md
+ * Network developmental modes.
+ * Authority: PRODUCT.md “Five modes (taxonomy lock)”.
+ *
+ * Gymnastic badge age is 7–13 for compactness. The locked table says 7–12/13.
+ * Restoration descriptions expand only from “What the soul is doing”,
+ * the one-sentence cadence, and sense / story / liturgy.
  */
 
 import type { Stage, StageMetadata } from '@/lib/types/content';
 
 /**
- * Complete stage metadata aligned with README.md definitions
+ * Complete mode metadata in locked order.
  */
 export const STAGE_METADATA: Record<Stage, StageMetadata> = {
-  nursery: {
-    stage: 'nursery',
-    label: 'Nursery',
-    ageRange: '0-7',
-    focus: 'Sensory delight, fables',
+  musical: {
+    stage: 'musical',
+    label: 'Musical',
+    ageRange: '0–7',
+    focus: 'Repose; Muses as lullaby, rhyme, picture; first delight',
     description:
-      'Literary experience begins with someone reading aloud while children look at pictures. Emphasis on Mother Goose, Peter Rabbit, Aesop, and fairy tales that nurture wonder through sensory engagement.',
-    color: 'nursery',
+      'The musical teaches repose: lullaby, rhyme, and picture — first delight — through sense, story, and liturgy.',
+    color: 'musical',
   },
-  gymnasium: {
-    stage: 'gymnasium',
-    label: 'Gymnasium',
-    ageRange: '7-13',
-    focus: 'Adventure, stories, physical discipline',
+  gymnastic: {
+    stage: 'gymnastic',
+    label: 'Gymnastic',
+    ageRange: '7–13',
+    focus: 'Naked contact with things; rules; arranged adventure',
     description:
-      'The "Chivalric Wayfarer" stage emphasizing bodily rigor, experiential challenges, outdoor adventures, and resilient formation. Stories of Robin Hood, Treasure Island, and physical discipline integrated with liturgical rhythms.',
-    color: 'gymnasium',
+      'The gymnastic teaches adventure: naked contact with things, rules, and arranged adventure, through sense, story, and liturgy.',
+    color: 'gymnastic',
   },
   poetic: {
     stage: 'poetic',
-    label: 'Poetic/Youth',
-    ageRange: '13-20',
-    focus: 'Imagination, classics, foundational for science',
+    label: 'Poetic',
+    ageRange: '~12–15',
+    focus: 'Yearning as knowing: image, song, pudor, presence',
     description:
-      'Integration of arts and sciences through imagination. Shakespeare, Tolstoy, and the great works that prepare fertile soil for scientific pursuit. Poetic knowledge serves as prerequisite for disciplined reasoning.',
+      'The poetic teaches the first look: yearning as knowing — image, song, pudor, and presence — through sense, story, and liturgy.',
     color: 'poetic',
   },
-  spiritual: {
-    stage: 'spiritual',
-    label: 'Spiritual',
-    ageRange: 'All Ages',
-    focus: 'Devout life',
+  romantic: {
+    stage: 'romantic',
+    label: 'Romantic',
+    ageRange: '~15–18+',
+    focus: 'Quest, ordeal, vow; battles that cannot be arranged',
     description:
-      "Lifelong formation in faith through Bible (Douay-Rheims), Pilgrim's Progress, and the classics of Catholic spirituality. Music and art as per Senior's vision, integrated with all other stages.",
-    color: 'spiritual',
+      'The romantic teaches the quest that look demands: quest, ordeal, and vow — battles that cannot be arranged — through sense, story, and liturgy.',
+    color: 'romantic',
   },
+  virtuous: {
+    stage: 'virtuous',
+    label: 'Virtuous',
+    ageRange: 'Youth onward',
+    focus: 'Justice, suffering, governing, keeping faith',
+    description:
+      'The virtuous teaches the cost of keeping faith with both: justice, suffering, governing, and keeping faith, through sense, story, and liturgy.',
+    color: 'virtuous',
+  },
+};
+
+/**
+ * Public badge/filter labels. Virtuous uses lowercase “youth onward”.
+ */
+export const STAGE_BADGE_LABELS: Record<Stage, string> = {
+  musical: 'Musical (0–7)',
+  gymnastic: 'Gymnastic (7–13)',
+  poetic: 'Poetic (~12–15)',
+  romantic: 'Romantic (~15–18+)',
+  virtuous: 'Virtuous (youth onward)',
 };
 
 /**
@@ -55,10 +79,10 @@ export function getStageMetadata(stage: Stage): StageMetadata {
 }
 
 /**
- * Get all stages in order
+ * Get all stages in locked order
  */
 export function getAllStages(): Stage[] {
-  return ['nursery', 'gymnasium', 'poetic', 'spiritual'];
+  return ['musical', 'gymnastic', 'poetic', 'romantic', 'virtuous'];
 }
 
 /**

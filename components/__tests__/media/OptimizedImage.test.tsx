@@ -29,7 +29,7 @@ describe('OptimizedImage', () => {
     alt: 'Test landscape image',
     width: 1600,
     height: 900,
-    stage: 'gymnasium',
+    stage: 'gymnastic',
   };
 
   const mockPortraitAsset: ImageAsset = {
@@ -38,7 +38,7 @@ describe('OptimizedImage', () => {
     alt: 'Test portrait image',
     width: 800,
     height: 1200,
-    stage: 'nursery',
+    stage: 'musical',
   };
 
   const mockPortraitWithFocal: ImageAsset = {

@@ -41,7 +41,7 @@ export function CrisisSubsectionA({ className = '' }: CrisisSubsectionAProps) {
         collapsible={false}
         problem={{
           title: "The Problem: Screen Addiction",
-          description: "The average American child now spends 7 hours per day on screens. Outdoor play has declined by 50% in a single generation. The consequence? A generation of boys who have never climbed a tree, caught a frog, or felt the terror and thrill of real physical risk.\n\nIndoor confinement has replaced the gymnasium stage's natural habitat: fields, forests, rivers. Without sensory integration—touch, smell, movement—boys cannot develop the connaturality with reality that Senior calls \"poetic knowledge.\"",
+          description: "The average American child now spends 7 hours per day on screens. Outdoor play has declined by 50% in a single generation. The consequence? A generation of boys who have never climbed a tree, caught a frog, or felt the terror and thrill of real physical risk.\n\nIndoor confinement has replaced the gymnasium: fields, forests, rivers. Screens invade the musical garden and evacuate the gymnasium. Without sensory integration—touch, smell, movement—boys cannot develop the connaturality with reality that Senior calls \"poetic knowledge.\"",
           quote: {
             id: "wonder-dies",
             quote: "Result: Wonder dies. The well is poisoned before age 13.",
@@ -52,7 +52,7 @@ export function CrisisSubsectionA({ className = '' }: CrisisSubsectionAProps) {
         }}
         solution={{
           title: "The Solution: Nature & Wonder",
-          description: "Poetic knowledge begins with wonder—not curiosity (which seeks explanations), but awe before the sheer existence of things. Nature is the gymnasium for this wonder: the forest, the field, the night sky.\n\nSenior's nursery and gymnasium stages demand outdoor immersion: \"benevolent neglect\" where boys explore, risk, and discover without constant adult mediation. Latin, sport, and adventure—not worksheets—form the curriculum.",
+          description: "Poetic knowledge begins with wonder—not curiosity (which seeks explanations), but awe before the sheer existence of things. Nature is the gymnasium for this wonder: the forest, the field, the night sky.\n\nThe musical and the gymnastic demand outdoor immersion: \"benevolent neglect\" where boys explore, risk, and discover without constant adult mediation. Latin, sport, and adventure—not worksheets—form the curriculum.",
           quote: {
             id: "wonder-restored",
             quote: "Result: Wonder restored. The soil is fertile for higher learning.",

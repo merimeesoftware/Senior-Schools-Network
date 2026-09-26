@@ -1,18 +1,16 @@
+import type { Stage } from '@/lib/types/content';
+import { STAGE_BADGE_LABELS } from '@/lib/content/stages';
+
 interface StageBadgeProps {
-  stage: 'nursery' | 'gymnasium' | 'poetic' | 'spiritual';
+  stage: Stage;
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   whiteText?: boolean;
 }
 
-// Visible labels for each stage. Exported so interactive controls (e.g. filters)
+// Visible labels for each mode. Exported so interactive controls (e.g. filters)
 // can build accessible names that contain the visible text (WCAG 2.5.3 Label in Name).
-export const STAGE_LABELS: Record<StageBadgeProps['stage'], string> = {
-  nursery: 'Nursery (0-7)',
-  gymnasium: 'Gymnasium (7-13)',
-  poetic: 'Poetic (13-20)',
-  spiritual: 'Spiritual (All Ages)',
-};
+export const STAGE_LABELS: Record<Stage, string> = STAGE_BADGE_LABELS;
 
 export default function StageBadge({
   stage,
@@ -21,17 +19,17 @@ export default function StageBadge({
   whiteText = true, // Default to white text for better contrast
 }: Readonly<StageBadgeProps>) {
   const stageConfig = {
-    nursery: {
-      label: STAGE_LABELS.nursery,
-      bg: 'bg-nursery',
-      text: 'text-nursery-dark',
-      border: 'border-nursery-dark/50',
+    musical: {
+      label: STAGE_LABELS.musical,
+      bg: 'bg-musical',
+      text: 'text-musical-dark',
+      border: 'border-musical-dark/50',
     },
-    gymnasium: {
-      label: STAGE_LABELS.gymnasium,
-      bg: 'bg-gymnasium',
-      text: 'text-gymnasium-dark',
-      border: 'border-gymnasium-dark/50',
+    gymnastic: {
+      label: STAGE_LABELS.gymnastic,
+      bg: 'bg-gymnastic',
+      text: 'text-gymnastic-dark',
+      border: 'border-gymnastic-dark/50',
     },
     poetic: {
       label: STAGE_LABELS.poetic,
@@ -39,11 +37,17 @@ export default function StageBadge({
       text: 'text-poetic-dark',
       border: 'border-poetic-dark/50',
     },
-    spiritual: {
-      label: STAGE_LABELS.spiritual,
-      bg: 'bg-spiritual',
-      text: 'text-spiritual-dark',
-      border: 'border-spiritual-dark/50',
+    romantic: {
+      label: STAGE_LABELS.romantic,
+      bg: 'bg-romantic',
+      text: 'text-romantic-dark',
+      border: 'border-romantic-dark/50',
+    },
+    virtuous: {
+      label: STAGE_LABELS.virtuous,
+      bg: 'bg-virtuous',
+      text: 'text-virtuous-dark',
+      border: 'border-virtuous-dark/50',
     },
   };
 

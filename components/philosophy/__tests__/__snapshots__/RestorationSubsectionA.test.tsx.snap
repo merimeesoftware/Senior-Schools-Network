@@ -8,12 +8,17 @@ exports[`RestorationSubsectionA matches snapshot 1`] = `
   <h3
     class="font-playfair text-4xl font-bold text-green-900"
   >
-    A. The Four Stages of Restoration
+    A. The Five Modes
   </h3>
   <p
     class="text-lg leading-relaxed text-charcoal/90 max-w-4xl mx-auto"
   >
-    Dr. John Senior's model for Christian education follows the natural developmental stages, each building on the previous. These are not arbitrary divisions but organic phases corresponding to the child's physical, intellectual, and spiritual maturation.
+    Restoration is the work; the five modes are the sequence. Modes are cumulative and overlapping. Advance retains earlier modes as living roots. Ages are approximate. The musical teaches repose, the gymnastic adventure, the poetic the first look, the romantic the quest that look demands, and the virtuous the cost of keeping faith with both.
+  </p>
+  <p
+    class="text-center text-sm text-charcoal/70 italic mb-4"
+  >
+    Toggle between views to see how each stage should be restored vs. how modern education fails
   </p>
   <div
     data-mode="default"
@@ -31,7 +36,7 @@ exports[`RestorationSubsectionA matches snapshot 1`] = `
     <div
       data-testid="quotes-count"
     >
-      3
+      2
        quotes
     </div>
   </div>

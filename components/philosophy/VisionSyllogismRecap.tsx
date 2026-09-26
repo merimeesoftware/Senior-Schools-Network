@@ -51,9 +51,9 @@ export function VisionSyllogismRecap({ className = '' }: VisionSyllogismRecapPro
             </div>
             <div className="flex-1">
               <p className="text-lg text-charcoal/90">
-                <strong className="text-green-900">The Opportunity:</strong> Poetic knowledge—cultivated
-                through the four stages—is the remedy. Nursery (wonder), gymnasium (discipline), 
-                poetic (integration), and spiritual (wisdom) restore the natural order.
+                <strong className="text-green-900">The Opportunity:</strong> The musical teaches repose,
+                the gymnastic adventure, the poetic the first look, the romantic the quest that look demands,
+                and the virtuous the cost of keeping faith with both.
               </p>
             </div>
           </div>

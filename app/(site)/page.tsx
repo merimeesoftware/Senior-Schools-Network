@@ -137,12 +137,10 @@ export default async function HomePage() {
         <ContentContainer width="wide">
           <FadeIn threshold={0.3}>
             <h2 className="text-4xl md:text-5xl font-playfair text-center text-forest mb-8">
-              Stages of Development
+              Every age has its own door to wonder.
             </h2>
             <p className="text-center text-xl text-charcoal/70 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Each stage builds upon wonder and sensory delight, progressing
-              organically through physical formation to imaginative depth and
-              spiritual wisdom.
+              The musical teaches repose, the gymnastic adventure, the poetic the first look, the romantic the quest that look demands, and the virtuous the cost of keeping faith with both.
             </p>
             <InteractiveStages />
           </FadeIn>

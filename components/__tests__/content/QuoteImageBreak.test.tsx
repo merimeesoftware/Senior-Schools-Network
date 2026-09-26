@@ -72,7 +72,7 @@ describe('QuoteImageBreak', () => {
       quote: 'Wonder is the beginning of wisdom.',
       author: 'Socrates',
       category: 'philosophy',
-      stage: 'nursery',
+      stage: 'musical',
     },
     {
       id: 'test-quote-2',

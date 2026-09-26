@@ -140,9 +140,8 @@ export function RestorationSubsectionC({ className = '', summaryMode = true }: R
 
           <SummaryBox variant="minor-premise" title="The Restoration Established:">
             <p className="text-xl leading-relaxed">
-              Poetic knowledge—cultivated through the four stages (nursery, gymnasium, poetic,
-              spiritual)—is the remedy to modern education's failure. The <strong>gymnasium stage
-              (7-13)</strong> is the pivot: physical courage and ordered habit lay the foundation for
+              The musical teaches repose, the gymnastic adventure, the poetic the first look, the romantic the quest that look demands, and the virtuous the cost of keeping faith with both. The <strong>gymnastic years
+              (roughly 7–13)</strong> barely exist: physical courage and ordered habit lay the foundation for
               all higher learning. Restore the gymnasium, integrate the poetic, and warrior poets will
               emerge.
             </p>

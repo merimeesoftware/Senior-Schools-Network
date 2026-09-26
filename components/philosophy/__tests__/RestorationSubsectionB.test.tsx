@@ -26,12 +26,12 @@ jest.mock('@/components/content/EvidenceQuoteGroup', () => ({
 describe('RestorationSubsectionB', () => {
   it('renders without crashing', () => {
     render(<RestorationSubsectionB />);
-    expect(screen.getByText('B. The Gymnasium Stage: Foundation for Warriors')).toBeInTheDocument();
+    expect(screen.getByText('B. The Gymnastic Years')).toBeInTheDocument();
   });
 
   it('renders the correct heading', () => {
     render(<RestorationSubsectionB />);
-    const heading = screen.getByRole('heading', { name: /B. The Gymnasium Stage: Foundation for Warriors/i });
+    const heading = screen.getByRole('heading', { name: /B. The Gymnastic Years/i });
     expect(heading.className).toContain('font-playfair');
     expect(heading.className).toContain('text-4xl');
     expect(heading.className).toContain('text-green-900');
@@ -51,7 +51,7 @@ describe('RestorationSubsectionB', () => {
 
   it('renders ProblemSolutionPanel with correct solution title', () => {
     render(<RestorationSubsectionB />);
-    expect(screen.getByTestId('solution-title')).toHaveTextContent("Senior's Gymnasium Prescription");
+    expect(screen.getByTestId('solution-title')).toHaveTextContent("The Gymnastic Years");
   });
 
   it('renders EvidenceQuoteGroup with correct variant', () => {
