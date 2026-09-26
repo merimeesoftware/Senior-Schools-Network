@@ -19,7 +19,7 @@ function isNavItemActive(pathname: string, href: string): boolean {
 
 function navLinkClass(active: boolean, mobile: boolean): string {
   return [
-    'font-lato inline-flex items-center min-h-11 rounded-md transition-colors focus-visible-ring',
+    'font-lato inline-flex items-center min-h-11 whitespace-nowrap rounded-md transition-colors focus-visible-ring',
     mobile ? 'w-full px-3 text-base' : 'px-4 text-lg',
     active
       ? 'text-gold underline decoration-gold decoration-2 underline-offset-4'
@@ -47,19 +47,19 @@ export default function Navigation() {
     >
       <div className="section-container">
         <div className="flex justify-between h-[22vh] items-center mx-auto">
-          <Link href="/" className="flex items-center gap-5 min-h-11 focus-visible-ring rounded">
+          <Link href="/" className="flex shrink-0 items-center gap-5 min-h-11 focus-visible-ring rounded">
             <OptimizedImage
               assetId="ssn-logo"
               imageClassName="h-[18vh] w-auto"
               alt="The Senior School Network"
             />
-            <span className="font-accent text-xl text-parchment-light hidden sm:inline">
+            <span className="font-accent text-xl text-parchment-light hidden lg:inline">
               The Senior School Network
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex shrink-0 items-center space-x-1">
             {navItems.map((item) => {
               const active = isNavItemActive(pathname, item.href);
               return (
