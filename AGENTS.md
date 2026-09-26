@@ -15,7 +15,7 @@ Before copy, look, or structure work, read:
 
 Philosophy, mode names, and public lines live in `PRODUCT.md`. Locked order: musical → gymnastic → poetic → romantic → virtuous. Quote only from `public/texts/` (including `PHILOSOPHICAL-AXIOMS.md` as a quote bank). Do not invent Senior quotes.
 
-`.github/docs/north-star.md`, `stages.md`, `design-system.md`, `assets.md`, `image-system.md`, and `technical.md` are pointers. They are not sources of truth.
+The old `.github/docs/` stubs are removed. Canon lives only in `PRODUCT.md`, `DESIGN.md`, `ARCHITECTURE.md`, and `TECH_STACK.md`.
 
 `/impeccable` is `.cursor/skills/impeccable`. `/impeccable clarify` may tighten words. It may not change the one-liner, the plan, or the direct CTA in `PRODUCT.md`. Do not copy another merimeesoftware product’s type or accent.
 
