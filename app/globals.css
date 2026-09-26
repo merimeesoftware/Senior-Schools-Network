@@ -208,6 +208,38 @@
     text-shadow: 0 1px 1px rgba(0,0,0,0.1);
   }
 
+  /*
+   * Skip link stays clipped until keyboard focus. Declared here (not via .sr-only)
+   * because .sr-only uses !important and would keep Tailwind's focus reveal hidden.
+   */
+  .skip-link {
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+    z-index: 100;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .skip-link:focus {
+    width: auto;
+    height: auto;
+    min-height: 2.75rem;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    display: inline-flex;
+    align-items: center;
+  }
+
   /* Accessible screen-reader-only helper (reveal on focus handled inline) */
   .sr-only {
     position: absolute !important;
