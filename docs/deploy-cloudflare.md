@@ -28,7 +28,7 @@ Pull requests get a [Version URL](https://developers.cloudflare.com/workers/vers
 - `wrangler.jsonc` sets `preview_urls: true`. Wrangler still calls the field `preview_urls`. Setting it explicitly keeps Version URLs on if `workers_dev` is later turned off.
 - `.github/workflows/preview-cloudflare.yml` runs on pull requests to `main`. It builds `out/` and runs `wrangler versions upload`. That uploads a version and does not promote it to the active deployment.
 - The workflow uses the same `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets as production. If either is missing, it still builds, then skips the upload with a notice.
-- When the upload runs, the workflow comments the Version URL on the pull request and updates that comment on later pushes.
+- When the upload runs and Wrangler prints a Version URL, the workflow comments that URL on the pull request and updates the comment on later pushes. If Wrangler uploads the version but does not print a URL, the job stays green and emits a notice. That happens until `preview_urls` is active on the Worker, which the next production deploy applies.
 
 Version URLs look like `<version-prefix>-senior-schools-network.<subdomain>.workers.dev`. They serve that upload's assets. They are not a separate Worker, and they are not [Worker Previews](https://developers.cloudflare.com/workers/previews/) (`wrangler preview`). Worker Previews are what Workers Builds uses for non-production branches, and they need the Git connection this repo does not add.
 

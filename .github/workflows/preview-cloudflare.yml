@@ -67,15 +67,20 @@ jobs:
         run: |
           set -o pipefail
           bunx wrangler versions upload --message "PR ${{ github.event.pull_request.number }} ${{ github.sha }}" 2>&1 | tee upload.txt
-          url=$(grep -Eo 'https://[A-Za-z0-9._-]+\.workers\.dev' upload.txt | head -n 1 || true)
+          # Wrangler prints "Version Preview URL: https://…workers.dev" once
+          # preview_urls is active on the Worker. The first production deploy
+          # after this config lands is what turns that on. A missing URL is
+          # not a failed upload.
+          url=$(sed -E 's/\x1B\[[0-9;]*[mK]//g' upload.txt | grep -Eo 'https://[A-Za-z0-9._-]+\.workers\.dev' | head -n 1 || true)
           if [ -z "$url" ]; then
-            echo "::error::wrangler versions upload did not print a workers.dev URL"
-            exit 1
+            echo "::notice title=No version URL in Wrangler output::The version uploaded, but Wrangler did not print a workers.dev Version URL. preview_urls is applied by the next production deploy. See docs/deploy-cloudflare.md."
+            echo "url=" >> "$GITHUB_OUTPUT"
+          else
+            echo "url=$url" >> "$GITHUB_OUTPUT"
           fi
-          echo "url=$url" >> "$GITHUB_OUTPUT"
 
       - name: Comment version URL on the pull request
-        if: steps.cf.outputs.ready == 'true'
+        if: steps.cf.outputs.ready == 'true' && steps.upload.outputs.url != ''
         uses: actions/github-script@v7
         env:
           PREVIEW_URL: ${{ steps.upload.outputs.url }}
