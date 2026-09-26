@@ -1,5 +1,24 @@
 # AGENTS.md
 
+## Load order
+
+Before copy, look, or structure work, read:
+
+1. `PRODUCT.global.md`
+2. `PRODUCT.md`
+3. `DESIGN.global.md`
+4. `DESIGN.md`
+5. `ARCHITECTURE.md` and `TECH_STACK.md`
+6. `DOC_INDEX.md`
+
+**Conflict rule:** words → `PRODUCT.md`. Look → `DESIGN.md`. Runtime → `TECH_STACK.md`. Layers → `ARCHITECTURE.md`.
+
+Philosophy, mode names, and public lines live in `PRODUCT.md`. Locked order: musical → gymnastic → poetic → romantic → virtuous. Quote only from `public/texts/` (including `PHILOSOPHICAL-AXIOMS.md` as a quote bank). Do not invent Senior quotes.
+
+`.github/docs/north-star.md`, `stages.md`, `design-system.md`, `assets.md`, `image-system.md`, and `technical.md` are pointers. They are not sources of truth.
+
+`/impeccable` is `.cursor/skills/impeccable`. `/impeccable clarify` may tighten words. It may not change the one-liner, the plan, or the direct CTA in `PRODUCT.md`. Do not copy another merimeesoftware product’s type or accent.
+
 ## Cursor Cloud specific instructions
 
 This repo is the **Senior Schools Network** site: a single, fully static **Next.js 14 (App Router, `output: 'export'`)** website. There is no backend, database, API, or auth — all content is file-backed under `lib/content/`, `public/texts/`, and `public/images/`. Standard commands live in `README.md` and `package.json` scripts; prefer those.
