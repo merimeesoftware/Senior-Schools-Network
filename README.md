@@ -71,8 +71,7 @@ bun run dev
 ├── DESIGN.md              # Look
 ├── ARCHITECTURE.md        # Layers and constraints
 ├── TECH_STACK.md          # Runtime and deploy
-├── DOC_INDEX.md           # Which file owns what
-└── .github/docs/          # Pointers only (retired as sources of truth)
+└── DOC_INDEX.md           # Which file owns what
 ```
 
 ## Contributing
@@ -166,7 +165,7 @@ Canon (see [DOC_INDEX.md](DOC_INDEX.md)):
 
 House law, shared across merimeesoftware and not rewritten for this site: [PRODUCT.global.md](PRODUCT.global.md), [DESIGN.global.md](DESIGN.global.md).
 
-Older notes under `.github/docs/` point at the canon. They are not a second source of truth.
+Former notes under `.github/docs/` are removed. Canon lives only in the root files above.
 
 ## License
 

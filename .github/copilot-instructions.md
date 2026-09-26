@@ -16,7 +16,7 @@ Read root `DOC_INDEX.md`. Load order:
 
 Words → `PRODUCT.md`. Look → `DESIGN.md`. Runtime → `TECH_STACK.md`.
 
-Files under `.github/docs/` are pointers, not sources of truth.
+The old `.github/docs/` stubs are removed. Canon lives only in the root files above.
 
 ## Mission
 

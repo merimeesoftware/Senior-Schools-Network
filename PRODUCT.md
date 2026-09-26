@@ -359,14 +359,14 @@ What this file owns, what stays elsewhere, and what a later code pass still owes
 
 | Artifact | Disposition | Notes |
 |----------|-------------|-------|
-| `.github/docs/north-star.md` | **Absorbed.** Stub points here | Philosophy, purpose, StoryBrand, guardrails |
-| `.github/docs/stages.md` | **Absorbed.** Stub points here | Five modes, slugs, refuse-list. This file is the lock |
+| `.github/docs/north-star.md` | **Absorbed and removed.** | Philosophy, purpose, StoryBrand, guardrails live here |
+| `.github/docs/stages.md` | **Absorbed and removed.** | Five modes, slugs, refuse-list. This file is the lock |
 | `docs/reviews/copy-storybrand-rewrite.md` | **Absorbed** into the BrandScript, CTA verbs, failure/success; **keep the review** as a page-by-page proposal until copy ships | Review is proposal, not a live lock |
 | Philosophy canon workbook (not in this repo) | **Absorbed** glossary, chain, taxonomy distinction, premises | Do not dump the full treatise into this file |
 | `public/texts/*` | **KEEP SEPARATE** | Quotation surface; never rewrite Senior to fit marketing |
 | `public/texts/PHILOSOPHICAL-AXIOMS.md` / `QUOTES.md` | **KEEP** as quote banks; audit Senior lines against Restoration; never outrank primary text | |
-| `.github/docs/design-system.md`, `assets.md`, `image-system.md` | **Absorbed into `DESIGN.md`.** Stubs point there | Look, not words |
-| `.github/docs/technical.md` | **Absorbed into `ARCHITECTURE.md`.** Runtime stays in `TECH_STACK.md` | |
+| `.github/docs/design-system.md`, `assets.md`, `image-system.md` | **Absorbed into `DESIGN.md` and removed.** | Look, not words |
+| `.github/docs/technical.md` | **Absorbed into `ARCHITECTURE.md` and removed.** Runtime stays in `TECH_STACK.md` | |
 | `lib/content/stages.ts` | **Later code pass** | Still conflicts (`nursery \| gymnasium \| poetic \| spiritual`). Not changed in the canon-docs pass |
 | `InteractiveStages` / `StageBadge` | **Later code pass** | Live four-stage UI is out of date |
 | Legacy “Four Stages of Restoration” / Nursery–Spiritual marketing | **Retranslate when UI copy ships** | Restoration = work; five modes = sequence |

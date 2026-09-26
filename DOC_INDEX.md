@@ -34,19 +34,21 @@ If two files disagree, update the loser. Do not leave both. Do not mix product s
 
 `/impeccable clarify` may tighten words. It may not change the one-liner, the plan, or the direct CTA in `PRODUCT.md`.
 
-## Retired as sources of truth
+## Retired paths (removed)
 
-Durable claims from these files now live in the canon. The paths remain as short pointers so old links do not 404 in the repo. Do not add new truth to them.
+These files were mined into the canon and then deleted. The paths are gone. Do not restore them.
 
-| Old file | Now owned by |
-|----------|----------------|
+Canon lives only in the root files: `PRODUCT.md`, `DESIGN.md`, `ARCHITECTURE.md`, and `TECH_STACK.md`. House law stays in `PRODUCT.global.md` and `DESIGN.global.md`.
+
+| Former path | Claims now live in |
+|-------------|--------------------|
 | `.github/docs/north-star.md` | `PRODUCT.md` |
 | `.github/docs/stages.md` | `PRODUCT.md` (five modes) |
 | `.github/docs/design-system.md` | `DESIGN.md` |
 | `.github/docs/assets.md` | `DESIGN.md` (imagery) |
 | `.github/docs/image-system.md` | `DESIGN.md` (imagery) |
 | `.github/docs/technical.md` | `ARCHITECTURE.md` + `TECH_STACK.md` |
-| `.github/docs/next-steps.md` | Pointer only. Open implementation notes are not canon |
+| `.github/docs/next-steps.md` | Removed. It was a pointer only. Open implementation notes are not canon |
 
 ## Leftovers
 
