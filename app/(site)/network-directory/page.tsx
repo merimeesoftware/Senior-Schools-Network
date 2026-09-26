@@ -5,6 +5,7 @@ import NetworkFilter from '@/components/interactive/NetworkFilter';
 import { NETWORK_MEMBERS } from '@/lib/content/network';
 import { getAxiomsQuotesBySection } from '@/lib/content/axioms';
 import type { Metadata } from 'next';
+import { SITE_ORIGIN } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Schools & Programs',
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Schools & Programs - Senior Schools Network',
     description:
       'Find affiliated schools and programs by stage focus: nursery, gymnasium, poetic, or spiritual formation.',
-    url: 'https://seniorschoolsnetwork.org/network-directory',
+    url: `${SITE_ORIGIN}/network-directory`,
     images: [{ url: '/og-image-enclosed-garden.jpg', width: 1200, height: 630 }],
   },
 };

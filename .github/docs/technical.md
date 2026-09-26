@@ -55,16 +55,16 @@ Prioritizing CI/CD for automated, reliable workflows, we use GitHub Actions (fre
 
 ## Deployment
 
-- **Primary Option**: Render – Selected for its free tier, seamless Git integration, and support for static/SSR sites. It handles forms (e.g., affiliation applications) natively, auto-deploys on commits, and provides preview URLs for phases. Aligns with simplicity—drag-and-drop from GitHub; includes basic analytics without invasive tracking.
-- **Configuration**: Connect repo to Render; set build command (`next build && next export` for static); deploy to custom domain if available. CI/CD hooks: Actions trigger Render builds.
-- **Fallback**: GitHub Pages – For zero-cost, fully OSS deployment; export static site and push to gh-pages branch via Actions.
-- **Coolify**: Future bare metal deployment (preferred long term but do not have metal servers setup yet or bought)
+- **Target**: Cloudflare Workers + Static Assets. The site is a Next.js static export (`out/`). `wrangler.jsonc` is assets-only (no Worker script, no `@cloudflare/next-on-pages`). Canonical origin is `https://seniorschools.org`.
+- **Configuration**: `bun run build`, then `wrangler deploy`. Headers in `public/_headers`. Host 301s are Cloudflare Bulk Redirects, not `public/_redirects` (domain-level redirects are unsupported on Workers Static Assets). Steps: `docs/deploy-cloudflare.md`.
+- **Until cutover**: `netlify.toml` remains so the current Netlify site can still build. Remove it only after DNS has moved and rollback is no longer needed.
+- **CI**: `.github/workflows/deploy-cloudflare.yml` deploys on push to `main` after lint, typecheck, and build, once `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` are set.
 
 ## Development Workflow
 
 - **Derivation Chain**: Phase-specific tech docs (e.g., current-phase-technical.md) adapt this overview (e.g., specify Markdown components for excerpts).
 - **AI Integration**: Prompts in /prompts reference this doc for constraints (e.g., "Use react-markdown for excerpt viewers; integrate Semgrep in CI/CD").
 - **Version Control**: Git branches per phase (e.g., feature/phase-1); PR reviews for alignment checks.
-- **Monitoring & Maintenance**: Post-deploy, use Render's built-in analytics; manual audits for philosophical fidelity (e.g., ensure content evokes wonder per excerpts.md).
+- **Monitoring & Maintenance**: After deploy, check routes, canonical URLs, and the 404 page (see `docs/deploy-cloudflare.md`). No analytics. Manual audits for philosophical fidelity (e.g., ensure content evokes wonder per excerpts.md).
 
 This technical overview ensures the platform remains faithful to Senior's vision, leveraging high-quality OSS tools for a robust, ethically grounded build. Updates should derive from discussions and commit with references to the north star.

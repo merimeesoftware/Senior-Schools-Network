@@ -1,0 +1,18 @@
+# Workers Static Assets does not support domain-level redirects.
+# A rule such as:
+#   https://www.seniorschools.org/*  https://seniorschools.org/:splat  301
+# is not applied (Cloudflare marks "Domain-level redirects" unsupported).
+# https://developers.cloudflare.com/workers/static-assets/redirects/
+#
+# Host 301s that preserve path and query are dashboard Bulk Redirects.
+# They run in front of this Worker. See docs/deploy-cloudflare.md.
+#
+#   www.seniorschools.org
+#   seniorschoolnetwork.com
+#   www.seniorschoolnetwork.com
+#   seniorschoolnetwork.org
+#   www.seniorschoolnetwork.org
+#     → https://seniorschools.org/<path>?<query>  (301)
+#
+# Path-only redirects belong in this file, one per line, for example:
+# /old-path   /new-path   301

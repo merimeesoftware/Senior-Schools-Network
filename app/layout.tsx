@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { EB_Garamond, IM_Fell_English, Petit_Formal_Script } from 'next/font/google';
 import './globals.css';
+import { SITE_ORIGIN } from '@/lib/site';
 import { getCurrentLiturgicalSeason, getSeasonClassName } from '@/lib/utils/liturgical';
 
 const ebGaramond = EB_Garamond({
@@ -27,7 +28,7 @@ const petitFormalScript = Petit_Formal_Script({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://seniorschoolsnetwork.org'),
+  metadataBase: new URL(SITE_ORIGIN),
   title: {
     default: 'Senior Schools Network',
     template: '%s | Senior Schools Network',
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://seniorschoolsnetwork.org',
+    url: SITE_ORIGIN,
     siteName: 'Senior Schools Network',
     title: 'Senior Schools Network',
     description:

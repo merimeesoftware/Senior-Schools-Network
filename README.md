@@ -2,7 +2,9 @@
 
 A static website promoting schools aligned with Dr. John Senior's philosophy of poetic knowledge, sensory-based learning, and Catholic formation.
 
-**Live Site**: [seniorschoolsnetwork.com](https://seniorschoolsnetwork.com) (Netlify)
+**Canonical site**: [seniorschools.org](https://seniorschools.org)
+
+Until DNS cutover, the live site is still the Netlify deploy at [seniorschoolnetwork.netlify.app](https://seniorschoolnetwork.netlify.app). Legacy hosts (`seniorschoolnetwork.com`, `seniorschoolnetwork.org`, and their `www` names, plus `www.seniorschools.org`) will 301 to the canonical origin. See [docs/deploy-cloudflare.md](docs/deploy-cloudflare.md).
 
 ## Quick Start
 
@@ -40,7 +42,7 @@ bun run dev
 - **Framework**: Next.js 14.2 (static export)
 - **Styling**: Tailwind CSS 3.4
 - **Testing**: Jest 30 + React Testing Library
-- **Deployment**: Netlify (static hosting)
+- **Deployment**: Cloudflare Workers + Static Assets (target). `netlify.toml` remains until post-cutover cleanup.
 
 ## Project Structure
 
@@ -115,15 +117,26 @@ School directory defined in `lib/content/network.ts` and rendered via the Networ
 
 ## Deployment
 
-The site deploys automatically to Netlify on push to `main`.
+**Target**: Cloudflare Workers + Static Assets (assets-only Worker, static `out/`).
 
-**Build command**: `bun install && bun run build`  
-**Publish directory**: `out`
+**Still in place**: Netlify (`netlify.toml`) until DNS cutover. Do not remove it in the same change that adds Wrangler config.
+
+| | |
+|--|--|
+| Build | `bun install && bun run build` |
+| Output | `out/` |
+| Worker config | `wrangler.jsonc` (`name`: `senior-schools-network`) |
+| Canonical origin | `https://seniorschools.org` |
+
+Push to `main` runs `.github/workflows/deploy-cloudflare.yml` (lint, typecheck, build, then `wrangler deploy`). Deploy runs only after the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets are set. Host 301s are Bulk Redirects in the Cloudflare dashboard, not `_redirects` (Workers Static Assets does not support domain-level redirects).
+
+Full cutover steps: [docs/deploy-cloudflare.md](docs/deploy-cloudflare.md).
 
 Manual deploy:
+
 ```bash
 bun run build
-# Upload out/ folder to any static host
+bun run deploy:cloudflare
 ```
 
 ## Documentation

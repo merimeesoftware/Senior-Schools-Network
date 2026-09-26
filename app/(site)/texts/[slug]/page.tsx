@@ -9,6 +9,7 @@ import {
   getTextContent,
   textExists,
 } from '@/lib/content/teasers';
+import { SITE_ORIGIN } from '@/lib/site';
 
 interface TextPageProps {
   params: {
@@ -57,7 +58,7 @@ export async function generateMetadata({
       description:
         metadata.description ||
         `Explore ${metadata.title} and other resources for poetic knowledge and Catholic formation.`,
-      url: `https://seniorschoolsnetwork.org/texts/${slug}`,
+      url: `${SITE_ORIGIN}/texts/${slug}`,
       type: 'article',
     },
   };
@@ -109,7 +110,8 @@ export default async function TextPage({ params }: TextPageProps) {
           {/* Print Guidance */}
           <div className="mt-2 text-center">
             <p className="text-sm text-charcoal/60">
-              💡 Tip: Use your browser's print function (Ctrl+P / Cmd+P) to save this as a PDF
+              💡 Tip: Use your browser's print function (Ctrl+P / Cmd+P) to save
+              this as a PDF
             </p>
           </div>
         </ContentContainer>

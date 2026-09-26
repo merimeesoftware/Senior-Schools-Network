@@ -8,6 +8,7 @@ import { getQuotesBySource } from '@/lib/content';
 import EssentialTextsGrid from '@/components/content/EssentialTextsGrid';
 import HeroSection from '@/components/layout/HeroSection';
 import type { Metadata } from 'next';
+import { SITE_ORIGIN } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Engage with the Network',
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     title: 'Engage - Senior Schools Network',
     description:
       'Discover philosophical foundations, curated resources, and connect with others inspired by John Senior\'s vision of education.',
-    url: 'https://seniorschoolsnetwork.org/engage',
+    url: `${SITE_ORIGIN}/engage`,
     images: [{ url: '/og-image-enclosed-garden.jpg', width: 1200, height: 630 }],
   },
 };

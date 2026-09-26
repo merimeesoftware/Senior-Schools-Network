@@ -14,6 +14,7 @@ import { RestorationSubsectionA } from '@/components/philosophy/RestorationSubse
 import { VisionSyllogismRecap, VisionArchetypes, VisionCallToAction } from '@/components/philosophy/VisionSubsections';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { SITE_ORIGIN } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Philosophy',
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     title: 'Philosophy - Senior Schools Network',
     description:
       'Four core concepts: poetic knowledge, physical discipline, poetic-scientific foundations, and liturgical rhythm.',
-    url: 'https://seniorschoolsnetwork.org/philosophy',
+    url: `${SITE_ORIGIN}/philosophy`,
     images: [{ url: '/og-image-enclosed-garden.jpg', width: 1200, height: 630 }],
   },
 };

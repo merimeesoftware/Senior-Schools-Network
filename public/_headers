@@ -1,0 +1,22 @@
+# Security headers (from netlify.toml) plus Referrer-Policy.
+# Applied to HTML and assets. Do not set Cache-Control here: Cloudflare's
+# default for static assets is `public, max-age=0, must-revalidate`, which
+# is what HTML pages should keep. A Cache-Control on `/*` would also be
+# comma-joined with the immutable rules below.
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Fingerprinted Next bundles, CSS, and next/font files. Filenames are
+# content-hashed, so they are safe to cache for a year.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Same policy as netlify.toml `/images/*`.
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Logos and favicon under public/assets (not covered by the Netlify image rule).
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
