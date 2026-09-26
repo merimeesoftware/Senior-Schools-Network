@@ -65,20 +65,21 @@ bun run dev
 ├── public/                # Static assets
 │   ├── images/            # Site images
 │   └── texts/             # Downloadable PDFs
-└── .github/docs/          # Project documentation
-    ├── north-star.md      # Philosophical foundation
-    ├── technical.md       # Technical architecture
-    ├── design-system.md   # UI/styling guide
-    └── next-steps.md      # Backlog and decisions
+├── PRODUCT.md             # Product and philosophy truth
+├── DESIGN.md              # Look
+├── ARCHITECTURE.md        # Layers and constraints
+├── TECH_STACK.md          # Runtime and deploy
+├── DOC_INDEX.md           # Which file owns what
+└── .github/docs/          # Pointers only (retired as sources of truth)
 ```
 
 ## Contributing
 
 ### Before You Start
 
-1. Read [.github/docs/north-star.md](.github/docs/north-star.md) for philosophical context
-2. Review [.github/docs/technical.md](.github/docs/technical.md) for architecture decisions
-3. Check [.github/docs/next-steps.md](.github/docs/next-steps.md) for current priorities
+1. Read [DOC_INDEX.md](DOC_INDEX.md) for load order
+2. Read [PRODUCT.md](PRODUCT.md) before changing words or modes
+3. Read [DESIGN.md](DESIGN.md) before changing look, and [ARCHITECTURE.md](ARCHITECTURE.md) plus [TECH_STACK.md](TECH_STACK.md) before changing structure or deploy
 
 ### Development Workflow
 
@@ -141,13 +142,19 @@ bun run deploy:cloudflare
 
 ## Documentation
 
+Canon (see [DOC_INDEX.md](DOC_INDEX.md)):
+
 | Document | Purpose |
 |----------|---------|
-| [north-star.md](.github/docs/north-star.md) | Philosophical foundation and mission |
-| [technical.md](.github/docs/technical.md) | Architecture and technical decisions |
-| [design-system.md](.github/docs/design-system.md) | Colors, typography, component patterns |
-| [next-steps.md](.github/docs/next-steps.md) | Backlog and decision log |
+| [PRODUCT.md](PRODUCT.md) | Philosophy, five modes, StoryBrand, public lines |
+| [DESIGN.md](DESIGN.md) | World, type, color, components, imagery |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | Layers and constraints |
+| [TECH_STACK.md](TECH_STACK.md) | Runtime, CI, deploy |
 | [copilot-instructions.md](.github/copilot-instructions.md) | AI agent guardrails |
+
+House law, shared across merimeesoftware and not rewritten for this site: [PRODUCT.global.md](PRODUCT.global.md), [DESIGN.global.md](DESIGN.global.md).
+
+Older notes under `.github/docs/` point at the canon. They are not a second source of truth.
 
 ## License
 

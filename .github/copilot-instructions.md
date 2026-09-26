@@ -8,20 +8,19 @@ Operating constraints for AI agents working in this repository.
 
 ## Source of Truth
 
-| Document | Purpose |
-|----------|---------|
-| `.github/docs/north-star.md` | Philosophical foundation, mission, user flows |
-| `.github/docs/stages.md` | Locked developmental modes (musical → virtuous) |
-| `.github/docs/technical.md` | Architecture and technical decisions |
-| `.github/docs/design-system.md` | Colors, typography, component patterns |
-| `.github/docs/next-steps.md` | Backlog and decision log |
-| `README.md` | Contributor guide and commands |
+Read root `DOC_INDEX.md`. Load order:
 
-Priority order: north-star.md > stages.md > technical.md > design-system.md > next-steps.md.
+1. `PRODUCT.global.md` then `PRODUCT.md`
+2. `DESIGN.global.md` then `DESIGN.md`
+3. `ARCHITECTURE.md` and `TECH_STACK.md`
+
+Words → `PRODUCT.md`. Look → `DESIGN.md`. Runtime → `TECH_STACK.md`.
+
+Files under `.github/docs/` are pointers, not sources of truth.
 
 ## Mission
 
-Promote a loose network of Catholic schools aligned with John Senior's philosophy of **education through sense, story, and liturgy**. The network spans the five locked modes—musical, gymnastic, poetic, romantic, and virtuous. Inspire and connect; never prescribe curricula. See `.github/docs/stages.md` before naming or filtering stages.
+Promote a loose network of Catholic schools aligned with John Senior's philosophy of **education through sense, story, and liturgy**. The network spans the five locked modes—musical, gymnastic, poetic, romantic, and virtuous. Inspire and connect; never prescribe curricula. Mode names, order, and public lines: `PRODUCT.md`.
 
 ## Technical Stack
 
@@ -37,7 +36,7 @@ Promote a loose network of Catholic schools aligned with John Senior's philosoph
 - Never fabricate quotes—attribute all citations
 - Maintain Catholic fidelity and charitable tone
 - Platform is network-focused—no content about specific prototype schools
-- Stage labels, slugs, and filter order must match `.github/docs/stages.md`
+- Stage labels, slugs, and filter order must match `PRODUCT.md` (musical, gymnastic, poetic, romantic, virtuous)
 
 ## Workflow
 
@@ -74,5 +73,5 @@ Modern AI agents can infer context from codebase structure. Detailed prompts are
 
 - **Scope**: Network promotion across all educational stages—not curriculum prescription
 - **Fidelity**: Catholic tradition and Western canon; exclusionary in core tenets
-- **Tech**: Follow technical.md; prefer static generation; avoid runtime complexity
+- **Tech**: Follow `ARCHITECTURE.md` and `TECH_STACK.md`; prefer static generation; avoid runtime complexity
 - **Ethics**: Emphasize charity and humility; never collect user data
