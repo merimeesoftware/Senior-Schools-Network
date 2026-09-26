@@ -105,8 +105,8 @@ export default function RootLayout({
         data-season={seasonInfo.season}
         data-season-color={seasonInfo.color}
       >
-        {/* Skip to content for keyboard users */}
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus-visible-ring bg-parchment text-forest px-4 py-2 rounded-organic z-[100]">
+        {/* Skip to content for keyboard users. Custom .sr-only uses !important and hides Tailwind's focus:not-sr-only, so this uses .skip-link. */}
+        <a href="#main-content" className="skip-link focus-visible-ring bg-parchment text-forest rounded-organic font-lato">
           Skip to main content
         </a>
         {children}

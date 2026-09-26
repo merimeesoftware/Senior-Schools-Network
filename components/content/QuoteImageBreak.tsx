@@ -57,7 +57,10 @@ export default function QuoteImageBreak({
   
   useEffect(() => {
     if (!enableParallax) return;
-    
+
+    const mediaQuery = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+    let scrollAttached = false;
+
     const handleScroll = () => {
       if (sectionRef.current) {
         const rect = sectionRef.current.getBoundingClientRect();
@@ -76,11 +79,31 @@ export default function QuoteImageBreak({
         setParallaxOffset(-33 + (clampedProgress * 50));
       }
     };
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initialize on mount
-    
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    const syncMotion = () => {
+      if (mediaQuery?.matches) {
+        setParallaxOffset(0);
+        if (scrollAttached) {
+          window.removeEventListener('scroll', handleScroll);
+          scrollAttached = false;
+        }
+        return;
+      }
+
+      if (!scrollAttached) {
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        scrollAttached = true;
+        handleScroll();
+      }
+    };
+
+    syncMotion();
+    mediaQuery?.addEventListener('change', syncMotion);
+
+    return () => {
+      if (scrollAttached) window.removeEventListener('scroll', handleScroll);
+      mediaQuery?.removeEventListener('change', syncMotion);
+    };
   }, [enableParallax]);
   
   const handleRefresh = () => {
