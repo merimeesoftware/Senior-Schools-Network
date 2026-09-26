@@ -51,9 +51,7 @@ export function VisionWarriorPoet({ className = '' }: VisionWarriorPoetProps) {
       />
 
       <p className="text-lg text-charcoal/90 text-center max-w-3xl mx-auto leading-relaxed">
-        The warrior poet is not a romantic ideal but the natural outcome of the four stages.
-        Physical courage (gymnasium) + integrated learning (poetic) + liturgical wisdom (spiritual)
-        = men who can restore Christendom.
+        The musical teaches repose, the gymnastic adventure, the poetic the first look, the romantic the quest that look demands, and the virtuous the cost of keeping faith with both. Chivalric Wayfarer language is apt for gymnastic and romantic imagery, not a sixth mode.
       </p>
     </div>
   );

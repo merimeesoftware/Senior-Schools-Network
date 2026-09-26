@@ -36,7 +36,7 @@ export function VisionCallToAction({ className = '' }: VisionCallToActionProps) 
           {
             emoji: "🏫",
             heading: "Found a School",
-            description: "Gather families in your area. Hire a headmaster. Build the gymnasium stage. We can help.",
+            description: "Gather families in your area. Hire a headmaster. Build the gymnastic years. We can help.",
             action: (
               <CTAButton href="/contact" variant="primary" size="md">
                 Get in Touch

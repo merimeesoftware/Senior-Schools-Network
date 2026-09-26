@@ -5,8 +5,7 @@ import EvidenceQuoteGroup from "@/components/content/EvidenceQuoteGroup";
 /**
  * RestorationSubsectionA Component
  * 
- * Renders Part II, Section A: The Four Stages of Restoration.
- * Shows Senior's developmental model with InteractiveStages component.
+ * Renders Part II, Section A: restoration as the work, five modes as the sequence.
  * 
  * Part of the Minor Premise (The Restoration) in the syllogistic argument structure.
  * 
@@ -30,13 +29,14 @@ export function RestorationSubsectionA({ className = '' }: RestorationSubsection
   return (
     <div id="minor-premise-a" className={`space-y-12 ${className}`}>
       <h3 className="font-playfair text-4xl font-bold text-green-900">
-        A. The Four Stages of Restoration
+        A. The Five Modes
       </h3>
 
       <p className="text-lg leading-relaxed text-charcoal/90 max-w-4xl mx-auto">
-        Dr. John Senior's model for Christian education follows the natural developmental stages,
-        each building on the previous. These are not arbitrary divisions but organic phases
-        corresponding to the child's physical, intellectual, and spiritual maturation.
+        Restoration is the work; the five modes are the sequence. Modes are cumulative and overlapping.
+        Advance retains earlier modes as living roots. Ages are approximate. The musical teaches repose,
+        the gymnastic adventure, the poetic the first look, the romantic the quest that look demands,
+        and the virtuous the cost of keeping faith with both.
       </p>
 
       <p className="text-center text-sm text-charcoal/70 italic mb-4">
@@ -50,13 +50,6 @@ export function RestorationSubsectionA({ className = '' }: RestorationSubsection
         title="Evidence from the Sources"
         collapsible={false}
         quotes={[
-          {
-            quote: "The four stages are not a curriculum but a way of life. Nursery is wonder. Gymnasium is discipline. Poetic is integration. Spiritual is wisdom. Skip any stage and the whole structure collapses.",
-            author: "Dr. John Senior",
-            source: "The Restoration of Christian Culture",
-            showSourceLink: true,
-            sourceSlug: "restoration-of-christian-culture"
-          },
           {
             quote: "Poetic knowledge is not specialized knowledge but that connaturality and right harmony with things which Adam and Eve possessed in Eden. It must be cultivated through the stages, beginning with sensory wonder and culminating in liturgical wisdom.",
             author: "Dr. John Senior",

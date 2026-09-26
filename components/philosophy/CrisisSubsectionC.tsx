@@ -54,7 +54,7 @@ export function CrisisSubsectionC({ className = '' }: CrisisSubsectionCProps) {
         }}
         solution={{
           title: "The Solution: Poetic Knowledge as Foundation",
-          description: "Senior's poetic stage (ages 13-17) is the fertile soil from which all higher learning must grow. Music, art, poetry, and philosophy—integrated through liturgical rhythm—train the boy to see reality as a whole, not as fragmented facts.\n\nOnly after poetic knowledge is established can science and specialization be introduced. The IHP model demonstrates this: three years of integrated humanities (Great Books, music, art) before any specialized study. The result? Students who pursue STEM careers with wonder, not just utility.",
+          description: "The poetic (~12–15) is yearning as knowing: image, song, pudor, presence — the fertile soil from which all higher learning must grow. Music, art, poetry, and philosophy—integrated through liturgical rhythm—train the boy to see reality as a whole, not as fragmented facts.\n\nOnly after poetic knowledge is established can science and specialization be introduced. The IHP model demonstrates this: three years of integrated humanities (Great Books, music, art) before any specialized study. The result? Students who pursue STEM careers with wonder, not just utility.",
           quote: {
             id: "integrated-thinkers",
             quote: "Result: Integrated thinkers who see science, philosophy, and theology as unified expressions of truth.",
@@ -104,12 +104,24 @@ export function CrisisSubsectionC({ className = '' }: CrisisSubsectionCProps) {
         description="Specialization must grow from poetic soil, not replace it"
         leftColumn={{
           label: "Modern Education",
-          steps: ["Screens (0-13)", "Gymnasium (skipped)", "Poetic (skipped)", "STEM-first"],
+          steps: [
+            "Screens invade the musical garden",
+            "Gymnasium evacuated",
+            "Softness, no arranged adventure",
+            "Analysis before wonder",
+            "Poetic and romantic collapse",
+          ],
           result: "= Alienated Technician"
         }}
         rightColumn={{
           label: "Classical Education",
-          steps: ["Nursery (0-7)", "Gymnasium (7-13)", "Poetic (13-17)", "Science (from soil)"],
+          steps: [
+            "Musical (0–7)",
+            "Gymnastic (7–13)",
+            "Poetic (~12–15)",
+            "Romantic (~15–18+)",
+            "Virtuous (youth onward)",
+          ],
           result: "= Integrated Chivalric Wayfarer"
         }}
       />

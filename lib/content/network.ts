@@ -94,7 +94,7 @@ export const SCHOOLS: NetworkMember[] = [
     id: 'la-salette-academy',
     name: 'La Salette Academy',
     location: 'Georgetown, Illinois, US',
-    stages: ['gymnasium', 'poetic'] as const,
+    stages: ['gymnastic', 'poetic'] as const,
     type: 'school',
     description:
       "La Salette Academy cultivates Catholic men through academic excellence, duty, discipline, and holiness, inspiring perfection in every action within a framework aligned with Catholic tradition. It fosters poetic knowledge by blending intellectual rigor with spiritual depth, nurturing wonder through communal brotherhood and narrative pursuits of virtue. Sensory immersion via athletics such as cross country, basketball, and rugby, alongside liturgical and student life activities, supports holistic formation, shaping leaders who embody unrelenting virtue and noble ideals.",
@@ -128,7 +128,8 @@ export const SCHOOLS: NetworkMember[] = [
     id: 'college-of-st-joseph-the-worker',
     name: 'College of St. Joseph the Worker',
     location: 'Steubenville, Ohio, US',
-    stages: ['poetic', 'spiritual'] as const,
+    // Legacy spiritual → virtuous (justice, household, fidelity). Poetic kept. Romantic not invented.
+    stages: ['poetic', 'virtuous'] as const,
     type: 'school',
     description:
         "The College of St. Joseph the Worker embodies the Catholic intellectual tradition, pursuing truth, beauty, and goodness through a liberal arts curriculum integrated with hands-on skilled trades training in areas like carpentry and plumbing. This approach fosters poetic knowledge via the theology of work, emphasizing excellence in craftsmanship and the moral dignity of labor as modeled by Christ. Holistic formation unites head, heart, and hands, preparing debt-free graduates to sanctify families, workplaces, and communities through intellectual, spiritual, and practical virtues.",
@@ -145,7 +146,8 @@ export const SCHOOLS: NetworkMember[] = [
     id: 'wyoming-catholic-college',
     name: 'Wyoming Catholic College',
     location: 'Lander, Wyoming, US',
-    stages: ['poetic', 'spiritual'] as const,
+    // Legacy spiritual → virtuous (justice, household, fidelity). Poetic kept. Romantic not invented.
+    stages: ['poetic', 'virtuous'] as const,
     type: 'school',
     description:
         "Wyoming Catholic College, an intentional and deeply Catholic academic community, heals modern fragmentation by steeping students in wonder and forming them in wisdom through classical learning and the Western tradition. Its philosophy emphasizes poetic knowledge with strong sensory immersion in nature, viewing it as 'God's First Book' via unique outdoor expeditions that foster enchantment and truth. Key programs integrate academics, arts, and liturgical rhythm, cultivating holistic formation in a supportive environment aligned with Catholic ideals.",
@@ -179,7 +181,7 @@ export const SCHOOLS: NetworkMember[] = [
     id: 'childrens-tradition',
     name: "The Children's Tradition",
     location: 'Homeschooling',
-    stages: ['nursery', 'gymnasium'] as const,
+    stages: ['musical', 'gymnastic'] as const,
     type: 'program',
     description:
     "The Children's Tradition offers a homeschool curriculum inspired by John Senior and Charlotte Mason, focusing on gymnastic and musical education through sensory-emotional immersion in nature and books. It nurtures wonder and delight in elementary years, providing an embodied classical education that calls students to hard things while fostering poetic knowledge. The program integrates faith and virtue, aligning with narrative and sensory-based learning for holistic child formation.",
@@ -201,7 +203,7 @@ export const PROGRAMS: NetworkMember[] = [
     id: 'iliad-athletics',
     name: 'Iliad Athletics',
     location: 'United States (National)',
-    stages: ['gymnasium', 'poetic'] as const,
+    stages: ['gymnastic', 'poetic'] as const,
     type: 'program',
     description:
         "Iliad Athletics nurtures lifelong fitness grounded in classic American values, transforming physical education to integrate body, mind, and soul through fitness, nature immersion, and character development aligned with classical and Western traditions. It fosters poetic knowledge via wonder in the outdoors as a lifelong playground, emphasizing sensory experiences through strenuous activities and narrative-driven challenges that echo ancient virtues. Unique programs like the immersive Educator Certification Course and youth camps cultivate grit, teamwork, and self-mastery for holistic formation, preparing participants for life's demands beyond the classroom.",
@@ -217,7 +219,7 @@ export const PROGRAMS: NetworkMember[] = [
     id: 'sebaste',
     name: 'Sebaste',
     location: 'Gallup, New Mexico, US',
-    stages: ['gymnasium', 'poetic'] as const,
+    stages: ['gymnastic', 'poetic'] as const,
     type: 'program',
     description:
         "Sebaste challenges young men to become great saints through adventure, brotherhood, physical challenge, and prayer, addressing masculinity crises with transformative experiences rooted in devotion, trial, and eternal fraternal bonds within Catholic tradition. It fosters poetic knowledge by emphasizing wonder in transcendent truth, goodness, and beauty, with sensory immersion via raw physical trials and pseudo-monastic retreats featuring shared work, prayer, and narrative reflections. The 9-week SHRINE internship and custom events like ultra-marathon-inspired journeys integrate liturgical rhythm and mentorship, cultivating holistic formation for virtuous leaders who encounter God's love through hardship and community.",

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import StageBadge, { STAGE_LABELS } from '../ui/StageBadge';
 import CTAButton from '../ui/CTAButton';
 import type { Stage } from '@/lib/types/content';
+import { getAllStages } from '@/lib/content/stages';
 import Image from 'next/image';
 
 export interface School {
@@ -27,7 +28,7 @@ interface SchoolsFilterProps {
 export default function SchoolsFilter({ schools }: SchoolsFilterProps) {
   const [selectedStages, setSelectedStages] = useState<Set<Stage>>(new Set());
 
-  const allStages: Stage[] = ['nursery', 'gymnasium', 'poetic', 'spiritual'];
+  const allStages: Stage[] = getAllStages();
 
   const toggleStage = (stage: Stage) => {
     const newSelected = new Set(selectedStages);
@@ -205,8 +206,7 @@ export default function SchoolsFilter({ schools }: SchoolsFilterProps) {
             Don't See a School Near You?
           </h3>
           <p className="text-body text-center mb-6 max-w-2xl mx-auto leading-relaxed">
-            The gymnasium stage (ages 7-13) is sorely lacking in modern
-            education. Consider starting a school to restore this vital phase of
+            The gymnastic years (roughly 7–13) barely exist. Consider starting a school to restore this vital phase of
             formation.
           </p>
           <div className="text-center">

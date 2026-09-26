@@ -18,6 +18,7 @@ import type {
   ContentCategory,
 } from '@/lib/types/content';
 import { getAllQuotes } from '@/lib/content/quotes';
+import { getAllStages } from '@/lib/content/stages';
 
 // Paths
 const CONTENT_DIR = path.join(process.cwd(), 'public');
@@ -136,6 +137,21 @@ export async function getBookListsByStage(
 }
 
 /**
+ * Map legacy book-list headings onto the five locked slugs.
+ * Youth (16–20) is the old poetic band past ~15, so it becomes romantic.
+ * “Spiritual reading” is not a mode; liturgy runs through all, and this bucket maps to virtuous.
+ */
+function mapBookHeadingToStage(stageName: string): Stage | null {
+  const normalized = stageName.toLowerCase().replace(/^the\s+/, '').trim();
+  if (normalized.startsWith('nursery') || normalized.startsWith('musical')) return 'musical';
+  if (normalized.startsWith('school days') || normalized.startsWith('gymnastic')) return 'gymnastic';
+  if (normalized.startsWith('adolescence') || normalized.startsWith('poetic')) return 'poetic';
+  if (normalized.startsWith('youth') || normalized.startsWith('romantic')) return 'romantic';
+  if (normalized.startsWith('spiritual') || normalized.startsWith('virtuous')) return 'virtuous';
+  return null;
+}
+
+/**
  * Parse Thousand Good Books List markdown into structured data
  */
 function parseBookList(content: string): BookListEntry[] {
@@ -145,15 +161,7 @@ function parseBookList(content: string): BookListEntry[] {
   let currentStage: Stage | null = null;
   let currentAgeRange = '';
 
-  const stageMapping: Record<string, Stage> = {
-    nursery: 'nursery',
-    'school days': 'gymnasium',
-    adolescence: 'poetic',
-    youth: 'poetic',
-    spiritual: 'spiritual',
-  };
-
-  const stageRegex = /^###\s+(.+?)\s*\(Ages?\s*(.+?)\)/i;
+  const stageRegex = /^###\s+(.+?)\s*\((?:Ages?\s*)?(.+?)\)/i;
   const bookRegex =
     /^[-*]\s+(.+?),\s+(.+?)\.\s+(.+?)(?:\s+Illustrated by\s+(.+?))?\.?$/i;
   const simpleRegex = /^[-*]\s+(.+?)\.\s+(.+?)\.?$/;
@@ -166,7 +174,7 @@ function parseBookList(content: string): BookListEntry[] {
     if (stageMatch) {
       const stageName = stageMatch[1].toLowerCase();
       currentAgeRange = stageMatch[2];
-      currentStage = stageMapping[stageName] || null;
+      currentStage = mapBookHeadingToStage(stageName);
       continue;
     }
 
@@ -231,7 +239,7 @@ export async function getScriptureWaypoints(): Promise<ScriptureWaypoint[]> {
       verse: 'Ephesians 6:4',
       text: 'Bring them up in the discipline and instruction of the Lord',
       primaryFlow: 'school',
-      description: 'Discipline and formation for gymnasium stage',
+      description: 'Discipline and formation for the gymnastic years',
     },
     {
       id: 'matthew-11-28',
@@ -276,7 +284,7 @@ export async function getQuotesBySource(source?: string): Promise<Quote[]> {
 export function groupByStage<T extends { stage?: Stage }>(
   items: T[]
 ): ContentGroup<T>[] {
-  const stages: Stage[] = ['nursery', 'gymnasium', 'poetic', 'spiritual'];
+  const stages: Stage[] = getAllStages();
   const groups: ContentGroup<T>[] = [];
 
   for (const stage of stages) {

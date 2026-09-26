@@ -4,6 +4,7 @@ import { useState } from 'react';
 import StageBadge, { STAGE_LABELS } from '../ui/StageBadge';
 import CTAButton from '../ui/CTAButton';
 import type { Stage } from '@/lib/types/content';
+import { getAllStages } from '@/lib/content/stages';
 import type { NetworkMember, NetworkMemberType, EducationLevel } from '@/lib/content/network';
 import { EDUCATION_LEVEL_METADATA } from '@/lib/content/network';
 import Image from 'next/image';
@@ -46,7 +47,7 @@ function MemberCard({ member }: { member: NetworkMember }) {
             <span className={`text-[10px] font-lato uppercase tracking-wide px-1.5 py-0.5 rounded flex-shrink-0 ${
               member.type === 'school' 
                 ? 'bg-forest/10 text-forest' 
-                : 'bg-gymnasium/10 text-gymnasium'
+                : 'bg-gymnastic/10 text-gymnastic'
             }`}>
               {member.type}
             </span>
@@ -121,7 +122,7 @@ export default function NetworkFilter({ members }: NetworkFilterProps) {
   const [selectedType, setSelectedType] = useState<NetworkMemberType | 'all'>('all');
   const [selectedEducationLevel, setSelectedEducationLevel] = useState<EducationLevel | 'all'>('all');
 
-  const allStages: Stage[] = ['nursery', 'gymnasium', 'poetic', 'spiritual'];
+  const allStages: Stage[] = getAllStages();
   const allEducationLevels: EducationLevel[] = ['grade-school', 'middle-school', 'high-school', 'college'];
   
   const typeOptions: { value: NetworkMemberType | 'all'; label: string }[] = [
@@ -229,17 +230,17 @@ export default function NetworkFilter({ members }: NetworkFilterProps) {
           </div>
         </div>
 
-        {/* Stage Filter - 2x2 Grid */}
+        {/* Stage Filter */}
         <div className="mb-4">
           <h2 className="text-body-sm font-lato font-semibold text-charcoal/70 uppercase tracking-wide mb-2">
             Developmental Stage
           </h2>
-          <div className="grid grid-cols-2 gap-2 w-fit" role="group" aria-label="Filter by stage">
+          <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by stage">
             {allStages.map((stage) => (
               <button
                 key={stage}
                 onClick={() => toggleStage(stage)}
-                className={`w-40 transition-all duration-200 ${
+                className={`transition-all duration-200 ${
                   selectedStages.has(stage)
                     ? 'ring-2 ring-gold ring-offset-2 ring-offset-parchment-dark'
                     : 'opacity-80 hover:opacity-100'
@@ -301,8 +302,7 @@ export default function NetworkFilter({ members }: NetworkFilterProps) {
             Don't See a School or Program Near You?
           </h3>
           <p className="text-body text-center mb-6 max-w-2xl mx-auto leading-relaxed">
-            The gymnasium stage (ages 7-13) is sorely lacking in modern
-            education. Consider starting a school or program to restore this vital phase of
+            The gymnastic years (roughly 7–13) barely exist. Consider starting a school or program to restore this vital phase of
             formation.
           </p>
           <div className="text-center">

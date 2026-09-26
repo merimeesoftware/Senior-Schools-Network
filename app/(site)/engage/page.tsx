@@ -40,7 +40,7 @@ export default async function EngagePage() {
       slug: 'integrated_humanities_lecture',
       title: 'Integrated Humanities Lecture',
       author: 'Dr. Dennis Quinn & Dr. Frank Nelick',
-      description: "The IHP lecture laying out Senior's educational philosophy in action - practical, succinct, and essential for understanding the gymnasium stage.",
+      description: "The IHP lecture laying out Senior's educational philosophy in action - practical, succinct, and essential for understanding the gymnastic years.",
       tags: ['philosophy', 'education', 'poetic-knowledge'],
     },
     {
@@ -115,7 +115,7 @@ export default async function EngagePage() {
           </SectionHeading>
 
           <p className="text-center text-body-lg max-w-2xl mx-auto mb-12 leading-relaxed">
-            The gymnasium stage (ages 7-13) is critically underserved in modern education. This vital phase, where physical discipline, adventure, and stories form resilient "warrior poets," remains largely absent from our schools.
+            The gymnastic years (roughly 7–13) barely exist. This vital phase, where physical discipline, adventure, and stories form resilient "warrior poets," remains largely absent from our schools.
           </p>
 
           <div className="card-elevated border-l-4 border-gymnasium max-w-4xl mx-auto">

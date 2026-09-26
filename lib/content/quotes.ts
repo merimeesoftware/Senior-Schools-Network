@@ -59,7 +59,7 @@ export const quotesIndex: Quote[] = [
     author: 'John Senior',
     source: 'The Restoration of Innocence',
     category: 'discipline',
-    stage: 'gymnasium',
+    stage: 'gymnastic',
     primaryFlow: 'school',
   },
   {
@@ -84,7 +84,7 @@ export const quotesIndex: Quote[] = [
     author: 'John Senior',
     source: 'The Restoration of Innocence',
     category: 'stories',
-    stage: 'gymnasium',
+    stage: 'gymnastic',
   },
 
   // Classical foundations
@@ -113,7 +113,7 @@ export const quotesIndex: Quote[] = [
     author: 'Ephesians 6:4',
     source: 'Knox',
     category: 'scripture',
-    stage: 'spiritual',
+    stage: 'virtuous',
     primaryFlow: 'school',
   },
   {
@@ -123,7 +123,7 @@ export const quotesIndex: Quote[] = [
     author: 'Proverbs 22:6',
     source: 'Knox',
     category: 'scripture',
-    stage: 'spiritual',
+    stage: 'virtuous',
     primaryFlow: 'home',
   },
   {
@@ -133,7 +133,8 @@ export const quotesIndex: Quote[] = [
     author: 'Matthew 11:28',
     source: 'Knox',
     category: 'scripture',
-    stage: 'spiritual',
+    // Legacy spiritual tag. “I will give you rest” is repose — the musical mode.
+    stage: 'musical',
     primaryFlow: 'founding',
   },
 ];

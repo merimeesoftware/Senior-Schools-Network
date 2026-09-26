@@ -90,7 +90,7 @@ export default async function PhilosophyPage() {
             The Argument: Three Steps to Restoration
           </SectionHeading>
           <p className="text-center text-xl text-charcoal/70 mb-12 max-w-3xl mx-auto leading-relaxed">
-            A syllogistic case for poetic knowledge and the gymnasium stage
+            A syllogistic case for poetic knowledge and the gymnastic years
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
@@ -264,7 +264,7 @@ export default async function PhilosophyPage() {
               Summary: The Three Poisons
             </h3>
             <p className="text-base text-charcoal/90 leading-relaxed mb-6">
-              Modern education has systematically destroyed the gymnasium and poetic stages through three interconnected failures:
+              Screens invade the musical garden and evacuate the gymnasium. Softness bubble-wraps children out of arranged adventure. Specialization forces analysis before wonder.
             </p>
             
             {/* Compact 3-column card grid */}
@@ -329,7 +329,7 @@ export default async function PhilosophyPage() {
       <SyllogismSection 
         type="minor" 
         title="The Opportunity: Poetic Restoration"
-        subtitle="Restore through four stages: nursery wonder, gymnasium risk, poetic integration, spiritual wisdom."
+        subtitle="The musical teaches repose, the gymnastic adventure, the poetic the first look, the romantic the quest that look demands, and the virtuous the cost of keeping faith with both."
         number="II" 
         id="minor-premise"
       >
@@ -388,7 +388,7 @@ export default async function PhilosophyPage() {
             objections={[
               {
                 question: "Isn't this too rigorous? Most boys can't handle this level of discipline.",
-                answer: "This objection assumes boys are fragile. They are not. Boys are designed for risk, adventure, and discipline. The modern epidemic of anxiety and weakness is not the natural state—it is the result of coddling.\n\nThe gymnasium stage meets boys where they are—ages 7-13, when they crave physical challenge. To deny them this is to cripple them.",
+                answer: "This objection assumes boys are fragile. They are not. Boys are designed for risk, adventure, and discipline. The modern epidemic of anxiety and weakness is not the natural state—it is the result of coddling.\n\nThe gymnastic years (roughly 7–13) meet boys where they are, when they crave physical challenge. To deny them this is to cripple them.",
                 quote: {
                   id: "boys-not-fragile",
                   quote: "Boys are not fragile. They are designed for hardship. The modern epidemic of anxiety is the result of too little discipline, not too much.",
@@ -399,7 +399,7 @@ export default async function PhilosophyPage() {
               },
               {
                 question: "Isn't this elitist? Not every family can afford private classical schools.",
-                answer: "Senior's philosophy is not elitist—it is natural. Homeschool families can adapt the gymnasium stage: outdoor play, Latin primers, local sports teams. The IHP model began with middle-class families in Kansas, not aristocrats.\n\nWhat is elitist? Telling working-class parents their sons must accept screen addiction and indoor confinement because they cannot afford elite schools. Poetic knowledge is for everyone—it is the birthright of baptized boys.",
+                answer: "Senior's philosophy is not elitist—it is natural. Homeschool families can adapt the gymnastic years: outdoor play, Latin primers, local sports teams. The IHP model began with middle-class families in Kansas, not aristocrats.\n\nWhat is elitist? Telling working-class parents their sons must accept screen addiction and indoor confinement because they cannot afford elite schools. Poetic knowledge is for everyone—it is the birthright of baptized boys.",
               },
               {
                 question: "Is this practical? Can these boys succeed in the modern economy?",

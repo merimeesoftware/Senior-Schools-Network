@@ -5,7 +5,7 @@ import CardGrid from "@/components/content/CardGrid";
  * VisionArchetypes Component
  * 
  * Defines the formation archetypes: Chivalric Wayfarer (gymnasium), Poetic Guardian (outcome).
- * Shows how the four stages produce integrated Catholic men.
+ * Shows the five modes and what the soul is doing in each.
  * 
  * Part of the Conclusion (The Vision) in the syllogistic argument structure.
  * 
@@ -33,8 +33,7 @@ export function VisionArchetypes({ className = '' }: VisionArchetypesProps) {
       </h3>
 
       <p className="text-lg text-charcoal/90 text-center max-w-3xl mx-auto leading-relaxed">
-        The outcome of the four stages: Physical courage (gymnasium) + integrated learning (poetic) + 
-        liturgical wisdom (spiritual) = men who live fully human lives, not as cogs in a machine.
+        The musical teaches repose, the gymnastic adventure, the poetic the first look, the romantic the quest that look demands, and the virtuous the cost of keeping faith with both.
       </p>
 
       {/* Formation Aspects Table */}
@@ -42,26 +41,30 @@ export function VisionArchetypes({ className = '' }: VisionArchetypesProps) {
         <table className="w-full border-collapse">
           <thead>
             <tr className="bg-gold/20">
-              <th className="border-2 border-gold p-4 text-left font-playfair text-lg text-gold-dark">Formation Aspect</th>
-              <th className="border-2 border-gold p-4 text-left font-playfair text-lg text-gold-dark">Stage Contribution</th>
-              <th className="border-2 border-gold p-4 text-left font-playfair text-lg text-gold-dark">Example Outcome</th>
+              <th className="border-2 border-gold p-4 text-left font-playfair text-lg text-gold-dark">Mode</th>
+              <th className="border-2 border-gold p-4 text-left font-playfair text-lg text-gold-dark">What the soul is doing</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td className="border-2 border-gold/50 p-4 font-medium text-charcoal">Physical Resilience</td>
-              <td className="border-2 border-gold/50 p-4 text-charcoal/80">Gymnasium</td>
-              <td className="border-2 border-gold/50 p-4 text-charcoal/80">Endures hardships as Chivalric Wayfarer, defending with courage.</td>
+              <td className="border-2 border-gold/50 p-4 font-medium text-charcoal">Musical</td>
+              <td className="border-2 border-gold/50 p-4 text-charcoal/80">Repose; Muses as lullaby, rhyme, picture; first delight</td>
             </tr>
             <tr className="bg-parchment/30">
-              <td className="border-2 border-gold/50 p-4 font-medium text-charcoal">Moral Courage</td>
-              <td className="border-2 border-gold/50 p-4 text-charcoal/80">Poetic</td>
-              <td className="border-2 border-gold/50 p-4 text-charcoal/80">Integrates senses/emotions, pursuing truth humbly.</td>
+              <td className="border-2 border-gold/50 p-4 font-medium text-charcoal">Gymnastic</td>
+              <td className="border-2 border-gold/50 p-4 text-charcoal/80">Naked contact with things; rules; arranged adventure</td>
             </tr>
             <tr>
-              <td className="border-2 border-gold/50 p-4 font-medium text-charcoal">Integrated Wisdom</td>
-              <td className="border-2 border-gold/50 p-4 text-charcoal/80">Spiritual</td>
-              <td className="border-2 border-gold/50 p-4 text-charcoal/80">Anchored in liturgy, restores families/Christendom as Poetic Guardian.</td>
+              <td className="border-2 border-gold/50 p-4 font-medium text-charcoal">Poetic</td>
+              <td className="border-2 border-gold/50 p-4 text-charcoal/80">Yearning as knowing: image, song, pudor, presence</td>
+            </tr>
+            <tr className="bg-parchment/30">
+              <td className="border-2 border-gold/50 p-4 font-medium text-charcoal">Romantic</td>
+              <td className="border-2 border-gold/50 p-4 text-charcoal/80">Quest, ordeal, vow; battles that cannot be arranged</td>
+            </tr>
+            <tr>
+              <td className="border-2 border-gold/50 p-4 font-medium text-charcoal">Virtuous</td>
+              <td className="border-2 border-gold/50 p-4 text-charcoal/80">Justice, suffering, governing, keeping faith</td>
             </tr>
           </tbody>
         </table>

@@ -25,12 +25,12 @@ jest.mock('@/components/content/EvidenceQuoteGroup', () => ({
 describe('RestorationSubsectionA', () => {
   it('renders without crashing', () => {
     render(<RestorationSubsectionA />);
-    expect(screen.getByText('A. The Four Stages of Restoration')).toBeInTheDocument();
+    expect(screen.getByText('A. The Five Modes')).toBeInTheDocument();
   });
 
   it('renders the correct heading', () => {
     render(<RestorationSubsectionA />);
-    const heading = screen.getByRole('heading', { name: /A. The Four Stages of Restoration/i });
+    const heading = screen.getByRole('heading', { name: /A. The Five Modes/i });
     expect(heading.className).toContain('font-playfair');
     expect(heading.className).toContain('text-4xl');
     expect(heading.className).toContain('text-green-900');
@@ -38,8 +38,8 @@ describe('RestorationSubsectionA', () => {
 
   it('renders the introductory paragraph', () => {
     render(<RestorationSubsectionA />);
-    expect(screen.getByText(/Dr. John Senior's model for Christian education/i)).toBeInTheDocument();
-    expect(screen.getByText(/natural developmental stages/i)).toBeInTheDocument();
+    expect(screen.getByText(/Restoration is the work; the five modes are the sequence/i)).toBeInTheDocument();
+    expect(screen.getByText(/the musical teaches repose/i)).toBeInTheDocument();
   });
 
   it('renders InteractiveStages component with correct mode', () => {
@@ -56,9 +56,9 @@ describe('RestorationSubsectionA', () => {
     expect(quoteGroup).toHaveAttribute('data-variant', 'minor-premise');
   });
 
-  it('passes 3 quotes to EvidenceQuoteGroup', () => {
+  it('passes 2 quotes to EvidenceQuoteGroup', () => {
     render(<RestorationSubsectionA />);
-    expect(screen.getByTestId('quotes-count')).toHaveTextContent('3 quotes');
+    expect(screen.getByTestId('quotes-count')).toHaveTextContent('2 quotes');
   });
 
   it('has correct id attribute for anchor linking', () => {

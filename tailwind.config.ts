@@ -1,5 +1,36 @@
 import type { Config } from 'tailwindcss';
 
+/**
+ * Mode colors. Authority for names is PRODUCT.md, not these hexes.
+ * musical aliases the former nursery hex; gymnastic aliases the former gymnasium hex.
+ * romantic: deeper wine than poetic rose `#8B4C4C`, warm enough to sit with gold `#CDAF6F`.
+ * virtuous: sage beside forest `#3B5A3E` (city / household), distinct from musical blue.
+ * `spiritual` stays as liturgical chrome only — not a mode.
+ */
+const musical = {
+  DEFAULT: '#A8C4D4',
+  light: '#C5DBE6',
+  dark: '#8AACBE',
+};
+
+const gymnastic = {
+  DEFAULT: '#7A5C3E',
+  light: '#9A7B5D',
+  dark: '#5A4029',
+};
+
+const romantic = {
+  DEFAULT: '#7C3F4E',
+  light: '#A86B78',
+  dark: '#5C2C38',
+};
+
+const virtuous = {
+  DEFAULT: '#3E5C48',
+  light: '#6B8A74',
+  dark: '#2C4334',
+};
+
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -25,21 +56,19 @@ const config: Config = {
           light: '#E5D4A6',
           dark: '#B89A5A',
         },
-        nursery: {
-          DEFAULT: '#A8C4D4',
-          light: '#C5DBE6',
-          dark: '#8AACBE',
-        },
-        gymnasium: {
-          DEFAULT: '#7A5C3E',
-          light: '#9A7B5D',
-          dark: '#5A4029',
-        },
+        musical,
+        gymnastic,
         poetic: {
           DEFAULT: '#8B4C4C',
           light: '#A56B6B',
           dark: '#6B3232',
         },
+        romantic,
+        virtuous,
+        // Legacy color aliases (not mode names). nursery/gymnasium match the new tokens.
+        // spiritual remains lavender for liturgical chrome already in the CSS.
+        nursery: musical,
+        gymnasium: gymnastic,
         spiritual: {
           DEFAULT: '#B8A8C4',
           light: '#D0C5D9',

@@ -1,12 +1,13 @@
 /**
  * Type definitions for content data structures
- * Aligned with Senior Schools Network philosophy and README.md stage definitions
+ * Aligned with Senior Schools Network philosophy and PRODUCT.md mode lock
  */
 
 /**
- * Developmental stages from README.md
+ * Network developmental modes. Authority: PRODUCT.md “Five modes (taxonomy lock)”.
+ * Order: musical → gymnastic → poetic → romantic → virtuous.
  */
-export type Stage = 'nursery' | 'gymnasium' | 'poetic' | 'spiritual';
+export type Stage = 'musical' | 'gymnastic' | 'poetic' | 'romantic' | 'virtuous';
 
 /**
  * User flow categories from StoryBrand framework
