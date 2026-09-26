@@ -20,3 +20,9 @@
 # Logos and favicon under public/assets (not covered by the Netlify image rule).
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+
+# One hostname label plus the account subdomain. Matches the production
+# workers.dev host and Version URLs (`<prefix>-<worker>.<subdomain>.workers.dev`).
+# Does not match https://seniorschools.org.
+https://:version.:subdomain.workers.dev/*
+  X-Robots-Tag: noindex

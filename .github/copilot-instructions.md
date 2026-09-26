@@ -28,7 +28,7 @@ Promote a loose network of Catholic schools aligned with John Senior's philosoph
 - **Framework**: Next.js 14.2 (static export to `out/`)
 - **Styling**: Tailwind CSS 3.4
 - **Testing**: Jest 30 + React Testing Library
-- **Deployment**: Cloudflare Workers + Static Assets (target; `wrangler.jsonc`). `netlify.toml` stays until post-cutover cleanup. Canonical origin: `https://seniorschools.org` (`lib/site.ts`).
+- **Deployment**: Cloudflare Workers + Static Assets (target; `wrangler.jsonc`). Workers Builds is already connected: `main` runs `wrangler deploy`, other branches run `wrangler preview`. Do not add a second preview workflow. `netlify.toml` stays until post-cutover cleanup. Canonical origin: `https://seniorschools.org` (`lib/site.ts`).
 
 ## Content Rules
 

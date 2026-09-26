@@ -131,6 +131,8 @@ School directory defined in `lib/content/network.ts` and rendered via the Networ
 
 Push to `main` runs `.github/workflows/deploy-cloudflare.yml` (lint, typecheck, build, then `wrangler deploy`). Deploy runs only after the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets are set. Host 301s are Bulk Redirects in the Cloudflare dashboard, not `_redirects` (Workers Static Assets does not support domain-level redirects).
 
+Workers Builds is already connected to the Worker. `main` runs `wrangler deploy`. Other branches run `wrangler preview`, which does not replace the active deployment. This repo does not add a second preview workflow. GitHub Actions can also deploy `main` when the Cloudflare secrets are set, so a push to `main` may publish twice. See [docs/deploy-cloudflare.md](docs/deploy-cloudflare.md).
+
 Full cutover steps: [docs/deploy-cloudflare.md](docs/deploy-cloudflare.md).
 
 Manual deploy:
@@ -138,6 +140,13 @@ Manual deploy:
 ```bash
 bun run build
 bun run deploy:cloudflare
+```
+
+Manual branch preview (same command Workers Builds uses off `main`):
+
+```bash
+bun run build
+bun run preview:cloudflare
 ```
 
 ## Documentation
