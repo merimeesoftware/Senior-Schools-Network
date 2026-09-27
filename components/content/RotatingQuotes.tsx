@@ -11,6 +11,8 @@ interface RotatingQuotesProps {
   quoteClassName?: string;
   authorClassName?: string;
   showRefreshButton?: boolean;
+  /** When true, cite the work title after the author. */
+  showSource?: boolean;
   onRefresh?: () => void;
 }
 
@@ -22,6 +24,7 @@ export default function RotatingQuotes({
   quoteClassName = 'text-3xl md:text-5xl font-playfair italic text-white mb-6 leading-tight hero-text-shadow',
   authorClassName = 'text-xl md:text-2xl text-parchment/90 not-italic font-lato hero-text-shadow',
   showRefreshButton = false,
+  showSource = false,
   onRefresh,
 }: Readonly<RotatingQuotesProps>) {
   const safeQuotes = useMemo(() => (quotes?.length ? quotes : []), [quotes]);
@@ -69,7 +72,15 @@ export default function RotatingQuotes({
             </span>
           ))}&quot;
         </p>
-        <cite className={authorClassName}>— {current.author}</cite>
+        <cite className={authorClassName}>
+          — {current.author}
+          {showSource && current.source ? (
+            <>
+              {', '}
+              <i className="italic">{current.source}</i>
+            </>
+          ) : null}
+        </cite>
       </blockquote>
       {showRefreshButton && (
         <button

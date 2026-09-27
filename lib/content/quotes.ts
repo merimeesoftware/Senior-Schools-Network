@@ -10,6 +10,33 @@
 
 import type { Quote } from '@/lib/types/content';
 
+const seniorBoysGemLikeFlames: Quote = {
+  id: 'senior-boys-gem-like-flames',
+  quote: 'Boys burn with gem-like flames',
+  author: 'John Senior',
+  source: 'The Restoration of Innocence',
+  category: 'stories',
+  stage: 'gymnastic',
+};
+
+const seniorPoetryIsKnowledge: Quote = {
+  id: 'senior-poetry-is-knowledge',
+  quote: 'Note that poetry is knowledge.',
+  author: 'John Senior',
+  source: 'The Restoration of Innocence',
+  category: 'philosophy',
+  stage: 'poetic',
+};
+
+/**
+ * Home hero rotation. Senior lines only, and only the two verified in
+ * The Restoration of Innocence (PRODUCT.md). Do not add unverified Senior lines.
+ */
+export const homeHeroQuotes: Quote[] = [
+  seniorBoysGemLikeFlames,
+  seniorPoetryIsKnowledge,
+];
+
 // Canonical quotes for UI surfaces. All quotes should be verbatim with attribution.
 export const quotesIndex: Quote[] = [
   // Wonder & beginnings
@@ -78,14 +105,8 @@ export const quotesIndex: Quote[] = [
     source: 'The Restoration of Innocence',
     category: 'virtue',
   },
-  {
-    id: 'senior-boys-gem-like-flames',
-    quote: 'Boys burn with gem-like flames.',
-    author: 'John Senior',
-    source: 'The Restoration of Innocence',
-    category: 'stories',
-    stage: 'gymnastic',
-  },
+  seniorBoysGemLikeFlames,
+  seniorPoetryIsKnowledge,
 
   // Classical foundations
   {

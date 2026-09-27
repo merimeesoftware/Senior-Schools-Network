@@ -19,6 +19,12 @@ interface HeroSectionProps {
   showButtons?: boolean;
   buttons?: CTAButtonConfig[];
   title?: string; // Optional large title overlay
+  /** Locked brand sentence. Shown only when a page passes it. */
+  brandLine?: string;
+  /** Append quote source (work title) to the citation. */
+  showQuoteSource?: boolean;
+  /** Manual advance for the quote set. Autoplay stays off. */
+  showQuoteRefresh?: boolean;
 }
 
 export default function HeroSection({
@@ -31,6 +37,9 @@ export default function HeroSection({
     { text: 'Our Philosophy', href: '/philosophy', variant: 'hero-outline' as const },
   ],
   title,
+  brandLine,
+  showQuoteSource = false,
+  showQuoteRefresh = false,
 }: HeroSectionProps) {
   // Start with the folder's deterministic order so the server-rendered HTML and the
   // first client render match (prevents hydration mismatches). Shuffle after mount.
@@ -119,12 +128,20 @@ export default function HeroSection({
         );
       })()}
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center min-h-[100svh] pt-[14vh] pb-12">
+      <div className={`relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center min-h-[100svh] pb-12 ${
+        brandLine ? 'justify-start pt-64' : 'justify-center pt-[14vh]'
+      }`}>
         {/* Title overlay */}
         {title && (
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair text-white mb-8 hero-text-shadow">
             {title}
           </h1>
+        )}
+
+        {brandLine && (
+          <p className="text-lg md:text-xl font-body text-parchment leading-relaxed hero-text-shadow max-w-3xl mx-auto mb-8">
+            {brandLine}
+          </p>
         )}
         
         {/* Quote display */}
@@ -132,7 +149,8 @@ export default function HeroSection({
           <RotatingQuotes 
             quotes={quotes}
             autoplay={false}
-            showRefreshButton={false}
+            showRefreshButton={showQuoteRefresh}
+            showSource={showQuoteSource}
             quoteClassName="text-2xl md:text-4xl font-playfair italic text-white mb-6 leading-relaxed hero-text-shadow"
             authorClassName="text-xl md:text-2xl text-parchment/90 not-italic font-accent hero-text-shadow"
             className="mb-8 max-w-4xl mx-auto"

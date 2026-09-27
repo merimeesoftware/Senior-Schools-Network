@@ -28,8 +28,6 @@ Sensory delight forms the foundation of wonder and knowledge. Through the five s
 
 ### Quote Bank: Sense and Story
 
-- "Poetic knowledge is the key to motivation because it is about what is REAL... Connection and wonder are the driving forces. Love is the anchor." — John Senior, _The Restoration of Innocence_ (Core definition of poetic knowledge)
-
 - "Poetic knowledge is the attempt to know the way a child knows things, or the way a lover knows the beloved. It gets inside and becomes a part of what is known." — John Senior (Intimate knowing through union)
 
 - "Earth we grasp with the earthly, fire with flame, Liquid with moisture, air with our breath." — Hugh of St. Victor, _Didascalicon_ I.1 (Sensory connaturality)

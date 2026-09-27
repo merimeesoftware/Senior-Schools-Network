@@ -55,7 +55,7 @@ export default async function NetworkDirectoryPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <CTAButton href="/engage" variant="primary" size="lg">
-                Engage & Connect
+                Add Your School
               </CTAButton>
               <CTAButton href="/philosophy" variant="outline" size="lg">
                 Review Philosophy

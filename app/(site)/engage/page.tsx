@@ -102,7 +102,7 @@ export default async function EngagePage() {
           </p>
 
           <CTAButton href="#contact" variant="primary" size="lg" fullWidth>
-            Submit for Inclusion
+            Add Your School
           </CTAButton>
         </div>
       </section>
