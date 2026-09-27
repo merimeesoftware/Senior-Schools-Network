@@ -16,7 +16,7 @@ Lines marked `(locked)` are decided. Lines marked `(locked from live)` appear on
 
 ## One-liner
 
-`(proposed)` We help Catholic families find and build schools that form children through wonder, adventure, and faith — starting with the years everyone else forgets.
+`(locked)` “A Catholic network helping families find and build schools that form children through wonder, adventure, and faith — especially the years most schooling forgets.”
 
 **Tagline / lockup** `(proposed)`  
 Schools that form the whole child — through sense, story, and liturgy.
@@ -272,8 +272,8 @@ A child formed through **sense, story, and liturgy** — who has sung and looked
 - Section: **Stages of Development** with live columns **Nursery (0-7) · Gymnasium (7-13) · Poetic (13-20) · Spiritual (All Ages)** `(locked from live — CONFLICTS with five-mode lock; must migrate)`
 - Final CTA head: **Join the Restoration** `(locked from live — proposed retire in favor of hero-centered close)`
 - Hero rotating quotes attributed to John Senior on live home (examples observed 26 Sep 2026 ET):  
-  - “Poetic knowledge is the key to motivation because it is about what is REAL…” — John Senior `[NEEDS SOURCE — verify in public/texts/ before treating as locked Senior]`  
-  - “Boys burn with gem-like flames” — John Senior `[NEEDS SOURCE — present in PHILOSOPHICAL-AXIOMS / quotes banks; verify against Restoration transcript before elevating]`
+  - “Boys burn with gem-like flames” — John Senior, *The Restoration of Innocence* `(verified — keep)`
+  - “Note that poetry is knowledge.” — John Senior, *The Restoration of Innocence* `(verified — keep)`
 
 ### Proposed public lines (StoryBrand review — not yet live)
 
@@ -377,12 +377,13 @@ What this file owns, what stays elsewhere, and what a later code pass still owes
 
 1. Superseded four-stage public copy (home stages section, badges) when the UI migrates
 2. CTA synonym sprawl (Engage & Connect, Explore Directory, and the rest) once the verb set ships
-3. Unverified Senior quotation marks on the live site — verify under `public/texts/` or drop the quote marks
+3. Unverified Senior quotation marks on the live site — verify under `public/texts/` or drop the quote marks (RESOLVED for PRODUCT.md; live UI code may still need a separate pass. Note: the "Poetic knowledge is the key to motivation" quote was dropped as a Senior line due to quote-bank misattribution)
 
 ---
 
 ## Appendix B — Open editor decisions
 
-1. **One-liner:** adopt the StoryBrand proposed line, or rewrite it?
-2. **Verify** live hero Senior attributions against `public/texts/the-restoration-of-innocence.md` and the IHP lecture before locking.
+No open editor decisions.
+
+*(Note: Live UI migration — such as `quotes.ts` and the four-stage badges — remains a separate code pass, not an open product-docs decision.)*
 
