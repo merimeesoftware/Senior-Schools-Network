@@ -1,6 +1,11 @@
 {
   // Assets-only Worker: Next.js `output: 'export'` has no server runtime.
   // Do not set "main". A Worker script is not required for static hosting.
+  // Do not set assets.run_worker_first. There is no Host-based redirect script.
+  //
+  // The canonical host is a Custom Domain in `routes` below. `wrangler deploy`
+  // attaches it; Cloudflare manages that hostname's DNS and certificate.
+  // www and any seniorschoolnetwork.* host are not Custom Domains.
   //
   // Host 301s are NOT expressed here. Workers Static Assets `_redirects`
   // does not support domain-level redirects. Configure Bulk Redirects (or
@@ -14,6 +19,11 @@
   // so those URLs stay on if workers_dev is later set to false.
   // See docs/deploy-cloudflare.md.
   "preview_urls": true,
+  // Canonical origin only. Do not add www.seniorschools.org or any
+  // seniorschoolnetwork.* hostname. Those stay dashboard Bulk Redirects.
+  "routes": [
+    { "pattern": "seniorschools.org", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./out",
     // Serve the static export's out/404.html for unknown paths.
