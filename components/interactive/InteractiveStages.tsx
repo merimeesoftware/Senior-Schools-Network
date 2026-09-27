@@ -113,27 +113,44 @@ export default function InteractiveStages({
         </div>
       )}
 
-      <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-12" role="group" aria-label="Developmental modes">
-        {stages.map((stage) => (
-          <button
-            key={stage}
-            type="button"
-            onClick={() => setSelectedStage(stage)}
-            className="focus:outline-none transition-all duration-300 hover:scale-105"
-            aria-pressed={selectedStage === stage}
-          >
-            <StageBadge
-              stage={stage}
-              size="lg"
-              whiteText
-              className={
-                selectedStage === stage
-                  ? 'shadow-lg scale-105'
-                  : 'opacity-60 hover:opacity-85'
-              }
-            />
-          </button>
-        ))}
+      <div
+        className="mb-8 flex max-w-full flex-wrap justify-center gap-2 sm:gap-3"
+        role="group"
+        aria-label="Developmental modes"
+      >
+        {stages.map((stage) => {
+          const selected = selectedStage === stage;
+          return (
+            <button
+              key={stage}
+              type="button"
+              onClick={() => setSelectedStage(stage)}
+              aria-pressed={selected}
+              className={`
+                group inline-flex min-h-11 max-w-full items-center justify-center rounded-organic
+                transition-[opacity,transform] duration-200 ease-out
+                motion-reduce:transition-none motion-reduce:hover:translate-y-0
+                hover:-translate-y-0.5
+                focus-visible-ring
+                ${selected
+                  ? 'opacity-100 outline outline-2 outline-offset-2 outline-forest'
+                  : 'opacity-60 hover:opacity-90'
+                }
+              `}
+            >
+              <StageBadge
+                stage={stage}
+                size="md"
+                whiteText
+                className={`min-h-11 justify-center px-3 transition-shadow duration-200 ease-out motion-reduce:transition-none ${
+                  selected
+                    ? 'shadow-organic-md'
+                    : 'shadow-organic group-hover:shadow-organic-md'
+                }`}
+              />
+            </button>
+          );
+        })}
       </div>
 
       <div className="max-w-3xl mx-auto">
