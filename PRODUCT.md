@@ -16,7 +16,7 @@ Lines marked `(locked)` are decided. Lines marked `(locked from live)` appear on
 
 ## One-liner
 
-`(proposed)` We help Catholic families find and build schools that form children through wonder, adventure, and faith — starting with the years everyone else forgets.
+`(locked)` “A Catholic network helping families find and build schools that form children through wonder, adventure, and faith — especially the years most schooling forgets.”
 
 **Tagline / lockup** `(proposed)`  
 Schools that form the whole child — through sense, story, and liturgy.
