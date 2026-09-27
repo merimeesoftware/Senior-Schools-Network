@@ -1,9 +1,9 @@
-# PRODUCT.md — Senior Schools Network
+# PURPOSE.md — Senior Schools Network
 
 StoryBrand script and product truth for the Senior Schools Network. Shared by UI, branding, marketing, affiliation language, directory filters, and AI edits.
 
 The visitor is the hero. The network (and Senior’s philosophy) is the guide.  
-**Conflict rule:** Words → `PRODUCT.md`. Look → `DESIGN.md`. Runtime → `TECH_STACK.md`. Layers → `ARCHITECTURE.md`.
+**Conflict rule:** Words → `PURPOSE.md`. Look → `IDENTITY.md`. Runtime → `TECH_STACK.md`. Layers → `MISSION.md`.
 
 **Canonical site:** https://seniorschools.org  
 **Repo:** merimeesoftware/Senior-Schools-Network
@@ -365,8 +365,8 @@ What this file owns, what stays elsewhere, and what a later code pass still owes
 | Philosophy canon workbook (not in this repo) | **Absorbed** glossary, chain, taxonomy distinction, premises | Do not dump the full treatise into this file |
 | `public/texts/*` | **KEEP SEPARATE** | Quotation surface; never rewrite Senior to fit marketing |
 | `public/texts/PHILOSOPHICAL-AXIOMS.md` / `QUOTES.md` | **KEEP** as quote banks; audit Senior lines against Restoration; never outrank primary text | |
-| `.github/docs/design-system.md`, `assets.md`, `image-system.md` | **Absorbed into `DESIGN.md` and removed.** | Look, not words |
-| `.github/docs/technical.md` | **Absorbed into `ARCHITECTURE.md` and removed.** Runtime stays in `TECH_STACK.md` | |
+| `.github/docs/design-system.md`, `assets.md`, `image-system.md` | **Absorbed into `IDENTITY.md` and removed.** | Look, not words |
+| `.github/docs/technical.md` | **Absorbed into `MISSION.md` and removed.** Runtime stays in `TECH_STACK.md` | |
 | `lib/content/stages.ts` | **Later code pass** | Still conflicts (`nursery \| gymnasium \| poetic \| spiritual`). Not changed in the canon-docs pass |
 | `InteractiveStages` / `StageBadge` | **Later code pass** | Live four-stage UI is out of date |
 | Legacy “Four Stages of Restoration” / Nursery–Spiritual marketing | **Retranslate when UI copy ships** | Restoration = work; five modes = sequence |
@@ -377,7 +377,7 @@ What this file owns, what stays elsewhere, and what a later code pass still owes
 
 1. Superseded four-stage public copy (home stages section, badges) when the UI migrates
 2. CTA synonym sprawl (Engage & Connect, Explore Directory, and the rest) once the verb set ships
-3. Unverified Senior quotation marks on the live site — verify under `public/texts/` or drop the quote marks (RESOLVED for PRODUCT.md; live UI code may still need a separate pass. Note: the "Poetic knowledge is the key to motivation" quote was dropped as a Senior line due to quote-bank misattribution)
+3. Unverified Senior quotation marks on the live site — verify under `public/texts/` or drop the quote marks (RESOLVED for PURPOSE.md; live UI code may still need a separate pass. Note: the "Poetic knowledge is the key to motivation" quote was dropped as a Senior line due to quote-bank misattribution)
 
 ---
 

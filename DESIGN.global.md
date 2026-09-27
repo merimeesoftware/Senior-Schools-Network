@@ -1,10 +1,10 @@
 # DESIGN.global.md
 
-Design philosophy for merimeesoftware surfaces. Product truth stays in each repo’s `PRODUCT.md`. Local look stays in each repo’s `DESIGN.md`.
+Design philosophy for merimeesoftware surfaces. Product truth stays in each repo’s `PURPOSE.md`. Local look stays in each repo’s `IDENTITY.md`.
 
 This file names **philosophies** and the **principles** that follow. It does not name a palette, a typeface, or a component. Those are local, so two products never share an accent by accident.
 
-Read this first. Then open the repo `DESIGN.md` and paint only what that file allows.
+Read this first. Then open the repo `IDENTITY.md` and paint only what that file allows.
 
 ---
 
@@ -61,7 +61,7 @@ Do not invent a second component library in each repo. When a primitive is ready
 | Type as architecture | `ShelfRow` — numbered title, quiet vendor pair |
 | No mining | `GuideAsk` — optional; never blocks the shelf |
 
-Until that kit exists, each repo implements the local equivalent listed in its `DESIGN.md`.
+Until that kit exists, each repo implements the local equivalent listed in its `IDENTITY.md`.
 
 ---
 

@@ -7551,9 +7551,9 @@
         case 'connected':
           applyLiveBarPreference(msg.hideLiveBar === true);
           hasProjectContext = !!msg.hasProjectContext;
-          // The generate lane runs without PRODUCT.md by design and never
+          // The generate lane runs without PURPOSE.md by design and never
           // sends the user to init, so its quiet chrome skips this notice.
-          if (!hasProjectContext && !liveBarHiddenByHelper) showToast(`No PRODUCT.md found. Variants will be brand-agnostic. Run ${IMPECCABLE_COMMAND} init to generate one.`, 7000);
+          if (!hasProjectContext && !liveBarHiddenByHelper) showToast(`No PURPOSE.md found. Variants will be brand-agnostic. Run ${IMPECCABLE_COMMAND} init to generate one.`, 7000);
           console.log('[impeccable] Live mode connected.');
           syncAgentPollingUi(!!msg.agentPolling);
           startAgentStatusPoll();
@@ -11762,7 +11762,7 @@ void main() {
     detectBtn.appendChild(detectBadge);
     inner.appendChild(detectBtn);
 
-    // DESIGN.md panel toggle - quartet of color squares as the mark.
+    // IDENTITY.md panel toggle - quartet of color squares as the mark.
     const designBtn = makeIconBtn({
       id: PREFIX + '-design-toggle',
       svg: `<span style="display:inline-grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;width:14px;height:14px;border-radius:3px;overflow:hidden;box-shadow:inset 0 0 0 1px oklch(92% 0 0 / 0.13);flex-shrink:0">
@@ -11771,8 +11771,8 @@ void main() {
         <span style="background:oklch(91% 0 0)"></span>
         <span style="background:oklch(34% 0 0)"></span>
       </span>`,
-      label: 'DESIGN.md',
-      ariaLabel: 'Toggle DESIGN.md panel',
+      label: 'IDENTITY.md',
+      ariaLabel: 'Toggle IDENTITY.md panel',
       labelFont: MONO,
       onClick: () => toggleDesignPanel(),
     });
@@ -12066,7 +12066,7 @@ void main() {
     });
 
     // If the bar is currently under the cursor, keep all labels expanded -
-    // otherwise clicking a toggle that deactivates (e.g. closing DESIGN.md)
+    // otherwise clicking a toggle that deactivates (e.g. closing IDENTITY.md)
     // would collapse its label while the user's mouse is still on the bar.
     syncGlobalBarExpandedLabels(globalBarEl && globalBarEl.matches(':hover'));
 
@@ -12313,7 +12313,7 @@ void main() {
     hasMd: false,
     hasSidecar: false,
     present: null,          // true/false once fetch resolves
-    raw: null,              // raw DESIGN.md for the raw tab
+    raw: null,              // raw IDENTITY.md for the raw tab
     mdNewerThanJson: false, // stale-hint flag
     loading: false,
     error: null,
@@ -12695,7 +12695,7 @@ void main() {
 
     const title = document.createElement('div');
     title.className = 'panel-title';
-    title.textContent = 'DESIGN.md';
+    title.textContent = 'IDENTITY.md';
     header.appendChild(title);
 
     const tabs = document.createElement('div');
@@ -12780,7 +12780,7 @@ void main() {
     if (designState.present === false) {
       const empty = document.createElement('div');
       empty.className = 'empty';
-      empty.innerHTML = `<strong>No DESIGN.md yet</strong>Create one by running <code>${IMPECCABLE_COMMAND} document</code> in your terminal, then re-open this panel.`;
+      empty.innerHTML = `<strong>No IDENTITY.md yet</strong>Create one by running <code>${IMPECCABLE_COMMAND} document</code> in your terminal, then re-open this panel.`;
       body.appendChild(empty);
       return;
     }
@@ -12810,7 +12810,7 @@ void main() {
     box.className = 'stale';
     box.innerHTML = `
       <span class="stale-dot"></span>
-      <span class="stale-text"><strong>DESIGN.md is newer than .impeccable/design.json.</strong> Run <code>${IMPECCABLE_COMMAND} document</code> to refresh the sidecar.</span>
+      <span class="stale-text"><strong>IDENTITY.md is newer than .impeccable/design.json.</strong> Run <code>${IMPECCABLE_COMMAND} document</code> to refresh the sidecar.</span>
     `;
     return box;
   }
@@ -12818,25 +12818,25 @@ void main() {
   function renderParsedMdCta() {
     const box = document.createElement('div');
     box.className = 'parsed-md-cta';
-    box.innerHTML = `<strong>Basic view</strong>This panel reads the tokens in your <code>DESIGN.md</code> frontmatter. Running <code>${IMPECCABLE_COMMAND} document</code> also generates a <code>.impeccable/design.json</code> sidecar with your project's actual component snippets (button, input, nav) and tonal ramps, rendered live below the tokens.`;
+    box.innerHTML = `<strong>Basic view</strong>This panel reads the tokens in your <code>IDENTITY.md</code> frontmatter. Running <code>${IMPECCABLE_COMMAND} document</code> also generates a <code>.impeccable/design.json</code> sidecar with your project's actual component snippets (button, input, nav) and tonal ramps, rendered live below the tokens.`;
     return box;
   }
 
-  // Unified render: merge parsed DESIGN.md frontmatter with sidecar v2
+  // Unified render: merge parsed IDENTITY.md frontmatter with sidecar v2
 
   /**
    * The empty state has to say which emptiness it is. `present:false` (no
-   * DESIGN.md at all) is handled upstream in renderDesignBody; everything here
+   * IDENTITY.md at all) is handled upstream in renderDesignBody; everything here
    * means the helper found a design system and this panel found nothing in it
    * worth drawing. Telling that user "no design system data" reads as "your
-   * DESIGN.md is missing" and sends them to write a file they already have.
+   * IDENTITY.md is missing" and sends them to write a file they already have.
    */
   function designEmptyMessage() {
     if (designState.hasMd && !designState.hasSidecar) {
-      return 'DESIGN.md found, no structured tokens to display. Run ' + IMPECCABLE_COMMAND + ' document to generate the .impeccable/design.json sidecar.';
+      return 'IDENTITY.md found, no structured tokens to display. Run ' + IMPECCABLE_COMMAND + ' document to generate the .impeccable/design.json sidecar.';
     }
     if (designState.hasMd) {
-      return 'DESIGN.md and its sidecar were found, but neither carries colors, type, radii, or components to display.';
+      return 'IDENTITY.md and its sidecar were found, but neither carries colors, type, radii, or components to display.';
     }
     return 'No design system data available.';
   }
@@ -13402,7 +13402,7 @@ void main() {
   }
 
   function buildListHtml(items, type) {
-    // Nest by indent (one level deep is plenty for DESIGN.md).
+    // Nest by indent (one level deep is plenty for IDENTITY.md).
     let html = `<${type}>`;
     let lastIndent = 0;
     for (const it of items) {

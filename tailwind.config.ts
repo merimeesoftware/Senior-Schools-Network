@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 /**
- * Mode colors. Authority for names is PRODUCT.md, not these hexes.
+ * Mode colors. Authority for names is PURPOSE.md, not these hexes.
  * musical aliases the former nursery hex; gymnastic aliases the former gymnasium hex.
  * romantic: deeper wine than poetic rose `#8B4C4C`, warm enough to sit with gold `#CDAF6F`.
  * virtuous: sage beside forest `#3B5A3E` (city / household), distinct from musical blue.

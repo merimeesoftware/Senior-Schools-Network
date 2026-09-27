@@ -6,7 +6,7 @@ import { getAllStages, STAGE_METADATA } from '@/lib/content/stages';
 import type { Stage } from '@/lib/types/content';
 
 /**
- * Crisis blurbs map only from PRODUCT.md Diagnosis
+ * Crisis blurbs map only from PURPOSE.md Diagnosis
  * (screens / softness / specialization–premature analysis–collapse of poetic/romantic).
  */
 const CRISIS_DESCRIPTIONS: Record<Stage, string> = {

@@ -67,9 +67,9 @@ bun run dev
 ├── public/                # Static assets
 │   ├── images/            # Site images
 │   └── texts/             # Downloadable PDFs
-├── PRODUCT.md             # Product and philosophy truth
-├── DESIGN.md              # Look
-├── ARCHITECTURE.md        # Layers and constraints
+├── PURPOSE.md             # Product and philosophy truth
+├── IDENTITY.md              # Look
+├── MISSION.md        # Layers and constraints
 ├── TECH_STACK.md          # Runtime and deploy
 └── DOC_INDEX.md           # Which file owns what
 ```
@@ -79,8 +79,8 @@ bun run dev
 ### Before You Start
 
 1. Read [DOC_INDEX.md](DOC_INDEX.md) for load order
-2. Read [PRODUCT.md](PRODUCT.md) before changing words or modes
-3. Read [DESIGN.md](DESIGN.md) before changing look, and [ARCHITECTURE.md](ARCHITECTURE.md) plus [TECH_STACK.md](TECH_STACK.md) before changing structure or deploy
+2. Read [PURPOSE.md](PURPOSE.md) before changing words or modes
+3. Read [IDENTITY.md](IDENTITY.md) before changing look, and [MISSION.md](MISSION.md) plus [TECH_STACK.md](TECH_STACK.md) before changing structure or deploy
 
 ### Development Workflow
 
@@ -157,9 +157,9 @@ Canon (see [DOC_INDEX.md](DOC_INDEX.md)):
 
 | Document | Purpose |
 |----------|---------|
-| [PRODUCT.md](PRODUCT.md) | Philosophy, five modes, StoryBrand, public lines |
-| [DESIGN.md](DESIGN.md) | World, type, color, components, imagery |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | Layers and constraints |
+| [PURPOSE.md](PURPOSE.md) | Philosophy, five modes, StoryBrand, public lines |
+| [IDENTITY.md](IDENTITY.md) | World, type, color, components, imagery |
+| [MISSION.md](MISSION.md) | Layers and constraints |
 | [TECH_STACK.md](TECH_STACK.md) | Runtime, CI, deploy |
 | [copilot-instructions.md](.github/copilot-instructions.md) | AI agent guardrails |
 
