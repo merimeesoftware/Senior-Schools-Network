@@ -210,11 +210,11 @@ He couples these, in the art of teaching, to kinds of school (gymnasium / high s
 - Do **not** add dialectic or rhetoric as network filter stages.
 - Do **not** silently rewrite Senior’s five modes of knowledge to match marketing.
 
-### Shorthand conflict `[OPEN]`
+### Shorthand conflict `(locked)`
 
 Older notes glossed Senior’s modes of knowledge as “gymnastic, musical, poetic, dialectic, rhetoric.” That shorthand **does not match** the five-item list printed in *Restoration* II.1, and partially overlaps the thematic grades.
 
-**Standing rule:** when citing Senior’s own taxonomy, prefer the printed Restoration list above. Keep the network five untouched. Do not restore the shorthand. Michael still confirms this citation gloss before it is treated as closed.
+**Standing rule:** when citing Senior’s own taxonomy, use the printed *Restoration of Innocence* II.1 list (gymnastic, music, liberal arts, science, practical science). Keep the network five untouched. The shorthand “gymnastic, musical, poetic, dialectic, rhetoric” stays retired.
 
 ---
 
@@ -232,7 +232,7 @@ Older notes glossed Senior’s modes of knowledge as “gymnastic, musical, poet
 | **Plan** | (1) See the vision → (2) Find aligned schools / adapt at home → (3) Engage (join, list, or found) |
 | **CTA** | Primary **Find a School**; transitional **Explore the Philosophy** |
 | **Failure** | Another decade of screens, softness, and specialization — bright child grown weak, distracted, disconnected |
-| **Success** | A child formed through sense, story, and liturgy — resilient, reverent, fully alive, anchored in divine order (Chivalric Wayfarer language apt for gymnastic/romantic imagery, not a sixth mode) |
+| **Success** | A child formed through sense, story, and liturgy — resilient, reverent, fully alive, anchored in divine order (Chivalric Wayfarer language apt for gymnastic/romantic imagery, not a sixth mode — `locked`) |
 
 ### Canonical CTA verbs `(proposed — use exact labels sitewide)`
 
@@ -241,7 +241,7 @@ Older notes glossed Senior’s modes of knowledge as “gymnastic, musical, poet
 | Directory (main conversion) | **Find a School** | Explore Directory, Browse the Directory, Browse Directory, Explore Schools |
 | Philosophy (transitional) | **Explore the Philosophy** | Our Philosophy, Review Philosophy, See the Vision |
 | Primary texts (home path) | **Read the Sources** | View All Texts, View Complete Reading List, Explore Resources |
-| Org listing | **Add Your School** | Submit for Inclusion, Is Your School Aligned?, Apply to Affiliate |
+| Org listing | **Add Your School** `(locked)` | Submit for Inclusion, Is Your School Aligned?, Apply to Affiliate |
 | Human / founding | **Connect with the Network** | Engage & Connect, Get Involved, Connect & Get Inspired, Engage with Network, Get in Touch |
 
 Rule: every page shows **one primary** and **one transitional** CTA. Buttons are verbs. Drop abstract “Engage.”
@@ -383,10 +383,6 @@ What this file owns, what stays elsewhere, and what a later code pass still owes
 
 ## Appendix B — Open editor decisions
 
-1. **Senior modes-of-knowledge gloss:** confirm the Restoration II.1 list in the taxonomy section as the citation wording. `(recommended yes; shorthand stays retired)`
-2. **One-liner:** adopt the StoryBrand proposed line, or rewrite it?
-3. **Live four-stage UI:** migrate the timeline, or soft-launch five filters first? (Code, not this file.)
-4. **Verify** live hero Senior attributions against `public/texts/the-restoration-of-innocence.md` and the IHP lecture before locking.
-5. **“Chivalric Wayfarer”** — keep as success imagery for gymnastic/romantic, never as a mode or filter?
-6. **Org CTA:** lock **Add Your School**, or a softer “Apply to Affiliate”?
+1. **One-liner:** adopt the StoryBrand proposed line, or rewrite it?
+2. **Verify** live hero Senior attributions against `public/texts/the-restoration-of-innocence.md` and the IHP lecture before locking.
 

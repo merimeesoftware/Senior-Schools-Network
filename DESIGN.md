@@ -85,14 +85,19 @@ Ground, ink, action, accent — from `tailwind.config.ts`.
 
 ### Mode color tokens (current UI, not a new palette)
 
-These four tokens exist for the live four-column stage UI. Public mode *names* are `PRODUCT.md` (five modes). Do not invent `musical`, `romantic`, or `virtuous` colors here. Do not treat these tokens as the taxonomy.
+These five tokens are the live network modes in `tailwind.config.ts`, in the locked order. Public mode names are `PRODUCT.md`: musical → gymnastic → poetic → romantic → virtuous. Places are paint only (garden, gymnasium); they are not mode names. Hexes document the committed palette. They are not the taxonomy.
 
 | Token | Default | Light | Dark |
 |-------|---------|-------|------|
-| `nursery` | `#A8C4D4` | `#C5DBE6` | `#8AACBE` |
-| `gymnasium` | `#7A5C3E` | `#9A7B5D` | `#5A4029` |
+| `musical` | `#A8C4D4` | `#C5DBE6` | `#8AACBE` |
+| `gymnastic` | `#7A5C3E` | `#9A7B5D` | `#5A4029` |
 | `poetic` | `#8B4C4C` | `#A56B6B` | `#6B3232` |
-| `spiritual` | `#B8A8C4` | `#D0C5D9` | `#9B8AAF` |
+| `romantic` | `#7C3F4E` | `#A86B78` | `#5C2C38` |
+| `virtuous` | `#3E5C48` | `#6B8A74` | `#2C4334` |
+
+Legacy class aliases, not mode names: `nursery` → `musical`, `gymnasium` → `gymnastic`. Same hexes, so older classes still paint.
+
+`spiritual` (`#B8A8C4` / light `#D0C5D9` / dark `#9B8AAF`) is liturgical chrome only. It is not a network mode.
 
 ### Seasonal shifts
 
@@ -154,14 +159,14 @@ Primitive source: `components/layout/*`, `components/ui/*`, `components/content/
 | `Accordion` | `components/ui/Accordion.tsx` | Collapsible read |
 | `QuoteCard` | `components/content/QuoteCard.tsx` | hero / scripture / default / embedded |
 | `QuoteImageBreak` | `components/content/QuoteImageBreak.tsx` | Image plus quotation plate |
-| `StageBadge` | `components/ui/StageBadge.tsx` | Color chip for the current four stage tokens |
+| `StageBadge` | `components/ui/StageBadge.tsx` | Color chip for the five mode tokens |
 | `OptimizedImage` | `components/media/OptimizedImage.tsx` | Manifest image |
 | `ImageGallery` | `components/media/ImageGallery.tsx` | Filtered grid |
 | `ScriptureCarousel` | `components/content/ScriptureCarousel.tsx` | Rotating waypoints; pause on hover |
 
-Patterns that belong: parchment cards, gold left-rule quotes, forest primary buttons, stage chips only where a filter already uses the four tokens.
+Patterns that belong: parchment cards, gold left-rule quotes, forest primary buttons, stage chips only where a filter already uses the five mode tokens.
 
-Patterns that do not: new button variants, chat bubbles, glass panels, a fifth badge color invented in a component.
+Patterns that do not: new button variants, chat bubbles, glass panels, a badge color invented outside the five mode tokens and the liturgical `spiritual` chrome.
 
 Button classes in `app/globals.css` (`.btn-primary`, `.btn-secondary`, `.btn-outline`, `.card`, `.quote-block`, `.focus-visible-ring`) are the utility layer. Match them.
 
@@ -175,7 +180,7 @@ Collections already in the tree include `art-sacred/`, `beatrix-potter/`, `lands
 - Alt text describes what is seen. Caption words, if any, come from `PRODUCT.md` and `public/texts/` — do not invent quotations in this file.
 - Hero: priority load, wide. Below the fold: lazy. Default quality 85. Provide a `sizes` attribute.
 - Logos and favicon live under `public/assets/logos/`. OG image: `public/og-image-enclosed-garden.jpg` (1200×630).
-- Stage tags on assets still use the four-token names in `lib/assets.ts`. Remapping tags to the five modes is a later content pass; do not invent new image treatments for it here.
+- Remapping to the five modes is done in the UI. Asset tags in `lib/assets.ts` may still lag. Do not invent new image treatments for that lag.
 
 ## Interaction
 
