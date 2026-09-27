@@ -1,9 +1,9 @@
-# PRODUCT.md — Senior Schools Network
+# MISSION.md — Senior Schools Network
 
 StoryBrand script and product truth for the Senior Schools Network. Shared by UI, branding, marketing, affiliation language, directory filters, and AI edits.
 
 The visitor is the hero. The network (and Senior’s philosophy) is the guide.  
-**Conflict rule:** Words → `PRODUCT.md`. Look → `DESIGN.md`. Runtime → `TECH_STACK.md`. Layers → `ARCHITECTURE.md`.
+**Conflict rule:** Words → `MISSION.md`. Look → `DESIGN.md`. Runtime → `TECH_STACK.md`. Layers → `ARCHITECTURE.md`.
 
 **Canonical site:** https://seniorschools.org  
 **Repo:** merimeesoftware/Senior-Schools-Network
@@ -377,7 +377,7 @@ What this file owns, what stays elsewhere, and what a later code pass still owes
 
 1. Superseded four-stage public copy (home stages section, badges) when the UI migrates
 2. CTA synonym sprawl (Engage & Connect, Explore Directory, and the rest) once the verb set ships
-3. Unverified Senior quotation marks on the live site — verify under `public/texts/` or drop the quote marks (RESOLVED for PRODUCT.md; live UI code may still need a separate pass. Note: the "Poetic knowledge is the key to motivation" quote was dropped as a Senior line due to quote-bank misattribution)
+3. Unverified Senior quotation marks on the live site — verify under `public/texts/` or drop the quote marks (RESOLVED for MISSION.md; live UI code may still need a separate pass. Note: the "Poetic knowledge is the key to motivation" quote was dropped as a Senior line due to quote-bank misattribution)
 
 ---
 

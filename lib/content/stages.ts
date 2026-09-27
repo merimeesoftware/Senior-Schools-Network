@@ -1,6 +1,6 @@
 /**
  * Network developmental modes.
- * Authority: PRODUCT.md “Five modes (taxonomy lock)”.
+ * Authority: MISSION.md “Five modes (taxonomy lock)”.
  *
  * Gymnastic badge age is 7–13 for compactness. The locked table says 7–12/13.
  * Restoration descriptions expand only from “What the soul is doing”,

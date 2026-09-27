@@ -1,6 +1,6 @@
 # PRODUCT.template.md
 
-This repo’s product truth is already filled in `PRODUCT.md`.
+This repo’s product truth is already filled in `MISSION.md`.
 
 Do not fill this file. Do not treat it as a second script.
 

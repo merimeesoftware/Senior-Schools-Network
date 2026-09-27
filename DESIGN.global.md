@@ -1,6 +1,6 @@
 # DESIGN.global.md
 
-Design philosophy for merimeesoftware surfaces. Product truth stays in each repo’s `PRODUCT.md`. Local look stays in each repo’s `DESIGN.md`.
+Design philosophy for merimeesoftware surfaces. Product truth stays in each repo’s `MISSION.md`. Local look stays in each repo’s `DESIGN.md`.
 
 This file names **philosophies** and the **principles** that follow. It does not name a palette, a typeface, or a component. Those are local, so two products never share an accent by accident.
 

@@ -73,7 +73,7 @@ If a `DESIGN.md` already exists, **do not silently overwrite it**. Show the user
 ## Two paths
 
 - **Scan mode** (default): the project has design tokens, components, or rendered output. Extract, then confirm descriptive language. Use when there's code to analyze.
-- **Seed mode**: the project is pre-implementation. Ensure PRODUCT.md exists, then reuse new-work's visual-world workshop and write its directional DESIGN.md seed. Re-run in scan mode once there's code.
+- **Seed mode**: the project is pre-implementation. Ensure MISSION.md exists, then reuse new-work's visual-world workshop and write its directional DESIGN.md seed. Re-run in scan mode once there's code.
 
 Decide by scanning first (Scan mode Step 1). If the scan finds no tokens, no component files, and no rendered site, offer seed mode; don't silently switch. `/impeccable document --seed` requests new-work's world workshop, but it does not authorize replacing coherent code: when an incumbent system exists, offer scan mode or route an explicit identity-replacement request through new-work.
 
@@ -117,13 +117,13 @@ Skip anything the project doesn't have. Empty scale keys or fabricated tokens po
 
 The following require creative input that cannot be auto-extracted. Ask them in two structured rounds of no more than three questions each (or the harness's lower limit), waiting between rounds:
 
-- **Creative North Star**: a single named metaphor for the whole system ("The Editorial Sanctuary", "The Golden State Curator", "The Lab Notebook"). Offer 2-3 options that honor PRODUCT.md's brand personality.
+- **Creative North Star**: a single named metaphor for the whole system ("The Editorial Sanctuary", "The Golden State Curator", "The Lab Notebook"). Offer 2-3 options that honor MISSION.md's brand personality.
 - **Overview voice**: mood adjectives, aesthetic philosophy in 2-3 sentences, and any confirmed visual anti-reference.
 - **Color character** (for auto-extracted colors): descriptive names ("Deep Muted Teal-Navy", not "blue-800"). Suggest 2-3 options per key color based on hue/saturation.
 - **Elevation philosophy**: flat/layered/lifted. If shadows exist, is their role ambient or structural?
 - **Component philosophy**: the feel of buttons, cards, inputs in one phrase ("tactile and confident" vs. "refined and restrained").
 
-Carry a line from PRODUCT.md only when it is a durable brand commitment that actually constrains the visual system. Page strategy and surface concepts do not belong here.
+Carry a line from MISSION.md only when it is a durable brand commitment that actually constrains the visual system. Page strategy and surface concepts do not belong here.
 
 ### Step 4: Write DESIGN.md
 
@@ -353,9 +353,9 @@ For projects with no visual system to extract yet. Produces a user-chosen visual
 
 ### Step 1: Route through new-work's workshop
 
-PRODUCT.md is the prerequisite. If it is missing, load [init.md](init.md) and complete its product interview first. Do not create a visual identity without durable product context.
+MISSION.md is the prerequisite. If it is missing, load [init.md](init.md) and complete its product interview first. Do not create a visual identity without durable product context.
 
-If PRODUCT.md exists, load [new-work.md](new-work.md) and resolve visual authority. Seed mode requires a concrete first surface: use the target the user named, or ask what they want to make first. Run new-work's **Create or replace the visual world** flow, then **Commit the world**, so the visual world and its first expression are chosen together. Stop after the directional DESIGN.md seed and surface brief; do not implement. A structured simulated user counts as the user and must get the same choice.
+If MISSION.md exists, load [new-work.md](new-work.md) and resolve visual authority. Seed mode requires a concrete first surface: use the target the user named, or ask what they want to make first. Run new-work's **Create or replace the visual world** flow, then **Commit the world**, so the visual world and its first expression are chosen together. Stop after the directional DESIGN.md seed and surface brief; do not implement. A structured simulated user counts as the user and must get the same choice.
 
 If new-work already completed the workshop in this session, use its chosen direction directly. Do not ask again.
 
@@ -392,7 +392,7 @@ Your own write is the freshest source; no reload needed.
 ## Style guidelines
 
 - **Frontmatter first, prose second.** Tokens go in the YAML frontmatter; prose contextualizes them. Don't redefine a token value in two places; the frontmatter is normative.
-- **Carry only durable product constraints.** A binding logo, identity asset, accessibility need, or brand commitment from PRODUCT.md may constrain DESIGN.md. Surface strategy stays in its surface brief.
+- **Carry only durable product constraints.** A binding logo, identity asset, accessibility need, or brand commitment from MISSION.md may constrain DESIGN.md. Surface strategy stays in its surface brief.
 - **Match the spec.** Use its eight canonical sections in order and omit any that are irrelevant. Put motion guidance with the world or component it affects rather than creating a token group the schema does not support.
 - **Descriptive > technical**: "Gently curved edges (8px radius)" > "rounded-lg". Include the technical value in parens, lead with the description.
 - **Functional > decorative**: for each token, explain WHERE and WHY it's used, not just WHAT it is.
@@ -400,7 +400,7 @@ Your own write is the freshest source; no reload needed.
 - **Use Named Rules**: `**The [Name] Rule.** [short doctrine]`. These are memorable, citable, and much stickier for AI consumers than bullet lists. Stitch's own outputs use them heavily ("The No-Line Rule", "The Ghost Border Fallback"). Aim for 1-3 per section.
 - **Be decisive where evidence is decisive.** Use hard language for actual invariants and softer language for provisional guidance.
 - **Use concrete audit tests only when they are grounded in the observed system or a confirmed user decision.** A one-sentence test beats a paragraph of principle.
-- **Reference PRODUCT.md selectively.** Product truth explains why the world fits; it does not supply page composition or a visual don't-list by default.
+- **Reference MISSION.md selectively.** Product truth explains why the world fits; it does not supply page composition or a visual don't-list by default.
 - **Group colors by role**, not by hex-order or hue-order. Primary / Secondary / Tertiary / Neutral is the spec ordering.
 
 ## Pitfalls
@@ -409,7 +409,7 @@ Your own write is the freshest source; no reload needed.
 - Don't extract every token. Stop at what's actually reused; one-offs pollute the system.
 - Don't invent components that don't exist. If the project only has buttons and cards, only document those.
 - Don't overwrite an existing DESIGN.md without asking.
-- Don't duplicate content from PRODUCT.md. DESIGN.md is strictly visual.
+- Don't duplicate content from MISSION.md. DESIGN.md is strictly visual.
 - Don't replace canonical sections with near-synonyms. Put layout and responsive behavior in `Layout`; put motion with the affected world or component.
 - Don't rename sections even slightly. "Colors" not "Color Palette & Roles". "Typography" not "Typography Rules". Tooling parsing depends on exact headers.
 - Don't duplicate token values between frontmatter and prose. If a color is in `colors.primary` as hex, the prose can name it and describe its role but should not reassert a different hex. The frontmatter is normative.

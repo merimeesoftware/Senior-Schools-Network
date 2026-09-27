@@ -10,17 +10,17 @@ Operating constraints for AI agents working in this repository.
 
 Read root `DOC_INDEX.md`. Load order:
 
-1. `PRODUCT.global.md` then `PRODUCT.md`
+1. `PRODUCT.global.md` then `MISSION.md`
 2. `DESIGN.global.md` then `DESIGN.md`
 3. `ARCHITECTURE.md` and `TECH_STACK.md`
 
-Words → `PRODUCT.md`. Look → `DESIGN.md`. Runtime → `TECH_STACK.md`.
+Words → `MISSION.md`. Look → `DESIGN.md`. Runtime → `TECH_STACK.md`.
 
 The old `.github/docs/` stubs are removed. Canon lives only in the root files above.
 
 ## Mission
 
-Promote a loose network of Catholic schools aligned with John Senior's philosophy of **education through sense, story, and liturgy**. The network spans the five locked modes—musical, gymnastic, poetic, romantic, and virtuous. Inspire and connect; never prescribe curricula. Mode names, order, and public lines: `PRODUCT.md`.
+Promote a loose network of Catholic schools aligned with John Senior's philosophy of **education through sense, story, and liturgy**. The network spans the five locked modes—musical, gymnastic, poetic, romantic, and virtuous. Inspire and connect; never prescribe curricula. Mode names, order, and public lines: `MISSION.md`.
 
 ## Technical Stack
 
@@ -36,7 +36,7 @@ Promote a loose network of Catholic schools aligned with John Senior's philosoph
 - Never fabricate quotes—attribute all citations
 - Maintain Catholic fidelity and charitable tone
 - Platform is network-focused—no content about specific prototype schools
-- Stage labels, slugs, and filter order must match `PRODUCT.md` (musical, gymnastic, poetic, romantic, virtuous)
+- Stage labels, slugs, and filter order must match `MISSION.md` (musical, gymnastic, poetic, romantic, virtuous)
 
 ## Workflow
 

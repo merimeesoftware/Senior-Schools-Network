@@ -1,10 +1,10 @@
 /**
  * Type definitions for content data structures
- * Aligned with Senior Schools Network philosophy and PRODUCT.md mode lock
+ * Aligned with Senior Schools Network philosophy and MISSION.md mode lock
  */
 
 /**
- * Network developmental modes. Authority: PRODUCT.md “Five modes (taxonomy lock)”.
+ * Network developmental modes. Authority: MISSION.md “Five modes (taxonomy lock)”.
  * Order: musical → gymnastic → poetic → romantic → virtuous.
  */
 export type Stage = 'musical' | 'gymnastic' | 'poetic' | 'romantic' | 'virtuous';

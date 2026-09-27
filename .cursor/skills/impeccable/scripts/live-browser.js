@@ -7551,9 +7551,9 @@
         case 'connected':
           applyLiveBarPreference(msg.hideLiveBar === true);
           hasProjectContext = !!msg.hasProjectContext;
-          // The generate lane runs without PRODUCT.md by design and never
+          // The generate lane runs without MISSION.md by design and never
           // sends the user to init, so its quiet chrome skips this notice.
-          if (!hasProjectContext && !liveBarHiddenByHelper) showToast(`No PRODUCT.md found. Variants will be brand-agnostic. Run ${IMPECCABLE_COMMAND} init to generate one.`, 7000);
+          if (!hasProjectContext && !liveBarHiddenByHelper) showToast(`No MISSION.md found. Variants will be brand-agnostic. Run ${IMPECCABLE_COMMAND} init to generate one.`, 7000);
           console.log('[impeccable] Live mode connected.');
           syncAgentPollingUi(!!msg.agentPolling);
           startAgentStatusPoll();

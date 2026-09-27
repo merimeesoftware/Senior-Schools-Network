@@ -1,6 +1,6 @@
 # ARCHITECTURE.md
 
-Layers and constraints for the Senior Schools Network site. Runtime, package manager, CI commands, and host checklist live in `TECH_STACK.md` and `docs/deploy-cloudflare.md`. Words live in `PRODUCT.md`. Look lives in `DESIGN.md`.
+Layers and constraints for the Senior Schools Network site. Runtime, package manager, CI commands, and host checklist live in `TECH_STACK.md` and `docs/deploy-cloudflare.md`. Words live in `MISSION.md`. Look lives in `DESIGN.md`.
 
 ## What this is
 
@@ -37,13 +37,13 @@ Live routes: `/`, `/philosophy`, `/network-directory`, `/engage`, `/texts/[slug]
 - Keep `netlify.toml` until DNS cutover and rollback are done. See `docs/deploy-cloudflare.md`.
 - No analytics or tracking.
 - Quotes and primary texts come from `public/texts/` (including `PHILOSOPHICAL-AXIOMS.md` as a quote bank). Do not invent quotations in components.
-- Mode *names*, order, and filters are `PRODUCT.md` (musical → gymnastic → poetic → romantic → virtuous). `lib/content/stages.ts`, `InteractiveStages`, and `StageBadge` still speak the older four-column set. That is a later code pass. This file does not authorize a sixth mode or a rename.
+- Mode *names*, order, and filters are `MISSION.md` (musical → gymnastic → poetic → romantic → virtuous). `lib/content/stages.ts`, `InteractiveStages`, and `StageBadge` still speak the older four-column set. That is a later code pass. This file does not authorize a sixth mode or a rename.
 - Dev and production builds share `.next/`. Do not run `bun run build` while `bun run dev` is running. Operational detail: `AGENTS.md`.
 - Accessibility is part of the layer: semantic HTML, ARIA on interactive controls, keyboard paths. Look tokens: `DESIGN.md`.
 
 ## What is not a layer
 
-- StoryBrand, mode definitions, and public lines — `PRODUCT.md`.
+- StoryBrand, mode definitions, and public lines — `MISSION.md`.
 - Palette, type, and components’ visual rules — `DESIGN.md`.
 - Bun version and Workers Builds commands — `TECH_STACK.md`.
 - Page-by-page copy proposals — `docs/reviews/`.

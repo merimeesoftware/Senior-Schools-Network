@@ -67,7 +67,7 @@ bun run dev
 ├── public/                # Static assets
 │   ├── images/            # Site images
 │   └── texts/             # Downloadable PDFs
-├── PRODUCT.md             # Product and philosophy truth
+├── MISSION.md             # Product and philosophy truth
 ├── DESIGN.md              # Look
 ├── ARCHITECTURE.md        # Layers and constraints
 ├── TECH_STACK.md          # Runtime and deploy
@@ -79,7 +79,7 @@ bun run dev
 ### Before You Start
 
 1. Read [DOC_INDEX.md](DOC_INDEX.md) for load order
-2. Read [PRODUCT.md](PRODUCT.md) before changing words or modes
+2. Read [MISSION.md](MISSION.md) before changing words or modes
 3. Read [DESIGN.md](DESIGN.md) before changing look, and [ARCHITECTURE.md](ARCHITECTURE.md) plus [TECH_STACK.md](TECH_STACK.md) before changing structure or deploy
 
 ### Development Workflow
@@ -157,7 +157,7 @@ Canon (see [DOC_INDEX.md](DOC_INDEX.md)):
 
 | Document | Purpose |
 |----------|---------|
-| [PRODUCT.md](PRODUCT.md) | Philosophy, five modes, StoryBrand, public lines |
+| [MISSION.md](MISSION.md) | Philosophy, five modes, StoryBrand, public lines |
 | [DESIGN.md](DESIGN.md) | World, type, color, components, imagery |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Layers and constraints |
 | [TECH_STACK.md](TECH_STACK.md) | Runtime, CI, deploy |
