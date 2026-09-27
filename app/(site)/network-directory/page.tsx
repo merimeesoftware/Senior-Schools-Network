@@ -58,7 +58,7 @@ export default async function NetworkDirectoryPage() {
                 Add Your School
               </CTAButton>
               <CTAButton href="/philosophy" variant="outline" size="lg">
-                Review Philosophy
+                Explore the Philosophy
               </CTAButton>
             </div>
           </div>
