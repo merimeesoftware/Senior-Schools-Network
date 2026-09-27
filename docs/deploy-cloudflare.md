@@ -10,7 +10,7 @@ This is an **assets-only Worker**. There is no Worker script (`wrangler.jsonc` h
 
 | File                                      | Role                                                                                                                                                                    |
 | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `wrangler.jsonc`                            | Worker name `senior-schools-network`, assets directory `./out`, `not_found_handling: 404-page`, `html_handling: auto-trailing-slash`, `compatibility_date` `2026-09-26`, `preview_urls: true`, empty `previews` block |
+| `wrangler.jsonc`                            | Worker name `senior-schools-network`, assets directory `./out`, `not_found_handling: 404-page`, `html_handling: auto-trailing-slash`, `compatibility_date` `2026-09-26`, `preview_urls: true`, Custom Domain `seniorschools.org` (`routes` with `custom_domain: true`), empty `previews` block |
 | `public/_headers`                           | Copied to `out/_headers` by `next build`. Security headers on `/*`. Immutable cache on `/_next/static/*`, `/images/*`, and `/assets/*`. `X-Robots-Tag: noindex` on `*.*.workers.dev` |
 | `public/_redirects`                         | Copied to `out/_redirects`. **Comments only.** Path redirects can be added later. Host redirects cannot                                                                                   |
 | `lib/site.ts`                               | Canonical origin `https://seniorschools.org` for metadata, sitemap, robots, and Open Graph                                                                                                |
@@ -49,11 +49,11 @@ bun run preview:cloudflare
 
 [Workers Static Assets redirects](https://developers.cloudflare.com/workers/static-assets/redirects/) support path splats and status codes. **Domain-level redirects are unsupported** and are ignored. The same docs say to use [Bulk Redirects](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/), which run in front of the Worker and can sit alongside `_redirects`.
 
-A Worker script that inspects `Host` would also work, but only if `assets.run_worker_first` is enabled. That invokes the Worker for every asset request (billable) on a site that otherwise needs no compute. Bulk Redirects keep the Worker assets-only.
+A Worker script that inspects `Host` would also work, but only if `assets.run_worker_first` is enabled. That invokes the Worker for every asset request (billable) on a site that otherwise needs no compute. Bulk Redirects keep the Worker assets-only. The canonical host is not a redirect. It is the Custom Domain in `wrangler.jsonc` (section 2).
 
 ## Dashboard steps (not in this repo)
 
-Do this in Cloudflare. Do not change live DNS until the `workers.dev` (or custom-domain) preview has been checked.
+Host 301s, Always Use HTTPS, and cutover stay in Cloudflare. The canonical custom domain is declared in `wrangler.jsonc` and applied by `wrangler deploy` (section 2). Do not change live DNS until the `workers.dev` preview has been checked.
 
 ### 1. First deploy
 
@@ -80,9 +80,21 @@ Check, before any DNS change:
 
 ### 2. Canonical custom domain
 
-Add **`seniorschools.org`** as a custom domain on the `senior-schools-network` Worker (Workers & Pages → the Worker → Settings → Domains & Routes → Add → Custom domain). Cloudflare creates the proxied DNS record when the zone is on the same account.
+`wrangler.jsonc` declares **`seniorschools.org`** as a Custom Domain:
 
-Enable **Always Use HTTPS** on that zone so `http://seniorschools.org` upgrades to `https://` before any other rule.
+```jsonc
+"routes": [
+  { "pattern": "seniorschools.org", "custom_domain": true }
+]
+```
+
+Workers Builds on `main` runs `npx wrangler deploy`, which attaches that hostname. The same publish from a logged-in machine is `bun run deploy:cloudflare` after `bun run build`. Cloudflare creates the proxied DNS record and the certificate when the zone is on the same account. The Worker is the origin for `seniorschools.org` only.
+
+Do not declare `www.seniorschools.org` or any `seniorschoolnetwork.*` host as a Custom Domain. Those stay Bulk Redirect or Single Redirect targets (section 3). If they are attached to the Worker and the redirect list is missing, they serve the site and create duplicate hosts.
+
+**Deploy precondition.** Cloudflare refuses a Custom Domain on a hostname that already has a CNAME. Live DNS currently has `seniorschools.org` and `www.seniorschools.org` as proxied CNAMEs to `seniorschoolnetwork.com` (the Netlify chain). Before a deploy can attach the domain, those apex and www CNAMEs on the `seniorschools.org` zone must be removed, or the conflicting records cleared, so Cloudflare can create the Custom Domain records. DNS at merge time is handled outside this repo. Do not add DNS tooling here.
+
+Enable **Always Use HTTPS** on that zone so `http://seniorschools.org` upgrades to `https://` before any other rule. That setting stays in the dashboard.
 
 ### 3. Host 301s (path and query preserved)
 
@@ -123,7 +135,7 @@ Repeat for the other four hosts. Preview one path-and-query URL in the dashboard
 
 1. Lower DNS TTL on the hostnames you will move.
 2. Leave the Netlify site (`seniorschoolnetwork.netlify.app`) running.
-3. Point only the Cloudflare zones / custom domain when the preview looks right.
+3. When the `workers.dev` preview looks right, clear the conflicting apex and www CNAMEs on `seniorschools.org` (section 2) and deploy so Cloudflare attaches that Custom Domain. Point the legacy zones for the Bulk Redirects in section 3.
 4. Rollback is pointing DNS back at Netlify. Keep `netlify.toml` until that rollback window is closed.
 
 ## Uncertain choices
