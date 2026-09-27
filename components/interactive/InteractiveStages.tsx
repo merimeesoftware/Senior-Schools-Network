@@ -113,23 +113,24 @@ export default function InteractiveStages({
         </div>
       )}
 
-      <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-12" role="group" aria-label="Developmental modes">
+      <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10" role="group" aria-label="Developmental modes">
         {stages.map((stage) => (
           <button
             key={stage}
             type="button"
             onClick={() => setSelectedStage(stage)}
-            className="focus:outline-none transition-all duration-300 hover:scale-105"
+            className="min-h-[44px] min-w-[44px] flex items-center justify-center focus-visible-ring"
             aria-pressed={selectedStage === stage}
           >
             <StageBadge
               stage={stage}
-              size="lg"
+              size="md"
               whiteText
+              compact
               className={
                 selectedStage === stage
-                  ? 'shadow-lg scale-105'
-                  : 'opacity-60 hover:opacity-85'
+                  ? 'shadow-organic-md -translate-y-0.5 opacity-100 ring-2 ring-white/70 transition-all duration-200 ease-out'
+                  : 'shadow-organic opacity-75 transition-all duration-200 ease-out hover:shadow-organic-md hover:-translate-y-0.5 hover:opacity-100'
               }
             />
           </button>

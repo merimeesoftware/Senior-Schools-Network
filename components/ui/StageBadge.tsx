@@ -1,11 +1,16 @@
 import type { Stage } from '@/lib/types/content';
-import { STAGE_BADGE_LABELS } from '@/lib/content/stages';
+import { STAGE_BADGE_LABELS, STAGE_METADATA } from '@/lib/content/stages';
 
 interface StageBadgeProps {
   stage: Stage;
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   whiteText?: boolean;
+  /**
+   * When true, show only the mode name (e.g. "Musical") without the age range.
+   * Used in dense interactive rows where the selected panel repeats the age.
+   */
+  compact?: boolean;
 }
 
 // Visible labels for each mode. Exported so interactive controls (e.g. filters)
@@ -17,34 +22,35 @@ export default function StageBadge({
   size = 'md',
   className = '',
   whiteText = true, // Default to white text for better contrast
+  compact = false,
 }: Readonly<StageBadgeProps>) {
   const stageConfig = {
     musical: {
-      label: STAGE_LABELS.musical,
+      label: compact ? STAGE_METADATA.musical.label : STAGE_LABELS.musical,
       bg: 'bg-musical',
       text: 'text-musical-dark',
       border: 'border-musical-dark/50',
     },
     gymnastic: {
-      label: STAGE_LABELS.gymnastic,
+      label: compact ? STAGE_METADATA.gymnastic.label : STAGE_LABELS.gymnastic,
       bg: 'bg-gymnastic',
       text: 'text-gymnastic-dark',
       border: 'border-gymnastic-dark/50',
     },
     poetic: {
-      label: STAGE_LABELS.poetic,
+      label: compact ? STAGE_METADATA.poetic.label : STAGE_LABELS.poetic,
       bg: 'bg-poetic',
       text: 'text-poetic-dark',
       border: 'border-poetic-dark/50',
     },
     romantic: {
-      label: STAGE_LABELS.romantic,
+      label: compact ? STAGE_METADATA.romantic.label : STAGE_LABELS.romantic,
       bg: 'bg-romantic',
       text: 'text-romantic-dark',
       border: 'border-romantic-dark/50',
     },
     virtuous: {
-      label: STAGE_LABELS.virtuous,
+      label: compact ? STAGE_METADATA.virtuous.label : STAGE_LABELS.virtuous,
       bg: 'bg-virtuous',
       text: 'text-virtuous-dark',
       border: 'border-virtuous-dark/50',
