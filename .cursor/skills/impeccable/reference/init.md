@@ -53,7 +53,7 @@ Do not ask for an aesthetic direction, emotional feel, visual references, colors
 - invented testimonials, customers, benchmarks, pricing, licensing, or deployment claims;
 - a requirement to decide every optional field.
 
-## Step 4: Write PURPOSE.md
+## Step 4: Write PRODUCT.md
 
 Write only confirmed facts and explicitly marked open decisions. Omit irrelevant sections rather than filling them with generic prose.
 

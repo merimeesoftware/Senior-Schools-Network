@@ -1,4 +1,4 @@
-# IDENTITY.md
+# DESIGN.md
 
 Visual authority for the Senior Schools Network site. Product truth lives in `PURPOSE.md`. Do not mix them.
 

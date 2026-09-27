@@ -68,8 +68,8 @@ bun run dev
 │   ├── images/            # Site images
 │   └── texts/             # Downloadable PDFs
 ├── PURPOSE.md             # Product and philosophy truth
-├── IDENTITY.md              # Look
-├── MISSION.md        # Layers and constraints
+├── IDENTITY.md            # Look
+├── MISSION.md             # Layers and constraints
 ├── TECH_STACK.md          # Runtime and deploy
 └── DOC_INDEX.md           # Which file owns what
 ```

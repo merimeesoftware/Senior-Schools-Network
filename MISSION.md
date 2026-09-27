@@ -1,4 +1,4 @@
-# MISSION.md
+# ARCHITECTURE.md
 
 Layers and constraints for the Senior Schools Network site. Runtime, package manager, CI commands, and host checklist live in `TECH_STACK.md` and `docs/deploy-cloudflare.md`. Words live in `PURPOSE.md`. Look lives in `IDENTITY.md`.
 

@@ -1,6 +1,6 @@
 Generate a `IDENTITY.md` file at the project root that captures the current visual design system, so AI agents generating new screens stay on-brand.
 
-IDENTITY.md follows the [official IDENTITY.md format spec](https://raw.githubusercontent.com/google-labs-code/design.md/main/docs/spec.md): optional YAML frontmatter carrying machine-readable design tokens, followed by up to eight markdown sections in a fixed order. **Tokens are normative; prose provides context for how to apply them.** Sections may be omitted when not relevant, but those present stay in the specified order. Use the canonical headings below so the file remains portable across IDENTITY.md-aware tools.
+IDENTITY.md follows the [official DESIGN.md format spec](https://raw.githubusercontent.com/google-labs-code/design.md/main/docs/spec.md): optional YAML frontmatter carrying machine-readable design tokens, followed by up to eight markdown sections in a fixed order. **Tokens are normative; prose provides context for how to apply them.** Sections may be omitted when not relevant, but those present stay in the specified order. Use the canonical headings below so the file remains portable across DESIGN.md-aware tools.
 
 ## The frontmatter: token schema
 
@@ -125,7 +125,7 @@ The following require creative input that cannot be auto-extracted. Ask them in 
 
 Carry a line from PURPOSE.md only when it is a durable brand commitment that actually constrains the visual system. Page strategy and surface concepts do not belong here.
 
-### Step 4: Write IDENTITY.md
+### Step 4: Write DESIGN.md
 
 The file opens with the YAML frontmatter staged in Step 2b (schema documented at the top of this reference), then the markdown body using the canonical structure below.
 
@@ -359,7 +359,7 @@ If PURPOSE.md exists, load [new-work.md](new-work.md) and resolve visual authori
 
 If new-work already completed the workshop in this session, use its chosen direction directly. Do not ask again.
 
-### Step 2: Write seed IDENTITY.md
+### Step 2: Write seed DESIGN.md
 
 Use the canonical section order from Scan mode. Populate the selected workshop direction and leave unresolved implementation facts as honest placeholders. The seed commits a world and its invariants; it does not pretend implementation tokens already exist.
 

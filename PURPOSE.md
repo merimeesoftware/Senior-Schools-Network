@@ -1,4 +1,4 @@
-# PURPOSE.md — Senior Schools Network
+# PRODUCT.md — Senior Schools Network
 
 StoryBrand script and product truth for the Senior Schools Network. Shared by UI, branding, marketing, affiliation language, directory filters, and AI edits.
 
