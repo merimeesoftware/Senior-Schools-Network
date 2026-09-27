@@ -6,6 +6,8 @@ import QuoteImageBreak from '@/components/content/QuoteImageBreak';
 import HeroSection from '@/components/layout/HeroSection';
 import FadeIn from '@/components/ui/FadeIn';
 import { getAxiomsQuotesBySection } from '@/lib/content/axioms';
+import { homeHeroQuotes } from '@/lib/content/quotes';
+import { ONE_LINER } from '@/lib/content/public-lines';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -13,9 +15,6 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  // Get hero quotes from Foundational Wisdom section in axioms
-  const heroQuotes = await getAxiomsQuotesBySection('Quote Bank: Sense and Story');
-  
   // Beauty quotes from Poetic Knowledge section in axioms
   const beautyQuotes = await getAxiomsQuotesBySection('Quote Bank: Poetic Knowledge');
   
@@ -27,7 +26,10 @@ export default async function HomePage() {
       {/* Hero Section with Full-Width Image */}
       <HeroSection
         imageFolder="landscapes"
-        quotes={heroQuotes}
+        quotes={homeHeroQuotes}
+        brandLine={ONE_LINER}
+        showQuoteSource
+        showQuoteRefresh
         imageAlt="Classical landscape evoking wonder"
         showButtons={true}
         buttons={[
@@ -67,7 +69,7 @@ export default async function HomePage() {
               <Link href="/network-directory" className="group block">
               <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg border-l-4 border-gymnasium">
                 <h3 className="text-2xl font-playfair text-forest group-hover:text-gold transition-colors">
-                  Senior Schools
+                  Find a school for your child
                 </h3>
                 <p className="text-lg leading-relaxed text-charcoal/80">
                   Discover affiliated schools embodying Dr. John Senior's vision of poetic knowledge, physical discipline, and authentic Catholic formation.
@@ -86,7 +88,7 @@ export default async function HomePage() {
               <Link href="/philosophy" className="group block">
               <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg border-l-4 border-poetic">
                 <h3 className="text-2xl font-playfair text-forest group-hover:text-gold transition-colors">
-                  Philosophy & Resources
+                  Bring this home
                 </h3>
                 <p className="text-lg leading-relaxed text-charcoal/80">
                   Explore Dr. John Senior's vision of poetic knowledge, access book lists, and find resources for each developmental stage.
@@ -105,7 +107,7 @@ export default async function HomePage() {
               <Link href="/engage" className="group block">
               <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg border-l-4 border-spiritual">
                 <h3 className="text-2xl font-playfair text-forest group-hover:text-gold transition-colors">
-                  Engage & Connect
+                  Start or strengthen a school
                 </h3>
                 <p className="text-lg leading-relaxed text-charcoal/80">
                   Submit your school to the network, reflect on the gymnasium gap, and find inspiration to carry these ideas forward.
@@ -114,7 +116,7 @@ export default async function HomePage() {
                   Matthew 11:28 - "Come to me... and I will refresh you"
                 </p>
                 <span className="inline-block text-gold font-lato font-semibold group-hover:translate-x-2 transition-transform">
-                  Get Involved →
+                  Add Your School →
                 </span>
               </div>
               </Link>

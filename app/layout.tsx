@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { EB_Garamond, IM_Fell_English, Petit_Formal_Script } from 'next/font/google';
 import './globals.css';
 import { SITE_ORIGIN } from '@/lib/site';
+import { ONE_LINER } from '@/lib/content/public-lines';
 import { getCurrentLiturgicalSeason, getSeasonClassName } from '@/lib/utils/liturgical';
 
 const ebGaramond = EB_Garamond({
@@ -33,8 +34,7 @@ export const metadata: Metadata = {
     default: 'Senior Schools Network',
     template: '%s | Senior Schools Network',
   },
-  description:
-    "Promoting schools aligned with John Senior's philosophy of poetic knowledge, wonder, and Catholic formation. Restoring innocence through gymnasium emphasis, adventure, and faith.",
+  description: ONE_LINER,
   keywords: [
     'John Senior',
     'poetic knowledge',
@@ -53,8 +53,7 @@ export const metadata: Metadata = {
     url: SITE_ORIGIN,
     siteName: 'Senior Schools Network',
     title: 'Senior Schools Network',
-    description:
-      "Catholic schools embodying John Senior's philosophy: poetic knowledge, physical discipline, and wonder-filled formation.",
+    description: ONE_LINER,
     images: [
       {
         url: '/og-image-enclosed-garden.jpg',
@@ -67,8 +66,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Senior Schools Network',
-    description:
-      "Catholic schools embodying John Senior's philosophy: poetic knowledge, physical discipline, and wonder-filled formation.",
+    description: ONE_LINER,
     images: ['/og-image-enclosed-garden.jpg'],
   },
   icons: {
