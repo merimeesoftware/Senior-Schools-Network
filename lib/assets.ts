@@ -303,7 +303,7 @@ const landscapes: ImageAsset[] = [
 const medievalTales: ImageAsset[] = [
   {
     id: 'medieval-ill-008',
-    src: '/images/medieval-tales/ill_pg_008_sml.webp',
+    src: '/images/Medieval-Tales/ill_pg_008_sml.webp',
     alt: 'Medieval tale illustration showing chivalric adventure and noble characters',
     caption: 'Tales of valor and virtue from the age of chivalry',
     width: 800,
@@ -315,7 +315,7 @@ const medievalTales: ImageAsset[] = [
   },
   {
     id: 'medieval-ill-028',
-    src: '/images/medieval-tales/ill_pg_028_sml.webp',
+    src: '/images/Medieval-Tales/ill_pg_028_sml.webp',
     alt: 'Medieval tale scene depicting courtly life and knightly pursuits',
     caption: 'The romance and wonder of medieval storytelling',
     width: 800,
@@ -327,7 +327,7 @@ const medievalTales: ImageAsset[] = [
   },
   {
     id: 'medieval-ill-052',
-    src: '/images/medieval-tales/ill_pg_052_sml.webp',
+    src: '/images/Medieval-Tales/ill_pg_052_sml.webp',
     alt: 'Medieval tale illustration showing castle life and noble customs',
     caption: 'Medieval customs and courtly virtues rendered in gentle illustration',
     width: 800,
@@ -339,7 +339,7 @@ const medievalTales: ImageAsset[] = [
   },
   {
     id: 'medieval-ill-064',
-    src: '/images/medieval-tales/ill_pg_064_sml.webp',
+    src: '/images/Medieval-Tales/ill_pg_064_sml.webp',
     alt: 'Medieval tale scene with heroic deeds and chivalric ideals',
     caption: 'Adventure and honor in medieval narrative form',
     width: 800,
@@ -351,7 +351,7 @@ const medievalTales: ImageAsset[] = [
   },
   {
     id: 'medieval-ill-frontispiece',
-    src: '/images/medieval-tales/ill_pg_iv_sml.webp',
+    src: '/images/Medieval-Tales/ill_pg_iv_sml.webp',
     alt: 'Medieval tales frontispiece with decorative border and heraldic imagery',
     caption: 'Gateway to the world of medieval romance and chivalry',
     width: 800,
@@ -592,10 +592,10 @@ const logos: ImageAsset[] = [
   },
   {
     id: 'ssn-favicon',
-    src: '/assets/logos/Senior School Network Favicon.png',
+    src: '/assets/logos/favicon.webp',
     alt: 'Senior Schools Network favicon',
-    width: 32,
-    height: 32,
+    width: 500,
+    height: 500,
     focalPoint: { x: 50, y: 50 },
     tags: ['favicon', 'branding'],
   },

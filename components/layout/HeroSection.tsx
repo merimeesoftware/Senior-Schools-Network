@@ -13,7 +13,7 @@ interface CTAButtonConfig {
 }
 
 interface HeroSectionProps {
-  imageFolder: 'adventure' | 'landscapes' | 'sacred-texts' | 'art-sacred' | 'beatrix-potter' | 'nursery-illustrations' | 'otto-of-the-silver-hand' | 'robin-hood' | 'winnie-the-pooh';
+  imageFolder: 'adventure' | 'landscapes' | 'sacred-texts' | 'art-sacred' | 'beatrix-potter' | 'otto-of-the-silver-hand' | 'robin-hood' | 'winnie-the-pooh';
   quotes: Quote[];
   imageAlt?: string;
   showButtons?: boolean;
