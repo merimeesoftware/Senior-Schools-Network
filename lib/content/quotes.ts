@@ -30,7 +30,7 @@ const seniorPoetryIsKnowledge: Quote = {
 
 /**
  * Home hero rotation. Senior lines only, and only the two verified in
- * The Restoration of Innocence (PRODUCT.md). Do not add unverified Senior lines.
+ * The Restoration of Innocence (PURPOSE.md). Do not add unverified Senior lines.
  */
 export const homeHeroQuotes: Quote[] = [
   seniorBoysGemLikeFlames,

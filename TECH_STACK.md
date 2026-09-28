@@ -12,7 +12,7 @@ Cursor + MCP + skills → Cloudflare Workers Builds when practical.
 
 | Layer | Current | Evidence | Alignment |
 |-------|---------|----------|-----------|
-| Agent surface | Root canon plus Copilot instructions; `/impeccable` skill | `DOC_INDEX.md`, `PRODUCT.md`, `DESIGN.md`, `ARCHITECTURE.md`, `AGENTS.md`, `.github/copilot-instructions.md`, `.cursor/skills/impeccable/` | partial |
+| Agent surface | Root canon plus Copilot instructions; `/impeccable` skill | `DOC_INDEX.md`, `PURPOSE.md`, `IDENTITY.md`, `MISSION.md`, `AGENTS.md`, `.github/copilot-instructions.md`, `.cursor/skills/impeccable/` | partial |
 | Source + CI | Next.js 14 static export; TypeScript; Tailwind CSS; Jest + React Testing Library; ESLint + Prettier; Bun lockfile and scripts; Cloudflare Workers Builds (`main`: `bun run build` then `npx wrangler deploy`; other branches: `bun run build` then `npx wrangler preview`) | `package.json`, `next.config.js`, `tsconfig.json`, `tailwind.config.ts`, `jest.config.js`, `bun.lock`, `docs/deploy-cloudflare.md` | partial |
 | Runtime / deploy | Target: Cloudflare Workers + Static Assets (assets-only, publish `out/`). Workers Builds is the only CI/CD. Netlify config retained until DNS cutover | `wrangler.jsonc`, `public/_headers`, `public/_redirects`, `docs/deploy-cloudflare.md`, `netlify.toml` | partial |
 | Data / storage | Static TypeScript modules and JSON in repo; Markdown texts in `public/texts/`; no database or external storage | `lib/content/network.ts`, `lib/content/liturgical-themes.json`, `public/texts/` | aligned |

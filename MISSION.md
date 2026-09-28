@@ -1,6 +1,6 @@
 # ARCHITECTURE.md
 
-Layers and constraints for the Senior Schools Network site. Runtime, package manager, CI commands, and host checklist live in `TECH_STACK.md` and `docs/deploy-cloudflare.md`. Words live in `PRODUCT.md`. Look lives in `DESIGN.md`.
+Layers and constraints for the Senior Schools Network site. Runtime, package manager, CI commands, and host checklist live in `TECH_STACK.md` and `docs/deploy-cloudflare.md`. Words live in `PURPOSE.md`. Look lives in `IDENTITY.md`.
 
 ## What this is
 
@@ -37,14 +37,14 @@ Live routes: `/`, `/philosophy`, `/network-directory`, `/engage`, `/texts/[slug]
 - Keep `netlify.toml` until DNS cutover and rollback are done. See `docs/deploy-cloudflare.md`.
 - No analytics or tracking.
 - Quotes and primary texts come from `public/texts/` (including `PHILOSOPHICAL-AXIOMS.md` as a quote bank). Do not invent quotations in components.
-- Mode *names*, order, and filters are `PRODUCT.md` (musical → gymnastic → poetic → romantic → virtuous). `lib/content/stages.ts`, `InteractiveStages`, and `StageBadge` still speak the older four-column set. That is a later code pass. This file does not authorize a sixth mode or a rename.
+- Mode *names*, order, and filters are `PURPOSE.md` (musical → gymnastic → poetic → romantic → virtuous). `lib/content/stages.ts`, `InteractiveStages`, and `StageBadge` still speak the older four-column set. That is a later code pass. This file does not authorize a sixth mode or a rename.
 - Dev and production builds share `.next/`. Do not run `bun run build` while `bun run dev` is running. Operational detail: `AGENTS.md`.
-- Accessibility is part of the layer: semantic HTML, ARIA on interactive controls, keyboard paths. Look tokens: `DESIGN.md`.
+- Accessibility is part of the layer: semantic HTML, ARIA on interactive controls, keyboard paths. Look tokens: `IDENTITY.md`.
 
 ## What is not a layer
 
-- StoryBrand, mode definitions, and public lines — `PRODUCT.md`.
-- Palette, type, and components’ visual rules — `DESIGN.md`.
+- StoryBrand, mode definitions, and public lines — `PURPOSE.md`.
+- Palette, type, and components’ visual rules — `IDENTITY.md`.
 - Bun version and Workers Builds commands — `TECH_STACK.md`.
 - Page-by-page copy proposals — `docs/reviews/`.
 - Phase plans. Older docs spoke of Phase 2 / Phase 3. Those are not a roadmap. The durable shape is the static export plus the Cloudflare cutover above.

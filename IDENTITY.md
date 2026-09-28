@@ -1,6 +1,6 @@
 # DESIGN.md
 
-Visual authority for the Senior Schools Network site. Product truth lives in `PRODUCT.md`. Do not mix them.
+Visual authority for the Senior Schools Network site. Product truth lives in `PURPOSE.md`. Do not mix them.
 
 Philosophies live in `DESIGN.global.md` (prize first, then the walk; world as the medium). This file paints only this surface: one world, parchment ground, charcoal ink, forest action, one gold accent.
 
@@ -15,9 +15,9 @@ Tokens below are the ones already committed in `tailwind.config.ts`, `app/layout
 
 ## Prize and path
 
-Bind `DESIGN.global.md`. The prize sentence and button verbs are `PRODUCT.md`. This section only places them.
+Bind `DESIGN.global.md`. The prize sentence and button verbs are `PURPOSE.md`. This section only places them.
 
-- Two-second prize: the locked public threshold from `PRODUCT.md` (want + direct CTA), readable with motion off. Do not write a second prize line here.
+- Two-second prize: the locked public threshold from `PURPOSE.md` (want + direct CTA), readable with motion off. Do not write a second prize line here.
 - Door / direct CTA placement: first viewport. Primary action uses the forest button. One transitional action may sit beside it.
 - Rooms (named in type; skippable): Home (`/`), Philosophy (`/philosophy`), Schools & Programs (`/network-directory`), Engage (`/engage`). Texts (`/texts/[slug]`), Contact (`/contact`), and Privacy (`/privacy`) are rooms off the header.
 - Directory / header: `Navigation` is the persistent door row. Wander is not required.
@@ -85,7 +85,7 @@ Ground, ink, action, accent — from `tailwind.config.ts`.
 
 ### Mode color tokens (current UI, not a new palette)
 
-These five tokens are the live network modes in `tailwind.config.ts`, in the locked order. Public mode names are `PRODUCT.md`: musical → gymnastic → poetic → romantic → virtuous. Places are paint only (garden, gymnasium); they are not mode names. Hexes document the committed palette. They are not the taxonomy.
+These five tokens are the live network modes in `tailwind.config.ts`, in the locked order. Public mode names are `PURPOSE.md`: musical → gymnastic → poetic → romantic → virtuous. Places are paint only (garden, gymnasium); they are not mode names. Hexes document the committed palette. They are not the taxonomy.
 
 | Token | Default | Light | Dark |
 |-------|---------|-------|------|
@@ -177,7 +177,7 @@ Manifest: `lib/assets.ts`. Files: `public/images/` (WebP). Components: `Optimize
 Collections already in the tree include `art-sacred/`, `beatrix-potter/`, `landscapes/`, `nursery-illustrations/`, `otto-of-the-silver-hand/`, `robin-hood/`, `winnie-the-pooh/`, `adventure/`.
 
 - Painterly, muted, graded toward parchment, forest, and earth. Public-domain classics plus commissioned or generated plates that match that grade.
-- Alt text describes what is seen. Caption words, if any, come from `PRODUCT.md` and `public/texts/` — do not invent quotations in this file.
+- Alt text describes what is seen. Caption words, if any, come from `PURPOSE.md` and `public/texts/` — do not invent quotations in this file.
 - Hero: priority load, wide. Below the fold: lazy. Default quality 85. Provide a `sizes` attribute.
 - Logos and favicon live under `public/assets/logos/`. OG image: `public/og-image-enclosed-garden.jpg` (1200×630).
 - Remapping to the five modes is done in the UI. Asset tags in `lib/assets.ts` may still lag. Do not invent new image treatments for that lag.

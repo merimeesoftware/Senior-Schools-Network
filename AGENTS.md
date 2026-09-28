@@ -5,19 +5,19 @@
 Before copy, look, or structure work, read:
 
 1. `PRODUCT.global.md`
-2. `PRODUCT.md`
+2. `PURPOSE.md`
 3. `DESIGN.global.md`
-4. `DESIGN.md`
-5. `ARCHITECTURE.md` and `TECH_STACK.md`
+4. `IDENTITY.md`
+5. `MISSION.md` and `TECH_STACK.md`
 6. `DOC_INDEX.md`
 
-**Conflict rule:** words → `PRODUCT.md`. Look → `DESIGN.md`. Runtime → `TECH_STACK.md`. Layers → `ARCHITECTURE.md`.
+**Conflict rule:** words → `PURPOSE.md`. Look → `IDENTITY.md`. Runtime → `TECH_STACK.md`. Layers → `MISSION.md`.
 
-Philosophy, mode names, and public lines live in `PRODUCT.md`. Locked order: musical → gymnastic → poetic → romantic → virtuous. Quote only from `public/texts/` (including `PHILOSOPHICAL-AXIOMS.md` as a quote bank). Do not invent Senior quotes.
+Philosophy, mode names, and public lines live in `PURPOSE.md`. Locked order: musical → gymnastic → poetic → romantic → virtuous. Quote only from `public/texts/` (including `PHILOSOPHICAL-AXIOMS.md` as a quote bank). Do not invent Senior quotes.
 
-The old `.github/docs/` stubs are removed. Canon lives only in `PRODUCT.md`, `DESIGN.md`, `ARCHITECTURE.md`, and `TECH_STACK.md`.
+The old `.github/docs/` stubs are removed. Canon lives only in `PURPOSE.md`, `IDENTITY.md`, `MISSION.md`, and `TECH_STACK.md`.
 
-`/impeccable` is `.cursor/skills/impeccable`. `/impeccable clarify` may tighten words. It may not change the one-liner, the plan, or the direct CTA in `PRODUCT.md`. Do not copy another merimeesoftware product’s type or accent.
+`/impeccable` is `.cursor/skills/impeccable`. `/impeccable clarify` may tighten words. It may not change the one-liner, the plan, or the direct CTA in `PURPOSE.md`. Do not copy another merimeesoftware product’s type or accent.
 
 ## Cursor Cloud specific instructions
 

@@ -10,17 +10,17 @@ Operating constraints for AI agents working in this repository.
 
 Read root `DOC_INDEX.md`. Load order:
 
-1. `PRODUCT.global.md` then `PRODUCT.md`
-2. `DESIGN.global.md` then `DESIGN.md`
-3. `ARCHITECTURE.md` and `TECH_STACK.md`
+1. `PRODUCT.global.md` then `PURPOSE.md`
+2. `DESIGN.global.md` then `IDENTITY.md`
+3. `MISSION.md` and `TECH_STACK.md`
 
-Words → `PRODUCT.md`. Look → `DESIGN.md`. Runtime → `TECH_STACK.md`.
+Words → `PURPOSE.md`. Look → `IDENTITY.md`. Runtime → `TECH_STACK.md`.
 
 The old `.github/docs/` stubs are removed. Canon lives only in the root files above.
 
 ## Mission
 
-Promote a loose network of Catholic schools aligned with John Senior's philosophy of **education through sense, story, and liturgy**. The network spans the five locked modes—musical, gymnastic, poetic, romantic, and virtuous. Inspire and connect; never prescribe curricula. Mode names, order, and public lines: `PRODUCT.md`.
+Promote a loose network of Catholic schools aligned with John Senior's philosophy of **education through sense, story, and liturgy**. The network spans the five locked modes—musical, gymnastic, poetic, romantic, and virtuous. Inspire and connect; never prescribe curricula. Mode names, order, and public lines: `PURPOSE.md`.
 
 ## Technical Stack
 
@@ -36,7 +36,7 @@ Promote a loose network of Catholic schools aligned with John Senior's philosoph
 - Never fabricate quotes—attribute all citations
 - Maintain Catholic fidelity and charitable tone
 - Platform is network-focused—no content about specific prototype schools
-- Stage labels, slugs, and filter order must match `PRODUCT.md` (musical, gymnastic, poetic, romantic, virtuous)
+- Stage labels, slugs, and filter order must match `PURPOSE.md` (musical, gymnastic, poetic, romantic, virtuous)
 
 ## Workflow
 
@@ -74,5 +74,5 @@ Modern AI agents can infer context from codebase structure. Detailed prompts are
 
 - **Scope**: Network promotion across all educational stages—not curriculum prescription
 - **Fidelity**: Catholic tradition and Western canon; exclusionary in core tenets
-- **Tech**: Follow `ARCHITECTURE.md` and `TECH_STACK.md`; prefer static generation; avoid runtime complexity
+- **Tech**: Follow `MISSION.md` and `TECH_STACK.md`; prefer static generation; avoid runtime complexity
 - **Ethics**: Emphasize charity and humility; never collect user data
