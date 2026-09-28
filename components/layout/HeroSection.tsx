@@ -89,6 +89,25 @@ export default function HeroSection({
     return { objectFit: 'cover' as const, objectPosition: '50% 40%', useBackground: false };
   };
 
+  const buttonGroup = showButtons && buttons && buttons.length > 0 && (
+    <div
+      className={`flex flex-col sm:flex-row justify-center ${
+        brandLine ? 'gap-4 sm:gap-6' : 'gap-6 mt-6'
+      }`}
+    >
+      {buttons.map((button, index) => (
+        <CTAButton
+          key={index}
+          href={button.href}
+          variant={button.variant}
+          size="lg"
+        >
+          {button.text}
+        </CTAButton>
+      ))}
+    </div>
+  );
+
   return (
     <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
       {heroImages[heroImageIndex] && (() => {
@@ -137,20 +156,22 @@ export default function HeroSection({
       })()}
 
       <div className={`relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center min-h-[100svh] pb-12 ${
-        brandLine ? 'justify-start pt-64' : 'justify-center pt-[14vh]'
+        brandLine ? 'justify-start pt-[22svh]' : 'justify-center pt-[14vh]'
       }`}>
         {/* Title overlay */}
-        {title && (
+        {title && !brandLine && (
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair text-white mb-8 hero-text-shadow">
             {title}
           </h1>
         )}
 
         {brandLine && (
-          <p className="text-lg md:text-xl font-body text-parchment leading-relaxed hero-text-shadow max-w-3xl mx-auto mb-8">
+          <h1 className="text-hero max-sm:text-[2rem] max-sm:leading-[1.15] font-heading text-parchment hero-text-shadow max-w-4xl mx-auto mb-5 sm:mb-8 text-balance">
             {brandLine}
-          </p>
+          </h1>
         )}
+
+        {brandLine && buttonGroup}
         
         {/* Quote display */}
         {quotes.length > 0 && (
@@ -159,27 +180,26 @@ export default function HeroSection({
             autoplay={false}
             showRefreshButton={showQuoteRefresh}
             showSource={showQuoteSource}
-            quoteClassName="text-2xl md:text-4xl font-playfair italic text-white mb-6 leading-relaxed hero-text-shadow"
-            authorClassName="text-xl md:text-2xl text-parchment/90 not-italic font-accent hero-text-shadow"
-            className="mb-8 max-w-4xl mx-auto"
+            quoteClassName={
+              brandLine
+                ? 'text-lg sm:text-xl md:text-2xl font-heading italic text-white mb-3 leading-relaxed hero-text-shadow'
+                : 'text-2xl md:text-4xl font-playfair italic text-white mb-6 leading-relaxed hero-text-shadow'
+            }
+            authorClassName={
+              brandLine
+                ? 'text-sm sm:text-base md:text-lg text-parchment/90 not-italic font-accent hero-text-shadow'
+                : 'text-xl md:text-2xl text-parchment/90 not-italic font-accent hero-text-shadow'
+            }
+            className={
+              brandLine
+                ? 'mt-6 max-w-3xl mx-auto'
+                : 'mb-8 max-w-4xl mx-auto'
+            }
           />
         )}
         
         {/* CTA Buttons */}
-        {showButtons && buttons && buttons.length > 0 && (
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mt-6">
-            {buttons.map((button, index) => (
-              <CTAButton 
-                key={index} 
-                href={button.href} 
-                variant={button.variant} 
-                size="lg"
-              >
-                {button.text}
-              </CTAButton>
-            ))}
-          </div>
-        )}
+        {!brandLine && buttonGroup}
       </div>
     </section>
   );
