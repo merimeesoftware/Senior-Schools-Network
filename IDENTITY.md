@@ -174,7 +174,7 @@ Button classes in `app/globals.css` (`.btn-primary`, `.btn-secondary`, `.btn-out
 
 Manifest: `lib/assets.ts`. Files: `public/images/` (WebP). Components: `OptimizedImage`, `ImageGallery`.
 
-Collections already in the tree include `art-sacred/`, `beatrix-potter/`, `landscapes/`, `nursery-illustrations/`, `otto-of-the-silver-hand/`, `robin-hood/`, `winnie-the-pooh/`, `adventure/`.
+Collections already in the tree include `art-sacred/`, `beatrix-potter/`, `landscapes/`, `Medieval-Tales/`, `otto-of-the-silver-hand/`, `robin-hood/`, `winnie-the-pooh/`, `adventure/`.
 
 - Painterly, muted, graded toward parchment, forest, and earth. Public-domain classics plus commissioned or generated plates that match that grade.
 - Alt text describes what is seen. Caption words, if any, come from `PURPOSE.md` and `public/texts/` — do not invent quotations in this file.

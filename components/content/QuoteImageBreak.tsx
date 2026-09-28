@@ -7,7 +7,7 @@ import type { Quote } from '@/lib/types/content';
 
 interface QuoteImageBreakProps {
   quotes: Quote[];
-  imageFolder: 'adventure' | 'landscapes' | 'sacred-texts' | 'art-sacred' | 'beatrix-potter' | 'nursery-illustrations' | 'otto-of-the-silver-hand' | 'robin-hood' | 'winnie-the-pooh';
+  imageFolder: 'adventure' | 'landscapes' | 'sacred-texts' | 'art-sacred' | 'beatrix-potter' | 'otto-of-the-silver-hand' | 'robin-hood' | 'winnie-the-pooh';
   imageAlt: string;
   quoteClassName?: string;
   authorClassName?: string;
