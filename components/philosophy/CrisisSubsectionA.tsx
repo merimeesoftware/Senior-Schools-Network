@@ -69,13 +69,6 @@ export function CrisisSubsectionA({ className = '' }: CrisisSubsectionAProps) {
         collapsible={false}
         quotes={[
           {
-            quote: "Wonder is the first and most fundamental disposition of the soul, the beginning of all philosophy and all poetry. The child who has never felt wonder is already dead.",
-            author: "Dr. John Senior",
-            source: "The Restoration of Christian Culture",
-            showSourceLink: true,
-            sourceSlug: "restoration-of-christian-culture"
-          },
-          {
             quote: "The senses are the gateways to the soul. Without sensory integration—touch, taste, smell, sound, sight—the child cannot achieve connaturality with reality. Modern education isolates the mind from the body and both from the world.",
             author: "Dr. Dennis Quinn",
             source: "IHP Lecture I: The Loss of the Senses",

@@ -69,13 +69,6 @@ export function CrisisSubsectionB({ className = '' }: CrisisSubsectionBProps) {
         collapsible={false}
         quotes={[
           {
-            quote: "Physical discipline is spiritual discipline. The boy who learns to endure cold water, hard ground, and aching muscles learns to endure intellectual frustration and spiritual dryness. Without the gymnasium, the poetic stage collapses—there is no soil for higher learning.",
-            author: "James Taylor",
-            source: "Poetic Knowledge: The Recovery of Education",
-            showSourceLink: true,
-            sourceSlug: "poetic-knowledge-recovery-education"
-          },
-          {
             quote: "Train up a child in the way he should go; even when he is old he will not depart from it.",
             author: "Proverbs 22:6",
             source: "Scripture (ESV)"

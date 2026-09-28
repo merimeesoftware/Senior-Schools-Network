@@ -55,10 +55,10 @@ describe('CrisisSubsectionA', () => {
     expect(quoteGroup).toHaveAttribute('data-variant', 'major-premise');
   });
 
-  it('renders EvidenceQuoteGroup with 3 quotes', () => {
+  it('renders EvidenceQuoteGroup with 2 quotes', () => {
     render(<CrisisSubsectionA />);
     const quoteCount = screen.getByTestId('quote-count');
-    expect(quoteCount).toHaveTextContent('3 quotes');
+    expect(quoteCount).toHaveTextContent('2 quotes');
   });
 
   it('renders InteractiveStages in crisis mode', () => {
