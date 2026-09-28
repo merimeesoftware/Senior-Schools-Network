@@ -28,7 +28,7 @@ Visitor
 | Edge | `wrangler.jsonc`, `public/_headers`, `public/_redirects` | How `out/` is served. No Worker script (`main` is unset) |
 | Until cutover | `netlify.toml` | The current Netlify build. Remove only after DNS has moved |
 
-Live routes: `/`, `/philosophy`, `/network-directory`, `/engage`, `/texts/[slug]`, `/contact`, `/privacy`.
+Live routes: `/`, `/philosophy`, `/network-directory`, `/engage`, `/texts`, `/texts/[slug]`, `/contact`, `/privacy`.
 
 ## Constraints
 
