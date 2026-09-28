@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import OptimizedImage from '../media/OptimizedImage';
 
 const navItems = [
@@ -30,10 +30,26 @@ function navLinkClass(active: boolean, mobile: boolean): string {
 export default function Navigation() {
   const pathname = usePathname() ?? '';
   const [isOpen, setIsOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
+
+  // Escape closes the drawer and returns focus to its toggle (IDENTITY.md keyboard rule).
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
 
   return (
     <nav
@@ -78,6 +94,7 @@ export default function Navigation() {
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
+              ref={menuButtonRef}
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center min-h-11 min-w-11 text-parchment hover:text-gold focus-visible-ring rounded"
               aria-label={
