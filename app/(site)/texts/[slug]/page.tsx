@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import MarkdownContent from '@/components/content/MarkdownContent';
+import ChamberHeader from '@/components/layout/ChamberHeader';
 import ContentContainer from '@/components/layout/ContentContainer';
-import SectionHeading from '@/components/ui/SectionHeading';
 import CTAButton from '@/components/ui/CTAButton';
 import {
   getAllTextSlugs,
@@ -85,37 +85,23 @@ export default async function TextPage({ params }: TextPageProps) {
 
   return (
     <>
-      {/* Spacer for absolute navigation */}
-      <div className="h-24 bg-parchment" aria-hidden="true" />
-
-      {/* Header Section - minimal */}
-      <section className="bg-parchment pt-4 pb-2">
-        <ContentContainer width="narrow">
-          <SectionHeading level={1} align="center" decorated>
-            {metadata.title}
-          </SectionHeading>
-
-          {metadata.author && (
-            <p className="text-center text-xl text-charcoal/70 mt-2">
-              by {metadata.author}
-            </p>
-          )}
-
-          {metadata.description && (
-            <p className="text-center text-lg text-charcoal/60 mt-2 max-w-2xl mx-auto leading-relaxed">
-              {metadata.description}
-            </p>
-          )}
-
-          {/* Print Guidance */}
-          <div className="mt-2 text-center">
-            <p className="text-sm text-charcoal/60">
+      <ChamberHeader
+        title={metadata.title}
+        meta={
+          <>
+            {metadata.author && (
+              <p className="text-xl text-charcoal/70">by {metadata.author}</p>
+            )}
+            {metadata.description && (
+              <p className="mt-2">{metadata.description}</p>
+            )}
+            <p className="mt-4 text-sm">
               💡 Tip: Use your browser's print function (Ctrl+P / Cmd+P) to save
               this as a PDF
             </p>
-          </div>
-        </ContentContainer>
-      </section>
+          </>
+        }
+      />
 
       {/* Content Section */}
       <section className="py-8 bg-white">

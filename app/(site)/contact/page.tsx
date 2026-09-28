@@ -1,5 +1,5 @@
+import ChamberHeader from '@/components/layout/ChamberHeader';
 import ContentContainer from '@/components/layout/ContentContainer';
-import SectionHeading from '@/components/ui/SectionHeading';
 import CTAButton from '@/components/ui/CTAButton';
 import type { Metadata } from 'next';
 
@@ -11,16 +11,11 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-parchment">
-      {/* Spacer for absolute navigation */}
-      <div className="h-24" aria-hidden="true" />
-      
+    <>
+      <ChamberHeader title="Contact" />
+
       <div className="pt-8 pb-20">
         <ContentContainer width="narrow">
-          <SectionHeading level={1} align="center">
-            Contact
-          </SectionHeading>
-        
         <div className="mt-8 text-charcoal/90 leading-relaxed space-y-8">
           <p className="text-xl text-center">
             Questions about the network, the philosophy, or interested in connecting 
@@ -88,6 +83,6 @@ export default function ContactPage() {
         </div>
       </ContentContainer>
       </div>
-    </main>
+    </>
   );
 }
