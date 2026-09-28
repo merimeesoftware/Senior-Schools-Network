@@ -87,7 +87,7 @@ export default function ScriptureCarousel({
         <div className="flex items-center justify-center gap-4">
           <button
             onClick={goToPrevious}
-            className="p-2 rounded-organic bg-parchment/90 hover:bg-parchment transition-colors focus-visible-ring"
+            className="flex h-11 w-11 items-center justify-center rounded-organic bg-parchment/90 hover:bg-parchment transition-colors focus-visible-ring"
             aria-label="Previous scripture"
           >
             <svg
@@ -110,7 +110,7 @@ export default function ScriptureCarousel({
           {!prefersReducedMotion && (
             <button
               onClick={() => setIsPaused(!isPaused)}
-              className="p-2 rounded-organic bg-parchment/90 hover:bg-parchment transition-colors focus-visible-ring"
+              className="flex h-11 w-11 items-center justify-center rounded-organic bg-parchment/90 hover:bg-parchment transition-colors focus-visible-ring"
               aria-label={isPaused ? 'Resume autoplay' : 'Pause autoplay'}
             >
               {isPaused ? (
@@ -137,7 +137,7 @@ export default function ScriptureCarousel({
 
           <button
             onClick={goToNext}
-            className="p-2 rounded-organic bg-parchment/90 hover:bg-parchment transition-colors focus-visible-ring"
+            className="flex h-11 w-11 items-center justify-center rounded-organic bg-parchment/90 hover:bg-parchment transition-colors focus-visible-ring"
             aria-label="Next scripture"
           >
             <svg
@@ -163,7 +163,7 @@ export default function ScriptureCarousel({
             <button
               key={waypoint.id}
               onClick={() => goToSlide(index)}
-              className="flex h-6 min-w-6 items-center justify-center rounded-full focus-visible-ring"
+              className="flex h-11 min-w-11 items-center justify-center rounded-full focus-visible-ring"
               aria-label={`View ${waypoint.verse}`}
               aria-selected={index === currentIndex}
               role="tab"
