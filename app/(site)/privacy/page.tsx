@@ -1,5 +1,5 @@
+import ChamberHeader from '@/components/layout/ChamberHeader';
 import ContentContainer from '@/components/layout/ContentContainer';
-import SectionHeading from '@/components/ui/SectionHeading';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,16 +10,11 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-parchment">
-      {/* Spacer for absolute navigation */}
-      <div className="h-24" aria-hidden="true" />
-      
+    <>
+      <ChamberHeader title="Privacy Policy" />
+
       <div className="pt-8 pb-20">
         <ContentContainer width="narrow">
-          <SectionHeading level={1} align="center">
-            Privacy Policy
-          </SectionHeading>
-        
         <div className="prose prose-lg mt-8 text-charcoal/90 leading-relaxed space-y-6">
           <p>
             The Senior Schools Network is committed to protecting your privacy. 
@@ -65,6 +60,6 @@ export default function PrivacyPage() {
         </div>
       </ContentContainer>
       </div>
-    </main>
+    </>
   );
 }

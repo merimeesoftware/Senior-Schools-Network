@@ -1,10 +1,8 @@
 import SectionHeading from '@/components/ui/SectionHeading';
 import ContentContainer from '@/components/layout/ContentContainer';
-import OptimizedImage from '@/components/media/OptimizedImage';
+import HeroSection from '@/components/layout/HeroSection';
 import QuoteImageBreak from '@/components/content/QuoteImageBreak';
 import { getAxiomsQuotesBySection } from '@/lib/content/axioms';
-import { getRandomAssetFromFolder } from '@/lib/assets';
-import RotatingQuotes from '@/components/content/RotatingQuotes';
 import SyllogismSection from '@/components/content/SyllogismSection';
 import ProgressIndicator from '@/components/interactive/ProgressIndicator';
 import CounterargumentAccordion from '@/components/interactive/CounterargumentAccordion';
@@ -44,44 +42,17 @@ export default async function PhilosophyPage() {
   // Quote banks for image breaks between sections
   const missionQuotes = await getAxiomsQuotesBySection('Quote Bank: Mission and Adventure');
   const liturgicalQuotes = await getAxiomsQuotesBySection('Quote Bank: Liturgical Rhythm and Rest');
-  
-  // Get a random hero image for visual interest (manuscript or classical art)
-  const heroAsset = getRandomAssetFromFolder('sacred-texts');
 
   return (
     <>
-      {/* Hero Section with Full-Width Image */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {heroAsset && (
-          <>
-            <div className="absolute inset-0 z-0 overflow-hidden">
-              <div className="hero-image-pan absolute inset-0 w-full" style={{ height: '120vh' }}>
-                <OptimizedImage
-                  asset={heroAsset}
-                  alt="Illuminated manuscript symbolizing poetic knowledge"
-                  showCaption={false}
-                  fill={true}
-                  objectFit="cover"
-                  sizes="100vw"
-                  priority
-                  className="w-full h-full"
-                />
-              </div>
-            </div>
-            <div className="absolute inset-0 z-[1] bg-gradient-to-b from-charcoal/40 via-charcoal/30 to-charcoal/60"></div>
-          </>
-        )}
-
-        <div className="relative z-10 max-w-5xl mx-auto px-6 pt-24 pb-12 text-center">
-          <SectionHeading level={1} align="center" decorated className="text-white hero-text-shadow">
-            Philosophy
-          </SectionHeading>
-
-          {foundationalQuotes && foundationalQuotes.length > 0 && (
-            <RotatingQuotes quotes={foundationalQuotes} autoplay={false} />
-          )}
-        </div>
-      </section>
+      {/* Chamber arrival: same threshold as the other major rooms */}
+      <HeroSection
+        imageFolder="sacred-texts"
+        quotes={foundationalQuotes}
+        imageAlt="Illuminated manuscript symbolizing poetic knowledge"
+        title="Philosophy"
+        showButtons={false}
+      />
 
       {/* Syllogism Preview - 3-Card Introduction */}
       <section id="syllogism-preview" className="py-20 bg-parchment/30">

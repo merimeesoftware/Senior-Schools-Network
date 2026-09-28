@@ -42,7 +42,7 @@ export default async function NetworkDirectoryPage() {
       </div>
 
       {/* Application CTA */}
-      <section className="bg-spiritual/10 py-section-sm">
+      <section className="bg-parchment-dark py-section-sm">
         <ContentContainer width="narrow">
           <div className="text-center">
             <h2 className="text-heading-2 font-playfair text-forest mb-6">

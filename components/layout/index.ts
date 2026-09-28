@@ -1,4 +1,5 @@
 export { default as BrandHeader } from './BrandHeader';
+export { default as ChamberHeader } from './ChamberHeader';
 export { default as ContentContainer } from './ContentContainer';
 export { default as Footer } from './Footer';
 export { default as FooterContent } from './FooterContent';
