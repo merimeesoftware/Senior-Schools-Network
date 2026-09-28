@@ -123,8 +123,8 @@ export default function HeroSection({
 
   const buttonGroup = showButtons && buttons && buttons.length > 0 && (
     <div
-      className={`flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center ${
-        brandLine ? '' : 'mt-6'
+      className={`flex flex-col sm:flex-row justify-center ${
+        brandLine ? 'gap-4 sm:gap-6' : 'gap-6 mt-6'
       }`}
     >
       {buttons.map((button, index) => (
