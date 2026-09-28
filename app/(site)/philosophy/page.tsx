@@ -39,8 +39,6 @@ export default async function PhilosophyPage() {
   // Get foundational wisdom quotes for hero section - provide all for rotating display
   const foundationalQuotes = await getAxiomsQuotesBySection('Quote Bank: Foundational Wisdom');
   
-  // Quote banks for image breaks between sections
-  const missionQuotes = await getAxiomsQuotesBySection('Quote Bank: Mission and Adventure');
   const liturgicalQuotes = await getAxiomsQuotesBySection('Quote Bank: Liturgical Rhythm and Rest');
 
   return (
@@ -286,15 +284,6 @@ export default async function PhilosophyPage() {
           />
         </div>
       </SyllogismSection>
-
-      {/* Quote/Image Break - Between Failure and Opportunity */}
-      <QuoteImageBreak
-        quotes={missionQuotes}
-        imageFolder="adventure"
-        imageAlt="Adventure and physical discipline"
-        showRefreshButton={true}
-        enableParallax={true}
-      />
 
       {/* PART II: THE OPPORTUNITY - Poetic Restoration */}
       <SyllogismSection 

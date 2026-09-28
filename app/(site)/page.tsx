@@ -8,6 +8,7 @@ import FadeIn from '@/components/ui/FadeIn';
 import { getAxiomsQuotesBySection } from '@/lib/content/axioms';
 import { homeHeroQuotes } from '@/lib/content/quotes';
 import { ONE_LINER } from '@/lib/content/public-lines';
+import { homeHeroLandscapeIds } from '@/lib/assets';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export default async function HomePage() {
       {/* Hero Section with Full-Width Image */}
       <HeroSection
         imageFolder="landscapes"
+        preferredAssetIds={homeHeroLandscapeIds}
         quotes={homeHeroQuotes}
         brandLine={ONE_LINER}
         showQuoteSource

@@ -693,12 +693,33 @@ export function getRandomAssetFromFolder(folderName: string): ImageAsset | undef
 }
 
 /**
- * Get all assets from a specific folder
- * @param folderName - The folder name under /public/images/ (e.g., 'landscapes', 'art-sacred')
+ * Home hero shortlist. Monet's footbridge carries the enclosed-garden read
+ * (same painter as the OG). Niagara is the second plate: not another garden or bridge.
  */
-export function getAssetsFromFolder(folderName: string): ImageAsset[] {
+export const homeHeroLandscapeIds = [
+  'monet-japanese-footbridge',
+  'thomas-cole-niagara-falls',
+] as const;
+
+/**
+ * Get assets from a folder. When `preferredIds` is set, return only those ids
+ * that live in the folder, in the given order.
+ * @param folderName - The folder name under /public/images/ (e.g., 'landscapes', 'art-sacred')
+ * @param preferredIds - Optional allowlist of manifest ids
+ */
+export function getAssetsFromFolder(
+  folderName: string,
+  preferredIds?: readonly string[]
+): ImageAsset[] {
   const folderPath = `/images/${folderName}/`;
-  return imageAssets.filter((asset) => asset.src.startsWith(folderPath));
+  const pool = imageAssets.filter((asset) => asset.src.startsWith(folderPath));
+  if (!preferredIds?.length) return pool;
+
+  const byId = new Map(pool.map((asset) => [asset.id, asset]));
+  return preferredIds.flatMap((id) => {
+    const asset = byId.get(id);
+    return asset ? [asset] : [];
+  });
 }
 
 /**
