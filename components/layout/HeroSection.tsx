@@ -14,6 +14,8 @@ interface CTAButtonConfig {
 
 interface HeroSectionProps {
   imageFolder: 'adventure' | 'landscapes' | 'sacred-texts' | 'art-sacred' | 'beatrix-potter' | 'otto-of-the-silver-hand' | 'robin-hood' | 'winnie-the-pooh';
+  /** When set, the hero draws only these manifest ids from `imageFolder`, then shuffles that shortlist. */
+  preferredAssetIds?: readonly string[];
   quotes: Quote[];
   imageAlt?: string;
   showButtons?: boolean;
@@ -29,6 +31,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({
   imageFolder,
+  preferredAssetIds,
   quotes,
   imageAlt = "Classical landscape evoking wonder",
   showButtons = true,
@@ -41,21 +44,26 @@ export default function HeroSection({
   showQuoteSource = false,
   showQuoteRefresh = false,
 }: HeroSectionProps) {
-  // Start with the folder's deterministic order so the server-rendered HTML and the
+  // Start with deterministic order so the server-rendered HTML and the
   // first client render match (prevents hydration mismatches). Shuffle after mount.
-  const [heroImages, setHeroImages] = useState(() => getAssetsFromFolder(imageFolder));
+  const preferredKey = preferredAssetIds?.join('\0') ?? '';
+  const [heroImages, setHeroImages] = useState(() =>
+    getAssetsFromFolder(imageFolder, preferredAssetIds)
+  );
 
   useEffect(() => {
-    setHeroImages((current) => {
-      if (current.length <= 1) return current;
-      const shuffled = [...current];
+    const ids = preferredKey.length > 0 ? preferredKey.split('\0') : undefined;
+    setHeroImages(() => {
+      const pool = getAssetsFromFolder(imageFolder, ids);
+      if (pool.length <= 1) return pool;
+      const shuffled = [...pool];
       for (let i = shuffled.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
       }
       return shuffled;
     });
-  }, [imageFolder]);
+  }, [imageFolder, preferredKey]);
 
   const [heroImageIndex] = useState(0);
 
