@@ -9,6 +9,7 @@ import {
   getTextContent,
   textExists,
 } from '@/lib/content/teasers';
+import { stripRestatedTitle } from '@/lib/content/reading';
 import { SITE_ORIGIN } from '@/lib/site';
 
 interface TextPageProps {
@@ -82,6 +83,8 @@ export default async function TextPage({ params }: TextPageProps) {
   }
 
   const { metadata, content } = textContent;
+  // The ChamberHeader already states title/author; the body must not restate them.
+  const body = stripRestatedTitle(content, metadata);
 
   return (
     <>
@@ -106,7 +109,7 @@ export default async function TextPage({ params }: TextPageProps) {
       {/* Content Section */}
       <section className="py-8 bg-white">
         <ContentContainer width="normal">
-          <MarkdownContent content={content} />
+          <MarkdownContent content={body} />
         </ContentContainer>
       </section>
 
