@@ -72,7 +72,7 @@ export default async function HomePage() {
                   Find a school for your child
                 </h3>
                 <p className="text-lg leading-relaxed text-charcoal/80">
-                  Discover affiliated schools embodying Dr. John Senior's vision of poetic knowledge, physical discipline, and authentic Catholic formation.
+                  A map to schools that form children through wonder, adventure, and faith — especially the years most schooling forgets.
                 </p>
                 <p className="text-sm italic text-charcoal/60 border-t border-charcoal/20 pt-4">
                   Ephesians 6:4 - "Bring them up in the discipline and instruction of the Lord"
@@ -91,7 +91,7 @@ export default async function HomePage() {
                   Bring this home
                 </h3>
                 <p className="text-lg leading-relaxed text-charcoal/80">
-                  Explore Dr. John Senior's vision of poetic knowledge, access book lists, and find resources for each developmental stage.
+                  Enrich formation at home in this Catholic and Senior tradition — sources first, shaped to the child's mode; poetic knowledge before method kits.
                 </p>
                 <p className="text-sm italic text-charcoal/60 border-t border-charcoal/20 pt-4">
                   Proverbs 22:6 - "Train up a child in the way he should go"
@@ -110,7 +110,7 @@ export default async function HomePage() {
                   Start or strengthen a school
                 </h3>
                 <p className="text-lg leading-relaxed text-charcoal/80">
-                  Submit your school to the network, reflect on the gymnasium gap, and find inspiration to carry these ideas forward.
+                  Connect with people already doing the work, and list a school that forms children through sense, story, and liturgy.
                 </p>
                 <p className="text-sm italic text-charcoal/60 border-t border-charcoal/20 pt-4">
                   Matthew 11:28 - "Come to me... and I will refresh you"
