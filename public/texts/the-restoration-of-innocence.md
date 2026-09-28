@@ -2551,7 +2551,6 @@ AD.
 - 16. Hiroshima 1945
 - 17. Vietnam Defeat 1975
 
-![](_page_244_Picture_0.jpeg)
 
 ### About the Author
 
