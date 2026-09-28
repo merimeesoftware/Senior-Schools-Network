@@ -33,8 +33,8 @@ export default async function HomePage() {
         imageAlt="Classical landscape evoking wonder"
         showButtons={true}
         buttons={[
-          { text: 'Explore Directory', href: '/network-directory', variant: 'hero-primary' },
-          { text: 'Our Philosophy', href: '/philosophy', variant: 'hero-outline' },
+          { text: 'Find a School', href: '/network-directory', variant: 'hero-primary' },
+          { text: 'Explore the Philosophy', href: '/philosophy', variant: 'hero-outline' },
         ]}
       />
 
@@ -78,14 +78,14 @@ export default async function HomePage() {
                   Ephesians 6:4 - "Bring them up in the discipline and instruction of the Lord"
                 </p>
                 <span className="inline-block text-gold font-lato font-semibold group-hover:translate-x-2 transition-transform">
-                  Explore Schools →
+                  Find a School →
                 </span>
               </div>
               </Link>
             </FadeIn>
 
             <FadeIn delay={150}>
-              <Link href="/philosophy" className="group block">
+              <Link href="/engage#resources" className="group block">
               <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg border border-charcoal/10 border-l-2 border-l-forest/40 group-hover:border-l-gold">
                 <h3 className="text-2xl font-playfair text-forest group-hover:text-gold transition-colors">
                   Bring this home
@@ -97,14 +97,14 @@ export default async function HomePage() {
                   Proverbs 22:6 - "Train up a child in the way he should go"
                 </p>
                 <span className="inline-block text-gold font-lato font-semibold group-hover:translate-x-2 transition-transform">
-                  Explore Resources →
+                  Read the Sources →
                 </span>
               </div>
               </Link>
             </FadeIn>
 
             <FadeIn delay={300}>
-              <Link href="/engage" className="group block">
+              <Link href="/engage#contact" className="group block">
               <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg border border-charcoal/10 border-l-2 border-l-forest/40 group-hover:border-l-gold">
                 <h3 className="text-2xl font-playfair text-forest group-hover:text-gold transition-colors">
                   Start or strengthen a school
@@ -116,7 +116,7 @@ export default async function HomePage() {
                   Matthew 11:28 - "Come to me... and I will refresh you"
                 </p>
                 <span className="inline-block text-gold font-lato font-semibold group-hover:translate-x-2 transition-transform">
-                  Add Your School →
+                  Connect with the Network →
                 </span>
               </div>
               </Link>
@@ -164,7 +164,7 @@ export default async function HomePage() {
           <FadeIn>
             <div className="text-center space-y-8">
               <h2 className="text-4xl md:text-5xl font-playfair text-forest">
-                Join the Restoration
+                Your child's formation starts with the next click.
               </h2>
               <p className="text-xl md:text-2xl leading-relaxed text-charcoal/80 max-w-2xl mx-auto">
                 Whether you're a parent seeking authentic education, an educator
@@ -175,8 +175,8 @@ export default async function HomePage() {
                 <CTAButton href="/network-directory" variant="primary" size="lg">
                   Find a School
                 </CTAButton>
-                <CTAButton href="/engage" variant="outline" size="lg">
-                  Engage with Network
+                <CTAButton href="/philosophy" variant="outline" size="lg">
+                  Explore the Philosophy
                 </CTAButton>
               </div>
             </div>

@@ -33,8 +33,8 @@ export default function HeroSection({
   imageAlt = "Classical landscape evoking wonder",
   showButtons = true,
   buttons = [
-    { text: 'Explore Directory', href: '/network-directory', variant: 'hero-primary' as const },
-    { text: 'Our Philosophy', href: '/philosophy', variant: 'hero-outline' as const },
+    { text: 'Find a School', href: '/network-directory', variant: 'hero-primary' as const },
+    { text: 'Explore the Philosophy', href: '/philosophy', variant: 'hero-outline' as const },
   ],
   title,
   brandLine,
