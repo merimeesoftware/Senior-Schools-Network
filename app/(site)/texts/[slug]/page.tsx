@@ -61,6 +61,7 @@ export async function generateMetadata({
         `Explore ${metadata.title} and other resources for poetic knowledge and Catholic formation.`,
       url: `${SITE_ORIGIN}/texts/${slug}`,
       type: 'article',
+      images: [{ url: '/og-image-enclosed-garden.jpg', width: 1200, height: 630 }],
     },
   };
 }
