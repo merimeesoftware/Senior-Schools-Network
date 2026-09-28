@@ -56,7 +56,7 @@ export default async function HomePage() {
       </section>
 
       {/* Three Paths - Minimalist Cards */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-parchment-light">
         <ContentContainer width="wide">
           <FadeIn>
             <h2 className="text-4xl md:text-5xl font-playfair text-center text-forest mb-16">
@@ -67,7 +67,7 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <FadeIn delay={0}>
               <Link href="/network-directory" className="group block">
-              <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg border-l-4 border-gymnasium">
+              <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg border border-charcoal/10 border-l-2 border-l-forest/40 group-hover:border-l-gold">
                 <h3 className="text-2xl font-playfair text-forest group-hover:text-gold transition-colors">
                   Find a school for your child
                 </h3>
@@ -86,7 +86,7 @@ export default async function HomePage() {
 
             <FadeIn delay={150}>
               <Link href="/philosophy" className="group block">
-              <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg border-l-4 border-poetic">
+              <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg border border-charcoal/10 border-l-2 border-l-forest/40 group-hover:border-l-gold">
                 <h3 className="text-2xl font-playfair text-forest group-hover:text-gold transition-colors">
                   Bring this home
                 </h3>
@@ -105,7 +105,7 @@ export default async function HomePage() {
 
             <FadeIn delay={300}>
               <Link href="/engage" className="group block">
-              <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg border-l-4 border-spiritual">
+              <div className="text-center space-y-6 p-8 hover:bg-parchment/30 transition-all duration-300 rounded-lg border border-charcoal/10 border-l-2 border-l-forest/40 group-hover:border-l-gold">
                 <h3 className="text-2xl font-playfair text-forest group-hover:text-gold transition-colors">
                   Start or strengthen a school
                 </h3>
@@ -159,7 +159,7 @@ export default async function HomePage() {
       />
 
       {/* Final CTA - Bold and Clear */}
-      <section className="py-20 bg-gradient-to-b from-spiritual/10 to-spiritual/20">
+      <section className="py-20 bg-parchment-dark">
         <ContentContainer width="narrow">
           <FadeIn>
             <div className="text-center space-y-8">

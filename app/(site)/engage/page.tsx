@@ -203,7 +203,7 @@ export default async function EngagePage() {
       />
 
       {/* Connect & Contact */}
-      <section className="bg-gold/10 py-section-sm" id="contact">
+      <section className="bg-parchment-dark py-section-sm" id="contact">
         <ContentContainer width="narrow">
           <div className="text-center">
             <SectionHeading level={2} align="center" className="mb-6">
@@ -253,7 +253,7 @@ export default async function EngagePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-gradient-to-b from-spiritual/10 to-spiritual/20">
+      <section className="py-16 bg-parchment-dark border-t border-charcoal/10">
         <ContentContainer width="narrow">
           <div className="text-center space-y-6">
             <SectionHeading level={2} align="center">
