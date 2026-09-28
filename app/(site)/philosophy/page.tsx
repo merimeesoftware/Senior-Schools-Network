@@ -180,7 +180,7 @@ export default async function PhilosophyPage() {
 
           {/* Logic Diagram */}
           <div className="mt-16 max-w-2xl mx-auto text-center">
-            <div className="inline-flex items-center gap-4 text-lg font-medium text-forest">
+            <div className="inline-flex flex-wrap items-center justify-center gap-4 text-lg font-medium text-forest">
               <span className="px-4 py-2 bg-red-100 border-2 border-red-700 rounded-lg">
                 Failure
               </span>

@@ -117,7 +117,7 @@ export default function HeroSection({
             <div className="absolute inset-0 z-0 overflow-hidden">
               {strategy.useBackground && (
                 <div 
-                  className="hero-image-pan absolute inset-0 w-full" 
+                  className="hero-image-pan absolute inset-0 w-full overflow-hidden" 
                   style={{ height: '140%', top: '-20%' }}
                 >
                   <OptimizedImage
