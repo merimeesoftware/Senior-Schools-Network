@@ -13,15 +13,7 @@ interface CTAButtonConfig {
 }
 
 interface HeroSectionProps {
-  imageFolder:
-    | 'adventure'
-    | 'landscapes'
-    | 'sacred-texts'
-    | 'art-sacred'
-    | 'beatrix-potter'
-    | 'otto-of-the-silver-hand'
-    | 'robin-hood'
-    | 'winnie-the-pooh';
+  imageFolder: 'adventure' | 'landscapes' | 'sacred-texts' | 'art-sacred' | 'beatrix-potter' | 'otto-of-the-silver-hand' | 'robin-hood' | 'winnie-the-pooh';
   /** When set, the hero draws only these manifest ids from `imageFolder`, then shuffles that shortlist. */
   preferredAssetIds?: readonly string[];
   quotes: Quote[];
@@ -41,19 +33,11 @@ export default function HeroSection({
   imageFolder,
   preferredAssetIds,
   quotes,
-  imageAlt = 'Classical landscape evoking wonder',
+  imageAlt = "Classical landscape evoking wonder",
   showButtons = true,
   buttons = [
-    {
-      text: 'Find a School',
-      href: '/network-directory',
-      variant: 'hero-primary' as const,
-    },
-    {
-      text: 'Explore the Philosophy',
-      href: '/philosophy',
-      variant: 'hero-outline' as const,
-    },
+    { text: 'Find a School', href: '/network-directory', variant: 'hero-primary' as const },
+    { text: 'Explore the Philosophy', href: '/philosophy', variant: 'hero-outline' as const },
   ],
   title,
   brandLine,
@@ -84,41 +68,25 @@ export default function HeroSection({
   const [heroImageIndex] = useState(0);
 
   // Determine display strategy based on image aspect ratio
-  const getImageStrategy = (image: (typeof heroImages)[0]) => {
+  const getImageStrategy = (image: typeof heroImages[0]) => {
     if (!image.width || !image.height) {
-      return {
-        objectFit: 'cover' as const,
-        objectPosition: 'center',
-        useBackground: false,
-      };
+      return { objectFit: 'cover' as const, objectPosition: 'center', useBackground: false };
     }
-
+    
     const aspectRatio = image.width / image.height;
-
+    
     // Portrait images (tall) - use contain with blurred background for full-bleed
     if (aspectRatio < 0.8) {
-      return {
-        objectFit: 'contain' as const,
-        objectPosition: 'center',
-        useBackground: true,
-      };
+      return { objectFit: 'contain' as const, objectPosition: 'center', useBackground: true };
     }
-
+    
     // Landscape images (wide) - use cover with intelligent positioning
     if (aspectRatio >= 1.5) {
-      return {
-        objectFit: 'cover' as const,
-        objectPosition: 'center',
-        useBackground: false,
-      };
+      return { objectFit: 'cover' as const, objectPosition: 'center', useBackground: false };
     }
-
+    
     // Medium landscape/square images - cover with slight top bias
-    return {
-      objectFit: 'cover' as const,
-      objectPosition: '50% 40%',
-      useBackground: false,
-    };
+    return { objectFit: 'cover' as const, objectPosition: '50% 40%', useBackground: false };
   };
 
   const buttonGroup = showButtons && buttons && buttons.length > 0 && (
@@ -142,57 +110,54 @@ export default function HeroSection({
 
   return (
     <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-      {heroImages[heroImageIndex] &&
-        (() => {
-          const strategy = getImageStrategy(heroImages[heroImageIndex]);
-          return (
-            <>
-              <div className="absolute inset-0 z-0 overflow-hidden">
-                {strategy.useBackground && (
-                  <div
-                    className="hero-image-pan absolute inset-0 w-full"
-                    style={{ height: '140%', top: '-20%' }}
-                  >
-                    <OptimizedImage
-                      asset={heroImages[heroImageIndex]}
-                      alt=""
-                      showCaption={false}
-                      fill={true}
-                      objectFit="cover"
-                      objectPosition="center"
-                      sizes="100vw"
-                      priority
-                      className="w-full h-full blur-2xl scale-110 opacity-60"
-                    />
-                  </div>
-                )}
-                <div
-                  className="hero-image-pan absolute inset-0 w-full"
+      {heroImages[heroImageIndex] && (() => {
+        const strategy = getImageStrategy(heroImages[heroImageIndex]);
+        return (
+          <>
+            <div className="absolute inset-0 z-0 overflow-hidden">
+              {strategy.useBackground && (
+                <div 
+                  className="hero-image-pan absolute inset-0 w-full" 
                   style={{ height: '140%', top: '-20%' }}
                 >
                   <OptimizedImage
                     asset={heroImages[heroImageIndex]}
-                    alt={imageAlt}
+                    alt=""
                     showCaption={false}
                     fill={true}
-                    objectFit={strategy.objectFit}
-                    objectPosition={strategy.objectPosition}
+                    objectFit="cover"
+                    objectPosition="center"
                     sizes="100vw"
                     priority
-                    className="w-full h-full"
+                    className="w-full h-full blur-2xl scale-110 opacity-60"
                   />
                 </div>
+              )}
+              <div 
+                className="hero-image-pan absolute inset-0 w-full" 
+                style={{ height: '140%', top: '-20%' }}
+              >
+                <OptimizedImage
+                  asset={heroImages[heroImageIndex]}
+                  alt={imageAlt}
+                  showCaption={false}
+                  fill={true}
+                  objectFit={strategy.objectFit}
+                  objectPosition={strategy.objectPosition}
+                  sizes="100vw"
+                  priority
+                  className="w-full h-full"
+                />
               </div>
-              <div className="absolute inset-0 z-[1] hero-gradient"></div>
-            </>
-          );
-        })()}
+            </div>
+            <div className="absolute inset-0 z-[1] hero-gradient"></div>
+          </>
+        );
+      })()}
 
-      <div
-        className={`relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center min-h-[100svh] pb-12 ${
-          brandLine ? 'justify-start pt-[22svh]' : 'justify-center pt-[14vh]'
-        }`}
-      >
+      <div className={`relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center min-h-[100svh] pb-12 ${
+        brandLine ? 'justify-start pt-[22svh]' : 'justify-center pt-[14vh]'
+      }`}>
         {/* Title overlay */}
         {title && !brandLine && (
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair text-white mb-8 hero-text-shadow">
@@ -207,10 +172,10 @@ export default function HeroSection({
         )}
 
         {brandLine && buttonGroup}
-
+        
         {/* Quote display */}
         {quotes.length > 0 && (
-          <RotatingQuotes
+          <RotatingQuotes 
             quotes={quotes}
             autoplay={false}
             showRefreshButton={showQuoteRefresh}
@@ -226,11 +191,13 @@ export default function HeroSection({
                 : 'text-xl md:text-2xl text-parchment/90 not-italic font-accent hero-text-shadow'
             }
             className={
-              brandLine ? 'mt-6 max-w-3xl mx-auto' : 'mb-8 max-w-4xl mx-auto'
+              brandLine
+                ? 'mt-6 max-w-3xl mx-auto'
+                : 'mb-8 max-w-4xl mx-auto'
             }
           />
         )}
-
+        
         {/* CTA Buttons */}
         {!brandLine && buttonGroup}
       </div>
