@@ -13,6 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/philosophy', priority: 0.9 },
     { path: '/network-directory', priority: 0.9 },
     { path: '/engage', priority: 0.8 },
+    { path: '/texts', priority: 0.7 },
     { path: '/contact', priority: 0.5 },
     { path: '/privacy', priority: 0.3 },
   ];

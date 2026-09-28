@@ -1,3 +1,4 @@
+import type { ComponentPropsWithoutRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
@@ -7,47 +8,82 @@ interface MarkdownContentProps {
   className?: string;
 }
 
+type HeadingTag = 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
+/**
+ * Source markdown headings drop one rank. The chamber plate owns the only h1
+ * (the work title). HTML ends at h6, so a markdown h6 stays h6.
+ */
+const DEMOTION: Record<string, { tag: HeadingTag; className: string }> = {
+  h1: {
+    tag: 'h2',
+    className:
+      'text-3xl md:text-4xl font-playfair text-forest mb-4 mt-8 first:mt-0 scroll-mt-24',
+  },
+  h2: {
+    tag: 'h3',
+    className:
+      'text-2xl md:text-3xl font-playfair text-forest mb-3 mt-6 scroll-mt-24',
+  },
+  h3: {
+    tag: 'h4',
+    className:
+      'text-xl md:text-2xl font-playfair text-forest/90 mb-3 mt-4 scroll-mt-24',
+  },
+  h4: {
+    tag: 'h5',
+    className:
+      'text-lg md:text-xl font-playfair text-forest/90 mb-2 mt-4 scroll-mt-24',
+  },
+  h5: {
+    tag: 'h6',
+    className:
+      'text-base md:text-lg font-playfair text-forest/80 mb-2 mt-3 scroll-mt-24',
+  },
+  h6: {
+    tag: 'h6',
+    className:
+      'text-base md:text-lg font-playfair text-forest/80 mb-2 mt-3 scroll-mt-24',
+  },
+};
+
+function demotedHeading(level: keyof typeof DEMOTION) {
+  const { tag, className } = DEMOTION[level];
+  return function DemotedHeading({
+    children,
+    node,
+    ...props
+  }: ComponentPropsWithoutRef<HeadingTag> & { node?: unknown }) {
+    void node;
+    const Tag = tag;
+    return (
+      <Tag className={className} {...props}>
+        {children}
+      </Tag>
+    );
+  };
+}
+
 /**
  * Reusable component for rendering markdown content with consistent styling
  * aligned with the Senior Schools Network design system
  */
-export default function MarkdownContent({ content, className = '' }: MarkdownContentProps) {
+export default function MarkdownContent({
+  content,
+  className = '',
+}: MarkdownContentProps) {
   return (
     <div className={`markdown-content ${className}`}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeSlug]}
         components={{
-          h1: ({ children, ...props }) => (
-            <h1 className="text-4xl md:text-5xl font-playfair text-forest mb-6 mt-8 first:mt-0 scroll-mt-24" {...props}>
-              {children}
-            </h1>
-          ),
-          h2: ({ children, ...props }) => (
-            <h2 className="text-3xl md:text-4xl font-playfair text-forest mb-4 mt-8 scroll-mt-24" {...props}>
-              {children}
-            </h2>
-          ),
-          h3: ({ children, ...props }) => (
-            <h3 className="text-2xl md:text-3xl font-playfair text-forest mb-3 mt-6 scroll-mt-24" {...props}>
-              {children}
-            </h3>
-          ),
-          h4: ({ children, ...props }) => (
-            <h4 className="text-xl md:text-2xl font-playfair text-forest/90 mb-3 mt-4 scroll-mt-24" {...props}>
-              {children}
-            </h4>
-          ),
-          h5: ({ children, ...props }) => (
-            <h5 className="text-lg md:text-xl font-playfair text-forest/90 mb-2 mt-4 scroll-mt-24" {...props}>
-              {children}
-            </h5>
-          ),
-          h6: ({ children, ...props }) => (
-            <h6 className="text-base md:text-lg font-playfair text-forest/80 mb-2 mt-3 scroll-mt-24" {...props}>
-              {children}
-            </h6>
-          ),
+          h1: demotedHeading('h1'),
+          h2: demotedHeading('h2'),
+          h3: demotedHeading('h3'),
+          h4: demotedHeading('h4'),
+          h5: demotedHeading('h5'),
+          h6: demotedHeading('h6'),
           p: ({ children }) => (
             <p className="text-base md:text-lg leading-relaxed text-charcoal/90 mb-4">
               {children}
@@ -79,7 +115,9 @@ export default function MarkdownContent({ content, className = '' }: MarkdownCon
             <a
               href={href}
               className="text-spiritual hover:text-spiritual/80 underline decoration-spiritual/30 hover:decoration-spiritual/60 transition-colors"
-              {...(href?.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              {...(href?.startsWith('http')
+                ? { target: '_blank', rel: 'noopener noreferrer' }
+                : {})}
             >
               {children}
             </a>
@@ -109,19 +147,13 @@ export default function MarkdownContent({ content, className = '' }: MarkdownCon
             </div>
           ),
           thead: ({ children }) => (
-            <thead className="bg-parchment-dark">
-              {children}
-            </thead>
+            <thead className="bg-parchment-dark">{children}</thead>
           ),
           tbody: ({ children }) => (
-            <tbody className="bg-white">
-              {children}
-            </tbody>
+            <tbody className="bg-white">{children}</tbody>
           ),
           tr: ({ children }) => (
-            <tr className="border-b border-charcoal/10">
-              {children}
-            </tr>
+            <tr className="border-b border-charcoal/10">{children}</tr>
           ),
           th: ({ children }) => (
             <th className="px-4 py-3 text-left text-sm font-semibold text-forest border border-charcoal/20">
@@ -133,18 +165,12 @@ export default function MarkdownContent({ content, className = '' }: MarkdownCon
               {children}
             </td>
           ),
-          hr: () => (
-            <hr className="my-8 border-t-2 border-charcoal/20" />
-          ),
+          hr: () => <hr className="my-8 border-t-2 border-charcoal/20" />,
           em: ({ children }) => (
-            <em className="italic text-charcoal/90">
-              {children}
-            </em>
+            <em className="italic text-charcoal/90">{children}</em>
           ),
           strong: ({ children }) => (
-            <strong className="font-semibold text-forest">
-              {children}
-            </strong>
+            <strong className="font-semibold text-forest">{children}</strong>
           ),
         }}
       >
