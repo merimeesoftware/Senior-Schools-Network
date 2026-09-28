@@ -584,7 +584,7 @@ const logos: ImageAsset[] = [
   {
     id: 'ssn-logo',
     src: '/assets/logos/Senior School Network Logo.webp',
-    alt: 'Senior Schools Network logo',
+    alt: 'Senior Schools Network',
     width: 400,
     height: 100,
     focalPoint: { x: 50, y: 50 },

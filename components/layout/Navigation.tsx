@@ -67,7 +67,7 @@ export default function Navigation() {
             <OptimizedImage
               assetId="ssn-logo"
               imageClassName="h-[18vh] w-auto"
-              alt="The Senior School Network"
+              alt="Senior Schools Network"
             />
             <span className="font-accent text-xl text-parchment-light hidden lg:inline">
               The Senior School Network
