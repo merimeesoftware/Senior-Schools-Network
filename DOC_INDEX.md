@@ -6,9 +6,9 @@ One job per file. Do not duplicate.
 
 1. `PRODUCT.global.md` then `PURPOSE.md`
 2. `DESIGN.global.md` then `IDENTITY.md`
-3. `MISSION.md` and `TECH_STACK.md`
+3. `ARCHITECTURE.md`, `MISSION.md`, and `TECH_STACK.md`
 4. This file, when a path is unclear
-5. Collections: `public/texts/*`, then `docs/deploy-cloudflare.md` if the task is cutover
+5. Collections: `public/texts/*`, then `docs/deploy-cloudflare.md` when the task is the cutover procedure
 
 There is no `CORE.md` in this repo.
 
@@ -20,15 +20,18 @@ There is no `CORE.md` in this repo.
 | `PURPOSE.md` | SSN one-liner, heroes, plan, CTA, five modes, philosophy, locked lines, voice |
 | `DESIGN.global.md` | House look philosophies. Not a palette |
 | `IDENTITY.md` | This site’s world, rooms, type, color, motion, components, imagery |
-| `MISSION.md` | Layers and constraints |
+| `ARCHITECTURE.md` | Layers and constraints |
+| `MISSION.md` | Cutover ship status (Netlify → Workers Static Assets / Bulk Redirects) |
 | `TECH_STACK.md` | Language, deploy, CI, runtime gaps |
 | `DOC_INDEX.md` | Load order, ownership, leftovers |
 
+House shapes stay in the wiki: **ARCHITECTURE.global** and **TECH_STACK.global**. This repo does not copy them. `ARCHITECTURE.md` and `TECH_STACK.md` are the venture-local files.
+
 ## Conflict rule
 
-Words → `PURPOSE.md`. Look → `IDENTITY.md`. Runtime → `TECH_STACK.md`.
+Words → `PURPOSE.md`. Look → `IDENTITY.md`. Runtime → `TECH_STACK.md`. Layers → `ARCHITECTURE.md`. Cutover ship → `MISSION.md`.
 
-Layers and constraints → `MISSION.md`. If a layer note and a command or host checklist disagree, `TECH_STACK.md` wins the command and `MISSION.md` wins the layer.
+If a layer note and a command or host checklist disagree, `TECH_STACK.md` wins the command and `ARCHITECTURE.md` wins the layer. If ship status and the runbook disagree, `MISSION.md` wins status and `docs/deploy-cloudflare.md` wins procedure.
 
 If two files disagree, update the loser. Do not leave both. Do not mix product sentences into `IDENTITY.md`.
 
@@ -38,7 +41,7 @@ If two files disagree, update the loser. Do not leave both. Do not mix product s
 
 These files were mined into the canon and then deleted. The paths are gone. Do not restore them.
 
-Canon lives only in the root files: `PURPOSE.md`, `IDENTITY.md`, `MISSION.md`, and `TECH_STACK.md`. House law stays in `PRODUCT.global.md` and `DESIGN.global.md`.
+Canon lives only in the root files: `PURPOSE.md`, `IDENTITY.md`, `ARCHITECTURE.md`, `MISSION.md`, and `TECH_STACK.md`. House law stays in `PRODUCT.global.md` and `DESIGN.global.md`. House architecture and stack shapes stay in wiki **ARCHITECTURE.global** and **TECH_STACK.global**.
 
 | Former path | Claims now live in |
 |-------------|--------------------|
@@ -47,7 +50,7 @@ Canon lives only in the root files: `PURPOSE.md`, `IDENTITY.md`, `MISSION.md`, a
 | `.github/docs/design-system.md` | `IDENTITY.md` |
 | `.github/docs/assets.md` | `IDENTITY.md` (imagery) |
 | `.github/docs/image-system.md` | `IDENTITY.md` (imagery) |
-| `.github/docs/technical.md` | `MISSION.md` + `TECH_STACK.md` |
+| `.github/docs/technical.md` | `ARCHITECTURE.md` + `TECH_STACK.md` |
 | `.github/docs/next-steps.md` | Removed. It was a pointer only. Open implementation notes are not canon |
 
 ## Leftovers

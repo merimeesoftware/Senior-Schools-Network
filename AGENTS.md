@@ -8,14 +8,14 @@ Before copy, look, or structure work, read:
 2. `PURPOSE.md`
 3. `DESIGN.global.md`
 4. `IDENTITY.md`
-5. `MISSION.md` and `TECH_STACK.md`
+5. `ARCHITECTURE.md`, `MISSION.md`, and `TECH_STACK.md`
 6. `DOC_INDEX.md`
 
-**Conflict rule:** words → `PURPOSE.md`. Look → `IDENTITY.md`. Runtime → `TECH_STACK.md`. Layers → `MISSION.md`.
+**Conflict rule:** words → `PURPOSE.md`. Look → `IDENTITY.md`. Runtime → `TECH_STACK.md`. Layers → `ARCHITECTURE.md`. Cutover ship → `MISSION.md`.
 
 Philosophy, mode names, and public lines live in `PURPOSE.md`. Locked order: musical → gymnastic → poetic → romantic → virtuous. Quote only from `public/texts/` (including `PHILOSOPHICAL-AXIOMS.md` as a quote bank). Do not invent Senior quotes.
 
-The old `.github/docs/` stubs are removed. Canon lives only in `PURPOSE.md`, `IDENTITY.md`, `MISSION.md`, and `TECH_STACK.md`.
+The old `.github/docs/` stubs are removed. Canon lives only in `PURPOSE.md`, `IDENTITY.md`, `ARCHITECTURE.md`, `MISSION.md`, and `TECH_STACK.md`. House architecture and stack shapes stay in wiki **ARCHITECTURE.global** and **TECH_STACK.global**.
 
 `/impeccable` is `.cursor/skills/impeccable`. `/impeccable clarify` may tighten words. It may not change the one-liner, the plan, or the direct CTA in `PURPOSE.md`. Do not copy another merimeesoftware product’s type or accent.
 

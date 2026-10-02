@@ -69,7 +69,8 @@ bun run dev
 │   └── texts/             # Downloadable PDFs
 ├── PURPOSE.md             # Product and philosophy truth
 ├── IDENTITY.md            # Look
-├── MISSION.md             # Layers and constraints
+├── ARCHITECTURE.md        # Layers and constraints
+├── MISSION.md             # Cutover ship status
 ├── TECH_STACK.md          # Runtime and deploy
 └── DOC_INDEX.md           # Which file owns what
 ```
@@ -80,7 +81,7 @@ bun run dev
 
 1. Read [DOC_INDEX.md](DOC_INDEX.md) for load order
 2. Read [PURPOSE.md](PURPOSE.md) before changing words or modes
-3. Read [IDENTITY.md](IDENTITY.md) before changing look, and [MISSION.md](MISSION.md) plus [TECH_STACK.md](TECH_STACK.md) before changing structure or deploy
+3. Read [IDENTITY.md](IDENTITY.md) before changing look, [ARCHITECTURE.md](ARCHITECTURE.md) before changing structure, [MISSION.md](MISSION.md) for cutover ship status, and [TECH_STACK.md](TECH_STACK.md) before changing deploy
 
 ### Development Workflow
 
@@ -149,7 +150,7 @@ bun run deploy:cloudflare
 bun run preview:cloudflare
 ```
 
-Full cutover steps: [docs/deploy-cloudflare.md](docs/deploy-cloudflare.md).
+Cutover ship status: [MISSION.md](MISSION.md). Procedure: [docs/deploy-cloudflare.md](docs/deploy-cloudflare.md).
 
 ## Documentation
 
@@ -159,7 +160,8 @@ Canon (see [DOC_INDEX.md](DOC_INDEX.md)):
 |----------|---------|
 | [PURPOSE.md](PURPOSE.md) | Philosophy, five modes, StoryBrand, public lines |
 | [IDENTITY.md](IDENTITY.md) | World, type, color, components, imagery |
-| [MISSION.md](MISSION.md) | Layers and constraints |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | Layers and constraints |
+| [MISSION.md](MISSION.md) | Cutover ship status |
 | [TECH_STACK.md](TECH_STACK.md) | Runtime, CI, deploy |
 | [copilot-instructions.md](.github/copilot-instructions.md) | AI agent guardrails |
 

@@ -12,11 +12,11 @@ Read root `DOC_INDEX.md`. Load order:
 
 1. `PRODUCT.global.md` then `PURPOSE.md`
 2. `DESIGN.global.md` then `IDENTITY.md`
-3. `MISSION.md` and `TECH_STACK.md`
+3. `ARCHITECTURE.md`, `MISSION.md`, and `TECH_STACK.md`
 
-Words → `PURPOSE.md`. Look → `IDENTITY.md`. Runtime → `TECH_STACK.md`.
+Words → `PURPOSE.md`. Look → `IDENTITY.md`. Runtime → `TECH_STACK.md`. Layers → `ARCHITECTURE.md`. Cutover ship → `MISSION.md`.
 
-The old `.github/docs/` stubs are removed. Canon lives only in the root files above.
+The old `.github/docs/` stubs are removed. Canon lives only in `PURPOSE.md`, `IDENTITY.md`, `ARCHITECTURE.md`, `MISSION.md`, and `TECH_STACK.md`.
 
 ## Mission
 
@@ -74,5 +74,5 @@ Modern AI agents can infer context from codebase structure. Detailed prompts are
 
 - **Scope**: Network promotion across all educational stages—not curriculum prescription
 - **Fidelity**: Catholic tradition and Western canon; exclusionary in core tenets
-- **Tech**: Follow `MISSION.md` and `TECH_STACK.md`; prefer static generation; avoid runtime complexity
+- **Tech**: Follow `ARCHITECTURE.md` for layers, `MISSION.md` for cutover ship status, and `TECH_STACK.md` for runtime; prefer static generation; avoid runtime complexity
 - **Ethics**: Emphasize charity and humility; never collect user data

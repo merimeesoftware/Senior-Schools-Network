@@ -1,56 +1,29 @@
-# ARCHITECTURE.md
+# MISSION
 
-Layers and constraints for the Senior Schools Network site. Runtime, package manager, CI commands, and host checklist live in `TECH_STACK.md` and `docs/deploy-cloudflare.md`. Words live in `PURPOSE.md`. Look lives in `IDENTITY.md`.
+Cutover ship status: Netlify → Cloudflare Workers Static Assets, then Bulk Redirects onto `https://seniorschools.org`.
 
-## What this is
+Layers: `ARCHITECTURE.md`. Procedure: `docs/deploy-cloudflare.md`. Runtime and CI: `TECH_STACK.md`.
 
-One static website. No backend, database, API, or auth. A visitor receives prebuilt HTML.
+**Last probe:** 2026-10-02, read-only DNS and HTTPS. No DNS, Wrangler, or dashboard change was made for this note. Prior integrator probe: 2026-09-28.
 
-```
-Visitor
-  → Cloudflare Bulk Redirects (host 301s; not in the repo)
-    → assets-only Worker `senior-schools-network`
-      → static `out/` from Next.js `output: 'export'`
-        → app/(site) routes
-          → components
-            → lib/content + public/texts + lib/assets.ts
-```
+## Live
 
-## Layers
+- `seniorschools.org` — Worker Custom Domain attached. HTTPS returns 200 from Cloudflare, with the site security headers and no Netlify request id.
+- Worker `senior-schools-network` is assets-only. Config: `wrangler.jsonc`.
+- An extra `workers.dev` domain is declined. Michael said none is needed.
+- `netlify.toml` remains. The Netlify site is still the origin behind the old hosts below.
 
-| Layer | Where | Owns |
-|-------|--------|------|
-| Routes | `app/(site)/*`, `app/layout.tsx`, `app/sitemap.ts`, `app/robots.ts` | Pages the visitor can open |
-| Components | `components/layout`, `ui`, `content`, `media`, `interactive`, `philosophy` | Presentation. They do not redefine philosophy |
-| Content | `lib/content/*`, `public/texts/*`, `lib/assets.ts`, `public/images/` | Schools, quotes, texts, image manifest. File-backed |
-| Site constants | `lib/site.ts` | Canonical origin `https://seniorschools.org` |
-| Export | `next.config.js` (`output: 'export'`, `images.unoptimized: true`) | `out/` |
-| Edge | `wrangler.jsonc`, `public/_headers`, `public/_redirects` | How `out/` is served. No Worker script (`main` is unset) |
-| Until cutover | `netlify.toml` | The current Netlify build. Remove only after DNS has moved |
+## Left
 
-Live routes: `/`, `/philosophy`, `/network-directory`, `/engage`, `/texts/[slug]`, `/contact`, `/privacy`.
-
-## Constraints
-
-- Static first. Do not add a server runtime, D1, auth, or a form backend in order to look finished.
-- The Worker is assets-only. Do not add `@cloudflare/next-on-pages`, OpenNext, or a `main` script so that host redirects can live in the Worker. Host 301s are Cloudflare Bulk Redirects. Path notes may live in `public/_redirects`; domain redirects cannot.
-- Keep `netlify.toml` until DNS cutover and rollback are done. See `docs/deploy-cloudflare.md`.
-- No analytics or tracking.
-- Quotes and primary texts come from `public/texts/` (including `PHILOSOPHICAL-AXIOMS.md` as a quote bank). Do not invent quotations in components.
-- Mode *names*, order, and filters are `PURPOSE.md` (musical → gymnastic → poetic → romantic → virtuous). `lib/content/stages.ts`, `InteractiveStages`, and `StageBadge` still speak the older four-column set. That is a later code pass. This file does not authorize a sixth mode or a rename.
-- Dev and production builds share `.next/`. Do not run `bun run build` while `bun run dev` is running. Operational detail: `AGENTS.md`.
-- Accessibility is part of the layer: semantic HTML, ARIA on interactive controls, keyboard paths. Look tokens: `IDENTITY.md`.
-
-## What is not a layer
-
-- StoryBrand, mode definitions, and public lines — `PURPOSE.md`.
-- Palette, type, and components’ visual rules — `IDENTITY.md`.
-- Bun version and Workers Builds commands — `TECH_STACK.md`.
-- Page-by-page copy proposals — `docs/reviews/`.
-- Phase plans. Older docs spoke of Phase 2 / Phase 3. Those are not a roadmap. The durable shape is the static export plus the Cloudflare cutover above.
+- `www.seniorschools.org` — NXDOMAIN. Needs a proxied AAAA `100::` (or equivalent) so Bulk Redirects can see www.
+- `seniorschoolnetwork.com` and `seniorschoolnetwork.org` — still orange-cloud Cloudflare in front of the Netlify origin. Each apex returns 200. Neither 301s to `seniorschools.org`.
+- `www.seniorschoolnetwork.com` and `www.seniorschoolnetwork.org` — each 301s to `https://seniorschoolnetwork.com/`, not to `https://seniorschools.org/`.
+- Bulk Redirects stay in the Cloudflare dashboard, not in this repo. Approved rows are `docs/deploy-cloudflare.md` §3: `www.seniorschools.org` and the four old hosts → `https://seniorschools.org/` with 301, subpath and query preserved. Create them in the dashboard or by a token path.
+- Smoke those redirects after they exist.
+- Tear down Netlify only after the redirects, that smoke, and Michael’s confirmation that the cutover has stabilized.
 
 ## Pointers
 
-- `TECH_STACK.md` — language, deploy target, CI, gaps.
-- `docs/deploy-cloudflare.md` — Workers Builds commands, Bulk Redirects, cutover order.
-- `wrangler.jsonc` — `assets.directory`: `./out`, `not_found_handling`: `404-page`, `html_handling`: `auto-trailing-slash`, empty `previews` block for `wrangler preview`.
+- `docs/deploy-cloudflare.md` — commands, redirect rows, rollback.
+- `ARCHITECTURE.md` — static-export and edge layers.
+- `TECH_STACK.md` — runtime and Workers Builds commands.
