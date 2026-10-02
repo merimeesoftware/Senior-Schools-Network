@@ -113,13 +113,6 @@ export function RestorationSubsectionB({ className = '', summaryMode = true }: R
             quote: "Every athlete exercises self-control in all things. They do it to receive a perishable wreath, but we an imperishable.",
             author: "1 Corinthians 9:25",
             source: "Scripture (ESV)"
-          },
-          {
-            quote: "Physical courage precedes moral courage. The boy who climbs the cliff, swims the icy river, and faces the opponent in the ring learns courage that transfers to every sphere: intellectual, moral, spiritual.",
-            author: "James Taylor",
-            source: "Poetic Knowledge: The Recovery of Education",
-            showSourceLink: true,
-            sourceSlug: "poetic-knowledge-recovery-education"
           }
         ]}
       />

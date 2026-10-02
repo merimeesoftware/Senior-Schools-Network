@@ -118,13 +118,6 @@ export function RestorationSubsectionC({ className = '', summaryMode = true }: R
             sourceSlug: "integrated_humanities_lecture"
           },
           {
-            quote: "Music, art, and poetry are not electives or enrichment. They are the soil from which science, theology, and philosophy grow. If the soil is poisoned, nothing true or beautiful can flourish.",
-            author: "James Taylor",
-            source: "Poetic Knowledge: The Recovery of Education",
-            showSourceLink: true,
-            sourceSlug: "poetic-knowledge-recovery-education"
-          },
-          {
             quote: "Finally, brothers, whatever is true, whatever is honorable, whatever is just, whatever is pure, whatever is lovely, whatever is commendable, if there is any excellence, if there is anything worthy of praise, think about these things.",
             author: "Philippians 4:8",
             source: "Scripture (ESV)"

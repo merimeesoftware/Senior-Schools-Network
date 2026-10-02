@@ -87,9 +87,9 @@ describe('RestorationSubsectionC', () => {
     expect(quoteGroup).toHaveAttribute('data-variant', 'minor-premise');
   });
 
-  it('passes 3 quotes to EvidenceQuoteGroup', () => {
+  it('passes 2 quotes to EvidenceQuoteGroup', () => {
     render(<RestorationSubsectionC />);
-    expect(screen.getByTestId('quotes-count')).toHaveTextContent('3 quotes');
+    expect(screen.getByTestId('quotes-count')).toHaveTextContent('2 quotes');
   });
 
   it('renders Summary section heading', () => {

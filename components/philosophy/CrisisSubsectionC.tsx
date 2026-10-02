@@ -71,20 +71,6 @@ export function CrisisSubsectionC({ className = '' }: CrisisSubsectionCProps) {
         collapsible={false}
         quotes={[
           {
-            quote: "Poetic knowledge is not specialized knowledge but that connaturality and right harmony with things which Adam and Eve possessed in Eden. It is the soil from which science, philosophy, and theology grow. If you poison the soil, nothing true or beautiful can flourish.",
-            author: "Dr. John Senior",
-            source: "The Restoration of Christian Culture",
-            showSourceLink: true,
-            sourceSlug: "restoration-of-christian-culture"
-          },
-          {
-            quote: "The modern school has become a factory for producing technicians. We train boys to manipulate the world, not to love it. Specialized knowledge without poetic knowledge breeds alienation—the boy becomes a stranger to reality, to himself, and to God.",
-            author: "James Taylor",
-            source: "Poetic Knowledge: The Recovery of Education",
-            showSourceLink: true,
-            sourceSlug: "poetic-knowledge-recovery-education"
-          },
-          {
             quote: "The Integrated Humanities Program exists because specialized knowledge has failed. We must restore the integrated vision—music, art, philosophy, theology—before we can safely introduce specialization. The poetic stage is not optional; it is prerequisite.",
             author: "Dr. Dennis Quinn",
             source: "IHP Lecture I: The Restoration of Wonder",

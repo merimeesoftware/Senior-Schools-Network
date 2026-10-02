@@ -51,13 +51,6 @@ export function RestorationSubsectionA({ className = '' }: RestorationSubsection
         collapsible={false}
         quotes={[
           {
-            quote: "Poetic knowledge is not specialized knowledge but that connaturality and right harmony with things which Adam and Eve possessed in Eden. It must be cultivated through the stages, beginning with sensory wonder and culminating in liturgical wisdom.",
-            author: "Dr. John Senior",
-            source: "The Restoration of Christian Culture",
-            showSourceLink: true,
-            sourceSlug: "restoration-of-christian-culture"
-          },
-          {
             quote: "Train up a child in the way he should go; even when he is old he will not depart from it.",
             author: "Proverbs 22:6",
             source: "Scripture (ESV)"

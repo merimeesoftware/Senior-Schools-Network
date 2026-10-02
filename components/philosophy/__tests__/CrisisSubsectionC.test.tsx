@@ -82,10 +82,10 @@ describe('CrisisSubsectionC', () => {
     expect(quoteGroup).toHaveAttribute('data-variant', 'major-premise');
   });
 
-  it('renders EvidenceQuoteGroup with 4 quotes', () => {
+  it('renders EvidenceQuoteGroup with 2 quotes', () => {
     render(<CrisisSubsectionC />);
     const quoteCount = screen.getByTestId('quote-count');
-    expect(quoteCount).toHaveTextContent('4 quotes');
+    expect(quoteCount).toHaveTextContent('2 quotes');
   });
 
   it('renders ComparisonDiagram (The Poisoned Well)', () => {
