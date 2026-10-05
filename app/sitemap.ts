@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next';
 import { getAllTextSlugs } from '@/lib/content/teasers';
 import { SITE_ORIGIN } from '@/lib/site';
 
+export const dynamic = 'force-static';
+
 // Sitemap listing all routes for SEO
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = SITE_ORIGIN;
