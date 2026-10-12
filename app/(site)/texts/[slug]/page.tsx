@@ -13,9 +13,9 @@ import { stripRestatedTitle } from '@/lib/content/reading';
 import { SITE_ORIGIN } from '@/lib/site';
 
 interface TextPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 /**
@@ -35,7 +35,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: TextPageProps): Promise<Metadata> {
-  const { slug } = params;
+  const { slug } = await params;
   const textContent = await getTextContent(slug);
 
   if (!textContent) {
@@ -70,7 +70,7 @@ export async function generateMetadata({
  * Text page component - displays full markdown content
  */
 export default async function TextPage({ params }: TextPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   // Check if text exists
   const exists = await textExists(slug);

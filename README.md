@@ -41,7 +41,7 @@ bun run dev
 ## Tech Stack
 
 - **Runtime**: [Bun](https://bun.sh) 1.3.6
-- **Framework**: Next.js 14.2 (static export)
+- **Framework**: Next.js 15.5.24 (static export)
 - **Styling**: Tailwind CSS 3.4
 - **Testing**: Jest 30 + React Testing Library
 - **Deployment**: Cloudflare Workers + Static Assets via Workers Builds. `netlify.toml` remains until post-cutover cleanup.
