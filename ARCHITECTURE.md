@@ -30,7 +30,7 @@ Visitor
 | Edge | `wrangler.jsonc`, `public/_headers`, `public/_redirects` | How `out/` is served. No Worker script (`main` is unset) |
 | Until cutover | `netlify.toml` | The Netlify build. Remove only after cutover and rollback are done. Status: `MISSION.md` |
 
-Live routes: `/`, `/philosophy`, `/network-directory`, `/engage`, `/texts/[slug]`, `/contact`, `/privacy`.
+Live routes: `/`, `/philosophy`, `/network-directory`, `/engage`, `/texts`, `/texts/[slug]`, `/contact`, `/privacy`.
 
 ## Constraints
 

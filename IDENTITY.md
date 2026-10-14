@@ -19,7 +19,9 @@ Bind `DESIGN.global.md`. The prize sentence and button verbs are `PURPOSE.md`. T
 
 - Two-second prize: the locked public threshold from `PURPOSE.md` (want + direct CTA), readable with motion off. Do not write a second prize line here.
 - Door / direct CTA placement: first viewport. Primary action uses the forest button. One transitional action may sit beside it.
-- Rooms (named in type; skippable): Home (`/`), Philosophy (`/philosophy`), Schools & Programs (`/network-directory`), Engage (`/engage`). Texts (`/texts/[slug]`), Contact (`/contact`), and Privacy (`/privacy`) are rooms off the header.
+- The threshold prize line is the page's single `h1`, set in IM Fell at `text-hero`. No ornament (rotating quote, caption, script line) may be set larger than the prize line or stacked above it at any viewport. The direct CTA must sit inside the first viewport at 390×667.
+- Every named door (CTA, card link, evidence link) must resolve to a live room; a 404 door is a chrome defect, not a content choice. `/texts` needs an index room or the verbs must point at a living room.
+- Rooms (named in type; skippable): Home (`/`), Philosophy (`/philosophy`), Schools & Programs (`/network-directory`), Engage (`/engage`). Texts (`/texts` and `/texts/[slug]`), Contact (`/contact`), and Privacy (`/privacy`) are rooms off the header.
 - Directory / header: `Navigation` is the persistent door row. Wander is not required.
 - Totem: none. No 3D object. The wordmark is type, not a toy.
 - Still plate: the static pages themselves. There is no volume layer.
@@ -59,7 +61,7 @@ Scale (`tailwind.config.ts`):
 | `text-body` | 1rem | 1.6 | Body |
 | `text-body-sm` | 0.875rem | 1.5 | Meta, captions |
 
-Rules: headings use IM Fell; long reading uses EB Garamond. Italics for quotations. Drop caps only in narrative sections. Uppercase sparingly. Headings scale down on small screens. Body floor is 16px. Petit Formal Script is rare ornament, not UI chrome.
+Rules: headings use IM Fell; long reading uses EB Garamond. Italics for quotations. Drop caps only in narrative sections. Uppercase sparingly. Headings scale down on small screens. Body floor is 16px. Petit Formal Script is sanctioned for quote attributions on still plates only; never for UI chrome, labels, or buttons. In texts chambers the work title is the only `h1`; source markdown headings map down one rank (h1→h2, h2→h3, …).
 
 ## Color
 
@@ -80,6 +82,7 @@ Ground, ink, action, accent — from `tailwind.config.ts`.
 
 - Muted ink floor: charcoal on parchment. Do not drop body text below the contrast already used (`charcoal` / `charcoal/70` on parchment). Target WCAG AA 4.5:1 for text.
 - Accent jobs: links, quote borders, focus rings, small ornaments. Gold is not a second button system competing with forest. Secondary buttons may use gold fill with charcoal text (`btn-secondary` in `app/globals.css`).
+- On forest bands the primary action wears gold fill with charcoal text (`btn-secondary` paint) and the transitional action wears a parchment outline. Forest-on-forest buttons are forbidden.
 - Dark mode: no.
 - Forbidden: purple-to-blue AI gradients, rainbow accents, gradient text, glossy glass as the brand.
 
@@ -116,6 +119,8 @@ Legacy class aliases, not mode names: `nursery` → `musical`, `gymnasium` → `
 | Wide | 80rem | Hero, galleries |
 | Radius `organic` / `organic-lg` / `organic-xl` | 8px / 12px / 16px | Buttons, cards, heroes |
 | Touch target | 44×44px minimum | Controls |
+
+The 44×44px minimum covers icon-only transport buttons and carousel tab dots, not only labeled controls.
 
 Breakpoints are Tailwind defaults (`sm` 640, `md` 768, `lg` 1024, `xl` 1280, `2xl` 1536). Mobile stacks first. No horizontal scroll.
 
@@ -178,6 +183,7 @@ Collections already in the tree include `art-sacred/`, `beatrix-potter/`, `lands
 
 - Painterly, muted, graded toward parchment, forest, and earth. Public-domain classics plus commissioned or generated plates that match that grade.
 - Alt text describes what is seen. Caption words, if any, come from `PURPOSE.md` and `public/texts/` — do not invent quotations in this file.
+- Wordmark lockup alt text is "Senior Schools Network" everywhere.
 - Hero: priority load, wide. Below the fold: lazy. Default quality 85. Provide a `sizes` attribute.
 - Logos and favicon live under `public/assets/logos/`. OG image: `public/og-image-enclosed-garden.jpg` (1200×630).
 - Remapping to the five modes is done in the UI. Asset tags in `lib/assets.ts` may still lag. Do not invent new image treatments for that lag.
