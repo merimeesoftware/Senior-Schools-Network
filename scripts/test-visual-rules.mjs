@@ -4,6 +4,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -18,6 +19,7 @@ import {
   findCompRender,
   findPlaceholders,
   loadRouteConfig,
+  loadRoutesFromBase,
   resolveSampleSlug,
   scanSurfaces,
 } from './lib/visual-rules.mjs';
@@ -191,30 +193,70 @@ await check('sample slug prefers the configured text, else the first', () => {
   assert.equal(resolveSampleSlug({ outDir: root }), 'alpha');
 });
 
+function git(cwd, args) {
+  execFileSync('git', args, {
+    cwd,
+    stdio: 'ignore',
+    env: {
+      ...process.env,
+      GIT_AUTHOR_NAME: 'stills',
+      GIT_AUTHOR_EMAIL: 'stills@example.com',
+      GIT_COMMITTER_NAME: 'stills',
+      GIT_COMMITTER_EMAIL: 'stills@example.com',
+    },
+  });
+}
+
+function initRepo(root) {
+  git(root, ['init', '-b', 'main']);
+  fs.writeFileSync(path.join(root, 'README'), 'fixture\n');
+  git(root, ['add', 'README']);
+  git(root, ['commit', '-m', 'init']);
+  git(root, ['update-ref', 'refs/remotes/origin/main', 'HEAD']);
+}
+
+function commitFile(root, rel, bytes, message) {
+  const full = path.join(root, rel);
+  fs.mkdirSync(path.dirname(full), { recursive: true });
+  fs.writeFileSync(full, bytes);
+  git(root, ['add', '--', rel]);
+  git(root, ['commit', '-m', message]);
+}
+
 await check('missing comp is named and is not a pass', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'stills-comp-'));
-  assert.equal(findCompRender(root, 'home', 390), null);
-  fs.mkdirSync(path.join(root, 'design', 'comps', 'home', 'renders'), {
-    recursive: true,
-  });
-  fs.writeFileSync(
-    path.join(root, 'design', 'comps', 'home', 'renders', 'cover-3900.png'),
-    ''
+  initRepo(root);
+  const renders = path.join(root, 'design', 'comps', 'home', 'renders');
+  fs.mkdirSync(renders, { recursive: true });
+  fs.writeFileSync(path.join(renders, 'only-in-checkout-390.png'), 'pr-only');
+  assert.equal(findCompRender(root, 'home', 390, 'main'), null);
+
+  commitFile(
+    root,
+    'design/comps/home/renders/cover-3900.png',
+    'wide',
+    'wide name'
   );
-  fs.writeFileSync(
-    path.join(root, 'design', 'comps', 'home', 'renders', 'b-cover-390.png'),
-    ''
-  );
-  fs.writeFileSync(
-    path.join(root, 'design', 'comps', 'home', 'renders', 'a-cover-390.png'),
-    ''
-  );
-  assert.equal(
-    path.basename(findCompRender(root, 'home', 390)),
-    'a-cover-390.png'
-  );
-  assert.equal(findCompRender(root, 'home', 1440), null);
-  assert.equal(findCompRender(root, '../home', 390), null);
+  commitFile(root, 'design/comps/home/renders/b-cover-390.png', 'b', 'b cover');
+  commitFile(root, 'design/comps/home/renders/a-cover-390.png', 'a', 'a cover');
+  git(root, ['update-ref', 'refs/remotes/origin/main', 'HEAD']);
+  git(root, ['rm', '-r', 'design']);
+  git(root, ['commit', '-m', 'pr checkout drops the comps']);
+
+  const found = findCompRender(root, 'home', 390, 'main');
+  try {
+    assert.equal(path.basename(found.file), 'a-cover-390.png');
+    assert.equal(
+      found.source,
+      'origin/main:design/comps/home/renders/a-cover-390.png'
+    );
+    assert.equal(fs.readFileSync(found.file, 'utf8'), 'a');
+  } finally {
+    found.cleanup();
+  }
+  assert.equal(findCompRender(root, 'home', 1440, 'main'), null);
+  assert.equal(findCompRender(root, '../home', 390, 'main'), null);
+  assert.equal(fs.existsSync(path.join(renders, 'a-cover-390.png')), false);
 
   const shot = {
     key: 'home',
@@ -256,6 +298,39 @@ await check('missing comp is named and is not a pass', () => {
       exitCode: 0,
     })
   );
+});
+
+await check('route list comes from origin/base when that blob exists', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'stills-routes-'));
+  initRepo(root);
+  const treeRoutes = {
+    viewports: [{ width: 390, height: 667 }],
+    routes: [{ key: 'from-tree', path: '/', expect: '2xx', comp: 'home' }],
+  };
+  const baseRoutes = {
+    viewports: [{ width: 1440, height: 900 }],
+    routes: [{ key: 'from-base', path: '/philosophy', expect: '2xx' }],
+  };
+  const routesFile = path.join(root, 'scripts', 'stills', 'routes.json');
+  fs.mkdirSync(path.dirname(routesFile), { recursive: true });
+  fs.writeFileSync(routesFile, JSON.stringify(treeRoutes));
+  const before = loadRoutesFromBase(root, 'main');
+  assert.equal(before.fallback, true);
+  assert.equal(before.config.routes[0].key, 'from-tree');
+
+  commitFile(
+    root,
+    'scripts/stills/routes.json',
+    JSON.stringify(baseRoutes),
+    'routes on base'
+  );
+  git(root, ['update-ref', 'refs/remotes/origin/main', 'HEAD']);
+  fs.writeFileSync(routesFile, JSON.stringify(treeRoutes));
+  const after = loadRoutesFromBase(root, 'main');
+  assert.equal(after.fallback, false);
+  assert.equal(after.source, 'origin/main:scripts/stills/routes.json');
+  assert.equal(after.config.routes[0].key, 'from-base');
+  assert.equal(after.config.viewports[0].width, 1440);
 });
 
 await check(

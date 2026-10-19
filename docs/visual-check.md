@@ -74,7 +74,7 @@ Exit 1 means a hard check failed. The stills and `summary.md` are still written.
 
 Exit 2 means bad input or setup: the URL is not allowlisted, Chrome failed to start, or the build failed.
 
-A missing Dean comp is not a hard check and is not a pass. It is listed under **No comp** in `summary.md`, one row per skipped route and viewport. When `design/comps/<template>/renders/*-390.webp|png|jpg` or the `1440` file exists, the check writes a labeled side-by-side JPEG, "Comp (Dean)" beside "Build `<sha7>`".
+A missing Dean comp is not a hard check and is not a pass. It is listed under **No comp** in `summary.md`, one row per skipped route and viewport. Comp files are read with `git show origin/<base>:design/comps/<template>/renders/*-390.webp|png|jpg` (and the `1440` file). `<base>` is `GITHUB_BASE_REF` in CI, otherwise `main`. A comp that exists only in the pull request checkout is still no comp. When the base branch has the file, the check writes a labeled side-by-side JPEG, "Comp (Dean)" beside "Build `<sha7>`". The default route list is read the same way once `origin/<base>` has `scripts/stills/routes.json`; until then the working-tree file is used.
 
 ## Output
 
@@ -101,10 +101,12 @@ Planted fixtures in a temp directory prove the exit codes:
 | Unknown paths return 200 | 1                                                    |
 | Off-list host            | 2                                                    |
 | Missing comp             | 0, and the route is listed under No comp, not passed |
+| Comp only in the PR tree | 0, and that route stays under No comp                |
+| Page taller than 16000px | 0, and the bottom marker is in the still             |
 
 ## CI and attaching stills
 
-`.github/workflows/stills.yml` runs on `pull_request` and `workflow_dispatch`. It installs with `bun install --frozen-lockfile`, runs `bun run test:stills`, then `bun run stills` against the local static build. It uploads `checks-out/` as the `checks-out` artifact. Permissions are `contents: read`. It does not run Jest, deploy, or use secrets.
+`.github/workflows/stills.yml` runs on `pull_request` and `workflow_dispatch`. It checks out the pull request head with full history, fetches `origin/<base>`, installs with `bun install --frozen-lockfile`, allows Chromium's sandbox to use user namespaces, runs `bun run test:stills`, then `bun run stills` against the local static build. It uploads `checks-out/` as the `checks-out` artifact. Permissions are `contents: read`. It does not run Jest, deploy, or use secrets. The sandbox stays on.
 
 Workers Builds is still the only deploy. This workflow does not replace it.
 

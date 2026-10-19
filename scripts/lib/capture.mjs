@@ -122,15 +122,20 @@ async function stitchFullPage(page, dest) {
   const tiles = [];
   let top = 0;
   for (let y = 0; y < total; y += viewport.height) {
-    await page.evaluate((scrollTop) => window.scrollTo(0, scrollTop), y);
-    const tileHeight = Math.min(viewport.height, total - y);
+    const scrollY = await page.evaluate((scrollTop) => {
+      window.scrollTo(0, scrollTop);
+      return window.scrollY;
+    }, y);
+    const clipY = Math.max(0, Math.round(y - scrollY));
+    const tileHeight = Math.min(viewport.height - clipY, total - y);
+    if (tileHeight < 1) break;
     const buf = await page.screenshot({
       type: 'jpeg',
       quality: 80,
       animations: 'disabled',
       caret: 'hide',
       timeout: 120000,
-      clip: { x: 0, y: 0, width: viewport.width, height: tileHeight },
+      clip: { x: 0, y: clipY, width: viewport.width, height: tileHeight },
     });
     const tileOutHeight = Math.max(1, Math.round(tileHeight * scale));
     const input = await sharp(buf, { limitInputPixels: false })

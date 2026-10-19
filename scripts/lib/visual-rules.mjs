@@ -4,7 +4,9 @@
  * Senior Schools Network hosts.
  */
 
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 
 const DNS_LABEL = '(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)';
@@ -84,30 +86,130 @@ export function compLookedFor(template, width) {
   return `design/comps/${name}/renders/*-${width}.webp|png|jpg`;
 }
 
-export function findCompRender(repoRoot, template, width) {
-  if (!template || !/^[a-z0-9-]+$/i.test(template)) return null;
-  if (width !== 390 && width !== 1440) return null;
+function isSafeRef(ref) {
+  return (
+    typeof ref === 'string' &&
+    ref.length > 0 &&
+    ref.length < 256 &&
+    /^[A-Za-z0-9._/-]+$/.test(ref) &&
+    !ref.includes('..') &&
+    !ref.startsWith('-') &&
+    !ref.startsWith('/') &&
+    !ref.endsWith('/')
+  );
+}
 
-  const dir = path.join(repoRoot, 'design', 'comps', template, 'renders');
-  let names;
+function isSafeGitPath(gitPath) {
+  return (
+    typeof gitPath === 'string' &&
+    gitPath.length > 0 &&
+    gitPath.length < 512 &&
+    /^[A-Za-z0-9._/-]+$/.test(gitPath) &&
+    !gitPath.includes('..') &&
+    !gitPath.startsWith('/') &&
+    !gitPath.startsWith('-')
+  );
+}
+
+export function resolveBaseRef(env = process.env) {
+  if (isSafeRef(env.GITHUB_BASE_REF)) return env.GITHUB_BASE_REF;
+  return 'main';
+}
+
+function gitShow(repoRoot, ref, gitPath) {
+  if (!isSafeRef(ref) || !isSafeGitPath(gitPath)) return null;
   try {
-    names = fs.readdirSync(dir);
+    const bytes = execFileSync('git', ['show', `origin/${ref}:${gitPath}`], {
+      cwd: repoRoot,
+      encoding: 'buffer',
+      stdio: ['ignore', 'pipe', 'ignore'],
+      maxBuffer: 64 * 1024 * 1024,
+    });
+    if (!bytes || bytes.length === 0) return null;
+    return bytes;
   } catch {
     return null;
   }
+}
 
+function gitList(repoRoot, ref, dir) {
+  if (!isSafeRef(ref) || !isSafeGitPath(dir)) return [];
+  try {
+    const out = execFileSync(
+      'git',
+      ['ls-tree', '-r', '-z', '--name-only', `origin/${ref}`, dir],
+      {
+        cwd: repoRoot,
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'ignore'],
+        maxBuffer: 1024 * 1024,
+      }
+    );
+    return out.split('\0').filter(Boolean);
+  } catch {
+    return [];
+  }
+}
+
+export function findCompRender(repoRoot, template, width, base) {
+  if (!template || !/^[a-z0-9-]+$/i.test(template)) return null;
+  if (width !== 390 && width !== 1440) return null;
+
+  const ref = base || resolveBaseRef();
+  if (!isSafeRef(ref)) return null;
+
+  const dir = `design/comps/${template}/renders`;
   const suffix = `-${width}`;
-  const matches = names
+  const matches = gitList(repoRoot, ref, dir)
+    .map((name) => name.replaceAll('\\', '/'))
     .filter((name) => {
-      const extension = path.extname(name).toLowerCase();
-      if (!['.webp', '.png', '.jpg', '.jpeg'].includes(extension)) return false;
-      const base = name.slice(0, -extension.length);
-      return base.endsWith(suffix);
+      if (!name.startsWith(`${dir}/`)) return false;
+      const baseName = name.slice(dir.length + 1);
+      if (!baseName || baseName.includes('/')) return false;
+      const extension = path.posix.extname(baseName).toLowerCase();
+      if (!['.webp', '.png', '.jpg', '.jpeg'].includes(extension)) {
+        return false;
+      }
+      const stem = baseName.slice(0, -extension.length);
+      return stem.endsWith(suffix);
     })
     .sort();
 
   if (matches.length === 0) return null;
-  return path.join(dir, matches[0]);
+  const gitPath = matches[0];
+  const bytes = gitShow(repoRoot, ref, gitPath);
+  if (!bytes) return null;
+
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'stills-comp-'));
+  const file = path.join(tmpDir, path.posix.basename(gitPath));
+  fs.writeFileSync(file, bytes);
+  return {
+    file,
+    source: `origin/${ref}:${gitPath}`,
+    cleanup() {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    },
+  };
+}
+
+function parseRouteConfig(parsed, label) {
+  if (!parsed || !Array.isArray(parsed.routes) || parsed.routes.length === 0) {
+    throw new Error(`routes missing in ${label}`);
+  }
+  if (!Array.isArray(parsed.viewports) || parsed.viewports.length === 0) {
+    throw new Error(`viewports missing in ${label}`);
+  }
+  for (const viewport of parsed.viewports) {
+    if (
+      !Number.isInteger(viewport.width) ||
+      !Number.isInteger(viewport.height) ||
+      viewport.width < 1 ||
+      viewport.height < 1
+    ) {
+      throw new Error(`invalid viewport in ${label}`);
+    }
+  }
+  return parsed;
 }
 
 export function loadRouteConfig(file) {
@@ -117,23 +219,30 @@ export function loadRouteConfig(file) {
   } catch (error) {
     throw new Error(`could not read routes ${file}: ${error.message}`);
   }
-  if (!parsed || !Array.isArray(parsed.routes) || parsed.routes.length === 0) {
-    throw new Error(`routes missing in ${file}`);
-  }
-  if (!Array.isArray(parsed.viewports) || parsed.viewports.length === 0) {
-    throw new Error(`viewports missing in ${file}`);
-  }
-  for (const viewport of parsed.viewports) {
-    if (
-      !Number.isInteger(viewport.width) ||
-      !Number.isInteger(viewport.height) ||
-      viewport.width < 1 ||
-      viewport.height < 1
-    ) {
-      throw new Error(`invalid viewport in ${file}`);
+  return parseRouteConfig(parsed, file);
+}
+
+const ROUTES_GIT_PATH = 'scripts/stills/routes.json';
+
+export function loadRoutesFromBase(repoRoot, base) {
+  const ref = base || resolveBaseRef();
+  const bytes = isSafeRef(ref) ? gitShow(repoRoot, ref, ROUTES_GIT_PATH) : null;
+  if (bytes) {
+    let parsed;
+    const label = `origin/${ref}:${ROUTES_GIT_PATH}`;
+    try {
+      parsed = JSON.parse(bytes.toString('utf8'));
+    } catch (error) {
+      throw new Error(`could not read routes ${label}: ${error.message}`);
     }
+    return {
+      config: parseRouteConfig(parsed, label),
+      source: label,
+      fallback: false,
+    };
   }
-  return parsed;
+  const file = path.join(repoRoot, ROUTES_GIT_PATH);
+  return { config: loadRouteConfig(file), source: file, fallback: true };
 }
 
 export function resolveSampleSlug({ outDir, textsDir, prefer }) {

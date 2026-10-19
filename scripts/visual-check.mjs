@@ -32,6 +32,8 @@ import {
   findCompRender,
   httpOk,
   loadRouteConfig,
+  loadRoutesFromBase,
+  resolveBaseRef,
   resolveSampleSlug,
   scanSurfaces,
 } from './lib/visual-rules.mjs';
@@ -46,7 +48,8 @@ Workers auto-trailing-slash and 404-page handling, then captures.
 --url <origin>              Capture this allowlisted origin. Does not build.
 --out <dir>                 Output directory. Default: checks-out/<sha7>/
 --dir <static-root>         Serve this directory instead of building.
---routes <file>             Route list. Default: scripts/stills/routes.json
+--routes <file>             Route list. Default: origin/<base>:scripts/stills/routes.json,
+                            or the working tree until the base branch has it
 --sha <sha>                 Commit recorded in the report. Default: git HEAD
 --repo <dir>                Repository root. Default: current directory
 --not-found-handling <mode> 404-page (Worker) or index-200 (self-test hook)
@@ -173,9 +176,6 @@ function emptyShot(route, viewport) {
 
 export async function runStills(options) {
   const repoRoot = path.resolve(options.repoRoot || process.cwd());
-  const routesFile =
-    options.routesFile ||
-    path.join(repoRoot, 'scripts', 'stills', 'routes.json');
   const notFoundHandling = options.notFoundHandling || '404-page';
   let server = null;
   let browser = null;
@@ -199,7 +199,20 @@ export async function runStills(options) {
       throw new Error(`unknown not-found handling: ${notFoundHandling}`);
     }
 
-    const config = loadRouteConfig(routesFile);
+    let config;
+    if (options.routesFile) {
+      config = loadRouteConfig(options.routesFile);
+      console.error(`stills: routes ${options.routesFile}`);
+    } else {
+      const loaded = loadRoutesFromBase(repoRoot);
+      config = loaded.config;
+      const base = resolveBaseRef();
+      console.error(
+        loaded.fallback
+          ? `stills: routes ${loaded.source} (origin/${base} has no scripts/stills/routes.json)`
+          : `stills: routes ${loaded.source}`
+      );
+    }
     let origin;
     let target;
     let staticDir = null;
@@ -308,18 +321,22 @@ export async function runStills(options) {
             shot.note = `scaled from ${captured.scrollHeight}px to fit JPEG`;
           }
 
-          const compPath = findCompRender(repoRoot, route.comp, viewport.width);
-          if (compPath) {
-            const sideName = `${route.key}-${shot.viewport}-comp.jpg`;
-            await writeSideBySide({
-              compPath,
-              shotPath: dest,
-              dest: path.join(outDir, sideName),
-              sha7,
-            });
-            shot.comp = 'side-by-side';
-            shot.compRender = path.relative(repoRoot, compPath);
-            shot.sideBySide = sideName;
+          const comp = findCompRender(repoRoot, route.comp, viewport.width);
+          try {
+            if (comp) {
+              const sideName = `${route.key}-${shot.viewport}-comp.jpg`;
+              await writeSideBySide({
+                compPath: comp.file,
+                shotPath: dest,
+                dest: path.join(outDir, sideName),
+                sha7,
+              });
+              shot.comp = 'side-by-side';
+              shot.compRender = comp.source;
+              shot.sideBySide = sideName;
+            }
+          } finally {
+            if (comp) comp.cleanup();
           }
         } catch (error) {
           shot.captureError =

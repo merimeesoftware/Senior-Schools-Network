@@ -3,11 +3,15 @@
  * The pages are written in a temp directory. Repo content is not asserted.
  */
 
-import { spawn } from 'node:child_process';
+import { spawn, execFileSync } from 'node:child_process';
+import { createRequire } from 'node:module';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+const require = createRequire(import.meta.url);
+const sharp = require('sharp');
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, '..');
@@ -26,11 +30,55 @@ const NOT_FOUND = `<!doctype html>
 <html><head><title>Missing</title></head>
 <body><p>This page is not on the site.</p></body></html>`;
 
+const TALL_HOME = `<!doctype html>
+<html><head><meta charset="utf-8"><style>
+html, body { margin: 0; padding: 0; background: #fff; }
+.spacer { height: 16200px; background: #fff; }
+.marker { height: 120px; background: #ff00aa; }
+</style></head>
+<body><div class="spacer"></div><div class="marker">STILLS-BOTTOM-MARKER</div></body>
+</html>`;
+
+const ONE_PIXEL_PNG = Buffer.from(
+  'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==',
+  'base64'
+);
+
+function git(cwd, args) {
+  execFileSync('git', args, {
+    cwd,
+    stdio: 'ignore',
+    env: {
+      ...process.env,
+      GIT_AUTHOR_NAME: 'stills',
+      GIT_AUTHOR_EMAIL: 'stills@example.com',
+      GIT_COMMITTER_NAME: 'stills',
+      GIT_COMMITTER_EMAIL: 'stills@example.com',
+    },
+  });
+}
+
+function initRepo(root) {
+  git(root, ['init', '-b', 'main']);
+  fs.writeFileSync(path.join(root, 'README'), 'fixture\n');
+  git(root, ['add', 'README']);
+  git(root, ['commit', '-m', 'init']);
+  git(root, ['update-ref', 'refs/remotes/origin/main', 'HEAD']);
+}
+
+function commitFile(root, rel, bytes, message) {
+  const full = path.join(root, rel);
+  fs.mkdirSync(path.dirname(full), { recursive: true });
+  fs.writeFileSync(full, bytes);
+  git(root, ['add', '--', rel]);
+  git(root, ['commit', '-m', message]);
+}
+
 function runNode(script, args, cwd) {
   return new Promise((resolve) => {
     const child = spawn(process.execPath, [script, ...args], {
       cwd,
-      env: process.env,
+      env: { ...process.env, GITHUB_BASE_REF: 'main' },
     });
     let stdout = '';
     let stderr = '';
@@ -200,18 +248,45 @@ expect(
   JSON.stringify(noComp.results?.shots, null, 2)
 );
 
+const prOnlyRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'stills-prcomp-'));
+writeSite(path.join(prOnlyRoot, 'out'), CLEAN_HOME);
+writeRoutes(path.join(prOnlyRoot, 'routes.json'));
+initRepo(prOnlyRoot);
+const prComp = 'design/comps/home/renders/cover-390.png';
+commitFile(prOnlyRoot, prComp, ONE_PIXEL_PNG, 'comp only on the pr checkout');
+const prOnly = await runFixture(prOnlyRoot, []);
+console.log(
+  `pr-only comp fixture: exit ${prOnly.code} (expected 0); comp status ${prOnly.results?.shots?.map((shot) => shot.comp).join(', ')}`
+);
+expect('pr-only comp fixture exit 0', prOnly.code === 0, prOnly.stderr);
+const prHome = prOnly.results?.shots?.find((shot) => shot.key === 'home');
+expect(
+  'comp that exists only in the pr checkout is no comp',
+  prHome?.comp === 'no-comp' && fs.existsSync(path.join(prOnlyRoot, prComp)),
+  JSON.stringify(prHome, null, 2)
+);
+expect(
+  'pr-only comp writes no side-by-side',
+  !fs.existsSync(path.join(prOnlyRoot, 'checks', 'home-390x667-comp.jpg'))
+);
+expect(
+  'pr-only comp stays in the no-comp table',
+  /\| `\/` \(`home`\) \|/.test(prOnly.summary)
+);
+
 const compRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'stills-side-'));
 writeSite(path.join(compRoot, 'out'), CLEAN_HOME);
 writeRoutes(path.join(compRoot, 'routes.json'));
-const renders = path.join(compRoot, 'design', 'comps', 'home', 'renders');
-fs.mkdirSync(renders, { recursive: true });
-fs.writeFileSync(
-  path.join(renders, 'cover-390.png'),
-  Buffer.from(
-    'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==',
-    'base64'
-  )
+initRepo(compRoot);
+commitFile(
+  compRoot,
+  'design/comps/home/renders/cover-390.png',
+  ONE_PIXEL_PNG,
+  'comp on the base branch'
 );
+git(compRoot, ['update-ref', 'refs/remotes/origin/main', 'HEAD']);
+git(compRoot, ['rm', 'design/comps/home/renders/cover-390.png']);
+git(compRoot, ['commit', '-m', 'pr checkout has no comp']);
 const side = await runFixture(compRoot, []);
 console.log(`side-by-side fixture: exit ${side.code} (expected 0)`);
 expect('side-by-side fixture exit 0', side.code === 0, side.stderr);
@@ -232,6 +307,66 @@ expect(
 expect(
   'home is absent from the no-comp table',
   !/\| `\/` \(`home`\) \|/.test(side.summary)
+);
+expect(
+  'side-by-side names the base blob',
+  sideShot?.compRender ===
+    'origin/main:design/comps/home/renders/cover-390.png',
+  sideShot?.compRender
+);
+
+const tallRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'stills-tall-'));
+writeSite(path.join(tallRoot, 'out'), TALL_HOME);
+fs.writeFileSync(
+  path.join(tallRoot, 'routes.json'),
+  JSON.stringify(
+    {
+      viewports: [{ width: 390, height: 667 }],
+      routes: [{ key: 'tall', path: '/', expect: '2xx', comp: 'home' }],
+    },
+    null,
+    2
+  )
+);
+const tall = await runFixture(tallRoot, []);
+console.log(`tall page fixture: exit ${tall.code} (expected 0)`);
+expect('tall page fixture exit 0', tall.code === 0, tall.stderr);
+const tallShot = tall.results?.shots?.find((shot) => shot.key === 'tall');
+expect(
+  'tall page scroll height is over 16000',
+  tallShot?.scrollHeight > 16000,
+  JSON.stringify(tallShot, null, 2)
+);
+const tallFile = path.join(tallRoot, 'checks', 'tall-390x667.jpg');
+const tallImage = sharp(tallFile, { limitInputPixels: false });
+const tallMeta = await tallImage.metadata();
+expect(
+  'tall still is over 16000px',
+  tallMeta.height > 16000,
+  String(tallMeta.height)
+);
+const { data, info } = await sharp(tallFile, { limitInputPixels: false })
+  .raw()
+  .toBuffer({ resolveWithObject: true });
+
+function magentaShare(y) {
+  let hits = 0;
+  for (let x = 0; x < info.width; x += 1) {
+    const i = (y * info.width + x) * info.channels;
+    const r = data[i];
+    const g = data[i + 1];
+    const b = data[i + 2];
+    if (r > 180 && g < 80 && b > 100) hits += 1;
+  }
+  return hits / info.width;
+}
+
+const bottomShare = magentaShare(info.height - 40);
+const topShare = magentaShare(10);
+expect(
+  'tall still keeps the bottom marker',
+  bottomShare > 0.5 && topShare < 0.05,
+  `bottom ${bottomShare} top ${topShare} height ${info.height}`
 );
 
 if (failed > 0) {
