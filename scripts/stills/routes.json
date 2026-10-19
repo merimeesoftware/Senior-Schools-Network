@@ -1,0 +1,52 @@
+{
+  "sample": {
+    "prefer": "Boethius-the-Consolation-of-Philosophy"
+  },
+  "viewports": [
+    { "width": 390, "height": 667 },
+    { "width": 390, "height": 844 },
+    { "width": 1440, "height": 900 }
+  ],
+  "routes": [
+    { "key": "home", "path": "/", "expect": "2xx", "comp": "home" },
+    {
+      "key": "philosophy",
+      "path": "/philosophy",
+      "expect": "2xx",
+      "comp": "philosophy"
+    },
+    { "key": "texts", "path": "/texts", "expect": "2xx", "comp": "texts" },
+    {
+      "key": "text-sample",
+      "path": "/texts/{slug}",
+      "expect": "2xx",
+      "comp": "text",
+      "sample": true
+    },
+    {
+      "key": "network-directory",
+      "path": "/network-directory",
+      "expect": "2xx",
+      "comp": "network-directory"
+    },
+    { "key": "engage", "path": "/engage", "expect": "2xx", "comp": "engage" },
+    {
+      "key": "contact",
+      "path": "/contact",
+      "expect": "2xx",
+      "comp": "contact"
+    },
+    {
+      "key": "privacy",
+      "path": "/privacy",
+      "expect": "2xx",
+      "comp": "privacy"
+    },
+    {
+      "key": "not-found",
+      "path": "/visual-check-404",
+      "expect": 404,
+      "comp": "not-found"
+    }
+  ]
+}

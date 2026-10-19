@@ -61,6 +61,8 @@ Canon lives only in the root files: `PURPOSE.md`, `IDENTITY.md`, `ARCHITECTURE.m
 | `AGENTS.md` | Load order plus local run/lint notes | keep |
 | `.github/copilot-instructions.md` | Copilot guardrails; must follow this index | keep |
 | `docs/deploy-cloudflare.md` | Cutover runbook | keep as collection |
+| `docs/visual-check.md` | Preview stills command, guards, exit codes, CI artifact | keep as collection |
+| `.github/workflows/stills.yml` | Read-only GitHub Actions run of that check. Not a deploy | keep |
 | `docs/reviews/*` | Point-in-time reviews (copy, frontend, Cloudflare). Proposals, not locks | keep as collection |
 | `public/texts/*` | Quote bank and primary texts, including `PHILOSOPHICAL-AXIOMS.md` | keep as collection |
 | `components/philosophy/README.md` | Local component note | keep |

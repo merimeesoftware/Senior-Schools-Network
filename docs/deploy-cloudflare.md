@@ -19,7 +19,7 @@ This is an **assets-only Worker**. There is no Worker script (`wrangler.jsonc` h
 
 ## CI/CD: Workers Builds
 
-[Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/) is the only CI/CD. It is the native Cloudflare↔GitHub connection already attached to `senior-schools-network`. This repo has no `.github/workflows/`. Deploy does not use GitHub Actions or the repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
+[Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/) is the only deploy CI/CD. It is the native Cloudflare↔GitHub connection already attached to `senior-schools-network`. Deploy does not use GitHub Actions or the repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. `.github/workflows/stills.yml` is a read-only visual check (see `docs/visual-check.md`). It does not deploy.
 
 Commands configured in the dashboard (not in git):
 
@@ -34,7 +34,7 @@ Commands configured in the dashboard (not in git):
 
 Closed PR #13 used `wrangler versions upload` as the non-production command. The connected Builds project uses `npx wrangler preview`, which is the current preview command.
 
-The Git connection and these two commands stay as they are. Do not add a GitHub Actions workflow beside them.
+The Git connection and these two commands stay as they are. Do not add a GitHub Actions workflow that deploys beside them. The stills workflow is not a deploy.
 
 Optional local tools. They do not run the Next build. Run `bun run build` first:
 

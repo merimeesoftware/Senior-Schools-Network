@@ -67,6 +67,9 @@ pip-delete-this-directory.txt
 playwright-report
 test-results
 
+# Preview stills (local folder or CI artifact; do not commit)
+checks-out/
+
 # Misc
 .cache
 .parcel-cache
