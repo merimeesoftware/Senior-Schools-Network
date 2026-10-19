@@ -1,9 +1,9 @@
-# PRODUCT.md — Senior Schools Network
+# PURPOSE.md — Senior Schools Network
 
-StoryBrand script and product truth for the Senior Schools Network. Shared by UI, branding, marketing, affiliation language, directory filters, and AI edits.
+Story script and product truth for the Senior Schools Network. Shared by UI, branding, marketing, affiliation language, directory filters, and AI edits.
 
-The visitor is the hero. The network (and Senior’s philosophy) is the guide.  
-**Conflict rule:** Words → `PURPOSE.md`. Look → `IDENTITY.md`. Runtime → `TECH_STACK.md`. Layers → `MISSION.md`.
+The visitor is the hero. The network (and Senior’s philosophy) helps them through.  
+**Conflict rule:** Words → `PURPOSE.md`. Look → `IDENTITY.md`. Runtime → `TECH_STACK.md`. Layers → `ARCHITECTURE.md`. Cutover ship → `MISSION.md`.
 
 **Canonical site:** https://seniorschools.org  
 **Repo:** merimeesoftware/Senior-Schools-Network
@@ -218,7 +218,7 @@ Older notes glossed Senior’s modes of knowledge as “gymnastic, musical, poet
 
 ---
 
-## Problem / Guide / Plan / CTA (StoryBrand)
+## Problem / Guide / Plan / CTA
 
 ### BrandScript `(proposed synthesis; page-by-page notes remain in docs/reviews/copy-storybrand-rewrite.md)`
 
@@ -275,7 +275,7 @@ A child formed through **sense, story, and liturgy** — who has sung and looked
   - “Boys burn with gem-like flames” — John Senior, *The Restoration of Innocence* `(verified — keep)`
   - “Note that poetry is knowledge.” — John Senior, *The Restoration of Innocence* `(verified — keep)`
 
-### Proposed public lines (StoryBrand review — not yet live)
+### Proposed public lines (review — not yet live)
 
 - Eyebrow: **A network of Catholic schools**
 - H1: **Find a school that forms your child’s soul — not just their résumé.**
@@ -366,7 +366,7 @@ What this file owns, what stays elsewhere, and what a later code pass still owes
 | `public/texts/*` | **KEEP SEPARATE** | Quotation surface; never rewrite Senior to fit marketing |
 | `public/texts/PHILOSOPHICAL-AXIOMS.md` / `QUOTES.md` | **KEEP** as quote banks; audit Senior lines against Restoration; never outrank primary text | |
 | `.github/docs/design-system.md`, `assets.md`, `image-system.md` | **Absorbed into `IDENTITY.md` and removed.** | Look, not words |
-| `.github/docs/technical.md` | **Absorbed into `MISSION.md` and removed.** Runtime stays in `TECH_STACK.md` | |
+| `.github/docs/technical.md` | **Absorbed into `ARCHITECTURE.md` and removed.** Runtime stays in `TECH_STACK.md`; cutover status lives in `MISSION.md` | |
 | `lib/content/stages.ts` | **Later code pass** | Still conflicts (`nursery \| gymnasium \| poetic \| spiritual`). Not changed in the canon-docs pass |
 | `InteractiveStages` / `StageBadge` | **Later code pass** | Live four-stage UI is out of date |
 | Legacy “Four Stages of Restoration” / Nursery–Spiritual marketing | **Retranslate when UI copy ships** | Restoration = work; five modes = sequence |
