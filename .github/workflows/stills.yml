@@ -1,0 +1,48 @@
+# Read-only visual check. This does not deploy and does not use secrets.
+# Workers Builds remains the only deploy path.
+
+name: stills
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: stills-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  stills:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.6
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Install Chromium
+        run: bunx playwright-core install --with-deps chromium
+
+      - name: Stills self-test
+        run: bun run test:stills
+
+      - name: Capture stills
+        run: bun run stills
+
+      - name: Upload stills
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: checks-out
+          path: checks-out/
+          if-no-files-found: error

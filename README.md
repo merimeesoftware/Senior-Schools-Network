@@ -31,6 +31,8 @@ bun run dev
 | `bun run test` | Run Jest test suite (366 tests) |
 | `bun run test:watch` | Run tests in watch mode |
 | `bun run test:coverage` | Generate coverage report |
+| `bun run test:stills` | Run the preview-stills self-tests (not Jest) |
+| `bun run stills` | Build, capture route stills, write `checks-out/<sha7>/` |
 | `bun run lint` | Run ESLint |
 | `bun run typecheck` | Run TypeScript type checking |
 | `bun run format` | Format code with Prettier |
@@ -141,7 +143,7 @@ Workers Builds is the native Cloudflare↔GitHub connection. Commands live in th
 
 `npx wrangler preview` publishes a Worker Preview and does not replace the active deployment. Cloudflare comments the Preview URL on the pull request. Host 301s are Bulk Redirects in the Cloudflare dashboard. Workers Static Assets does not support domain-level redirects in `_redirects`.
 
-This repo has no GitHub Actions workflows and does not use repository secrets `CLOUDFLARE_API_TOKEN` or `CLOUDFLARE_ACCOUNT_ID`.
+Deploy does not use GitHub Actions or the repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. `.github/workflows/stills.yml` is a read-only visual check. See [docs/visual-check.md](docs/visual-check.md).
 
 Optional local tools (run `bun run build` first; these scripts do not build):
 
@@ -151,6 +153,10 @@ bun run preview:cloudflare
 ```
 
 Cutover ship status: [MISSION.md](MISSION.md). Procedure: [docs/deploy-cloudflare.md](docs/deploy-cloudflare.md).
+
+## Visual check
+
+`bun run stills` photographs the static export (or an allowlisted preview URL) and writes `checks-out/<sha7>/summary.md` plus full-page JPEGs. `bun run test:stills` proves the placeholder, 404, allowlist, and no-comp guards. Procedure: [docs/visual-check.md](docs/visual-check.md).
 
 ## Documentation
 
