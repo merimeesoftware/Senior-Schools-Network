@@ -38,7 +38,7 @@ bun run dev
 | `bun run format` | Format code with Prettier |
 | `bun run format:check` | Check formatting without changes |
 | `bun run deploy:cloudflare` | Optional local `wrangler deploy` (run `bun run build` first). Production CI/CD is Workers Builds |
-| `bun run preview:cloudflare` | Optional local `wrangler preview` (run `bun run build` first). Branch previews are Workers Builds |
+| `bun run preview:cloudflare` | Local `wrangler preview` script. Workers Builds does not run it. Non-main builds run `npx wrangler deploy --dry-run` (no upload, no preview URL) |
 
 ## Tech Stack
 
@@ -139,9 +139,9 @@ Workers Builds is the native Cloudflare↔GitHub connection. Commands live in th
 | Branch | Build | Then |
 | --- | --- | --- |
 | `main` | `bun run build` | `npx wrangler deploy` |
-| any other branch | `bun run build` | `npx wrangler preview` |
+| any other branch | `bun run build` | `npx wrangler deploy --dry-run` |
 
-`npx wrangler preview` publishes a Worker Preview and does not replace the active deployment. Cloudflare comments the Preview URL on the pull request. Host 301s are Bulk Redirects in the Cloudflare dashboard. Workers Static Assets does not support domain-level redirects in `_redirects`.
+Non-main branch builds run `npx wrangler deploy --dry-run`, an account setting Release changed: no upload and no preview URL. Production is `main` with `npx wrangler deploy`. The build command is `bun run build`. Host 301s are Bulk Redirects in the Cloudflare dashboard. Workers Static Assets does not support domain-level redirects in `_redirects`.
 
 Deploy does not use GitHub Actions or the repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. `.github/workflows/stills.yml` is a read-only visual check. See [docs/visual-check.md](docs/visual-check.md).
 
@@ -149,7 +149,6 @@ Optional local tools (run `bun run build` first; these scripts do not build):
 
 ```bash
 bun run deploy:cloudflare
-bun run preview:cloudflare
 ```
 
 Cutover ship status: [MISSION.md](MISSION.md). Procedure: [docs/deploy-cloudflare.md](docs/deploy-cloudflare.md).
