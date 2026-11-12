@@ -14,11 +14,9 @@
   // Set when this config was added. Bump deliberately when adopting a
   // newer Workers compatibility change.
   "compatibility_date": "2026-09-26",
-  // workers.dev Preview URLs for the connected Workers Builds previews
-  // (`wrangler preview`). The field is still named preview_urls. Explicit
-  // so those URLs stay on if workers_dev is later set to false.
-  // See docs/deploy-cloudflare.md.
-  "preview_urls": true,
+  // No preview URLs, per Michael's release policy (D-20261111-27).
+  // Functional testing happens before merge, and merge to main goes to prod.
+  "preview_urls": false,
   // Canonical origin only. Do not add www.seniorschools.org or any
   // seniorschoolnetwork.* hostname. Those stay dashboard Bulk Redirects.
   "routes": [
@@ -32,8 +30,4 @@
     // `route/index.html`. This serves those files at `/route`.
     "html_handling": "auto-trailing-slash",
   },
-  // Required by `wrangler preview` (Workers Builds on branches other than
-  // main). Empty: this Worker has no bindings to isolate. Assets and
-  // compatibility_date stay at the top level and are not repeated here.
-  "previews": {},
 }

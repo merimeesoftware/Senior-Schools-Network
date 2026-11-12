@@ -57,4 +57,4 @@ Live routes: `/`, `/philosophy`, `/network-directory`, `/engage`, `/texts`, `/te
 - `MISSION.md` — cutover ship status.
 - `TECH_STACK.md` — language, deploy target, CI, gaps. House stack shape: wiki **TECH_STACK.global**.
 - `docs/deploy-cloudflare.md` — Workers Builds commands, Bulk Redirects, cutover order.
-- `wrangler.jsonc` — `assets.directory`: `./out`, `not_found_handling`: `404-page`, `html_handling`: `auto-trailing-slash`, empty `previews` block for `wrangler preview`.
+- `wrangler.jsonc` — `assets.directory`: `./out`, `not_found_handling`: `404-page`, `html_handling`: `auto-trailing-slash`, `preview_urls`: `false` (no preview URLs).
