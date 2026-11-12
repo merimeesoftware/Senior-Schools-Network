@@ -2,11 +2,11 @@
 
 **As of:** 2026-11-12
 **Repo:** merimeesoftware/Senior-Schools-Network
-**Evidence:** committed files on `main` for the current stack. The redesign target cites issue #57 and is not in the tree yet.
+**Evidence:** committed files on `main` for the current stack. The redesign proposal cites issue #57 and is not in the tree yet.
 
 House stack shape is wiki **TECH_STACK.global**. This file is the venture checklist. Layers are `ARCHITECTURE.md`. Cutover ship status is `MISSION.md`.
 
-The **current Next.js stack remains what serves production** until the redesign cutover PR. Workers Builds still publishes `out/` from this Next.js app. The Astro + Svelte section is the decided target for the redesign. It does not serve production, and there is no `site/` directory yet.
+The **current Next.js stack remains what serves production** until a redesign cutover PR. Workers Builds still publishes `out/` from this Next.js app. The Astro + Svelte section is a proposal, pending Michael's own sign. It does not serve production, and there is no `site/` directory yet.
 
 ## Universal target
 
@@ -22,15 +22,15 @@ Cursor + MCP + skills → Cloudflare Workers Builds when practical.
 | Data / storage | Static TypeScript modules and JSON in repo; Markdown texts in `public/texts/`; no database or external storage | `lib/content/network.ts`, `lib/content/liturgical-themes.json`, `public/texts/` | aligned |
 | Cursor / MCP / skills | unknown | unknown | partial |
 
-## Redesign target
+## Proposed redesign
 
-Decided on issue #57. Joint verdict (Archie's STACK section): https://github.com/merimeesoftware/Senior-Schools-Network/issues/57#issuecomment-6825048853
+Proposed on issue #57. Archie's STACK section in the joint verdict: https://github.com/merimeesoftware/Senior-Schools-Network/issues/57#issuecomment-6825048853
 
-Verdict: move the brochure off the Next.js 15 static export onto static Astro with Svelte 5 islands. The Worker name, domain, and URLs stay.
+Status: pending. Michael's own comment or decision-log line is still awaited. Record his name on this file only from that source.
 
-Stack sign-off: Michael Merimee, 2026-11-12 ~8:35 AM ET (relayed by Architecture · Prime): "Use Astro + Svelte for Senior Schools; you have my name on it."
+Archie's proposal: move the brochure off the Next.js 15 static export onto static Astro with Svelte 5 islands. The Worker name, domain, and URLs stay.
 
-Build it in `site/` while Next keeps serving. One cutover PR then points the same Worker at `site/dist` and removes the Next tree. Undo of that PR is a revert. Until that PR, root `package.json` stays the Next.js app on Bun, with no root `package-lock.json`.
+After that sign, build in `site/` while Next keeps serving. One cutover PR then points the same Worker at `site/dist` and removes the Next tree. Undo of that PR is a revert. Until that PR, root `package.json` stays the Next.js app on Bun, with no root `package-lock.json`.
 
 | Piece | Target |
 |-------|--------|
@@ -49,7 +49,7 @@ Build it in `site/` while Next keeps serving. One cutover PR then points the sam
 
 ### Before the first page merges
 
-The sign-off line above is Archie's condition 1: Michael's name on this file for Astro 7 + Svelte 5 + npm. Two conditions remain before the first redesigned page merges:
+Archie's condition 1 is still open: Michael's own name on this file for Astro 7 + Svelte 5 + npm. Two further conditions remain before the first redesigned page merges:
 
 2. Nothing is frozen at build time. The liturgical season is a tiny inline script that reads a build-generated table. Sitemap dates come from git.
 3. CI gates, each with a deliberately failing case. The gates run locally or in CI, and never against a preview URL. JS ≤ 2 KiB gzip on text pages and ≤ 25 KiB gzip on story pages. Lighthouse mobile ≥ 95. The same 19 URLs. Zero third-party requests.
@@ -57,8 +57,8 @@ The sign-off line above is Archie's condition 1: Michael's name on this file for
 ## Target vs current
 
 - **Alignment:** mismatch
-- **Gaps:** No Cursor rules file and no MCP server config in repo. `/impeccable` is installed at `.cursor/skills/impeccable/`. Jest still fails on pre-existing content drift when run locally (`bun run test`). Workers Builds does not run that suite. Live DNS cutover status is `MISSION.md`. The redesign target is signed and not started: no `site/` tree, and the root lockfile is still `bun.lock`.
-- **Cutover notes:** Static `out/` is produced by `next.config.js` `output: 'export'`. The host is **Workers + Static Assets**, not Pages and not `@cloudflare/next-on-pages`. Config is in `wrangler.jsonc` (`assets.directory`: `./out`, `not_found_handling`: `404-page`, `preview_urls`: `false`). Canonical origin is `https://seniorschools.org` (`lib/site.ts`). Host 301s cannot live in `_redirects` (domain-level redirects are unsupported); they are Bulk Redirects documented in `docs/deploy-cloudflare.md`. Keep `netlify.toml` until DNS cutover and rollback are done, then delete it. Ship status: `MISSION.md`. Procedure: `docs/deploy-cloudflare.md`. Layers: `ARCHITECTURE.md`. The front-end cutover is a later PR: `site/` is built beside Next, then one PR switches `assets.directory` and deletes the Next tree. That PR is the moment the redesign stack starts serving production.
+- **Gaps:** No Cursor rules file and no MCP server config in repo. `/impeccable` is installed at `.cursor/skills/impeccable/`. Jest still fails on pre-existing content drift when run locally (`bun run test`). Workers Builds does not run that suite. Live DNS cutover status is `MISSION.md`. The redesign is proposed and not started: no `site/` tree, and the root lockfile is still `bun.lock`. Michael's own sign is still pending.
+- **Cutover notes:** Static `out/` is produced by `next.config.js` `output: 'export'`. The host is **Workers + Static Assets**, not Pages and not `@cloudflare/next-on-pages`. Config is in `wrangler.jsonc` (`assets.directory`: `./out`, `not_found_handling`: `404-page`, `preview_urls`: `false`). Canonical origin is `https://seniorschools.org` (`lib/site.ts`). Host 301s cannot live in `_redirects` (domain-level redirects are unsupported); they are Bulk Redirects documented in `docs/deploy-cloudflare.md`. Keep `netlify.toml` until DNS cutover and rollback are done, then delete it. Ship status: `MISSION.md`. Procedure: `docs/deploy-cloudflare.md`. Layers: `ARCHITECTURE.md`. The front-end cutover is a later PR, and only after Michael's own sign: `site/` is built beside Next, then one PR switches `assets.directory` and deletes the Next tree. That PR is the moment the redesign stack would start serving production.
 
 ## Notes
 
