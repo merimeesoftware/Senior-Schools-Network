@@ -38,7 +38,6 @@ bun run dev
 | `bun run format` | Format code with Prettier |
 | `bun run format:check` | Check formatting without changes |
 | `bun run deploy:cloudflare` | Optional local `wrangler deploy` (run `bun run build` first). Production CI/CD is Workers Builds |
-| `bun run preview:cloudflare` | Local `wrangler preview` script. Workers Builds does not run it. Non-main builds run `npx wrangler deploy --dry-run` (no upload, no preview URL) |
 
 ## Tech Stack
 
@@ -141,7 +140,7 @@ Workers Builds is the native Cloudflare↔GitHub connection. Commands live in th
 | `main` | `bun run build` | `npx wrangler deploy` |
 | any other branch | `bun run build` | `npx wrangler deploy --dry-run` |
 
-Non-main branch builds run `npx wrangler deploy --dry-run`, an account setting Release changed: no upload and no preview URL. Production is `main` with `npx wrangler deploy`. The build command is `bun run build`. Host 301s are Bulk Redirects in the Cloudflare dashboard. Workers Static Assets does not support domain-level redirects in `_redirects`.
+Non-main branch builds run `npx wrangler deploy --dry-run`, an account setting Release changed: no upload and no preview URL. `wrangler.jsonc` sets `preview_urls` to false per the no-previews release policy (D-20261111-27). Production is `main` with `npx wrangler deploy`. The build command is `bun run build`. Host 301s are Bulk Redirects in the Cloudflare dashboard. Workers Static Assets does not support domain-level redirects in `_redirects`.
 
 Deploy does not use GitHub Actions or the repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. `.github/workflows/stills.yml` is a read-only visual check. See [docs/visual-check.md](docs/visual-check.md).
 
@@ -155,7 +154,7 @@ Cutover ship status: [MISSION.md](MISSION.md). Procedure: [docs/deploy-cloudflar
 
 ## Visual check
 
-`bun run stills` photographs the static export (or an allowlisted preview URL) and writes `checks-out/<sha7>/summary.md` plus full-page JPEGs. `bun run test:stills` proves the placeholder, 404, allowlist, and no-comp guards. Procedure: [docs/visual-check.md](docs/visual-check.md).
+`bun run stills` photographs the static export (or an allowlisted deployed origin) and writes `checks-out/<sha7>/summary.md` plus full-page JPEGs. `bun run test:stills` proves the placeholder, 404, allowlist, and no-comp guards. Procedure: [docs/visual-check.md](docs/visual-check.md).
 
 ## Documentation
 

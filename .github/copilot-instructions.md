@@ -28,7 +28,7 @@ Promote a loose network of Catholic schools aligned with John Senior's philosoph
 - **Framework**: Next.js 15.5.24 (static export to `out/`)
 - **Styling**: Tailwind CSS 3.4
 - **Testing**: Jest 30 + React Testing Library
-- **Deployment**: Cloudflare Workers + Static Assets (`wrangler.jsonc`). Deploy CI/CD is Workers Builds only: `main` runs `bun run build` then `npx wrangler deploy`; other branches run `bun run build` then `npx wrangler preview`. Optional local scripts, after `bun run build`: `deploy:cloudflare`, `preview:cloudflare`. `.github/workflows/stills.yml` is a read-only visual check (`docs/visual-check.md`), not a deploy. `netlify.toml` stays until post-cutover cleanup. Canonical origin: `https://seniorschools.org` (`lib/site.ts`).
+- **Deployment**: Cloudflare Workers + Static Assets (`wrangler.jsonc`). Deploy CI/CD is Workers Builds only: `main` runs `bun run build` then `npx wrangler deploy`; other branches run `bun run build` then `npx wrangler deploy --dry-run` (no upload). `preview_urls` is false per the no-previews release policy (D-20261111-27). Optional local script, after `bun run build`: `deploy:cloudflare`. `.github/workflows/stills.yml` is a read-only visual check (`docs/visual-check.md`), not a deploy. `netlify.toml` stays until post-cutover cleanup. Canonical origin: `https://seniorschools.org` (`lib/site.ts`). Redesign target (not serving): `TECH_STACK.md`.
 
 ## Content Rules
 
