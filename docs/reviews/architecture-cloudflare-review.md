@@ -9,7 +9,7 @@
 
 > **Resolved 2026-09-26:** Canonical origin is `https://seniorschools.org` (`lib/site.ts`). The chosen host is Workers + Static Assets (`wrangler.jsonc`), not Pages. Host 301s are dashboard Bulk Redirects because Workers `_redirects` does not support domain-level redirects (`docs/deploy-cloudflare.md`). `netlify.toml` stays until DNS cutover.
 >
-> **Resolved 2026-09-26 (CI/CD):** GitHub Actions is removed. `.github/workflows/ci.yml` and `.github/workflows/deploy-cloudflare.yml` are gone. CI/CD is Cloudflare Workers Builds only: `main` runs `bun run build` then `npx wrangler deploy`; other branches run `bun run build` then `npx wrangler preview`. Do not set GitHub secrets `CLOUDFLARE_API_TOKEN` or `CLOUDFLARE_ACCOUNT_ID`. Sections below that describe Actions jobs, Semgrep, `docs-check`, or those secrets are historical. Current commands: `docs/deploy-cloudflare.md`.
+> **Resolved 2026-09-26 (CI/CD), branch command corrected 2026-11-12:** GitHub Actions is removed. `.github/workflows/ci.yml` and `.github/workflows/deploy-cloudflare.yml` are gone. CI/CD is Cloudflare Workers Builds only: `main` runs `bun run build` then `npx wrangler deploy`; other branches run `bun run build` then `npx wrangler deploy --dry-run` (no upload). `wrangler.jsonc` sets `preview_urls` to false per the no-previews release policy (D-20261111-27). Do not set GitHub secrets `CLOUDFLARE_API_TOKEN` or `CLOUDFLARE_ACCOUNT_ID`. Sections below that describe Actions jobs, Semgrep, `docs-check`, or those secrets are historical. Current commands: `docs/deploy-cloudflare.md`.
 
 ---
 
