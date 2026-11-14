@@ -349,13 +349,6 @@ export default async function PhilosophyPage() {
               {
                 question: "Isn't this too rigorous? Most boys can't handle this level of discipline.",
                 answer: "This objection assumes boys are fragile. They are not. Boys are designed for risk, adventure, and discipline. The modern epidemic of anxiety and weakness is not the natural state—it is the result of coddling.\n\nThe gymnastic years (roughly 7–13) meet boys where they are, when they crave physical challenge. To deny them this is to cripple them.",
-                quote: {
-                  id: "boys-not-fragile",
-                  quote: "Boys are not fragile. They are designed for hardship. The modern epidemic of anxiety is the result of too little discipline, not too much.",
-                  author: "Dr. John Senior",
-                  source: "The Death of Christian Culture",
-                  category: "discipline" as const,
-                },
               },
               {
                 question: "Isn't this elitist? Not every family can afford private classical schools.",

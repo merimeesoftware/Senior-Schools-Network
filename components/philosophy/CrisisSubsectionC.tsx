@@ -71,13 +71,6 @@ export function CrisisSubsectionC({ className = '' }: CrisisSubsectionCProps) {
         collapsible={false}
         quotes={[
           {
-            quote: "The Integrated Humanities Program exists because specialized knowledge has failed. We must restore the integrated vision—music, art, philosophy, theology—before we can safely introduce specialization. The poetic stage is not optional; it is prerequisite.",
-            author: "Dr. Dennis Quinn",
-            source: "IHP Lecture I: The Restoration of Wonder",
-            showSourceLink: true,
-            sourceSlug: "integrated_humanities_lecture"
-          },
-          {
             quote: "And whatever you do, in word or deed, do everything in the name of the Lord Jesus, giving thanks to God the Father through him.",
             author: "Colossians 3:17",
             source: "Scripture (ESV)"
