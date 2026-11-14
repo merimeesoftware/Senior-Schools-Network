@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "smoke": "node scripts/smoke.mjs",
     "start": "next start",
     "preview": "bunx serve out -l 3000",
     "lint": "next lint",
