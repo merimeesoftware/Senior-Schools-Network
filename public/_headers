@@ -21,6 +21,12 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Extensionless health check. Wrangler sets MIME from the file extension,
+# so the plain-text type is set here. Not a page: omit from sitemap and nav.
+/healthz
+  Content-Type: text/plain; charset=utf-8
+  X-Robots-Tag: noindex
+
 # One hostname label plus the account subdomain. Matches the production
 # workers.dev host and Version URLs (`<prefix>-<worker>.<subdomain>.workers.dev`).
 # Does not match https://seniorschools.org.
